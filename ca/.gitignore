@@ -1,0 +1,4 @@
+ca-orderer/fabric-ca-server-config/
+ca-org1/data-org1/
+ca-org2/data-org2/
+ca-tls/data-ca-tls/

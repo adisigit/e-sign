@@ -1,0 +1,264 @@
+# Peer section
+peer:
+
+    id: peer0.org1.esign.com
+    networkId: dev
+
+    listenAddress: 0.0.0.0:7051
+
+    address: peer0.org1.esign.com:7051
+    addressAutoDetect: false
+
+    gateway:
+        enabled: true
+        endorsementTimeout: 30s
+        dialTimeout: 2m
+
+    keepalive:
+        interval: 7200s
+        timeout: 20s
+        minInterval: 60s
+        client:
+            interval: 60s
+            timeout: 20s
+        deliveryClient:
+            interval: 60s
+            timeout: 20s
+
+    gossip:
+        bootstrap: 
+            - peer1.org1.esign.com:8051
+            - peer0.org2.esign.com:9051
+        endpoint: peer0.org1.esign.com:7051
+        externalEndpoint: peer0.org1.esign.com:7051
+        useLeaderElection: false
+        orgLeader: true
+        membershipTrackerInterval: 5s
+        maxBlockCountToStore: 10
+        maxPropagationBurstLatency: 10ms
+        maxPropagationBurstSize: 10
+        propagateIterations: 1
+        propagatePeerNum: 3
+        pullInterval: 4s
+        pullPeerNum: 3
+        requestStateInfoInterval: 4s
+        publishStateInfoInterval: 4s
+        stateInfoRetentionInterval:
+        publishCertPeriod: 10s
+        skipBlockVerification: false
+        dialTimeout: 3s
+        connTimeout: 2s
+        recvBuffSize: 20
+        sendBuffSize: 200
+        digestWaitTime: 1s
+        requestWaitTime: 1500ms
+        responseWaitTime: 2s
+        aliveTimeInterval: 5s
+        aliveExpirationTimeout: 25s
+        reconnectInterval: 25s
+        maxConnectionAttempts: 120
+        msgExpirationFactor: 20
+        election:
+            startupGracePeriod: 15s
+            membershipSampleInterval: 1s
+            leaderAliveThreshold: 10s
+            leaderElectionDuration: 5s
+        pvtData:
+            pullRetryThreshold: 60s
+            transientstoreMaxBlockRetention: 1000
+            pushAckTimeout: 3s
+            btlPullMargin: 10
+            reconcileBatchSize: 10
+            reconcileSleepInterval: 1m
+            reconciliationEnabled: true
+            skipPullingInvalidTransactionsDuringCommit: false
+            implicitCollectionDisseminationPolicy:
+               requiredPeerCount: 0
+               maxPeerCount: 1
+        state:
+            enabled: false
+            checkInterval: 10s
+            responseTimeout: 3s
+            batchSize: 10
+            blockBufferSize: 20
+            maxRetries: 3
+
+    tls:
+        enabled:  true
+        clientAuthRequired: false
+        cert:
+            file: tls/server.crt
+        key:
+            file: tls/server.key
+        rootcert:
+            file: tls/ca.crt
+        clientRootCAs:
+            files:
+              - tls/ca.crt
+        clientKey:
+            file:
+        clientCert:
+            file:
+
+    authentication:
+        timewindow: 15m
+
+    fileSystemPath: /var/hyperledger/production
+
+    BCCSP:
+        Default: SW
+        SW:
+            Hash: SHA2
+            Security: 256
+            FileKeyStore:
+                KeyStore:
+        PKCS11:
+            Library:
+            Label:
+            Pin:
+            Hash:
+            Security:
+
+    mspConfigPath: msp
+    localMspId: Org1MSP
+
+    client:
+        connTimeout: 3s
+
+    deliveryclient:
+        blockGossipEnabled: true
+        reconnectTotalTimeThreshold: 3600s
+        connTimeout: 3s
+        reConnectBackoffThreshold: 3600s
+        addressOverrides:
+
+    localMspType: bccsp
+
+    profile:
+        enabled:     false
+        listenAddress: 0.0.0.0:6060
+
+    handlers:
+        authFilters:
+          -
+            name: DefaultAuth
+          -
+            name: ExpirationCheck
+        decorators:
+          -
+            name: DefaultDecorator
+        endorsers:
+          escc:
+            name: DefaultEndorsement
+            library:
+        validators:
+          vscc:
+            name: DefaultValidation
+            library:
+
+    validatorPoolSize:
+
+    discovery:
+        enabled: true
+        authCacheEnabled: true
+        authCacheMaxSize: 1000
+        authCachePurgeRetentionRatio: 0.75
+        orgMembersAllowedAccess: false
+
+    limits:
+        concurrency:
+            endorserService: 2500
+            deliverService: 2500
+
+    maxRecvMsgSize: 104857600
+    maxSendMsgSize: 104857600
+
+# VM section
+vm:
+   endpoint: unix:///var/run/docker.sock
+
+# Chaincode section
+chaincode:
+  id:
+    path:
+    name:
+  builder: hyperledger/fabric-ccenv:2.5
+  pull: false
+  golang:
+    runtime: hyperledger/fabric-baseos:2.5
+    dynamicLink: false
+  java:
+    runtime: $(DOCKER_NS)/fabric-javaenv:2.5
+  node:
+    runtime: $(DOCKER_NS)/fabric-nodeenv:2.5
+  externalBuilders:
+    - name: ccaas_builder
+      path: /opt/hyperledger/ccaas_builder
+      propagateEnvironment:
+        - CHAINCODE_AS_A_SERVICE_BUILDER_CONFIG
+  installTimeout: 300s
+  startuptimeout: 300s
+  executetimeout: 30s
+  keepalive: 0
+  system:
+    _lifecycle: enable
+    cscc: enable
+    lscc: enable
+    qscc: enable
+  logging:
+    level: info
+
+  # Bagian ini yang penting
+  docker:
+    hostConfig:
+      NetworkMode: fabric_esign
+
+
+# Ledger section
+ledger:
+  blockchain:
+  state:
+    stateDatabase: goleveldb
+    totalQueryLimit: 100000
+    couchDBConfig:
+       couchDBAddress: couchdb.peer0.org1:5984
+       username:
+       password:
+       maxRetries: 3
+       maxRetriesOnStartup: 10
+       requestTimeout: 35s
+       internalQueryLimit: 1000
+       maxBatchUpdateSize: 1000
+       createGlobalChangesDB: false
+       cacheSize: 64
+  history:
+    enableHistoryDatabase: true
+  pvtdataStore:
+    collElgProcMaxDbBatchSize: 5000
+    collElgProcDbBatchesInterval: 1000
+    deprioritizedDataReconcilerInterval: 60m
+  snapshots:
+    rootDir: /var/hyperledger/production/snapshots
+
+# Operations section
+operations:
+    listenAddress: 127.0.0.1:9443
+    tls:
+        enabled: false
+        cert:
+            file:
+        key:
+            file:
+        clientAuthRequired: false
+        clientRootCAs:
+            files: []
+
+# Metrics section
+
+metrics:
+    provider: disabled
+    statsd:
+        network: udp
+        address: 127.0.0.1:8125
+        writeInterval: 10s
+        prefix:

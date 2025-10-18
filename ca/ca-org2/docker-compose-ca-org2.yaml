@@ -1,0 +1,20 @@
+networks:
+  fabric_esign:
+    external: true
+
+services:
+  ca_org2:
+    image: hyperledger/fabric-ca:1.5
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-org2
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=8054
+    container_name: ca_org2
+    ports:
+      - "8054:8054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw --tls.enabled --cfg.affiliations.allowremove'
+    volumes:
+      - ./data-org2:/etc/hyperledger/fabric-ca-server
+    networks:
+      - fabric_esign
