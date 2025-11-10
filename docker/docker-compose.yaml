@@ -401,7 +401,7 @@ services:
       - ./../scripts:/workspace/scripts 
       - ./../docker:/workspace/docker
       - ./../configtx:/workspace/configtx
-      - /home/adi/esign/chaincode-go:/workspace/chaincode-go
+      - ./../chaincode-go:/workspace/chaincode-go
     depends_on:
       - peer0.org1.esign.com
       - peer1.org1.esign.com

@@ -15,7 +15,7 @@ class BridgeController {
         console.log(`Setting up bridge for ${orgName}...`);
         this.bridges[orgName] = new fabricNatsBridge(orgName);
         await this.bridges[orgName].initialize();
-        await this.bridges[orgName].setupBlockListener();
+        // await this.bridges[orgName].setupBlockListener();
         console.log(`Bridge for ${orgName} initialized successfully`);
       }
       console.log("All bridges initialized successfully");

@@ -13,11 +13,12 @@ class DocumentController {
         collection,
         documentID,
         documentName,
-        ownerID,
-        ownerName,
         status,
-        userId = "admin",
       } = req.body;
+
+      const userId = req.walletUserId;
+      const ownerID = req.user.userId;
+      const ownerName = req.user.name;
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -55,6 +56,7 @@ class DocumentController {
           ownerID,
           ownerName,
           status,
+          userId
         ],
         null,
       );
@@ -70,9 +72,10 @@ class DocumentController {
   }
 
   async getDocumentsByOrg(req, res) {
+    const { orgName = "org1" } = req.params;
     try {
-      const { orgName = "org1" } = req.params;
-      const { collection, userId = "admin" } = req.query;
+      const { collection } = req.query;
+      const userId = req.walletUserId;
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({

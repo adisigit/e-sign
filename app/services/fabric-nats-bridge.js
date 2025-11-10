@@ -126,7 +126,7 @@ class FabricNatsBridge {
       collectionLog: args[0] || this.orgConfig.collections.logs,
       documentID: args[1],
       actorID: args[2],
-      actorNamw: args[3],
+      actorName: args[3],
       action: args[4],
     };
     return await fabricService.createPrivateLogDocument(
@@ -299,20 +299,20 @@ class FabricNatsBridge {
       .substr(2, 9)}`;
   }
 
-  async setupBlockListener() {
-    try {
-      await fabricService.listenToBlocks((block) => {
-        this.natsService.publish(`fabric.${this.orgName}.event.block`, {
-          blockNumber: block.blockNumber,
-          channelName: this.channelName,
-          org: this.orgName,
-          timestamp: new Date().toISOString(),
-        });
-      });
-    } catch (error) {
-      console.error("Error setting up block listener:", error);
-    }
-  }
+  // async setupBlockListener() {
+  //   try {
+  //     await fabricService.listenToBlocks((block) => {
+  //       this.natsService.publish(`fabric.${this.orgName}.event.block`, {
+  //         blockNumber: block.blockNumber,
+  //         channelName: this.channelName,
+  //         org: this.orgName,
+  //         timestamp: new Date().toISOString(),
+  //       });
+  //     });
+  //   } catch (error) {
+  //     console.error("Error setting up block listener:", error);
+  //   }
+  // }
 
   async close() {
     await this.natsService.close();

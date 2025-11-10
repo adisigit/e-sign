@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const config = require("./config/fabric-config");
+const { verifyToken, validateOrgAccess } = require("./middlewares/auth");
 
 // Import controllers
 const bridgeController = require("./controllers/bridge-controller");
@@ -100,34 +101,57 @@ app.get("/api", (req, res) => {
   });
 });
 
-app.get("/api/orgs", asyncHandler(userController.getOrgInfo));
+app.get("/api/orgs", verifyToken, asyncHandler(userController.getOrgInfo));
 
-app.get("/api/orgs/:orgName", asyncHandler(userController.getOrgInfo));
+app.get(
+  "/api/orgs/:orgName",
+  verifyToken,
+  validateOrgAccess,
+  asyncHandler(userController.getOrgInfo)
+);
 
-app.post("/api/init", asyncHandler(userController.initializeAllNetworks));
+app.post(
+  "/api/init",
+  verifyToken,
+  asyncHandler(userController.initializeAllNetworks)
+);
 
 app.post(
   "/api/init/:orgName",
+  verifyToken,
+  validateOrgAccess,
   asyncHandler(userController.initializeNetworkOrg)
 );
 
 app.get(
   "/api/network/test",
+  verifyToken,
   asyncHandler(userController.testAllNetworkConnectivity)
 );
 
 app.get(
   "/api/network/test/:orgName",
+  verifyToken,
+  validateOrgAccess,
   asyncHandler(userController.testNetworkConnectivityOrg)
 );
 
 app.post(
   "/api/users/register/:orgName",
+  verifyToken,
+  validateOrgAccess,
   asyncHandler(userController.registerUserOrg)
 );
-app.get("/api/users/:orgName", asyncHandler(userController.getUsersByOrg));
+app.get(
+  "/api/users/:orgName",
+  verifyToken,
+  validateOrgAccess,
+  asyncHandler(userController.getUsersByOrg)
+);
 app.get(
   "/api/users/:userId/exists/:orgName",
+  verifyToken,
+  validateOrgAccess,
   asyncHandler(userController.checkUserExistsOrg)
 );
 
@@ -141,10 +165,16 @@ app.get(
 //   asyncHandler(documentController.getDocumentsByOrg)
 // );
 
-app.post('/api/documents/:orgName', 
+app.post(
+  "/api/documents/:orgName",
+  verifyToken,
+  validateOrgAccess,
   documentController.createPrivateDocument.bind(documentController)
 );
-app.get('/api/documents/org/:orgName', 
+app.get(
+  "/api/documents/org/:orgName",
+  verifyToken,
+  validateOrgAccess,
   documentController.getDocumentsByOrg.bind(documentController)
 );
 
@@ -158,10 +188,16 @@ app.get('/api/documents/org/:orgName',
 //   asyncHandler(logController.getLogsByDocumentId)
 // );
 
-app.post('/api/logs/:orgName', 
+app.post(
+  "/api/logs/:orgName",
+  verifyToken,
+  validateOrgAccess,
   logController.createPrivateLogDocumentOrg.bind(logController)
 );
-app.get('/api/logs/org/:orgName/:documentID', 
+app.get(
+  "/api/logs/org/:orgName/:documentID",
+  verifyToken,
+  validateOrgAccess,
   logController.getLogsByDocumentId.bind(logController)
 );
 
@@ -186,46 +222,48 @@ app.use(errorHandler);
 let server;
 
 async function gracefulShutdown(signal) {
-  console.log(`\n\n${'='.repeat(80)}`);
+  console.log(`\n\n${"=".repeat(80)}`);
   console.log(`${signal} received - Starting graceful shutdown...`);
-  console.log('='.repeat(80) + '\n');
-  
+  console.log("=".repeat(80) + "\n");
+
   try {
-    console.log('Closing NATS bridges...');
+    console.log("Closing NATS bridges...");
     await bridgeController.close();
 
-    console.log('Closing HTTP server...');
+    console.log("Closing HTTP server...");
     if (server) {
       await new Promise((resolve) => {
         server.close(resolve);
       });
     }
-    
-    console.log('\n' + '='.repeat(80));
-    console.log('Graceful shutdown completed');
-    console.log('='.repeat(80) + '\n');
-    
+
+    console.log("\n" + "=".repeat(80));
+    console.log("Graceful shutdown completed");
+    console.log("=".repeat(80) + "\n");
+
     process.exit(0);
   } catch (error) {
-    console.error('\n' + '='.repeat(80));
-    console.error('Error during shutdown');
-    console.error('='.repeat(80));
-    console.error('\nError:', error.message);
-    console.error('\n' + '='.repeat(80) + '\n');
+    console.error("\n" + "=".repeat(80));
+    console.error("Error during shutdown");
+    console.error("=".repeat(80));
+    console.error("\nError:", error.message);
+    console.error("\n" + "=".repeat(80) + "\n");
     process.exit(1);
   }
 }
 
 // Graceful shutdown handlers
-process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
-process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
 async function startServer() {
   try {
     await bridgeController.initialize();
     app.listen(port, () => {
       console.log("=".repeat(70));
-      console.log("Fabric E-Sign API Server Started (Multi-Organization Support)");
+      console.log(
+        "Fabric E-Sign API Server Started (Multi-Organization Support)"
+      );
       console.log("=".repeat(70));
       console.log(`Server running on: http://localhost:${port}`);
       console.log(`Health check: http://localhost:${port}/health`);
@@ -245,7 +283,7 @@ async function startServer() {
       console.log(`Chaincode: ${config.chaincodeName}`);
       console.log(`Default Org: ${config.defaultOrg}`);
       console.log(`Available Organizations:`);
-    
+
       config.getAllOrgs().forEach((orgName) => {
         const orgConfig = config.getOrgConfig(orgName);
         console.log(
@@ -256,7 +294,7 @@ async function startServer() {
         );
         console.log(`       CA: ${orgConfig.endpoints.ca.url}`);
       });
-    
+
       console.log("=".repeat(70));
       console.log("Available API Endpoints (matches your chaincode):");
       console.log("   Documents:");
@@ -272,12 +310,12 @@ async function startServer() {
       console.log("=".repeat(70));
     });
   } catch (error) {
-    console.error('\n' + '='.repeat(80));
-    console.error('FAILED TO START SERVER');
-    console.error('='.repeat(80));
-    console.error('\nError:', error.message);
-    console.error('\nStack:', error.stack);
-    console.error('\n' + '='.repeat(80) + '\n');
+    console.error("\n" + "=".repeat(80));
+    console.error("FAILED TO START SERVER");
+    console.error("=".repeat(80));
+    console.error("\nError:", error.message);
+    console.error("\nStack:", error.stack);
+    console.error("\n" + "=".repeat(80) + "\n");
     process.exit(1);
   }
 }

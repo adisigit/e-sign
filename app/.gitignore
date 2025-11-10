@@ -2,3 +2,5 @@ node_modules/
 
 wallet-org1/
 wallet-org2/
+
+.env

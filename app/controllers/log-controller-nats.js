@@ -12,11 +12,12 @@ class LogController {
       const {
         collectionLog,
         documentID,
-        actorID,
-        actorName,
         action,
-        userId = "admin",
       } = req.body;
+
+      const userId = req.walletUserId;
+      const actorID = req.user.userId;
+      const actorName = req.user.name;
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -47,7 +48,7 @@ class LogController {
 
       const result = await this.bridgeController.getBridge(orgName).invokeViaClient(
         "CreatePrivateLogDocument",
-        [targetCollection, documentID, actorID, actorName, action],
+        [targetCollection, documentID, actorID, actorName, action, userId],
         null,
       );
       res.json(result);
@@ -63,7 +64,8 @@ class LogController {
   async getLogsByDocumentId(req, res) {
     try {
         const { orgName = 'org1', documentID } = req.params;
-        const { collectionLog, userId = 'admin' } = req.query;
+        const { collectionLog } = req.query;
+        const userId = req.walletUserId;
 
         if (!config.organizations[orgName]) {
             return res.status(400).json({

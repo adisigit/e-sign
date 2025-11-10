@@ -2,7 +2,7 @@ const { Gateway, Wallets } = require('fabric-network');
 const config = require('../config/fabric-config');
 const { loadConnectionProfile } = require('../utils/connection-profile');
 
-async function getGateway(userId = 'admin', orgName = 'org1') {
+async function getGateway(userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
         const wallet = await Wallets.newFileSystemWallet(orgConfig.paths.wallet);
@@ -27,7 +27,7 @@ async function getGateway(userId = 'admin', orgName = 'org1') {
     }
 }
 
-async function getContract(userId = 'admin', orgName = 'org1') {
+async function getContract(userId, orgName = 'org1') {
     try {
         const gateway = await getGateway(userId, orgName);
         const network = await gateway.getNetwork(config.channelName);
@@ -40,7 +40,7 @@ async function getContract(userId = 'admin', orgName = 'org1') {
     }
 }
 
-async function submitTransaction(functionName, transientData, userId = 'admin', orgName = 'org1', ...args) {
+async function submitTransaction(functionName, transientData, userId, orgName = 'org1', ...args) {
     let gateway;
     try {
         const { gateway: gw, contract } = await getContract(userId, orgName);
@@ -65,7 +65,7 @@ async function submitTransaction(functionName, transientData, userId = 'admin', 
     }
 }
 
-async function evaluateTransaction(functionName, userId = 'admin', orgName = 'org1', ...args) {
+async function evaluateTransaction(functionName, userId, orgName = 'org1', ...args) {
     let gateway;
     try {
         const { gateway: gw, contract } = await getContract(userId, orgName);
@@ -84,9 +84,10 @@ async function evaluateTransaction(functionName, userId = 'admin', orgName = 'or
     }
 }
 
-async function createPrivateDocument(docData, userId = 'admin', orgName = 'org1') {
+async function createPrivateDocument(docData, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
+        console.log(userId);
 
         if (!docData.collection) {
             docData.collection = orgConfig.collections.documents;
@@ -109,7 +110,7 @@ async function createPrivateDocument(docData, userId = 'admin', orgName = 'org1'
     }
 }
 
-async function createPrivateLogDocument(logData, userId = 'admin', orgName = 'org1') {
+async function createPrivateLogDocument(logData, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
 
@@ -134,7 +135,7 @@ async function createPrivateLogDocument(logData, userId = 'admin', orgName = 'or
     }
 }
 
-async function readAllDocumentsByOrg(collection = null, userId = 'admin', orgName = 'org1') {
+async function readAllDocumentsByOrg(collection = null, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
 
@@ -153,7 +154,7 @@ async function readAllDocumentsByOrg(collection = null, userId = 'admin', orgNam
     }
 }
 
-async function readAllLogsByDocumentID(collectionLog = null, documentID, userId = 'admin', orgName = 'org1') {
+async function readAllLogsByDocumentID(collectionLog = null, documentID, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
         const targetCollection = collectionLog || orgConfig.collections.logs;
