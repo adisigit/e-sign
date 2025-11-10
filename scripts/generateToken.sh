@@ -12,8 +12,7 @@ fi
 USER_HOME=$(eval echo "~$SUDO_USER")
 
 # Ambil versi Node terbaru dari NVM user
-NODE_VERSION=$(ls "$USER_HOME/.nvm/versions/node" | sort -V | tail -n 1)
-NODE_PATH="$USER_HOME/.nvm/versions/node/$NODE_VERSION/bin/node"
+NODE_PATH="/usr/bin/node"
 
 # Pastikan node tersedia
 if [ ! -x "$NODE_PATH" ]; then
@@ -23,8 +22,8 @@ if [ ! -x "$NODE_PATH" ]; then
 fi
 
 # Path absolut ke .env dan node_modules
-ENV_FILE="$USER_HOME/esign/app/.env"
-NODE_MODULES_PATH="$USER_HOME/esign/app/node_modules"
+ENV_FILE="$USER_HOME/e-sign/app/.env"
+NODE_MODULES_PATH="$USER_HOME/e-sign/app/node_modules"
 
 if [ ! -f "$ENV_FILE" ]; then
   echo "File $ENV_FILE tidak ditemukan!"
