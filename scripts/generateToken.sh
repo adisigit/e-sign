@@ -22,8 +22,8 @@ if [ ! -x "$NODE_PATH" ]; then
 fi
 
 # Path absolut ke .env dan node_modules
-ENV_FILE="$USER_HOME/e-sign/app/.env"
-NODE_MODULES_PATH="$USER_HOME/e-sign/app/node_modules"
+ENV_FILE="${PWD}/app/.env"
+NODE_MODULES_PATH="${PWD}/app/node_modules"
 
 if [ ! -f "$ENV_FILE" ]; then
   echo "File $ENV_FILE tidak ditemukan!"
@@ -36,9 +36,10 @@ source "$ENV_FILE"
 set +a
 
 # Ambil parameter
-EMAIL=$1
-USER_ID=$2
-ROLE=${3:-user}
+read -r -p "Masukkan email: " EMAIL
+read -r -p "Masukkan user_id: " USER_ID
+read -r -p "Masukkan role: " ROLE
+
 
 if [ -z "$EMAIL" ] || [ -z "$USER_ID" ]; then
   echo "Usage: sudo bash scripts/generateToken.sh <email> <user_id> [role]"

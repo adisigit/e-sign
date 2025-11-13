@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ORG_NAME=$1
-TOKEN=$2
+read -r -p "Masukkan orgName: " ORG_NAME
+read -r -p "Masukkan token: " TOKEN
 BASE_URL="http://localhost:4000/api/documents"
 
 if [ -z "$ORG_NAME" ] || [ -z "$TOKEN" ]; then

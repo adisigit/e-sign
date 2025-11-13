@@ -1,10 +1,10 @@
 #!/bin/bash
 
-ORG_NAME=$1
-TOKEN=$2
-DOCUMENT_ID=$3
-DOCUMENT_NAME=$4
-STATUS=$5
+read -r -p "Masukkan orgName: " ORG_NAME
+read -r -p "Masukkan token: " TOKEN
+read -r -p "Masukkan documentID: " DOCUMENT_ID
+read -r -p "Masukkan documentName: " DOCUMENT_NAME
+read -r -p "Masukkan status: " STATUS
 BASE_URL="http://localhost:4000/api/documents"
 
 if [ -z "$ORG_NAME" ] || [ -z "$TOKEN" ] || [ -z "$DOCUMENT_ID" ] || [ -z "$DOCUMENT_NAME" ] || [ -z "$STATUS" ]; then
