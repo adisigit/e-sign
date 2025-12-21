@@ -1,0 +1,35 @@
+💻 System Information
+===================
+Linux LAPTOP-O2D8CESL 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+CPU(s):                               16
+On-line CPU(s) list:                  0-15
+Model name:                           AMD Ryzen 7 5700U with Radeon Graphics
+Thread(s) per core:                   2
+Core(s) per socket:                   8
+NUMA node0 CPU(s):                    0-15
+
+               total        used        free      shared  buff/cache   available
+Mem:           3.5Gi       1.5Gi       788Mi       3.0Mi       1.2Gi       1.9Gi
+Swap:          1.0Gi       3.0Mi       1.0Gi
+
+Filesystem                                Size  Used Avail Use% Mounted on
+none                                      1.8G     0  1.8G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none                                      1.8G  4.0K  1.8G   1% /mnt/wsl
+drivers                                   476G  410G   66G  87% /usr/lib/wsl/drivers
+/dev/sdd                                 1007G  6.7G  949G   1% /
+none                                      1.8G   72K  1.8G   1% /mnt/wslg
+none                                      1.8G     0  1.8G   0% /usr/lib/wsl/lib
+rootfs                                    1.8G  2.7M  1.8G   1% /init
+none                                      1.8G  4.0K  1.8G   1% /run
+none                                      1.8G     0  1.8G   0% /run/lock
+none                                      1.8G     0  1.8G   0% /run/shm
+none                                      1.8G     0  1.8G   0% /run/user
+none                                      1.8G   76K  1.8G   1% /mnt/wslg/versions.txt
+none                                      1.8G   76K  1.8G   1% /mnt/wslg/doc
+C:\                                       476G  410G   66G  87% /mnt/c
+D:\                                       895G  121G  774G  14% /mnt/d
+none                                      1.8G  628K  1.8G   1% /mnt/wsl/docker-desktop/shared-sockets/host-services
+/dev/sde                                 1007G   56M  956G   1% /mnt/wsl/docker-desktop/docker-desktop-user-distro
+/dev/loop0                                532M  532M     0 100% /mnt/wsl/docker-desktop/cli-tools
+C:\Program Files\Docker\Docker\resources  476G  410G   66G  87% /Docker/host

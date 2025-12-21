@@ -33,6 +33,16 @@ type PrivateLogDocument struct {
 	Timestamp     string `json:"timestamp"`
 }
 
+type PrivateLogDocumentWebhook struct {
+	CollectionLog       string `json:"collectionLog"`
+	ID                  string `json:"logID"`
+	DocumentID          string `json:"documentID"`
+	DocumentName        string `json:"documentName"`
+	DocumentDescription string `json:"documentDescription"`
+	Action              string `json:"action"`
+	Timestamp           string `json:"timestamp"`
+}
+
 func (s *SmartContract) CreatePrivateDocument(ctx contractapi.TransactionContextInterface) error {
 	transMap, err := ctx.GetStub().GetTransient()
 	if err != nil {
@@ -115,6 +125,33 @@ func (s *SmartContract) CreatePrivateLogDocument(ctx contractapi.TransactionCont
 	return ctx.GetStub().PutPrivateData(log.CollectionLog, log.ID, finalLogJson)
 }
 
+func (s *SmartContract) CreatePrivateLogDocumentWebhook(ctx contractapi.TransactionContextInterface) error {
+	transMap, err := ctx.GetStub().GetTransient()
+	if err != nil {
+		return fmt.Errorf("failed to get transient: %v", err)
+	}
+
+	logJson, ok := transMap["log"]
+	if !ok {
+		return fmt.Errorf("log key not found in transient map")
+	}
+
+	var log PrivateLogDocumentWebhook
+	err = json.Unmarshal(logJson, &log)
+	if err != nil {
+		return fmt.Errorf("failed to unmarshal private document JSON: %v", err)
+	}
+
+	log.ID = uuid.New().String()
+	log.Timestamp = time.Now().UTC().Format(time.RFC3339)
+
+	finalLogJson, err := json.Marshal(log)
+	if err != nil {
+		return fmt.Errorf("failed to marshal final log JSON: %v", err)
+	}
+	return ctx.GetStub().PutPrivateData(log.CollectionLog, log.ID, finalLogJson)
+}
+
 func (s *SmartContract) ReadAllDocumentByOrg(ctx contractapi.TransactionContextInterface, collection string) ([]*PrivateDocument, error) {
 	resultsIterator, err := ctx.GetStub().GetPrivateDataByRange(collection, "", "")
 	if err != nil {
@@ -157,6 +194,34 @@ func (s *SmartContract) ReadAllLogByDocumentID(ctx contractapi.TransactionContex
 		}
 
 		var log PrivateLogDocument
+		err = json.Unmarshal(queryResponse.Value, &log)
+		if err != nil {
+			return nil, err
+		}
+
+		logs = append(logs, &log)
+	}
+
+	return logs, nil
+}
+
+func (s *SmartContract) ReadAllLogByDocumentIDWebhook(ctx contractapi.TransactionContextInterface, collectionLog string, documentID string) ([]*PrivateLogDocumentWebhook, error) {
+	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
+
+	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collectionLog, query)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get log documents with id %s from %s: %v", documentID, collectionLog, err)
+	}
+	defer resultsIterator.Close()
+
+	var logs []*PrivateLogDocumentWebhook
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		if err != nil {
+			return nil, err
+		}
+
+		var log PrivateLogDocumentWebhook
 		err = json.Unmarshal(queryResponse.Value, &log)
 		if err != nil {
 			return nil, err

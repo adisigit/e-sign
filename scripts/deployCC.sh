@@ -4,8 +4,8 @@ set -euo pipefail
 CC_NAME=basic
 CC_SRC_PATH=/workspace/chaincode-go
 CC_RUNTIME_LANGUAGE=golang
-CC_VERSION=1.0
-CC_SEQUENCE=1
+CC_VERSION=1.1
+CC_SEQUENCE=2
 CHANNEL_NAME=e-sign-channel
 CC_PACKAGE=${CC_NAME}.tar.gz
 

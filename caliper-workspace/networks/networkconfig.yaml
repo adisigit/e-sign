@@ -1,0 +1,44 @@
+name: E-Sign Network
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric
+
+channels:
+  - channelName: e-sign-channel
+    created: true
+    orderers:
+      - orderer.esign.com
+    peers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+      - peer0.org2.esign.com
+      - peer1.org2.esign.com
+    contracts:
+      - id: basic
+        version: v1
+
+organizations:
+  - mspid: Org1MSP
+    identities:
+      certificates:
+        - name: User1Org1
+          clientPrivateKey:
+            path: ../organizations/peerOrganizations/org1.esign.com/users/User1@org1.esign.com/msp/keystore/1ecd93c11c686ad30c67f7a53fe2f351618407caed69c454a05de096148bc646_sk
+          clientSignedCert:
+            path: ../organizations/peerOrganizations/org1.esign.com/users/User1@org1.esign.com/msp/signcerts/cert.pem
+    connectionProfile:
+      path: ../organizations/peerOrganizations/org1.esign.com/connection-org1.json
+      discover: true
+
+  # - mspid: Org2MSP
+  #   identities:
+  #     certificates:
+  #       - name: User1Org2
+  #         clientPrivateKey:
+  #           path: ../organizations/peerOrganizations/org2.esign.com/users/User1@org2.esign.com/msp/keystore/5d3e03234c44afbe5b29523ab4881db27198b414938a7de9a105b68403b6dc8a_sk
+  #         clientSignedCert:
+  #           path: ../organizations/peerOrganizations/org2.esign.com/users/User1@org2.esign.com/msp/signcerts/cert.pem
+  #   connectionProfile:
+  #     path: ../organizations/peerOrganizations/org2.esign.com/connection-org2.json
+  #     discover: true

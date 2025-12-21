@@ -1,0 +1,15 @@
+{
+    "name": "esign-caliper-benchmark",
+    "version": "1.0.0",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.13.1",
+        "@hyperledger/fabric-gateway": "^1.7.1",
+        "axios": "^1.6.0",
+        "nats": "^2.29.3"
+    },
+    "devDependencies": {
+        "@hyperledger/caliper-cli": "^0.7.1",
+        "@hyperledger/caliper-core": "^0.7.1",
+        "@hyperledger/caliper-fabric": "^0.7.1"
+    }
+}

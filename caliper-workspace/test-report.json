@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "totalRequests": 100,
+    "successful": 100,
+    "failed": 0,
+    "successRate": "100.00%",
+    "duration": "261.43s",
+    "throughput": "0.38 req/s"
+  },
+  "latency": {
+    "avg": "24964.34ms",
+    "min": "3073ms",
+    "max": "27359ms",
+    "p50": "25902ms",
+    "p95": "27281ms",
+    "p99": "27359ms"
+  },
+  "errors": []
+}

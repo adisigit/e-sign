@@ -194,13 +194,20 @@ app.post(
   validateOrgAccess,
   logController.createPrivateLogDocumentOrg.bind(logController)
 );
+app.post(
+  "/api/logs/webhook/:orgName",
+  logController.createPrivateLogDocumentOrgWebhook.bind(logController)
+);
 app.get(
   "/api/logs/org/:orgName/:documentID",
   verifyToken,
   validateOrgAccess,
   logController.getLogsByDocumentId.bind(logController)
 );
-
+app.get(
+  "/api/logs/webhook/org/:orgName/:documentID",
+  logController.getLogsByDocumentIdWebhook.bind(logController)
+);
 app.use(notFoundHandler);
 
 app.use(errorHandler);

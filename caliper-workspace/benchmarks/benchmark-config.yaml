@@ -1,0 +1,137 @@
+test:
+  name: E-Sign Private Log Benchmark
+  description: Performance testing for CreatePrivateLogDocument and ReadAllLogsByDocumentID
+  workers:
+    number: 5
+  rounds:
+    # Round 1: Create private logs - Low load
+    - label: create-log-low
+      description: Create private logs at 10 TPS
+      txNumber: 100
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 10
+      workload:
+        module: workload/create-log.js
+        arguments:
+          orgName: org1
+          collectionLog: collectionOrg1Log
+      invokerIdentity: User1Org1  # Added - Use Org1 identity for Org1 collection
+      invokerMspId: Org1MSP
+      contractOptions:
+        endorsingOrganizations:
+          - Org1MSP
+      targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+
+    # Round 2: Create private logs - Medium load
+    - label: create-log-medium
+      description: Create private logs at 50 TPS
+      txNumber: 500
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 50
+      workload:
+        module: workload/create-log.js
+        arguments:
+          orgName: org1
+          collectionLog: collectionOrg1Log
+      invokerIdentity: User1Org1  # Added
+      invokerMspId: Org1MSP
+      contractOptions:
+        endorsingOrganizations:
+          - Org1MSP
+      targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+
+    # Round 3: Create private logs - High load
+    - label: create-log-high
+      description: Create private logs at 100 TPS
+      txNumber: 1000
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100
+      workload:
+        module: workload/create-log.js
+        arguments:
+          orgName: org1
+          collectionLog: collectionOrg1Log
+      invokerIdentity: User1Org1  # Added
+      invokerMspId: Org1MSP
+      contractOptions:
+        endorsingOrganizations:
+          - Org1MSP
+      targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+
+    # Round 4: Query logs by document ID
+    # - label: query-logs
+    #   description: Query logs by document ID
+    #   txNumber: 500
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: 50
+    #   workload:
+    #     module: workload/query-logs.js
+    #     arguments:
+    #       orgName: org1
+    #       collectionLog: collectionOrg1Log
+    #       totalDocuments: 100
+    #   invokerIdentity: Org1MSP.User1  # Added - Queries also need correct identity
+
+    # # Round 5: Mixed workload (70% create, 30% query)
+    # - label: mixed-workload
+    #   description: Mixed create and query operations
+    #   txNumber: 1000
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: 80
+    #   workload:
+    #     module: workload/mixed-workload.js
+    #     arguments:
+    #       orgName: org1
+    #       collectionLog: collectionOrg1Log
+    #       createRatio: 0.7
+    #   invokerIdentity: Org1MSP.User1  # Added
+
+    # Round 6: Test Org2
+    - label: create-log-org2 use org1 identity
+      description: Create private logs for Org2 use org1 identity
+      txNumber: 50
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 50
+      workload:
+        module: workload/create-log.js
+        arguments:
+          orgName: org2
+          collectionLog: collectionOrg2Log
+      invokerIdentity: User1Org2  # Added - Use Org2 identity for Org2 collection
+      invokerMspId: Org2MSP
+      contractOptions:
+        endorsingOrganizations:
+          - Org2MSP
+      targetPeers:
+      - peer0.org2.esign.com
+      - peer1.org2.esign.com
+
+monitors:
+  resource:
+    - module: docker
+      options:
+        interval: 5
+        containers:
+          - peer0.org1.esign.com
+          - peer1.org1.esign.com
+          - peer0.org2.esign.com
+          - peer1.org2.esign.com
+          - orderer.esign.com

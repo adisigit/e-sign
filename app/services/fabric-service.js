@@ -135,6 +135,31 @@ async function createPrivateLogDocument(logData, userId, orgName = 'org1') {
     }
 }
 
+async function createPrivateLogDocumentWebhook(logData, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+
+        if (!logData.collectionLog) {
+            logData.collectionLog = orgConfig.collections.logs;
+        }
+
+        const transientData = {
+            log: Buffer.from(JSON.stringify(logData))
+        };
+
+        await submitTransaction('CreatePrivateLogDocumentWebhook', transientData, userId, orgName);
+        
+        return { 
+            success: true, 
+            message: `Log webhook created successfully in ${orgConfig.name}`,
+            data: { ...logData, organization: orgConfig.name }
+        };
+    } catch (error) {
+        console.error(`Error creating private log document webhook for ${orgName}:`, error);
+        throw error;
+    }
+}
+
 async function readAllDocumentsByOrg(collection = null, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
@@ -168,6 +193,24 @@ async function readAllLogsByDocumentID(collectionLog = null, documentID, userId,
         };
     } catch (error) {
         console.error(`Error reading logs by document ID for ${orgName}:`, error);
+        throw error;
+    }
+}
+
+async function readAllLogsByDocumentIDWebhook(collectionLog = null, documentID, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        const targetCollection = collectionLog || orgConfig.collections.logs;
+
+        const result = await evaluateTransaction('ReadAllLogByDocumentIDWebhook', userId, orgName, targetCollection, documentID);
+        const logs = JSON.parse(result.toString());
+        
+        return { 
+            success: true, 
+            data: logs.map(log => ({ ...log, organization: orgConfig.name }))
+        };
+    } catch (error) {
+        console.error(`Error reading logs by document ID webhook for ${orgName}:`, error);
         throw error;
     }
 }
@@ -232,8 +275,10 @@ module.exports = {
     evaluateTransaction,
     createPrivateDocument,
     createPrivateLogDocument,
+    createPrivateLogDocumentWebhook,
     readAllDocumentsByOrg,
     readAllLogsByDocumentID,
+    readAllLogsByDocumentIDWebhook,
     testNetworkConnectivity,
     testAllOrgsConnectivity
 };

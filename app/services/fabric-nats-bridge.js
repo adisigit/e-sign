@@ -92,6 +92,7 @@ class FabricNatsBridge {
       const invokeHandlers = {
         CreatePrivateDocument: () => this.handleCreateDocument(args),
         CreatePrivateLogDocument: () => this.handleCreateLog(args),
+        CreatePrivateLogDocumentWebhook: () => this.handleCreateLogWebhook(args),
       };
 
       let result;
@@ -136,6 +137,21 @@ class FabricNatsBridge {
     );
   }
 
+  async handleCreateLogWebhook(args) {
+    const logData = {
+      collectionLog: args[0] || this.orgConfig.collections.logs,
+      documentID: args[1],
+      documentName: args[2],
+      documentDescription: args[3],
+      action: args[4],
+    };
+    return await fabricService.createPrivateLogDocumentWebhook(
+      logData,
+      args[5],
+      this.orgName
+    );
+  }
+
   async handleCreateDocument(args) {
     const docData = {
       collection: args[0] || this.orgConfig.collections.documents,
@@ -165,6 +181,7 @@ class FabricNatsBridge {
       const queryHandlers = {
         ReadAllDocumentsByOrg: () => this.handleReadAllDocuments(args, userId),
         ReadAllLogsByDocumentID: () => this.handleReadAllLogs(args, userId),
+        ReadAllLogsByDocumentIDWebhook: () => this.handleReadAllLogsWebhook(args, userId),
       };
 
       let result;
@@ -203,6 +220,17 @@ class FabricNatsBridge {
     const collectionLog = args[0] || this.orgConfig.collections.logs;
     const documentID = args[1];
     return await fabricService.readAllLogsByDocumentID(
+      collectionLog,
+      documentID,
+      userId,
+      this.orgName
+    );
+  }
+
+  async handleReadAllLogsWebhook(args, userId) {
+    const collectionLog = args[0] || this.orgConfig.collections.logs;
+    const documentID = args[1];
+    return await fabricService.readAllLogsByDocumentIDWebhook(
       collectionLog,
       documentID,
       userId,
