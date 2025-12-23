@@ -10,7 +10,7 @@ function networkUp() {
 
 function networkDown() {
   echo ">>> Stopping network and removing volumes..."
-  docker-compose -f $DOCKER_COMPOSE_FILE down
+  docker-compose -f $DOCKER_COMPOSE_FILE down -v
 }
 
 function networkStart() {

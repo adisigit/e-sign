@@ -182,6 +182,10 @@ class FabricNatsBridge {
         ReadAllDocumentsByOrg: () => this.handleReadAllDocuments(args, userId),
         ReadAllLogsByDocumentID: () => this.handleReadAllLogs(args, userId),
         ReadAllLogsByDocumentIDWebhook: () => this.handleReadAllLogsWebhook(args, userId),
+        ReadAllDocumentByOrgWithIntegrityCheck: () => this.handleReadAllDocumentsWithIntegrityCheck(args, userId),
+        ReadAllLogByDocumentIDWithIntegrityCheck: () => this.handleReadAllLogsWithIntegrityCheck(args, userId),
+        VerifyPrivateDataIntegrity: () => this.handleVerifyPrivateDataIntegrity(args, userId),
+        VerifyAllDocumentsIntegrity: () => this.handleVerifyAllDocumentsIntegrity(args, userId)
       };
 
       let result;
@@ -238,6 +242,46 @@ class FabricNatsBridge {
     );
   }
 
+  async handleReadAllDocumentsWithIntegrityCheck(args, userId) {
+    const collection = args[0] || this.orgConfig.collections.documents;
+    return await fabricService.readAllDocumentByOrgWithIntegrityCheck(
+      collection,
+      userId,
+      this.orgName
+    );
+  }
+
+  async handleReadAllLogsWithIntegrityCheck(args, userId) {
+    const collectionLog = args[0] || this.orgConfig.collections.logs;
+    const documentID = args[1];
+    return await fabricService.readAllLogByDocumentIDWithIntegrityCheck(
+      collectionLog,
+      documentID,
+      userId,
+      this.orgName
+    );
+  }
+
+  async handleVerifyPrivateDataIntegrity(args, userId) {
+    const collection = args[0] || this.orgConfig.collections.documents;
+    const documentID = args[1];
+    return await fabricService.verifyPrivateDataIntegrity(
+      collection,
+      documentID,
+      userId,
+      this.orgName
+    );
+  }
+
+  async handleVerifyAllDocumentsIntegrity(args, userId) {
+    const collection = args[0] || this.orgConfig.collections.documents;
+    return await fabricService.verifyAllDocumentsIntegrity(
+      collection,
+      userId,
+      this.orgName
+    );
+  }
+  
   async sendResponse(requestId, data) {
     try {
       await this.natsService.publish(

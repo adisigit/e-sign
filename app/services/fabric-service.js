@@ -215,6 +215,58 @@ async function readAllLogsByDocumentIDWebhook(collectionLog = null, documentID, 
     }
 }
 
+async function readAllDocumentByOrgWithIntegrityCheck(collection = null, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        const targetCollection = collection || orgConfig.collections.documents;
+        const result = await evaluateTransaction('ReadAllDocumentByOrgWithIntegrityCheck', userId, orgName, targetCollection);
+        const documents = JSON.parse(result.toString());
+        return documents;
+    } catch (error) {
+        console.error(`Error reading all documents by org with integrity check for ${orgName}:`, error);
+        throw error;
+    }
+}
+
+async function readAllLogByDocumentIDWithIntegrityCheck(collectionLog = null, documentID, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        const targetCollection = collectionLog || orgConfig.collections.logs;
+        const result = await evaluateTransaction('ReadAllLogByDocumentIDWithIntegrityCheck', userId, orgName, targetCollection, documentID);
+        const logs = JSON.parse(result.toString());
+        return logs;
+    } catch (error) {
+        console.error(`Error reading all logs by document ID with integrity check for ${orgName}:`, error);
+        throw error;
+    }
+}
+
+async function verifyPrivateDataIntegrity(collection = null, documentID, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        const targetCollection = collection || orgConfig.collections.documents;
+        const result = await evaluateTransaction('VerifyPrivateDataIntegrity', userId, orgName, targetCollection, documentID);
+        const integrityCheckResult = JSON.parse(result.toString());
+        return integrityCheckResult;
+    } catch (error) {
+        console.error(`Error verifying private data integrity for ${orgName}:`, error);
+        throw error;
+    }
+}
+
+async function verifyAllDocumentsIntegrity(collection = null, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        const targetCollection = collection || orgConfig.collections.documents;
+        const result = await evaluateTransaction('VerifyAllDocumentsIntegrity', userId, orgName, targetCollection);
+        const integrityCheckResult = JSON.parse(result.toString());
+        return integrityCheckResult;
+    } catch (error) {
+        console.error(`Error verifying all documents integrity for ${orgName}:`, error);
+        throw error;
+    }
+}
+
 async function testNetworkConnectivity(userId = 'admin', orgName = 'org1') {
     let gateway;
     try {
@@ -279,6 +331,10 @@ module.exports = {
     readAllDocumentsByOrg,
     readAllLogsByDocumentID,
     readAllLogsByDocumentIDWebhook,
+    readAllDocumentByOrgWithIntegrityCheck,
+    readAllLogByDocumentIDWithIntegrityCheck,
+    verifyPrivateDataIntegrity,
+    verifyAllDocumentsIntegrity,
     testNetworkConnectivity,
     testAllOrgsConnectivity
 };

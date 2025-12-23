@@ -178,6 +178,24 @@ app.get(
   documentController.getDocumentsByOrg.bind(documentController)
 );
 
+app.get(
+  "/api/documents/org/:orgName/integrity",
+  verifyToken,
+  validateOrgAccess,
+  documentController.readAllDocumentByOrgWithIntegrityCheck.bind(documentController)
+);
+app.get(
+  "/api/documents/org/:orgName/verify/integrity/:documentID",
+  verifyToken,
+  validateOrgAccess,
+  documentController.verifyPrivateDataIntegrity.bind(documentController)
+);
+app.get(
+  "/api/documents/org/:orgName/verify/integrity",
+  verifyToken,
+  validateOrgAccess,
+  documentController.verifyAllDocumentsIntegrity.bind(documentController)
+);
 // Multi-org log routes
 // app.post(
 //   "/api/logs/:orgName",
@@ -208,6 +226,13 @@ app.get(
   "/api/logs/webhook/org/:orgName/:documentID",
   logController.getLogsByDocumentIdWebhook.bind(logController)
 );
+app.get(
+  "/api/logs/org/:orgName/integrity/:documentID",
+  verifyToken,
+  validateOrgAccess,
+  logController.readAllLogByDocumentIDWithIntegrityCheck.bind(logController)
+);
+
 app.use(notFoundHandler);
 
 app.use(errorHandler);

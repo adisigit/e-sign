@@ -110,6 +110,130 @@ class DocumentController {
       });
     }
   }
+
+  async readAllDocumentByOrgWithIntegrityCheck(req, res) {
+    const { orgName = "org1" } = req.params;
+    try {
+      const { collection } = req.query;
+      const userId = req.walletUserId;
+
+      if (!config.organizations[orgName]) {
+        return res.status(400).json({
+          success: false,
+          error: `Organization ${orgName} not found`,
+          availableOrgs: config.getAllOrgs(),
+        });
+      }
+
+      if (!this.bridgeController.getBridge(orgName)) {
+        return res.status(500).json({
+          success: false,
+          error: `Bridge for ${orgName} not found`,
+        });
+      }
+
+      const orgConfig = config.getOrgConfig(orgName);
+      const targetCollection = collection || orgConfig.collections.documents;
+
+      const result = await this.bridgeController.getBridge(orgName).queryViaClient(
+        "ReadAllDocumentByOrgWithIntegrityCheck",
+        [targetCollection],
+        userId,
+        orgName
+      );
+
+      res.json(result);
+    } catch (error) {
+      console.error(`Error reading all documents by org with integrity check for ${orgName}:`, error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+      });
+    }
+  }
+
+  async verifyPrivateDataIntegrity(req, res) {
+    const { orgName = "org1" } = req.params;
+    try {
+      const { collection } = req.query;
+      const { documentID } = req.params;
+      const userId = req.walletUserId;
+
+      if (!config.organizations[orgName]) {
+        return res.status(400).json({
+          success: false,
+          error: `Organization ${orgName} not found`,
+          availableOrgs: config.getAllOrgs(),
+        });
+      }
+
+      if (!this.bridgeController.getBridge(orgName)) {
+        return res.status(500).json({
+          success: false,
+          error: `Bridge for ${orgName} not found`,
+        });
+      }
+
+      const orgConfig = config.getOrgConfig(orgName);
+      const targetCollection = collection || orgConfig.collections.documents;
+
+      const result = await this.bridgeController.getBridge(orgName).queryViaClient(
+        "VerifyPrivateDataIntegrity",
+        [targetCollection, documentID],
+        userId,
+        orgName
+      );
+
+      res.json(result);
+    } catch (error) {
+      console.error(`Error verifying private data integrity for ${orgName}:`, error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+      });
+    }
+  }
+
+  async verifyAllDocumentsIntegrity(req, res) {
+    const { orgName = "org1" } = req.params;
+    try {
+      const { collection } = req.query;
+      const userId = req.walletUserId;
+
+      if (!config.organizations[orgName]) {
+        return res.status(400).json({
+          success: false,
+          error: `Organization ${orgName} not found`,
+          availableOrgs: config.getAllOrgs(),
+        });
+      }
+
+      if (!this.bridgeController.getBridge(orgName)) {
+        return res.status(500).json({
+          success: false,
+          error: `Bridge for ${orgName} not found`,
+        });
+      }
+
+      const orgConfig = config.getOrgConfig(orgName);
+      const targetCollection = collection || orgConfig.collections.documents;
+
+      const result = await this.bridgeController.getBridge(orgName).queryViaClient(
+        "VerifyAllDocumentsIntegrity",
+        [targetCollection],
+        userId,
+        orgName
+      );
+
+      res.json(result);
+    } catch (error) {
+      console.error(`Error verifying all documents integrity for ${orgName}:`, error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+      });
+    }
+  }
 }
 
 module.exports = new DocumentController();
