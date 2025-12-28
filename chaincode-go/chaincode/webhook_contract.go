@@ -45,6 +45,67 @@ func (s *SmartContract) CreatePrivateLogDocumentWebhook(ctx contractapi.Transact
 	return ctx.GetStub().PutPrivateData(log.CollectionLog, log.ID, finalLogJson)
 }
 
+func (s *SmartContract) CreatePrivateDataWebhook(ctx contractapi.TransactionContextInterface) error {
+	transMap, err := ctx.GetStub().GetTransient()
+	if err != nil {
+		return fmt.Errorf("failed to get transient: %v", err)
+	}
+	webhookJSON, ok := transMap["webhook"]
+	if !ok {
+		return fmt.Errorf("webhook key not found in transient map")
+	}
+	var payload map[string]interface{}
+	if err := json.Unmarshal(webhookJSON, &payload); err != nil {
+		return fmt.Errorf("failed to unmarshal webhook json: %v", err)
+	}
+
+	documentWebhook := PrivateDocumentWebhook{
+		Collection:           payload["collection"].(string),
+		ID:                   payload["id"].(string),
+		DocumentCategoryCode: payload["documentCategoryCode"].(string),
+		Name:                 payload["name"].(string),
+		Description:          payload["description"].(string),
+		File:                 payload["file"].(string),
+		Timestamp:            time.Now().UTC().Format(time.RFC3339),
+	}
+	finalDocumentWebhookJson, err := json.Marshal(documentWebhook)
+	if err != nil {
+		return fmt.Errorf("failed to marshal final document webhook JSON: %v", err)
+	}
+	err = ctx.GetStub().PutPrivateData(documentWebhook.Collection, documentWebhook.ID, finalDocumentWebhookJson)
+	if err != nil {
+		return fmt.Errorf("failed to put private document webhook: %v", err)
+	}
+
+	collectionLog := documentWebhook.Collection + "Log"
+
+	recipients := payload["recipients"].([]interface{})
+	for _, recipient := range recipients {
+		recipientMap := recipient.(map[string]interface{})
+		logDocumentWebhook := PrivateLogDocumentWebhook{
+			CollectionLog:     collectionLog,
+			ID:                uuid.New().String(),
+			DocumentID:        documentWebhook.ID,
+			UserID:            recipientMap["userId"].(string),
+			Name:              recipientMap["name"].(string),
+			UserRoleCode:      recipientMap["userRoleCode"].(string),
+			RecipientRoleCode: recipientMap["recipientRoleCode"].(string),
+			Timestamp:         time.Now().UTC().Format(time.RFC3339),
+		}
+
+		logDocumentWebhookJson, err := json.Marshal(logDocumentWebhook)
+		if err != nil {
+			return fmt.Errorf("failed to marshal final log document webhook JSON: %v", err)
+		}
+		err = ctx.GetStub().PutPrivateData(collectionLog, logDocumentWebhook.ID, logDocumentWebhookJson)
+		if err != nil {
+			return fmt.Errorf("failed to put private log document webhook: %v", err)
+		}
+	}
+
+	return nil
+}
+
 func (s *SmartContract) ReadAllLogByDocumentIDWebhook(ctx contractapi.TransactionContextInterface, collectionLog string, documentID string) ([]*PrivateLogDocumentWebhook, error) {
 	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
 
@@ -65,21 +126,6 @@ func (s *SmartContract) ReadAllLogByDocumentIDWebhook(ctx contractapi.Transactio
 		err = json.Unmarshal(queryResponse.Value, &log)
 		if err != nil {
 			return nil, err
-		}
-
-		// Marshal ulang untuk normalize
-		reMarshaled, err := json.Marshal(log)
-		if err != nil {
-			return nil, err
-		}
-
-		// VALIDATE LOG HASH
-		isValid, err := s.validateDataHash(ctx, collectionLog, queryResponse.Key, reMarshaled)
-		if err != nil {
-			fmt.Printf("Warning: Log hash validation error for %s: %v\n", queryResponse.Key, err)
-		}
-		if !isValid {
-			fmt.Printf("CRITICAL ALERT: Webhook log tampered! Log %s in %s has been corrupted\n", queryResponse.Key, collectionLog)
 		}
 
 		logs = append(logs, &log)

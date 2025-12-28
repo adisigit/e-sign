@@ -19,14 +19,26 @@ type PrivateLogDocument struct {
 	Timestamp     string `json:"timestamp,omitempty"`
 }
 
+type PrivateDocumentWebhook struct {
+	Collection           string `json:"collection"`
+	ID                   string `json:"documentID"`
+	DocumentCategoryCode string `json:"documentCategoryCode"`
+	Name                 string `json:"name"`
+	Description          string `json:"description"`
+	File                 string `json:"file"`
+	Recipients           string `json:"recipients"`
+	Timestamp            string `json:"timestamp,omitempty"`
+}
+
 type PrivateLogDocumentWebhook struct {
-	CollectionLog       string `json:"collectionLog"`
-	ID                  string `json:"logID"`
-	DocumentID          string `json:"documentID"`
-	DocumentName        string `json:"documentName"`
-	DocumentDescription string `json:"documentDescription"`
-	Action              string `json:"action"`
-	Timestamp           string `json:"timestamp,omitempty"`
+	CollectionLog     string `json:"collectionLog"`
+	ID                string `json:"logID"`
+	DocumentID        string `json:"documentID"`
+	UserID            string `json:"userID"`
+	Name              string `json:"name"`
+	UserRoleCode      string `json:"userRoleCode"`
+	RecipientRoleCode string `json:"recipientRoleCode"`
+	Timestamp         string `json:"timestamp,omitempty"`
 }
 
 type IntegrityCheckResult struct {

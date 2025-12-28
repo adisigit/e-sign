@@ -78,16 +78,6 @@ func (s *SmartContract) ReadAllDocumentByOrg(ctx contractapi.TransactionContextI
 			return nil, err
 		}
 
-		// VALIDATE HASH
-		isValid, err := s.validateDataHash(ctx, collection, queryResponse.Key, queryResponse.Value)
-		if err != nil {
-			fmt.Printf("Warning: Hash validation error for %s: %v\n", queryResponse.Key, err)
-		}
-		if !isValid {
-			fmt.Printf("ALERT: Data integrity compromised for document %s in collection %s\n", queryResponse.Key, collection)
-			s.logCorruptionDetected(ctx, collection, queryResponse.Key)
-		}
-
 		var document PrivateDocument
 		err = json.Unmarshal(queryResponse.Value, &document)
 		if err != nil {

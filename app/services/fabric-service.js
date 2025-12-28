@@ -197,6 +197,32 @@ async function readAllLogsByDocumentID(collectionLog = null, documentID, userId,
     }
 }
 
+async function createPrivateDataWebhook(webhookData, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        if (!webhookData.collection) {
+            webhookData.collection = orgConfig.collections.documents;
+        }
+
+        const transientData = {
+            webhook: Buffer.from(JSON.stringify(webhookData))
+        };
+
+
+        await submitTransaction('CreatePrivateDataWebhook', transientData, userId, orgName);
+        
+        return { 
+            success: true, 
+            message: `Private Data Webhook created successfully in ${orgConfig.name}`,
+            data: { ...webhookData, organization: orgConfig.name }
+        };
+    }
+    catch (error) {
+        console.error(`Error creating private data webhook for ${orgName}:`, error);
+        throw error;
+    }
+}
+
 async function readAllLogsByDocumentIDWebhook(collectionLog = null, documentID, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
@@ -228,6 +254,20 @@ async function readAllDocumentByOrgWithIntegrityCheck(collection = null, userId,
     }
 }
 
+async function readDocumentByIDWithIntegrityCheckWebhook(collection = null, documentID, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        const targetCollection = collection || orgConfig.collections.documents;
+        const result = await evaluateTransaction('ReadDocumentByIDWithIntegrityCheckWebhook', userId, orgName, targetCollection, documentID);
+        const document = JSON.parse(result.toString());
+        return document;
+    }
+    catch (error) {
+        console.error(`Error reading document by ID with integrity check webhook for ${orgName}:`, error);
+        throw error;
+    }
+}
+
 async function readAllLogByDocumentIDWithIntegrityCheck(collectionLog = null, documentID, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
@@ -237,32 +277,6 @@ async function readAllLogByDocumentIDWithIntegrityCheck(collectionLog = null, do
         return logs;
     } catch (error) {
         console.error(`Error reading all logs by document ID with integrity check for ${orgName}:`, error);
-        throw error;
-    }
-}
-
-async function verifyPrivateDataIntegrity(collection = null, documentID, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-        const targetCollection = collection || orgConfig.collections.documents;
-        const result = await evaluateTransaction('VerifyPrivateDataIntegrity', userId, orgName, targetCollection, documentID);
-        const integrityCheckResult = JSON.parse(result.toString());
-        return integrityCheckResult;
-    } catch (error) {
-        console.error(`Error verifying private data integrity for ${orgName}:`, error);
-        throw error;
-    }
-}
-
-async function verifyAllDocumentsIntegrity(collection = null, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-        const targetCollection = collection || orgConfig.collections.documents;
-        const result = await evaluateTransaction('VerifyAllDocumentsIntegrity', userId, orgName, targetCollection);
-        const integrityCheckResult = JSON.parse(result.toString());
-        return integrityCheckResult;
-    } catch (error) {
-        console.error(`Error verifying all documents integrity for ${orgName}:`, error);
         throw error;
     }
 }
@@ -328,13 +342,13 @@ module.exports = {
     createPrivateDocument,
     createPrivateLogDocument,
     createPrivateLogDocumentWebhook,
+    createPrivateDataWebhook,
     readAllDocumentsByOrg,
     readAllLogsByDocumentID,
     readAllLogsByDocumentIDWebhook,
+    readDocumentByIDWithIntegrityCheckWebhook,
     readAllDocumentByOrgWithIntegrityCheck,
     readAllLogByDocumentIDWithIntegrityCheck,
-    verifyPrivateDataIntegrity,
-    verifyAllDocumentsIntegrity,
     testNetworkConnectivity,
     testAllOrgsConnectivity
 };

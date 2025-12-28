@@ -1,8 +1,6 @@
 package chaincode
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
 	"encoding/json"
 	"fmt"
 
@@ -52,6 +50,53 @@ func (s *SmartContract) ReadAllDocumentByOrgWithIntegrityCheck(ctx contractapi.T
 		"corruptedCount":  corruptedCount,
 		"corruptedDocs":   corruptedDocs,
 		"integrityStatus": corruptedCount == 0,
+	}
+
+	return result, nil
+}
+
+func (s *SmartContract) ReadDocumentByIDWithIntegrityCheckWebhook(ctx contractapi.TransactionContextInterface, collection string, documentID string) (map[string]interface{}, error) {
+	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
+	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collection, query)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query document: %v", err)
+	}
+	defer resultsIterator.Close()
+
+	if !resultsIterator.HasNext() {
+		return nil, fmt.Errorf("document not found: %s", documentID)
+	}
+
+	queryResponse, err := resultsIterator.Next()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get query response: %v", err)
+	}
+
+	var document PrivateDocumentWebhook
+	err = json.Unmarshal(queryResponse.Value, &document)
+	if err != nil {
+		return nil, fmt.Errorf("failed to unmarshal document: %v", err)
+	}
+
+	reMarshaled, err := json.Marshal(document)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal document: %v", err)
+	}
+
+	isValid, _ := s.validateDataHash(ctx, collection, documentID, reMarshaled)
+
+	result := map[string]interface{}{
+		"document":        document,
+		"documentID":      documentID,
+		"integrityStatus": isValid,
+	}
+
+	if !isValid {
+		result["criticalWarning"] = "DOCUMENT COMPROMISED! Document has been tampered. Investigation required."
+		result["tamperedDocument"] = documentID
+		result["status"] = "TAMPERED"
+	} else {
+		result["status"] = "VALID"
 	}
 
 	return result, nil
@@ -116,101 +161,4 @@ func (s *SmartContract) ReadAllLogByDocumentIDWithIntegrityCheck(ctx contractapi
 	}
 
 	return result, nil
-}
-
-func (s *SmartContract) VerifyPrivateDataIntegrity(ctx contractapi.TransactionContextInterface, collection string, documentID string) (*IntegrityCheckResult, error) {
-	docJSON, err := ctx.GetStub().GetPrivateData(collection, documentID)
-	if err != nil {
-		return nil, fmt.Errorf("failed to get private data: %v", err)
-	}
-
-	if docJSON == nil {
-		return nil, fmt.Errorf("document not found in state")
-	}
-
-	currentHash := sha256.Sum256(docJSON)
-	currentHashHex := hex.EncodeToString(currentHash[:])
-
-	hashFromChain, err := ctx.GetStub().GetPrivateDataHash(collection, documentID)
-	if err != nil {
-		return nil, fmt.Errorf("failed to get hash from blockchain: %v", err)
-	}
-
-	blockchainHashHex := hex.EncodeToString(hashFromChain)
-	hashMatch := currentHashHex == blockchainHashHex
-
-	result := &IntegrityCheckResult{
-		DocumentID:        documentID,
-		Collection:        collection,
-		CurrentHashHex:    currentHashHex,
-		BlockchainHashHex: blockchainHashHex,
-		HashMatch:         hashMatch,
-		DataIntact:        hashMatch,
-	}
-
-	if !hashMatch {
-		result.Warning = "DATA INTEGRITY COMPROMISED! Manual manipulation detected."
-	}
-
-	return result, nil
-}
-
-func (s *SmartContract) VerifyAllDocumentsIntegrity(ctx contractapi.TransactionContextInterface, collection string) (map[string]interface{}, error) {
-	resultsIterator, err := ctx.GetStub().GetPrivateDataByRange(collection, "", "")
-	if err != nil {
-		return nil, fmt.Errorf("failed to get documents: %v", err)
-	}
-	defer resultsIterator.Close()
-
-	var results []IntegrityCheckResult
-	validCount := 0
-	corruptedCount := 0
-
-	for resultsIterator.HasNext() {
-		queryResponse, err := resultsIterator.Next()
-		if err != nil {
-			return nil, err
-		}
-
-		currentHash := sha256.Sum256(queryResponse.Value)
-		currentHashHex := hex.EncodeToString(currentHash[:])
-
-		hashFromChain, err := ctx.GetStub().GetPrivateDataHash(collection, queryResponse.Key)
-		if err != nil {
-			continue
-		}
-		blockchainHashHex := hex.EncodeToString(hashFromChain)
-
-		hashMatch := currentHashHex == blockchainHashHex
-
-		result := IntegrityCheckResult{
-			DocumentID:        queryResponse.Key,
-			Collection:        collection,
-			CurrentHashHex:    currentHashHex,
-			BlockchainHashHex: blockchainHashHex,
-			HashMatch:         hashMatch,
-			DataIntact:        hashMatch,
-			Warning:           "",
-		}
-
-		if !hashMatch {
-			result.Warning = "CORRUPTED"
-			corruptedCount++
-		} else {
-			validCount++
-		}
-
-		results = append(results, result)
-	}
-
-	summary := map[string]interface{}{
-		"collection":      collection,
-		"totalDocuments":  len(results),
-		"validDocuments":  validCount,
-		"corruptedDocs":   corruptedCount,
-		"integrityStatus": corruptedCount == 0,
-		"details":         results,
-	}
-
-	return summary, nil
 }

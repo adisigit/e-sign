@@ -8,6 +8,7 @@ const bridgeController = require("./controllers/bridge-controller");
 const userController = require("./controllers/user-controller");
 const documentController = require("./controllers/document-controller-nats");
 const logController = require("./controllers/log-controller-nats");
+const webhookController = require("./controllers/webhok-controller-nats");
 
 // Import middlewares
 const {
@@ -184,18 +185,6 @@ app.get(
   validateOrgAccess,
   documentController.readAllDocumentByOrgWithIntegrityCheck.bind(documentController)
 );
-app.get(
-  "/api/documents/org/:orgName/verify/integrity/:documentID",
-  verifyToken,
-  validateOrgAccess,
-  documentController.verifyPrivateDataIntegrity.bind(documentController)
-);
-app.get(
-  "/api/documents/org/:orgName/verify/integrity",
-  verifyToken,
-  validateOrgAccess,
-  documentController.verifyAllDocumentsIntegrity.bind(documentController)
-);
 // Multi-org log routes
 // app.post(
 //   "/api/logs/:orgName",
@@ -222,15 +211,23 @@ app.get(
   validateOrgAccess,
   logController.getLogsByDocumentId.bind(logController)
 );
-app.get(
-  "/api/logs/webhook/org/:orgName/:documentID",
-  logController.getLogsByDocumentIdWebhook.bind(logController)
+
+
+app.post(
+  "/api/webhook/:orgName",
+  webhookController.createWebhook.bind(webhookController)
 );
 app.get(
-  "/api/logs/org/:orgName/integrity/:documentID",
-  verifyToken,
-  validateOrgAccess,
-  logController.readAllLogByDocumentIDWithIntegrityCheck.bind(logController)
+  "/api/logs/webhook/org/:orgName/:documentID",
+  webhookController.getLogsByDocumentIdWebhook.bind(webhookController)
+);
+app.get(
+  "/api/document/webhook/org/:orgName/integrity/:documentID",
+  webhookController.readDocumentByIDWithIntegrityCheckWebhook.bind(webhookController)
+);
+app.get(
+  "/api/logs/webhook/org/:orgName/integrity/:documentID",
+  webhookController.readAllLogByDocumentIDWithIntegrityCheck.bind(webhookController)
 );
 
 app.use(notFoundHandler);

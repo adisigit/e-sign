@@ -93,18 +93,11 @@ class FabricNatsBridge {
         CreatePrivateDocument: () => this.handleCreateDocument(args),
         CreatePrivateLogDocument: () => this.handleCreateLog(args),
         CreatePrivateLogDocumentWebhook: () => this.handleCreateLogWebhook(args),
+        CreatePrivateDataWebhook: () => this.handleCreateWebhook(args),
       };
 
       let result;
-      if (invokeHandlers[functionName]) {
-        result = await invokeHandlers[functionName]();
-      } else {
-        result = await this.handleGenericInvoke(
-          functionName,
-          args,
-          transientData,
-        );
-      }
+      result = await invokeHandlers[functionName]();
 
       await this.sendResponse(requestId, {
         success: true,
@@ -152,6 +145,23 @@ class FabricNatsBridge {
     );
   }
 
+  async handleCreateWebhook(args) {
+    const webhookData = {
+      collection: args[0] || this.orgConfig.collections.documents,
+      id: args[1],
+      documentCategoryCode: args[2],
+      name: args[3],
+      description: args[4],
+      file: args[5],
+      recipients: args[6],
+    };
+    return await fabricService.createPrivateDataWebhook(
+      webhookData,
+      args[7],
+      this.orgName
+    );
+  }
+
   async handleCreateDocument(args) {
     const docData = {
       collection: args[0] || this.orgConfig.collections.documents,
@@ -184,16 +194,11 @@ class FabricNatsBridge {
         ReadAllLogsByDocumentIDWebhook: () => this.handleReadAllLogsWebhook(args, userId),
         ReadAllDocumentByOrgWithIntegrityCheck: () => this.handleReadAllDocumentsWithIntegrityCheck(args, userId),
         ReadAllLogByDocumentIDWithIntegrityCheck: () => this.handleReadAllLogsWithIntegrityCheck(args, userId),
-        VerifyPrivateDataIntegrity: () => this.handleVerifyPrivateDataIntegrity(args, userId),
-        VerifyAllDocumentsIntegrity: () => this.handleVerifyAllDocumentsIntegrity(args, userId)
+        ReadDocumentByIDWithIntegrityCheckWebhook: () => this.handleReadDocumentByIDWithIntegrityCheckWebhook(args, userId)
       };
 
       let result;
-      if (queryHandlers[functionName]) {
-        result = await queryHandlers[functionName]();
-      } else {
-        result = await this.handleGenericQuery(functionName, args, userId);
-      }
+      result = await queryHandlers[functionName]();
 
       await this.sendResponse(requestId, {
         success: true,
@@ -262,21 +267,12 @@ class FabricNatsBridge {
     );
   }
 
-  async handleVerifyPrivateDataIntegrity(args, userId) {
+  async handleReadDocumentByIDWithIntegrityCheckWebhook(args, userId) {
     const collection = args[0] || this.orgConfig.collections.documents;
     const documentID = args[1];
-    return await fabricService.verifyPrivateDataIntegrity(
+    return await fabricService.readDocumentByIDWithIntegrityCheckWebhook(
       collection,
       documentID,
-      userId,
-      this.orgName
-    );
-  }
-
-  async handleVerifyAllDocumentsIntegrity(args, userId) {
-    const collection = args[0] || this.orgConfig.collections.documents;
-    return await fabricService.verifyAllDocumentsIntegrity(
-      collection,
       userId,
       this.orgName
     );
