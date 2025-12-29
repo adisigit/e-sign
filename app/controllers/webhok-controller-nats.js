@@ -10,14 +10,13 @@ class WebhookController {
   async createWebhook(req, res) {
     const { orgName = "org1" } = req.params;
     try {
-      const { id, documentCategoryCode, name, description, file, recipients } =
+      const { id, documentCategoryCode, name, description, file, recipients, userId = "admin" } =
         req.body;
       const fileBuffer = Buffer.from(file, "base64");
       const fileHash = crypto
         .createHash("sha256")
         .update(fileBuffer)
         .digest("hex");
-      const userId = "cek";
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -82,8 +81,7 @@ class WebhookController {
   async getLogsByDocumentIdWebhook(req, res) {
     try {
       const { orgName = "org1", documentID } = req.params;
-      const { collectionLog } = req.query;
-      const userId = "cek";
+      const { collectionLog, userId = "admin" } = req.query;
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -130,9 +128,8 @@ class WebhookController {
   async readDocumentByIDWithIntegrityCheckWebhook(req, res) {
     const { orgName = "org1" } = req.params;
     try {
-      const { collection } = req.query;
+      const { collection, userId = "admin" } = req.query;
       const { documentID } = req.params;
-      const userId = "cek";
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -178,9 +175,8 @@ class WebhookController {
   async readAllLogByDocumentIDWithIntegrityCheck(req, res) {
     const { orgName = "org1" } = req.params;
     try {
-      const { collection } = req.query;
+      const { collection, userId = "admin" } = req.query;
       const { documentID } = req.params;
-      const userId = "cek";
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({

@@ -81,17 +81,15 @@ app.get("/api", (req, res) => {
         "GET /api/users/:userId/exists/:orgName":
           "Check if user exists in specific organization",
       },
-      documents: {
-        "POST /api/documents/:orgName":
-          "Create document in specific organization → CreatePrivateDocument",
-        "GET /api/documents/org/:orgName":
-          "Get documents from specific organization → ReadAllDocumentByOrg",
-      },
-      logs: {
-        "POST /api/logs/:orgName":
-          "Create log in specific organization → CreatePrivateLogDocument",
-        "GET /api/logs/org/:orgName/:documentID":
-          "Get logs by document ID from specific organization → ReadAllLogByDocumentID",
+      webhook: {
+        "POST /api/webhook/:orgName":
+          "Create document and log in specific organization",
+        "GET /api/logs/webhook/org/:orgName/:documentID":
+          "Get log from specific organization and document id",
+        "GET /api/document/webhook/org/:orgName/integrity/:documentID":
+          "Get integrity of specific document from specific organization",
+        "GET /api/logs/webhook/org/:orgName/integrity/:documentID":
+          "Get integrity of logs from specific organization and document id",
       },
     },
     fabric: {
@@ -156,16 +154,6 @@ app.get(
   asyncHandler(userController.checkUserExistsOrg)
 );
 
-// Multi-org document routes
-// app.post(
-//   "/api/documents/:orgName",
-//   asyncHandler(documentController.createPrivateDocumentOrg)
-// );
-// app.get(
-//   "/api/documents/org/:orgName",
-//   asyncHandler(documentController.getDocumentsByOrg)
-// );
-
 app.post(
   "/api/documents/:orgName",
   verifyToken,
@@ -185,15 +173,6 @@ app.get(
   validateOrgAccess,
   documentController.readAllDocumentByOrgWithIntegrityCheck.bind(documentController)
 );
-// Multi-org log routes
-// app.post(
-//   "/api/logs/:orgName",
-//   asyncHandler(logController.createPrivateLogDocumentOrg)
-// );
-// app.get(
-//   "/api/logs/org/:orgName/:documentID",
-//   asyncHandler(logController.getLogsByDocumentId)
-// );
 
 app.post(
   "/api/logs/:orgName",
@@ -234,20 +213,6 @@ app.use(notFoundHandler);
 
 app.use(errorHandler);
 
-// Graceful shutdown
-// process.on("SIGTERM", () => {
-//   console.log("SIGTERM signal received: closing HTTP server");
-//   server.close(() => {
-//     console.log("HTTP server closed");
-//   });
-// });
-
-// process.on("SIGINT", () => {
-//   console.log("SIGINT signal received: closing HTTP server");
-//   server.close(() => {
-//     console.log("HTTP server closed");
-//   });
-// });
 let server;
 
 async function gracefulShutdown(signal) {
@@ -301,11 +266,6 @@ async function startServer() {
         `Initialize all networks: POST http://localhost:${port}/api/init`
       );
       console.log("=".repeat(70));
-      console.log(`Your Chaincode Functions:`);
-      console.log(`CreatePrivateDocument`);
-      console.log(`CreatePrivateLogDocument`);
-      console.log(`ReadAllDocumentByOrg`);
-      console.log(`ReadAllLogByDocumentID`);
       console.log("=".repeat(70));
       console.log(`Fabric Configuration:`);
       console.log(`Channel: ${config.channelName}`);
@@ -326,16 +286,15 @@ async function startServer() {
 
       console.log("=".repeat(70));
       console.log("Available API Endpoints (matches your chaincode):");
-      console.log("   Documents:");
-      console.log("     - POST /api/documents/org1 (create in Org1)");
-      console.log("     - POST /api/documents/org2 (create in Org2)");
-      console.log("     - GET /api/documents/org/org1 (read from Org1)");
-      console.log("     - GET /api/documents/org/org2 (read from Org2)");
-      console.log("   Logs:");
-      console.log("     - POST /api/logs/org1 (create in Org1)");
-      console.log("     - POST /api/logs/org2 (create in Org2)");
-      console.log("     - GET /api/logs/org/org1/[docID] (read from Org1)");
-      console.log("     - GET /api/logs/org/org2/[docID] (read from Org2)");
+      console.log("   wenhook:");
+      console.log("     - POST /api/webhook/org1 (create in Org1)");
+      console.log("     - POST /api/webhook/org2 (create in Org2)");
+      console.log("     - GET /api/logs/webhook/org/org1/[documentID] (read log from Org1)");
+      console.log("     - GET /api/logs/webhook/org/org2/[documentID] (read log from Org2)");
+      console.log("     - GET /api/document/webhook/org/org1/integrity/[documentID] (read doc integrity from Org1)");
+      console.log("     - GET /api/document/webhook/org/org2/integrity/[documentID] (read doc integrity from Org2)");
+      console.log("     - GET /api/logs/webhook/org/org1/integrity/[documentID] (read log integrity from Org1)");
+      console.log("     - GET /api/logs/webhook/org/org2/integrity/[documentID] (read log integroty from Org2)");
       console.log("=".repeat(70));
     });
   } catch (error) {

@@ -92,7 +92,8 @@ class FabricNatsBridge {
       const invokeHandlers = {
         CreatePrivateDocument: () => this.handleCreateDocument(args),
         CreatePrivateLogDocument: () => this.handleCreateLog(args),
-        CreatePrivateLogDocumentWebhook: () => this.handleCreateLogWebhook(args),
+        CreatePrivateLogDocumentWebhook: () =>
+          this.handleCreateLogWebhook(args),
         CreatePrivateDataWebhook: () => this.handleCreateWebhook(args),
       };
 
@@ -155,11 +156,17 @@ class FabricNatsBridge {
       file: args[5],
       recipients: args[6],
     };
-    return await fabricService.createPrivateDataWebhook(
+    fabricService.createPrivateDataWebhook(
       webhookData,
       args[7],
       this.orgName
     );
+
+    return {
+      success: true,
+      message: "Webhook data processed and submitted to blockchain",
+      data: webhookData,
+    };
   }
 
   async handleCreateDocument(args) {
@@ -191,10 +198,14 @@ class FabricNatsBridge {
       const queryHandlers = {
         ReadAllDocumentsByOrg: () => this.handleReadAllDocuments(args, userId),
         ReadAllLogsByDocumentID: () => this.handleReadAllLogs(args, userId),
-        ReadAllLogsByDocumentIDWebhook: () => this.handleReadAllLogsWebhook(args, userId),
-        ReadAllDocumentByOrgWithIntegrityCheck: () => this.handleReadAllDocumentsWithIntegrityCheck(args, userId),
-        ReadAllLogByDocumentIDWithIntegrityCheck: () => this.handleReadAllLogsWithIntegrityCheck(args, userId),
-        ReadDocumentByIDWithIntegrityCheckWebhook: () => this.handleReadDocumentByIDWithIntegrityCheckWebhook(args, userId)
+        ReadAllLogsByDocumentIDWebhook: () =>
+          this.handleReadAllLogsWebhook(args, userId),
+        ReadAllDocumentByOrgWithIntegrityCheck: () =>
+          this.handleReadAllDocumentsWithIntegrityCheck(args, userId),
+        ReadAllLogByDocumentIDWithIntegrityCheck: () =>
+          this.handleReadAllLogsWithIntegrityCheck(args, userId),
+        ReadDocumentByIDWithIntegrityCheckWebhook: () =>
+          this.handleReadDocumentByIDWithIntegrityCheckWebhook(args, userId),
       };
 
       let result;
@@ -277,7 +288,7 @@ class FabricNatsBridge {
       this.orgName
     );
   }
-  
+
   async sendResponse(requestId, data) {
     try {
       await this.natsService.publish(

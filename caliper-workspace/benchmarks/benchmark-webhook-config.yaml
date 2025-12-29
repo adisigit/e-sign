@@ -1,0 +1,105 @@
+test:
+  name: E-Sign PDC Webhook Benchmark
+  description: Performance testing for CreatePrivateDataWebhook performance
+  workers:
+    number: 5
+  rounds:
+    # Round 1: Create private logs - Low load
+    - label: create-pdc-webhook-low
+      description: Create PDC Webhook at 10 TPS
+      txNumber: 100
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 10
+      workload:
+        module: workload/create-pdc-webhook.js
+        arguments:
+          orgName: org1
+          collectionLog: collectionOrg1
+      invokerIdentity: User1Org1  # Added - Use Org1 identity for Org1 collection
+      invokerMspId: Org1MSP
+      contractOptions:
+        endorsingOrganizations:
+          - Org1MSP
+      targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+
+    # Round 2: Create private logs - Medium load
+    - label: create-pdc-webhook-medium
+      description: Create PDC Webhook at 50 TPS
+      txNumber: 500
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 50
+      workload:
+        module: workload/create-pdc-webhook.js
+        arguments:
+          orgName: org1
+          collectionLog: collectionOrg1
+      invokerIdentity: User1Org1  # Added
+      invokerMspId: Org1MSP
+      contractOptions:
+        endorsingOrganizations:
+          - Org1MSP
+      targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+
+    # Round 3: Create private logs - High load
+    - label: create-pdc-webhook-high
+      description: Create PDC Webhook at 100 TPS
+      txNumber: 1000
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100
+      workload:
+        module: workload/create-pdc-webhook.js
+        arguments:
+          orgName: org1
+          collectionLog: collectionOrg1
+      invokerIdentity: User1Org1  # Added
+      invokerMspId: Org1MSP
+      contractOptions:
+        endorsingOrganizations:
+          - Org1MSP
+      targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+
+    # # Round 4: Test Org2
+    # - label: create-pdc-webhook-org2 use org1 identity
+    #   description: Create PDC Webhook for Org2 use org1 identity
+    #   txNumber: 50
+    #   rateControl:
+    #     type: fixed-rate
+    #     opts:
+    #       tps: 50
+    #   workload:
+    #     module: workload/create-pdc-webhook.js
+    #     arguments:
+    #       orgName: org2
+    #       collectionLog: collectionOrg2
+    #   invokerIdentity: User1Org2  # Added - Use Org2 identity for Org2 collection
+    #   invokerMspId: Org2MSP
+    #   contractOptions:
+    #     endorsingOrganizations:
+    #       - Org2MSP
+    #   targetPeers:
+    #   - peer0.org2.esign.com
+    #   - peer1.org2.esign.com
+
+monitors:
+  resource:
+    - module: docker
+      options:
+        interval: 5
+        containers:
+          - peer0.org1.esign.com
+          - peer1.org1.esign.com
+          - peer0.org2.esign.com
+          - peer1.org2.esign.com
+          - orderer.esign.com

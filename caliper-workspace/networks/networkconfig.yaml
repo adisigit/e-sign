@@ -24,7 +24,7 @@ organizations:
       certificates:
         - name: User1Org1
           clientPrivateKey:
-            path: ../organizations/peerOrganizations/org1.esign.com/users/User1@org1.esign.com/msp/keystore/1ecd93c11c686ad30c67f7a53fe2f351618407caed69c454a05de096148bc646_sk
+            path: ../organizations/peerOrganizations/org1.esign.com/users/User1@org1.esign.com/msp/keystore/cee41eb7b03d5c5d8b10ca435e4506353ef22710adfb8dab6a04e003d0c86435_sk
           clientSignedCert:
             path: ../organizations/peerOrganizations/org1.esign.com/users/User1@org1.esign.com/msp/signcerts/cert.pem
     connectionProfile:
