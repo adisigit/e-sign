@@ -90,10 +90,6 @@ class FabricNatsBridge {
       });
 
       const invokeHandlers = {
-        CreatePrivateDocument: () => this.handleCreateDocument(args),
-        CreatePrivateLogDocument: () => this.handleCreateLog(args),
-        CreatePrivateLogDocumentWebhook: () =>
-          this.handleCreateLogWebhook(args),
         CreatePrivateDataWebhook: () => this.handleCreateWebhook(args),
       };
 
@@ -114,36 +110,6 @@ class FabricNatsBridge {
         org: this.orgName,
       });
     }
-  }
-
-  async handleCreateLog(args) {
-    const logData = {
-      collectionLog: args[0] || this.orgConfig.collections.logs,
-      documentID: args[1],
-      actorID: args[2],
-      actorName: args[3],
-      action: args[4],
-    };
-    return await fabricService.createPrivateLogDocument(
-      logData,
-      args[5],
-      this.orgName
-    );
-  }
-
-  async handleCreateLogWebhook(args) {
-    const logData = {
-      collectionLog: args[0] || this.orgConfig.collections.logs,
-      documentID: args[1],
-      documentName: args[2],
-      documentDescription: args[3],
-      action: args[4],
-    };
-    return await fabricService.createPrivateLogDocumentWebhook(
-      logData,
-      args[5],
-      this.orgName
-    );
   }
 
   async handleCreateWebhook(args) {
@@ -169,22 +135,6 @@ class FabricNatsBridge {
     };
   }
 
-  async handleCreateDocument(args) {
-    const docData = {
-      collection: args[0] || this.orgConfig.collections.documents,
-      documentID: args[1],
-      documentName: args[2],
-      ownerID: args[3],
-      ownerName: args[4],
-      status: args[5],
-    };
-    return await fabricService.createPrivateDocument(
-      docData,
-      args[6],
-      this.orgName
-    );
-  }
-
   async handleQueryCommand(data, msg) {
     const { requestId, functionName, args, userId } = data;
 
@@ -196,12 +146,8 @@ class FabricNatsBridge {
       });
 
       const queryHandlers = {
-        ReadAllDocumentsByOrg: () => this.handleReadAllDocuments(args, userId),
-        ReadAllLogsByDocumentID: () => this.handleReadAllLogs(args, userId),
         ReadAllLogsByDocumentIDWebhook: () =>
           this.handleReadAllLogsWebhook(args, userId),
-        ReadAllDocumentByOrgWithIntegrityCheck: () =>
-          this.handleReadAllDocumentsWithIntegrityCheck(args, userId),
         ReadAllLogByDocumentIDWithIntegrityCheck: () =>
           this.handleReadAllLogsWithIntegrityCheck(args, userId),
         ReadDocumentByIDWithIntegrityCheckWebhook: () =>
@@ -227,41 +173,12 @@ class FabricNatsBridge {
     }
   }
 
-  async handleReadAllDocuments(args, userId) {
-    const collection = args[0] || this.orgConfig.collections.documents;
-    return await fabricService.readAllDocumentsByOrg(
-      collection,
-      userId,
-      this.orgName
-    );
-  }
-
-  async handleReadAllLogs(args, userId) {
-    const collectionLog = args[0] || this.orgConfig.collections.logs;
-    const documentID = args[1];
-    return await fabricService.readAllLogsByDocumentID(
-      collectionLog,
-      documentID,
-      userId,
-      this.orgName
-    );
-  }
-
   async handleReadAllLogsWebhook(args, userId) {
     const collectionLog = args[0] || this.orgConfig.collections.logs;
     const documentID = args[1];
     return await fabricService.readAllLogsByDocumentIDWebhook(
       collectionLog,
       documentID,
-      userId,
-      this.orgName
-    );
-  }
-
-  async handleReadAllDocumentsWithIntegrityCheck(args, userId) {
-    const collection = args[0] || this.orgConfig.collections.documents;
-    return await fabricService.readAllDocumentByOrgWithIntegrityCheck(
-      collection,
       userId,
       this.orgName
     );

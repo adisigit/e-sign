@@ -3,11 +3,8 @@ package chaincode
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"encoding/json"
 	"fmt"
-	"time"
 
-	"github.com/google/uuid"
 	"github.com/hyperledger/fabric-contract-api-go/v2/contractapi"
 )
 
@@ -39,40 +36,4 @@ func (s *SmartContract) validateDataHash(ctx contractapi.TransactionContextInter
 	fmt.Printf("===================\n")
 
 	return currentHashString == chainHashString, nil
-}
-
-// func (s *SmartContract) validateDataHash(ctx contractapi.TransactionContextInterface, collection string, key string, value []byte) (bool, error) {
-// 	currentHash := sha256.Sum256(value)
-
-// 	hashFromChain, err := ctx.GetStub().GetPrivateDataHash(collection, key)
-// 	if err != nil {
-// 		return false, err
-// 	}
-
-// 	if hashFromChain == nil {
-// 		return false, fmt.Errorf("no hash found in blockchain")
-// 	}
-
-// 	return hex.EncodeToString(currentHash[:]) == hex.EncodeToString(hashFromChain), nil
-// }
-
-func (s *SmartContract) logCorruptionDetected(ctx contractapi.TransactionContextInterface, collection string, documentID string) {
-	collectionLog := collection + "Log"
-
-	log := PrivateLogDocument{
-		CollectionLog: collectionLog,
-		ID:            uuid.New().String(),
-		DocumentID:    documentID,
-		ActorID:       "SYSTEM",
-		ActorName:     "Integrity Monitor",
-		Action:        "CORRUPTION_DETECTED",
-		Timestamp:     time.Now().UTC().Format(time.RFC3339),
-	}
-
-	logJson, err := json.Marshal(log)
-	if err != nil {
-		return
-	}
-
-	ctx.GetStub().PutPrivateData(collectionLog, log.ID, logJson)
 }

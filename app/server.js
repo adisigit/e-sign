@@ -6,8 +6,6 @@ const { verifyToken, validateOrgAccess } = require("./middlewares/auth");
 // Import controllers
 const bridgeController = require("./controllers/bridge-controller");
 const userController = require("./controllers/user-controller");
-const documentController = require("./controllers/document-controller-nats");
-const logController = require("./controllers/log-controller-nats");
 const webhookController = require("./controllers/webhok-controller-nats");
 
 // Import middlewares
@@ -46,12 +44,6 @@ app.get("/api", (req, res) => {
   res.json({
     service: "Hyperledger Fabric E-Sign API (Multi-Organization Support)",
     version: "2.0.0",
-    chaincodeFunctions: [
-      "CreatePrivateDocument",
-      "CreatePrivateLogDocument",
-      "ReadAllDocumentByOrg",
-      "ReadAllLogByDocumentID",
-    ],
     organizations: config.getAllOrgs().map((orgName) => {
       const orgConfig = config.getOrgConfig(orgName);
       return {
@@ -154,42 +146,12 @@ app.get(
   asyncHandler(userController.checkUserExistsOrg)
 );
 
-app.post(
-  "/api/documents/:orgName",
-  verifyToken,
-  validateOrgAccess,
-  documentController.createPrivateDocument.bind(documentController)
-);
-app.get(
-  "/api/documents/org/:orgName",
-  verifyToken,
-  validateOrgAccess,
-  documentController.getDocumentsByOrg.bind(documentController)
-);
-
-app.get(
-  "/api/documents/org/:orgName/integrity",
-  verifyToken,
-  validateOrgAccess,
-  documentController.readAllDocumentByOrgWithIntegrityCheck.bind(documentController)
-);
-
-app.post(
-  "/api/logs/:orgName",
-  verifyToken,
-  validateOrgAccess,
-  logController.createPrivateLogDocumentOrg.bind(logController)
-);
-app.post(
-  "/api/logs/webhook/:orgName",
-  logController.createPrivateLogDocumentOrgWebhook.bind(logController)
-);
-app.get(
-  "/api/logs/org/:orgName/:documentID",
-  verifyToken,
-  validateOrgAccess,
-  logController.getLogsByDocumentId.bind(logController)
-);
+// app.get(
+//   "/api/logs/org/:orgName/:documentID",
+//   verifyToken,
+//   validateOrgAccess,
+//   logController.getLogsByDocumentId.bind(logController)
+// );
 
 
 app.post(
