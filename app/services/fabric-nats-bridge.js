@@ -44,6 +44,11 @@ class FabricNatsBridge {
         [`fabric.${this.orgName}.response.*`, `fabric.${this.orgName}.event.*`]
       );
 
+      await this.natsService.createStream(
+        `FABRIC_FIREFORGET_${this.orgName.toUpperCase()}`,
+        [`fabric.${this.orgName}.fireforget.>`]
+      );
+
       await this.natsService.createConsumer(
         `FABRIC_COMMANDS_${this.orgName.toUpperCase()}`,
         `${this.orgName}_command_processor`,
@@ -113,7 +118,12 @@ class FabricNatsBridge {
   }
 
   async handleCreateWebhook(args) {
+    const requestId = `${this.orgName}_${Date.now()}_${Math.random()
+      .toString(36)
+      .substr(2, 9)}`;
+
     const webhookData = {
+      requestId,
       collection: args[0] || this.orgConfig.collections.documents,
       id: args[1],
       documentCategoryCode: args[2],
@@ -122,15 +132,40 @@ class FabricNatsBridge {
       file: args[5],
       recipients: args[6],
     };
-    fabricService.createPrivateDataWebhook(
-      webhookData,
-      args[7],
-      this.orgName
-    );
+    
+    (async () => {
+      try {
+        const result = await fabricService.createPrivateDataWebhook(
+          webhookData,
+          args[7],
+          this.orgName
+        );
+    
+        await this.natsService.publish(
+          `fabric.${this.orgName}.fireforget.webhook.success`,
+          {
+            requestId: webhookData.requestId,
+            type: "CreatePrivateDataWebhook",
+            txId: result?.txId || null,
+            timestamp: new Date().toISOString(),
+          }
+        );
+      } catch (err) {
+        await this.natsService.publish(
+          `fabric.${this.orgName}.fireforget.webhook.error`,
+          {
+            requestId: webhookData.requestId,
+            type: "CreatePrivateDataWebhook",
+            error: err.message,
+            timestamp: new Date().toISOString(),
+          }
+        );
+      }
+    })();    
 
     return {
       success: true,
-      message: "Webhook data processed and submitted to blockchain",
+      message: "Webhook accepted (processing asynchronously)",
       data: webhookData,
     };
   }

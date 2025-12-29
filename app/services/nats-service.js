@@ -112,7 +112,7 @@ class NatsService {
       return ack;
     } catch (error) {
       console.error(`Error publishing to ${subject}:`, error.message);
-      throw error;
+      return null;
     }
   }
 

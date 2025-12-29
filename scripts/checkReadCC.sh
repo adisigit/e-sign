@@ -28,6 +28,6 @@ if ! CORE_PEER_LOCALMSPID=Org2MSP \
    peer chaincode query \
       -C e-sign-channel \
       -n basic \
-      -c '{"Args":["ReadAllLogByDocumentIDWithIntegrityCheck","collectionOrg2Log", "019b5a2d-6e19-79a4-9807-f207af91346b"]}'; then
+      -c '{"Args":["ReadAllLogByDocumentIDWithIntegrityCheck","collectionOrg1Log", "019b5a2d-6e19-79a4-9807-f207af91346b"]}'; then
     echo "Org2 could not read the asset"
 fi

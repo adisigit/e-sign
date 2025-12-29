@@ -79,8 +79,9 @@ class WebhookController {
   }
 
   async getLogsByDocumentIdWebhook(req, res) {
+    const { orgName = "org1" } = req.params;
     try {
-      const { orgName = "org1", documentID } = req.params;
+      const { documentID } = req.params;
       const { collectionLog, userId = "admin" } = req.query;
 
       if (!config.organizations[orgName]) {
