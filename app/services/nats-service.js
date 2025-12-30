@@ -119,36 +119,65 @@ class NatsService {
   async subscribe(streamName, consumerName, callback) {
     try {
       const consumer = await this.js.consumers.get(streamName, consumerName);
-      
       const messages = await consumer.consume();
-      
-      console.log(`Subscribed to stream '${streamName}' consumer '${consumerName}' for ${this.orgName}`);
+      console.log(
+        `Subscribed to stream '${streamName}' consumer '${consumerName}' for ${this.orgName}`
+      );
+  
       (async () => {
         for await (const msg of messages) {
+          const deliveryCount = msg.info?.deliveryCount || 1;
           try {
-            const data = this.jc.decode(msg.data);
-            
+            const data = this.jc.decode(msg.data);  
+
             console.log(`Received message from ${this.orgName}:`, {
               subject: msg.subject,
               seq: msg.seq,
-              data: data
+              deliveryCount,
+              data,
             });
             await callback(data, msg);
             msg.ack();
           } catch (error) {
-            console.error(`Error processing message:`, error.message);
-            msg.nak();
+            console.error(
+              `[${this.orgName}] Error processing message (attempt ${deliveryCount}):`,
+              error.message
+            );
+            if (
+              error.message.includes("does not have write access") ||
+              error.message.includes("validation") ||
+              deliveryCount >= 3
+            ) {
+              console.error("Permanent error, sending to DLQ & stop retry");
+  
+              await this.publish(
+                `fabric.${this.orgName}.dlq`,
+                {
+                  subject: msg.subject,
+                  error: error.message,
+                  data: this.jc.decode(msg.data),
+                  retries: deliveryCount,
+                  timestamp: new Date().toISOString(),
+                }
+              );
+  
+              msg.ack();
+              continue;
+            }
+
+            const delayMs = Math.min(10000 * deliveryCount, 60000);
+            console.warn(`Retrying in ${delayMs} ms`);
+            msg.nak(delayMs);
           }
         }
       })().catch((error) => {
         console.error(`Error in message loop:`, error.message);
       });
-
     } catch (error) {
       console.error(`Error subscribing to stream:`, error.message);
       throw error;
     }
-  }
+  }  
 
   async close() {
     if (this.connection) {

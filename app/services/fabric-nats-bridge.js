@@ -49,6 +49,11 @@ class FabricNatsBridge {
         [`fabric.${this.orgName}.fireforget.>`]
       );
 
+      await this.natsService.createStream(
+        `FABRIC_DLQ_${this.orgName.toUpperCase()}`,
+        [`fabric.${this.orgName}.dlq`]
+      );      
+
       await this.natsService.createConsumer(
         `FABRIC_COMMANDS_${this.orgName.toUpperCase()}`,
         `${this.orgName}_command_processor`,
@@ -118,9 +123,7 @@ class FabricNatsBridge {
   }
 
   async handleCreateWebhook(args) {
-    const requestId = `${this.orgName}_${Date.now()}_${Math.random()
-      .toString(36)
-      .substr(2, 9)}`;
+    const requestId = this.generateRequestId();
 
     const webhookData = {
       requestId,
@@ -142,7 +145,7 @@ class FabricNatsBridge {
         );
     
         await this.natsService.publish(
-          `fabric.${this.orgName}.fireforget.webhook.success`,
+          `fabric.${this.orgName}.fireforget.webhook.success.${webhookData.requestId}`,
           {
             requestId: webhookData.requestId,
             type: "CreatePrivateDataWebhook",
@@ -152,7 +155,7 @@ class FabricNatsBridge {
         );
       } catch (err) {
         await this.natsService.publish(
-          `fabric.${this.orgName}.fireforget.webhook.error`,
+          `fabric.${this.orgName}.fireforget.webhook.error.${webhookData.requestId}`,
           {
             requestId: webhookData.requestId,
             type: "CreatePrivateDataWebhook",
