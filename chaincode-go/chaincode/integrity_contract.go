@@ -7,54 +7,6 @@ import (
 	"github.com/hyperledger/fabric-contract-api-go/v2/contractapi"
 )
 
-func (s *SmartContract) ReadAllDocumentByOrgWithIntegrityCheck(ctx contractapi.TransactionContextInterface, collection string) (map[string]interface{}, error) {
-	resultsIterator, err := ctx.GetStub().GetPrivateDataByRange(collection, "", "")
-	if err != nil {
-		return nil, fmt.Errorf("failed to get documents from %s: %v", collection, err)
-	}
-	defer resultsIterator.Close()
-
-	var documents []*PrivateDocument
-	var corruptedDocs []string
-	validCount := 0
-	corruptedCount := 0
-
-	for resultsIterator.HasNext() {
-		queryResponse, err := resultsIterator.Next()
-		if err != nil {
-			return nil, err
-		}
-
-		isValid, _ := s.validateDataHash(ctx, collection, queryResponse.Key, queryResponse.Value)
-
-		var document PrivateDocument
-		err = json.Unmarshal(queryResponse.Value, &document)
-		if err != nil {
-			return nil, err
-		}
-
-		documents = append(documents, &document)
-
-		if isValid {
-			validCount++
-		} else {
-			corruptedCount++
-			corruptedDocs = append(corruptedDocs, queryResponse.Key)
-		}
-	}
-
-	result := map[string]interface{}{
-		"documents":       documents,
-		"totalCount":      len(documents),
-		"validCount":      validCount,
-		"corruptedCount":  corruptedCount,
-		"corruptedDocs":   corruptedDocs,
-		"integrityStatus": corruptedCount == 0,
-	}
-
-	return result, nil
-}
-
 func (s *SmartContract) ReadDocumentByIDWithIntegrityCheckWebhook(ctx contractapi.TransactionContextInterface, collection string, documentID string) (map[string]interface{}, error) {
 	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
 	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collection, query)

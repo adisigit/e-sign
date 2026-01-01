@@ -84,119 +84,6 @@ async function evaluateTransaction(functionName, userId, orgName = 'org1', ...ar
     }
 }
 
-async function createPrivateDocument(docData, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-        console.log(userId);
-
-        if (!docData.collection) {
-            docData.collection = orgConfig.collections.documents;
-        }
-
-        const transientData = {
-            doc: Buffer.from(JSON.stringify(docData))
-        };
-
-        await submitTransaction('CreatePrivateDocument', transientData, userId, orgName);
-        
-        return { 
-            success: true, 
-            message: `Document created successfully in ${orgConfig.name}`,
-            data: { ...docData, organization: orgConfig.name }
-        };
-    } catch (error) {
-        console.error(`Error creating private document for ${orgName}:`, error);
-        throw error;
-    }
-}
-
-async function createPrivateLogDocument(logData, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-
-        if (!logData.collectionLog) {
-            logData.collectionLog = orgConfig.collections.logs;
-        }
-
-        const transientData = {
-            log: Buffer.from(JSON.stringify(logData))
-        };
-
-        await submitTransaction('CreatePrivateLogDocument', transientData, userId, orgName);
-        
-        return { 
-            success: true, 
-            message: `Log created successfully in ${orgConfig.name}`,
-            data: { ...logData, organization: orgConfig.name }
-        };
-    } catch (error) {
-        console.error(`Error creating private log document for ${orgName}:`, error);
-        throw error;
-    }
-}
-
-async function createPrivateLogDocumentWebhook(logData, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-
-        if (!logData.collectionLog) {
-            logData.collectionLog = orgConfig.collections.logs;
-        }
-
-        const transientData = {
-            log: Buffer.from(JSON.stringify(logData))
-        };
-
-        await submitTransaction('CreatePrivateLogDocumentWebhook', transientData, userId, orgName);
-        
-        return { 
-            success: true, 
-            message: `Log webhook created successfully in ${orgConfig.name}`,
-            data: { ...logData, organization: orgConfig.name }
-        };
-    } catch (error) {
-        console.error(`Error creating private log document webhook for ${orgName}:`, error);
-        throw error;
-    }
-}
-
-async function readAllDocumentsByOrg(collection = null, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-
-        const targetCollection = collection || orgConfig.collections.documents;
-
-        const result = await evaluateTransaction('ReadAllDocumentByOrg', userId, orgName, targetCollection);
-        const documents = JSON.parse(result.toString());
-        
-        return { 
-            success: true, 
-            data: documents.map(doc => ({ ...doc, organization: orgConfig.name }))
-        };
-    } catch (error) {
-        console.error(`Error reading documents by org for ${orgName}:`, error);
-        throw error;
-    }
-}
-
-async function readAllLogsByDocumentID(collectionLog = null, documentID, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-        const targetCollection = collectionLog || orgConfig.collections.logs;
-
-        const result = await evaluateTransaction('ReadAllLogByDocumentID', userId, orgName, targetCollection, documentID);
-        const logs = JSON.parse(result.toString());
-        
-        return { 
-            success: true, 
-            data: logs.map(log => ({ ...log, organization: orgConfig.name }))
-        };
-    } catch (error) {
-        console.error(`Error reading logs by document ID for ${orgName}:`, error);
-        throw error;
-    }
-}
-
 async function createPrivateDataWebhook(webhookData, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
@@ -237,19 +124,6 @@ async function readAllLogsByDocumentIDWebhook(collectionLog = null, documentID, 
         };
     } catch (error) {
         console.error(`Error reading logs by document ID webhook for ${orgName}:`, error);
-        throw error;
-    }
-}
-
-async function readAllDocumentByOrgWithIntegrityCheck(collection = null, userId, orgName = 'org1') {
-    try {
-        const orgConfig = config.getOrgConfig(orgName);
-        const targetCollection = collection || orgConfig.collections.documents;
-        const result = await evaluateTransaction('ReadAllDocumentByOrgWithIntegrityCheck', userId, orgName, targetCollection);
-        const documents = JSON.parse(result.toString());
-        return documents;
-    } catch (error) {
-        console.error(`Error reading all documents by org with integrity check for ${orgName}:`, error);
         throw error;
     }
 }

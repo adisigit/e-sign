@@ -1,24 +1,5 @@
 package chaincode
 
-type PrivateDocument struct {
-	Collection   string `json:"collection"`
-	ID           string `json:"documentID"`
-	DocumentName string `json:"documentName"`
-	OwnerID      string `json:"ownerID"`
-	OwnerName    string `json:"ownerName"`
-	Status       string `json:"status"`
-}
-
-type PrivateLogDocument struct {
-	CollectionLog string `json:"collectionLog"`
-	ID            string `json:"logID"`
-	DocumentID    string `json:"documentID"`
-	ActorID       string `json:"actorID"`
-	ActorName     string `json:"actorName"`
-	Action        string `json:"action"`
-	Timestamp     string `json:"timestamp,omitempty"`
-}
-
 type PrivateDocumentWebhook struct {
 	Collection           string `json:"collection"`
 	ID                   string `json:"documentID"`
