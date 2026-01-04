@@ -75,22 +75,6 @@ function createOrg1() {
     --csr.cn peer0.org1.esign.com \
     --csr.hosts peer0.org1.esign.com \
     --csr.hosts localhost \
-    --csr.hosts 127.0.0.1 \
-    --csr.hosts 0.0.0.0 \
-    --csr.hosts 172.18.0.2 \
-    --csr.hosts 172.18.0.3 \
-    --csr.hosts 172.18.0.4 \
-    --csr.hosts 172.18.0.5 \
-    --csr.hosts 172.18.0.6 \
-    --csr.hosts 172.18.0.7 \
-    --csr.hosts 172.18.0.8 \
-    --csr.hosts 172.18.0.9 \
-    --csr.hosts 172.18.0.10 \
-    --csr.hosts 172.18.0.11 \
-    --csr.hosts 172.18.0.12 \
-    --csr.hosts 172.18.0.13 \
-    --csr.hosts 172.18.0.14 \
-    --csr.hosts 172.18.0.15 \
     --tls.certfiles "${TLS_CA_CERT}"
 
   # Reset FABRIC_CA_CLIENT_HOME for other operations
@@ -132,22 +116,6 @@ function createOrg1() {
     --csr.cn peer1.org1.esign.com \
     --csr.hosts peer1.org1.esign.com \
     --csr.hosts localhost \
-    --csr.hosts 127.0.0.1 \
-    --csr.hosts 0.0.0.0 \
-    --csr.hosts 172.18.0.2 \
-    --csr.hosts 172.18.0.3 \
-    --csr.hosts 172.18.0.4 \
-    --csr.hosts 172.18.0.5 \
-    --csr.hosts 172.18.0.6 \
-    --csr.hosts 172.18.0.7 \
-    --csr.hosts 172.18.0.8 \
-    --csr.hosts 172.18.0.9 \
-    --csr.hosts 172.18.0.10 \
-    --csr.hosts 172.18.0.11 \
-    --csr.hosts 172.18.0.12 \
-    --csr.hosts 172.18.0.13 \
-    --csr.hosts 172.18.0.14 \
-    --csr.hosts 172.18.0.15 \
     --tls.certfiles "${TLS_CA_CERT}"
 
   # Reset FABRIC_CA_CLIENT_HOME

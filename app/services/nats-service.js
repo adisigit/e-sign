@@ -10,8 +10,8 @@ class NatsService {
     this.jc = JSONCodec();
 
     this.servers = {
-      org1: 'nats://localhost:4222',
-      org2: 'nats://localhost:4223'
+      org1: 'nats://nats.org1.esign.com:4222',
+      org2: 'nats://nats.org2.esign.com:4222'
     };
   }
 

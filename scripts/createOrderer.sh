@@ -88,7 +88,6 @@ EOF
     --enrollment.profile tls \
     --csr.hosts orderer.esign.com \
     --csr.hosts localhost \
-    --csr.hosts 172.18.0.10 \
     --tls.certfiles "${TLS_CA_CERT}"
 
   # copy / rename tls artifacts for easy reference by docker-compose

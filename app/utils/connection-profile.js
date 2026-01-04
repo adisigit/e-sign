@@ -71,7 +71,7 @@ async function createConnectionProfile(orgName = "org1") {
             pem: caTLS,
           },
           httpOptions: {
-            verify: false,
+            verify: true,
           },
         },
       },

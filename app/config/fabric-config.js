@@ -9,7 +9,7 @@ const config = {
     // TLS CA Configuration (separate CA for TLS certificates)
     tlsCA: {
         name: 'tlsca-esign',
-        url: 'https://localhost:10054',
+        url: 'https://ca_tls:10054',
         port: 10054,
         caName: 'tlsca-esign',
         paths: {
@@ -31,7 +31,7 @@ const config = {
                 logs: 'collectionOrg1Log'
             },
             paths: {
-                connectionProfile: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org1.esign.com', 'connection-org1.json'),
+                connectionProfile: path.resolve(__dirname, '..', 'organizations', 'peerOrganizations', 'org1.esign.com', 'connection-org1.json'),
                 wallet: path.join(process.cwd(), 'wallet-org1'),
                 certificates: {
                     // TLS CA certificates (actual file name)
@@ -48,21 +48,21 @@ const config = {
             endpoints: {
                 peers: {
                     peer0: {
-                        url: 'grpcs://localhost:7051',
+                        url: 'grpcs://peer0.org1.esign.com:7051',
                         hostname: 'peer0.org1.esign.com',
                         // TLS options
                         tlsEnabled: true,
                         tlsCert: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org1.esign.com', 'peers', 'peer0.org1.esign.com', 'tls', 'ca.crt')
                     },
                     peer1: {
-                        url: 'grpcs://localhost:8051',
+                        url: 'grpcs://peer1.org1.esign.com:8051',
                         hostname: 'peer1.org1.esign.com',
                         tlsEnabled: true,
                         tlsCert: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org1.esign.com', 'peers', 'peer1.org1.esign.com', 'tls', 'ca.crt')
                     }
                 },
                 ca: {
-                    url: 'https://localhost:7054',
+                    url: 'https://ca_org1:7054',
                     name: 'ca-org1',
                     tlsEnabled: true,
                     tlsCert: path.resolve(__dirname, '..', '..', 'ca', 'ca-org1', 'data-org1', 'tls-cert.pem')
@@ -80,7 +80,7 @@ const config = {
                 logs: 'collectionOrg2Log'
             },
             paths: {
-                connectionProfile: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org2.esign.com', 'connection-org2.json'),
+                connectionProfile: path.resolve(__dirname, '..', 'organizations', 'peerOrganizations', 'org2.esign.com', 'connection-org2.json'),
                 wallet: path.join(process.cwd(), 'wallet-org2'),
                 certificates: {
                     // TLS CA certificates (actual file name - same for both orgs)
@@ -97,21 +97,21 @@ const config = {
             endpoints: {
                 peers: {
                     peer0: {
-                        url: 'grpcs://localhost:9051',
+                        url: 'grpcs://peer0.org2.esign.com:9051',
                         hostname: 'peer0.org2.esign.com',
                         // TLS options
                         tlsEnabled: true,
                         tlsCert: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org2.esign.com', 'peers', 'peer0.org2.esign.com', 'tls', 'ca.crt')
                     },
                     peer1: {
-                        url: 'grpcs://localhost:10051',
+                        url: 'grpcs://peer1.org2.esign.com:10051',
                         hostname: 'peer1.org2.esign.com',
                         tlsEnabled: true,
                         tlsCert: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org2.esign.com', 'peers', 'peer1.org2.esign.com', 'tls', 'ca.crt')
                     }
                 },
                 ca: {
-                    url: 'https://localhost:8054',
+                    url: 'https://ca_org2:8054',
                     name: 'ca-org2',
                     tlsEnabled: true,
                     tlsCert: path.resolve(__dirname, '..', '..', 'ca', 'ca-org2', 'data-org2', 'tls-cert.pem')

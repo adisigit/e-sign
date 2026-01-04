@@ -14,6 +14,8 @@ services:
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_PORT=9054
       - FABRIC_CA_SERVER_OPERATIONS_LISTENADDRESS=0.0.0.0:17054
+      - FABRIC_CA_SERVER_CSR_CN=ca_orderer
+      - FABRIC_CA_SERVER_CSR_HOSTS=ca_orderer,localhost
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
       - ./fabric-ca-server-config:/etc/hyperledger/fabric-ca-server

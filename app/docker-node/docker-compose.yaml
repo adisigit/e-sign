@@ -1,0 +1,22 @@
+services:
+  app-node:
+    build:
+      context: ..
+      dockerfile: docker-node/Dockerfile
+    container_name: app-node
+    ports:
+      - "4000:4000"
+    env_file:
+      - ../.env
+    volumes:
+      - ../wallet-org1:/app/wallet-org1
+      - ../wallet-org2:/app/wallet-org2
+      - ../../organizations:/organizations
+      - ../../ca/ca-org1/data-org1:/ca/ca-org1/data-org1
+      - ../../ca/ca-org2/data-org2:/ca/ca-org2/data-org2
+    networks:
+      - fabric_esign
+
+networks:
+  fabric_esign:
+    external: true

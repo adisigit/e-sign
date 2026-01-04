@@ -11,6 +11,8 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=tlsca-esign
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_PORT=10054
+      - FABRIC_CA_SERVER_CSR_CN=ca_tls
+      - FABRIC_CA_SERVER_CSR_HOSTS=ca_tls,localhost
     ports:
       - "10054:10054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
