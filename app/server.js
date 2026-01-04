@@ -160,14 +160,17 @@ app.post(
 );
 app.get(
   "/api/logs/webhook/org/:orgName/:documentID",
+  verifyToken,
   webhookController.getLogsByDocumentIdWebhook.bind(webhookController)
 );
 app.get(
   "/api/document/webhook/org/:orgName/integrity/:documentID",
+  verifyToken,
   webhookController.readDocumentByIDWithIntegrityCheckWebhook.bind(webhookController)
 );
 app.get(
   "/api/logs/webhook/org/:orgName/integrity/:documentID",
+  verifyToken,
   webhookController.readAllLogByDocumentIDWithIntegrityCheck.bind(webhookController)
 );
 

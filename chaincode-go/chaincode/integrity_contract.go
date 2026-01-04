@@ -63,6 +63,10 @@ func (s *SmartContract) ReadAllLogByDocumentIDWithIntegrityCheck(ctx contractapi
 	}
 	defer resultsIterator.Close()
 
+	if !resultsIterator.HasNext() {
+		return nil, fmt.Errorf("log document not found: %s", documentID)
+	}
+
 	var logs []*PrivateLogDocumentWebhook
 	var tamperedLogs []string
 	validCount := 0

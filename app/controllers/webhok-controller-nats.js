@@ -82,7 +82,8 @@ class WebhookController {
     const { orgName = "org1" } = req.params;
     try {
       const { documentID } = req.params;
-      const { collectionLog, userId = "admin" } = req.query;
+      const userId = "admin";
+      const orgUser = req.user.organizations[0];
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -107,10 +108,10 @@ class WebhookController {
       }
 
       const orgConfig = config.getOrgConfig(orgName);
-      const targetCollection = collectionLog || orgConfig.collections.logs;
+      const targetCollection = orgConfig.collections.logs;
 
       const result = await this.bridgeController
-        .getBridge(orgName)
+        .getBridge(orgUser)
         .queryViaClient(
           "ReadAllLogsByDocumentIDWebhook",
           [targetCollection, documentID],
@@ -129,8 +130,9 @@ class WebhookController {
   async readDocumentByIDWithIntegrityCheckWebhook(req, res) {
     const { orgName = "org1" } = req.params;
     try {
-      const { collection, userId = "admin" } = req.query;
       const { documentID } = req.params;
+      const userId = "admin";
+      const orgUser = req.user.organizations[0];
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -149,10 +151,10 @@ class WebhookController {
       
       const orgConfig = config.getOrgConfig(orgName);
 
-      const targetCollection = collection || orgConfig.collections.documents;
+      const targetCollection = orgConfig.collections.documents;
 
       const result = await this.bridgeController
-        .getBridge(orgName)
+        .getBridge(orgUser)
         .queryViaClient(
           "ReadDocumentByIDWithIntegrityCheckWebhook",
           [targetCollection, documentID],
@@ -176,8 +178,9 @@ class WebhookController {
   async readAllLogByDocumentIDWithIntegrityCheck(req, res) {
     const { orgName = "org1" } = req.params;
     try {
-      const { collection, userId = "admin" } = req.query;
       const { documentID } = req.params;
+      const userId = "admin";
+      const orgUser = req.user.organizations[0];
 
       if (!config.organizations[orgName]) {
         return res.status(400).json({
@@ -195,10 +198,10 @@ class WebhookController {
       }
 
       const orgConfig = config.getOrgConfig(orgName);
-      const targetCollection = collection || orgConfig.collections.logs;
+      const targetCollection = orgConfig.collections.logs;
 
       const result = await this.bridgeController
-        .getBridge(orgName)
+        .getBridge(orgUser)
         .queryViaClient(
           "ReadAllLogByDocumentIDWithIntegrityCheck",
           [targetCollection, documentID],

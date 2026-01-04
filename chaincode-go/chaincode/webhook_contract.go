@@ -115,6 +115,10 @@ func (s *SmartContract) ReadAllLogByDocumentIDWebhook(ctx contractapi.Transactio
 	}
 	defer resultsIterator.Close()
 
+	if !resultsIterator.HasNext() {
+		return nil, fmt.Errorf("log document not found: %s", documentID)
+	}
+
 	var logs []*PrivateLogDocumentWebhook
 	for resultsIterator.HasNext() {
 		queryResponse, err := resultsIterator.Next()
