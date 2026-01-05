@@ -53,8 +53,12 @@ async function submitTransaction(functionName, transientData, userId, orgName = 
         }
 
         const result = await transaction.submit(...args);
+        const txId = transaction.getTransactionId();
         
-        return result;
+        return {
+            result: result,
+            txId: txId
+        };
     } catch (error) {
         console.error(`Error submitting transaction ${functionName} for ${orgName}:`, error);
         throw error;
@@ -96,11 +100,12 @@ async function createPrivateDataWebhook(webhookData, userId, orgName = 'org1') {
         };
 
 
-        await submitTransaction('CreatePrivateDataWebhook', transientData, userId, orgName);
+        const { result, txId } = await submitTransaction('CreatePrivateDataWebhook', transientData, userId, orgName);
         
         return { 
             success: true, 
             message: `Private Data Webhook created successfully in ${orgConfig.name}`,
+            txId: txId,
             data: { ...webhookData, organization: orgConfig.name }
         };
     }

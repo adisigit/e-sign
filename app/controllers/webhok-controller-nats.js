@@ -10,8 +10,15 @@ class WebhookController {
   async createWebhook(req, res) {
     const { orgName = "org1" } = req.params;
     try {
-      const { id, documentCategoryCode, name, description, file, recipients, userId = "admin" } =
-        req.body;
+      const {
+        id,
+        documentCategoryCode,
+        name,
+        description,
+        file,
+        recipients,
+        userId = "admin",
+      } = req.body;
       const fileBuffer = Buffer.from(file, "base64");
       const fileHash = crypto
         .createHash("sha256")
@@ -68,7 +75,13 @@ class WebhookController {
           ],
           null
         );
-      res.json(result);
+      res.status(202).json({
+        success: true,
+        message: "Webhook queued for processing",
+        requestId: result.requestId,
+        statusUrl: `/api/${orgName}/webhook/status/${result.requestId}`,
+        data: result.data,
+      });
     } catch (error) {
       console.error(`Error creating webhook for ${orgName}:`, error);
       res.status(500).json({
@@ -77,6 +90,33 @@ class WebhookController {
       });
     }
   }
+
+  async getWebhookStatus(req, res) {
+    const { orgName = "org1", requestId } = req.params;
+  
+    try {
+      const bridge = this.bridgeController.getBridge(orgName);
+  
+      if (!bridge) {
+        return res.status(500).json({
+          success: false,
+          error: `Bridge for ${orgName} not found`,
+        });
+      }
+  
+      const status = await bridge.getWebhookStatus(requestId);
+  
+      return res.json({
+        success: true,
+        data: status,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        error: error.message,
+      });
+    }
+  }  
 
   async getLogsByDocumentIdWebhook(req, res) {
     const { orgName = "org1" } = req.params;
@@ -141,14 +181,14 @@ class WebhookController {
           availableOrgs: config.getAllOrgs(),
         });
       }
-      
+
       if (!this.bridgeController.getBridge(orgName)) {
         return res.status(500).json({
           success: false,
           error: `Bridge for ${orgName} not found`,
         });
       }
-      
+
       const orgConfig = config.getOrgConfig(orgName);
 
       const targetCollection = orgConfig.collections.documents;

@@ -1,4 +1,4 @@
-const { connect, StringCodec, JSONCodec } = require('nats');
+const { connect, StringCodec, JSONCodec } = require("nats");
 
 class NatsService {
   constructor(orgName) {
@@ -6,28 +6,29 @@ class NatsService {
     this.connection = null;
     this.jsm = null;
     this.js = null;
+    this.kv = null;
     this.sc = StringCodec();
     this.jc = JSONCodec();
 
     this.servers = {
-      org1: 'nats://nats.org1.esign.com:4222',
-      org2: 'nats://nats.org2.esign.com:4222'
+      org1: "nats://nats.org1.esign.com:4222",
+      org2: "nats://nats.org2.esign.com:4222",
     };
   }
 
   async connect() {
     try {
       const server = this.servers[this.orgName.toLowerCase()];
-      
+
       if (!server) {
         throw new Error(`Invalid organization: ${this.orgName}`);
       }
 
-      this.connection = await connect({ 
+      this.connection = await connect({
         servers: [server],
         name: `${this.orgName}-client`,
         maxReconnectAttempts: -1,
-        reconnectTimeWait: 2000
+        reconnectTimeWait: 2000,
       });
 
       console.log(`Connected to NATS JetStream for ${this.orgName}`);
@@ -37,10 +38,31 @@ class NatsService {
       this.js = this.connection.jetstream();
       this.setupEventListeners();
 
+      await this.initKV();
+
       return this.connection;
     } catch (error) {
-      console.error(`Failed to connect to NATS for ${this.orgName}:`, error.message);
+      console.error(
+        `Failed to connect to NATS for ${this.orgName}:`,
+        error.message
+      );
       throw error;
+    }
+  }
+
+  async initKV() {
+    const bucket = `WEBHOOK_STATUS_${this.orgName.toUpperCase()}`;
+
+    try {
+      this.kv = await this.js.views.kv(bucket);
+      console.log(`KV bucket '${bucket}' loaded`);
+    } catch (err) {
+      this.kv = await this.js.views.kv(bucket, {
+        history: 10,
+        ttl: 0,
+        max_bytes: 10 * 1024 * 1024,
+      });
+      console.log(`KV bucket '${bucket}' created`);
     }
   }
 
@@ -61,19 +83,29 @@ class NatsService {
 
   async createStream(streamName, subjects) {
     try {
-      await this.jsm.streams.add({
+      const config = {
         name: streamName,
         subjects: subjects,
-        retention: 'limits',
+        retention: "limits",
         max_age: 86400000000000,
-        storage: 'file',
+        storage: "file",
         max_msgs: 100000,
-        discard: 'old'
-      });
+        discard: "old",
+      };
+
+      if (streamName.includes("WEBHOOK_QUEUE")) {
+        config.retention = "workqueue";
+        config.max_age = 604800000000000;
+      }
+
+      await this.jsm.streams.add(config);
+
       console.log(`Stream '${streamName}' created for ${this.orgName}`);
     } catch (error) {
-      if (error.message.includes('already in use')) {
-        console.log(`Stream '${streamName}' already exists for ${this.orgName}`);
+      if (error.message.includes("already in use")) {
+        console.log(
+          `Stream '${streamName}' already exists for ${this.orgName}`
+        );
       } else {
         console.error(`Error creating stream '${streamName}':`, error.message);
         throw error;
@@ -86,16 +118,21 @@ class NatsService {
       await this.jsm.consumers.add(streamName, {
         durable_name: consumerName,
         filter_subject: filterSubject,
-        ack_policy: 'explicit',
+        ack_policy: "explicit",
         max_deliver: 3,
-        ack_wait: 30000000000
+        ack_wait: 30000000000,
       });
       console.log(`Consumer '${consumerName}' created for ${this.orgName}`);
     } catch (error) {
-      if (error.message.includes('already in use')) {
-        console.log(`Consumer '${consumerName}' already exists for ${this.orgName}`);
+      if (error.message.includes("already in use")) {
+        console.log(
+          `Consumer '${consumerName}' already exists for ${this.orgName}`
+        );
       } else {
-        console.error(`Error creating consumer '${consumerName}':`, error.message);
+        console.error(
+          `Error creating consumer '${consumerName}':`,
+          error.message
+        );
         throw error;
       }
     }
@@ -107,7 +144,7 @@ class NatsService {
       console.log(`Published to ${subject}:`, {
         stream: ack.stream,
         seq: ack.seq,
-        org: this.orgName
+        org: this.orgName,
       });
       return ack;
     } catch (error) {
@@ -120,64 +157,43 @@ class NatsService {
     try {
       const consumer = await this.js.consumers.get(streamName, consumerName);
       const messages = await consumer.consume();
-      console.log(
-        `Subscribed to stream '${streamName}' consumer '${consumerName}' for ${this.orgName}`
-      );
-  
+
       (async () => {
         for await (const msg of messages) {
           const deliveryCount = msg.info?.deliveryCount || 1;
-          try {
-            const data = this.jc.decode(msg.data);  
 
+          try {
+            const data = this.jc.decode(msg.data);
             console.log(`Received message from ${this.orgName}:`, {
               subject: msg.subject,
               seq: msg.seq,
               deliveryCount,
-              data,
             });
             await callback(data, msg);
-            msg.ack();
           } catch (error) {
             console.error(
-              `[${this.orgName}] Error processing message (attempt ${deliveryCount}):`,
+              `[${this.orgName}] FATAL error processing message (attempt ${deliveryCount}):`,
               error.message
             );
-            if (
-              error.message.includes("does not have write access") ||
-              error.message.includes("validation") ||
-              deliveryCount >= 3
-            ) {
-              console.error("Permanent error, sending to DLQ & stop retry");
-  
-              await this.publish(
-                `fabric.${this.orgName}.dlq`,
-                {
-                  subject: msg.subject,
-                  error: error.message,
-                  data: this.jc.decode(msg.data),
-                  retries: deliveryCount,
-                  timestamp: new Date().toISOString(),
-                }
-              );
-  
-              msg.ack();
-              continue;
-            }
 
-            const delayMs = Math.min(10000 * deliveryCount, 60000);
-            console.warn(`Retrying in ${delayMs} ms`);
-            msg.nak(delayMs);
+            await this.publish(`fabric.${this.orgName}.dlq`, {
+              subject: msg.subject,
+              error: error.message,
+              data: msg.data.toString(),
+              retries: deliveryCount,
+              timestamp: new Date().toISOString(),
+              fatal: true,
+            });
+
+            msg.ack();
           }
         }
-      })().catch((error) => {
-        console.error(`Error in message loop:`, error.message);
-      });
+      })();
     } catch (error) {
       console.error(`Error subscribing to stream:`, error.message);
       throw error;
     }
-  }  
+  }
 
   async close() {
     if (this.connection) {

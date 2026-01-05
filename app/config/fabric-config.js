@@ -31,7 +31,7 @@ const config = {
                 logs: 'collectionOrg1Log'
             },
             paths: {
-                connectionProfile: path.resolve(__dirname, '..', 'organizations', 'peerOrganizations', 'org1.esign.com', 'connection-org1.json'),
+                connectionProfile: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org1.esign.com', 'connection-org1.json'),
                 wallet: path.join(process.cwd(), 'wallet-org1'),
                 certificates: {
                     // TLS CA certificates (actual file name)
@@ -80,7 +80,7 @@ const config = {
                 logs: 'collectionOrg2Log'
             },
             paths: {
-                connectionProfile: path.resolve(__dirname, '..', 'organizations', 'peerOrganizations', 'org2.esign.com', 'connection-org2.json'),
+                connectionProfile: path.resolve(__dirname, '..', '..', 'organizations', 'peerOrganizations', 'org2.esign.com', 'connection-org2.json'),
                 wallet: path.join(process.cwd(), 'wallet-org2'),
                 certificates: {
                     // TLS CA certificates (actual file name - same for both orgs)

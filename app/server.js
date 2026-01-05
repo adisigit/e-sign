@@ -173,6 +173,11 @@ app.get(
   verifyToken,
   webhookController.readAllLogByDocumentIDWithIntegrityCheck.bind(webhookController)
 );
+app.get(
+  "/api/webhook/status/:orgName/:requestId",
+  verifyToken,
+  webhookController.getWebhookStatus.bind(webhookController)
+);
 
 app.use(notFoundHandler);
 
