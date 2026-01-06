@@ -1,8 +1,19 @@
-node_modules
+# Node.js
+node_modules/
 npm-debug.log
 
+# Wallet Fabric (JANGAN masuk image)
+wallet-org1/
+wallet-org2/
+
+# Environment
+.env
+
+# Git
 .git
 .gitignore
 
-docker
-.env
+# Docker
+docker/
+Dockerfile
+docker-compose.yml

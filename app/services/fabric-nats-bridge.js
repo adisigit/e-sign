@@ -130,7 +130,6 @@ class FabricNatsBridge {
         result: result,
         org: this.orgName,
       });
-      msg.ack();
     } catch (error) {
       console.error("Error processing invoke command:", error);
 
@@ -139,7 +138,6 @@ class FabricNatsBridge {
         error: error.message,
         org: this.orgName,
       });
-      msg.nak();
     }
   }
 
