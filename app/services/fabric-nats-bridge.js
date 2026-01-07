@@ -130,6 +130,7 @@ class FabricNatsBridge {
         result: result,
         org: this.orgName,
       });
+      msg.ack();
     } catch (error) {
       console.error("Error processing invoke command:", error);
 
@@ -138,6 +139,7 @@ class FabricNatsBridge {
         error: error.message,
         org: this.orgName,
       });
+      msg.ack();
     }
   }
 
@@ -278,18 +280,17 @@ class FabricNatsBridge {
   }
 
   isRetryableError(error) {
-    const retryableErrors = [
-      "timeout",
-      "network",
-      "ECONNREFUSED",
-      "ETIMEDOUT",
-      "ECONNRESET",
-      "temporarily unavailable",
-      "connection refused",
-      "service unavailable",
-    ];
+    const msg = error.message.toLowerCase();
 
-    const permanentErrors = [
+    if (this.isPermanentError(msg)) return false;
+    if (this.isFabricInfraError(msg)) return true;
+    if (this.isNetworkError(msg)) return true;
+
+    return false;
+  }
+
+  isPermanentError(msg) {
+    return [
       "does not have write access",
       "validation",
       "not found",
@@ -297,13 +298,28 @@ class FabricNatsBridge {
       "unauthorized",
       "permission denied",
       "already exists",
-    ];
+    ].some((e) => msg.includes(e));
+  }
 
-    const errorMsg = error.message.toLowerCase();
-    if (permanentErrors.some((perm) => errorMsg.includes(perm))) {
-      return false;
-    }
-    return retryableErrors.some((retry) => errorMsg.includes(retry));
+  isFabricInfraError(msg) {
+    return [
+      "discoveryservice",
+      "no discovery results",
+      "failed to connect before the deadline",
+    ].some((e) => msg.includes(e));
+  }
+
+  isNetworkError(msg) {
+    return [
+      "timeout",
+      "network",
+      "econnrefused",
+      "etimedout",
+      "econnreset",
+      "temporarily unavailable",
+      "connection refused",
+      "service unavailable",
+    ].some((e) => msg.includes(e));
   }
 
   async handleQueryCommand(data, msg) {
@@ -334,6 +350,7 @@ class FabricNatsBridge {
         result: result,
         org: this.orgName,
       });
+      msg.ack();
     } catch (error) {
       console.error("Error processing query command:", error);
 
@@ -342,6 +359,7 @@ class FabricNatsBridge {
         error: error.message,
         org: this.orgName,
       });
+      msg.ack();
     }
   }
 
@@ -383,16 +401,16 @@ class FabricNatsBridge {
       const entry = await this.natsService.kv.get(
         `webhook_status_${webhookRequestId}`
       );
-  
+
       if (!entry) {
         return {
           requestId: webhookRequestId,
           currentStatus: "not_found",
         };
       }
-  
+
       const data = JSON.parse(entry.value.toString());
-  
+
       return {
         requestId: webhookRequestId,
         currentStatus: data.status,
@@ -406,7 +424,7 @@ class FabricNatsBridge {
         error: error.message,
       };
     }
-  }  
+  }
 
   async sendResponse(requestId, data) {
     try {

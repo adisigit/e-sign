@@ -170,7 +170,6 @@ class NatsService {
               deliveryCount,
             });
             await callback(data, msg);
-            msg.ack();
           } catch (error) {
             console.error(
               `[${this.orgName}] FATAL error processing message (attempt ${deliveryCount}):`,
@@ -185,8 +184,6 @@ class NatsService {
               timestamp: new Date().toISOString(),
               fatal: true,
             });
-
-            msg.nak()
           }
         }
       })();
