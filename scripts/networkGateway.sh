@@ -10,7 +10,7 @@ function networkUp() {
 
 function networkDown() {
   echo ">>> Stopping network and removing volumes..."
-  docker-compose -f $DOCKER_COMPOSE_FILE down -v
+  docker-compose -f $DOCKER_COMPOSE_FILE down -v --rmi local
 }
 
 function networkStart() {

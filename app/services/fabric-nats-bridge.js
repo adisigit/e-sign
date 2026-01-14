@@ -340,6 +340,7 @@ class FabricNatsBridge {
         ReadDocumentByIDWithIntegrityCheckWebhook: () =>
           this.handleReadDocumentByIDWithIntegrityCheckWebhook(args, userId),
         GetWebhookStatus: () => this.getWebhookStatus(args[0]),
+        CheckDocumentIntegrityWebhook: () => this.handleCheckDocumentIntegrityWebhook(args, userId),
       };
 
       let result;
@@ -394,6 +395,32 @@ class FabricNatsBridge {
       userId,
       this.orgName
     );
+  }
+
+  async handleCheckDocumentIntegrityWebhook(args, userId) {
+    const collection = args[0] || this.orgConfig.collections.documents;
+    const documentID = args[1];
+    const fileHash = args[2];
+    const storedDocument = await fabricService.readDocumentByIDWithIntegrityCheckWebhook(
+      collection,
+      documentID,
+      userId,
+      this.orgName
+    );
+
+    const isDocumentIntegrity = storedDocument.document.file === fileHash;
+    return {
+      isDocumentValid: isDocumentIntegrity,
+      uploadedFileHash: fileHash,
+      storedFileHash: storedDocument.document.file,
+      documentID: documentID,
+      metadata: {
+        name: storedDocument.document.name,
+        documentCategoryCode: storedDocument.document.documentCategoryCode,
+        createdAt: storedDocument.document.timestamp,
+      },
+      integrityStoredCheck: storedDocument.integrityStatus
+    };
   }
 
   async getWebhookStatus(webhookRequestId) {

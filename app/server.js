@@ -82,6 +82,10 @@ app.get("/api", (req, res) => {
           "Get integrity of specific document from specific organization",
         "GET /api/logs/webhook/org/:orgName/integrity/:documentID":
           "Get integrity of logs from specific organization and document id",
+        "GET /api/webhook/status/:orgName/:requestId":
+          "Get status of specific webhook request from specific organization",
+        "POST /api/document/webhook/:orgName/integrity":
+          "Check integrity of specific document from specific organization",
       },
     },
     fabric: {
@@ -176,7 +180,13 @@ app.get(
 app.get(
   "/api/webhook/status/:orgName/:requestId",
   verifyToken,
+  validateOrgAccess,
   webhookController.getWebhookStatus.bind(webhookController)
+);
+app.post(
+  "/api/document/webhook/:orgName/integrity",
+  verifyToken,
+  webhookController.checkDocumentIntegrityWebhook.bind(webhookController)
 );
 
 app.use(notFoundHandler);
@@ -265,6 +275,10 @@ async function startServer() {
       console.log("     - GET /api/document/webhook/org/org2/integrity/[documentID] (read doc integrity from Org2)");
       console.log("     - GET /api/logs/webhook/org/org1/integrity/[documentID] (read log integrity from Org1)");
       console.log("     - GET /api/logs/webhook/org/org2/integrity/[documentID] (read log integroty from Org2)");
+      console.log("     - GET /api/webhook/status/org1/[requestId] (get status of specific webhook request from Org1)");
+      console.log("     - GET /api/webhook/status/org2/[requestId] (get status of specific webhook request from Org2)");
+      console.log("     - POST /api/document/webhook/org1/integrity (check doc integrity from Org1)");
+      console.log("     - POST /api/document/webhook/org2/integrity (check doc integrity from Org2)");
       console.log("=".repeat(70));
     });
   } catch (error) {
