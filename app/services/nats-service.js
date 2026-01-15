@@ -120,7 +120,7 @@ class NatsService {
         filter_subject: filterSubject,
         ack_policy: "explicit",
         max_deliver: 3,
-        ack_wait: 30000000000,
+        ack_wait: 300000000000,
       });
       console.log(`Consumer '${consumerName}' created for ${this.orgName}`);
     } catch (error) {

@@ -4,16 +4,16 @@
     "successful": 100,
     "failed": 0,
     "successRate": "100.00%",
-    "duration": "28.91s",
-    "throughput": "3.46 req/s"
+    "duration": "2.14s",
+    "throughput": "46.69 req/s"
   },
   "latency": {
-    "avg": "12182.84ms",
-    "min": "252ms",
-    "max": "28456ms",
-    "p50": "11326ms",
-    "p95": "26913ms",
-    "p99": "28456ms"
+    "avg": "1436.08ms",
+    "min": "168ms",
+    "max": "1847ms",
+    "p50": "1515ms",
+    "p95": "1823ms",
+    "p99": "1847ms"
   },
   "errors": []
 }

@@ -128,13 +128,15 @@
                 <li>DLT: &nbsp<span style="font-weight: 500;">fabric</span></li>
                 <li>Name: &nbsp<span style="font-weight: 500;">E-Sign PDC Webhook Benchmark</span></li>
                 <li>Description: &nbsp<span style="font-weight: 500;">Performance testing for CreatePrivateDataWebhook performance</span></li>
-                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">1</span></li>
+                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">3</span></li>
                 <li><a href="#benchmarkInfo">Details</a></li>
             </ul>
             <ul>
                 <h3>&nbspBenchmark results</h3>
                 <li><a href="#benchmarksummary">Summary</a></li>
-                    <li><a href="#create-pdc-webhook-org2 use org1 identity">create-pdc-webhook-org2 use org1 identity</a></li>
+                    <li><a href="#create-pdc-webhook-low">create-pdc-webhook-low</a></li>
+                    <li><a href="#create-pdc-webhook-medium">create-pdc-webhook-medium</a></li>
+                    <li><a href="#create-pdc-webhook-high">create-pdc-webhook-high</a></li>
             </ul>
             <ul>
                 <h3>&nbspSystem under test</h3>
@@ -152,28 +154,74 @@
                     </tr>
 
                     <tr>
-                         <td>create-pdc-webhook-org2 use org1 identity</td> <td>50</td> <td>0</td> <td>57.2</td> <td>3.84</td> <td>2.95</td> <td>3.38</td> <td>13.0</td>
+                         <td>create-pdc-webhook-low</td> <td>100</td> <td>0</td> <td>10.5</td> <td>3.75</td> <td>0.67</td> <td>2.20</td> <td>9.2</td>
+                    </tr>
+                    <tr>
+                         <td>create-pdc-webhook-medium</td> <td>500</td> <td>0</td> <td>50.5</td> <td>6.79</td> <td>1.62</td> <td>3.85</td> <td>35.0</td>
+                    </tr>
+                    <tr>
+                         <td>create-pdc-webhook-high</td> <td>1000</td> <td>0</td> <td>81.2</td> <td>14.71</td> <td>3.46</td> <td>9.07</td> <td>49.3</td>
                     </tr>
                 </table>
             </div>
-            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="create-pdc-webhook-org2 use org1 identity">
-                <h2>Benchmark round: create-pdc-webhook-org2 use org1 identity</h2>
-                <p>Create PDC Webhook for Org2 use org1 identity</p>
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="create-pdc-webhook-low">
+                <h2>Benchmark round: create-pdc-webhook-low</h2>
+                <p>Create PDC Webhook at 10 TPS</p>
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: fixed-rate
   opts:
-    tps: 50
+    tps: 10
 </pre>
-                        <h3>Performance metrics for create-pdc-webhook-org2 use org1 identity</h3>
+                        <h3>Performance metrics for create-pdc-webhook-low</h3>
                             <table style="min-width: 100%;">
                                 <tr>
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>create-pdc-webhook-org2 use org1 identity</td> <td>50</td> <td>0</td> <td>57.2</td> <td>3.84</td> <td>2.95</td> <td>3.38</td> <td>13.0</td>
+                                     <td>create-pdc-webhook-low</td> <td>100</td> <td>0</td> <td>10.5</td> <td>3.75</td> <td>0.67</td> <td>2.20</td> <td>9.2</td>
                                 </tr>
                             </table>
-                        <h3>Resource utilization for create-pdc-webhook-org2 use org1 identity</h3>
+                        <h3>Resource utilization for create-pdc-webhook-low</h3>
+            </div>
+
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="create-pdc-webhook-medium">
+                <h2>Benchmark round: create-pdc-webhook-medium</h2>
+                <p>Create PDC Webhook at 50 TPS</p>
+                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
+  type: fixed-rate
+  opts:
+    tps: 50
+</pre>
+                        <h3>Performance metrics for create-pdc-webhook-medium</h3>
+                            <table style="min-width: 100%;">
+                                <tr>
+                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
+                                </tr>
+                                <tr>
+                                     <td>create-pdc-webhook-medium</td> <td>500</td> <td>0</td> <td>50.5</td> <td>6.79</td> <td>1.62</td> <td>3.85</td> <td>35.0</td>
+                                </tr>
+                            </table>
+                        <h3>Resource utilization for create-pdc-webhook-medium</h3>
+            </div>
+
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="create-pdc-webhook-high">
+                <h2>Benchmark round: create-pdc-webhook-high</h2>
+                <p>Create PDC Webhook at 100 TPS</p>
+                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
+  type: fixed-rate
+  opts:
+    tps: 100
+</pre>
+                        <h3>Performance metrics for create-pdc-webhook-high</h3>
+                            <table style="min-width: 100%;">
+                                <tr>
+                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
+                                </tr>
+                                <tr>
+                                     <td>create-pdc-webhook-high</td> <td>1000</td> <td>0</td> <td>81.2</td> <td>14.71</td> <td>3.46</td> <td>9.07</td> <td>49.3</td>
+                                </tr>
+                            </table>
+                        <h3>Resource utilization for create-pdc-webhook-high</h3>
             </div>
 
             <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;">
@@ -184,9 +232,29 @@ description: Performance testing for CreatePrivateDataWebhook performance
 workers:
   number: 5
 rounds:
-  - label: create-pdc-webhook-org2 use org1 identity
-    description: Create PDC Webhook for Org2 use org1 identity
-    txNumber: 50
+  - label: create-pdc-webhook-low
+    description: Create PDC Webhook at 10 TPS
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 10
+    workload:
+      module: workload&#x2F;create-pdc-webhook.js
+      arguments:
+        orgName: org1
+        collectionLog: collectionOrg1
+    invokerIdentity: User1Org1
+    invokerMspId: Org1MSP
+    contractOptions:
+      endorsingOrganizations:
+        - Org1MSP
+    targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+  - label: create-pdc-webhook-medium
+    description: Create PDC Webhook at 50 TPS
+    txNumber: 500
     rateControl:
       type: fixed-rate
       opts:
@@ -194,17 +262,36 @@ rounds:
     workload:
       module: workload&#x2F;create-pdc-webhook.js
       arguments:
-        orgName: org2
-        collectionLog: collectionOrg2
-        verifyWrites: true
-    invokerIdentity: User1Org2
-    invokerMspId: Org2MSP
+        orgName: org1
+        collectionLog: collectionOrg1
+    invokerIdentity: User1Org1
+    invokerMspId: Org1MSP
     contractOptions:
       endorsingOrganizations:
-        - Org2MSP
+        - Org1MSP
     targetPeers:
-      - peer0.org2.esign.com
-      - peer1.org2.esign.com
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
+  - label: create-pdc-webhook-high
+    description: Create PDC Webhook at 100 TPS
+    txNumber: 1000
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 100
+    workload:
+      module: workload&#x2F;create-pdc-webhook.js
+      arguments:
+        orgName: org1
+        collectionLog: collectionOrg1
+    invokerIdentity: User1Org1
+    invokerMspId: Org1MSP
+    contractOptions:
+      endorsingOrganizations:
+        - Org1MSP
+    targetPeers:
+      - peer0.org1.esign.com
+      - peer1.org1.esign.com
 </pre>
                 <h3>SUT</h3>
                 <pre id="sutdetails">not provided</pre>

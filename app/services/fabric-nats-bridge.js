@@ -219,6 +219,14 @@ class FabricNatsBridge {
     const { requestId } = webhookData;
     const deliveryCount = msg.info?.deliveryCount || 1;
 
+    const existing = await this.getWebhookStatus(requestId);
+
+    if (existing.currentStatus === "completed") {
+      console.log(`Webhook ${requestId} already completed, skipping`);
+      msg.ack();
+      return;
+    }
+
     try {
       console.log(`Processing webhook ${requestId} (attempt ${deliveryCount})`);
       await this.saveWebhookStatus(requestId, "processing", {
@@ -340,7 +348,8 @@ class FabricNatsBridge {
         ReadDocumentByIDWithIntegrityCheckWebhook: () =>
           this.handleReadDocumentByIDWithIntegrityCheckWebhook(args, userId),
         GetWebhookStatus: () => this.getWebhookStatus(args[0]),
-        CheckDocumentIntegrityWebhook: () => this.handleCheckDocumentIntegrityWebhook(args, userId),
+        CheckDocumentIntegrityWebhook: () =>
+          this.handleCheckDocumentIntegrityWebhook(args, userId),
       };
 
       let result;
@@ -401,12 +410,13 @@ class FabricNatsBridge {
     const collection = args[0] || this.orgConfig.collections.documents;
     const documentID = args[1];
     const fileHash = args[2];
-    const storedDocument = await fabricService.readDocumentByIDWithIntegrityCheckWebhook(
-      collection,
-      documentID,
-      userId,
-      this.orgName
-    );
+    const storedDocument =
+      await fabricService.readDocumentByIDWithIntegrityCheckWebhook(
+        collection,
+        documentID,
+        userId,
+        this.orgName
+      );
 
     const isDocumentIntegrity = storedDocument.document.file === fileHash;
     return {
@@ -419,7 +429,7 @@ class FabricNatsBridge {
         documentCategoryCode: storedDocument.document.documentCategoryCode,
         createdAt: storedDocument.document.timestamp,
       },
-      integrityStoredCheck: storedDocument.integrityStatus
+      integrityStoredCheck: storedDocument.integrityStatus,
     };
   }
 
