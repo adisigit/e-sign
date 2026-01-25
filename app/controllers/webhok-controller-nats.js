@@ -59,7 +59,11 @@ class WebhookController {
 
       const targetCollection = orgConfig.collections.documents;
 
-      const result = await this.bridgeController
+      const requestId = `${orgName}_${Date.now()}_${Math.random()
+        .toString(36)
+        .substr(2, 9)}`;
+
+      this.bridgeController
         .getBridge(orgName)
         .invokeViaClient(
           "CreatePrivateDataWebhook",
@@ -73,14 +77,20 @@ class WebhookController {
             recipients,
             userId,
           ],
+          requestId,
           null
         );
       res.status(202).json({
         success: true,
         message: "Webhook queued for processing",
-        requestId: result.requestId,
-        statusUrl: `/api/${orgName}/webhook/status/${result.requestId}`,
-        data: result.data,
+        requestId: requestId,
+        statusUrl: `/api/${orgName}/webhook/status/${requestId}`,
+        data: {
+          id,
+          documentCategoryCode,
+          name,
+          collection: targetCollection,
+        },
       });
     } catch (error) {
       console.error(`Error creating webhook for ${orgName}:`, error);

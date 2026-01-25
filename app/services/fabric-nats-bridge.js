@@ -119,7 +119,7 @@ class FabricNatsBridge {
       });
 
       const invokeHandlers = {
-        CreatePrivateDataWebhook: () => this.handleCreateWebhook(args),
+        CreatePrivateDataWebhook: () => this.handleCreateWebhook(args, requestId),
       };
 
       let result;
@@ -143,8 +143,7 @@ class FabricNatsBridge {
     }
   }
 
-  async handleCreateWebhook(args) {
-    const requestId = this.generateRequestId();
+  async handleCreateWebhook(args, requestId) {
 
     const webhookData = {
       requestId,
@@ -478,13 +477,13 @@ class FabricNatsBridge {
     }
   }
 
-  async invokeViaClient(functionName, args, transientData = null) {
-    const requestId = this.generateRequestId();
+  async invokeViaClient(functionName, args, requestId = null,  transientData = null) {
+    const reqId = requestId || this.generateRequestId();
     try {
       await this.natsService.publish(
         `fabric.${this.orgName}.invoke.${functionName}`,
         {
-          requestId,
+          requestId: reqId,
           functionName,
           args,
           transientData,
