@@ -11,7 +11,7 @@ read -r -p "Masukkan file (base64): " FILE_BASE64
 read -r -p "Masukkan userId (default: admin): " USER_ID
 USER_ID=${USER_ID:-admin}
 
-BASE_URL="http://localhost:4000/api/webhook"
+BASE_URL="http://localhost:3000/api/webhook"
 
 if [ -z "$DOCUMENT_ID" ] || [ -z "$DOC_CATEGORY" ] || [ -z "$NAME" ] || [ -z "$DESCRIPTION" ] || [ -z "$FILE_BASE64" ]; then
   echo "Field wajib belum diisi"

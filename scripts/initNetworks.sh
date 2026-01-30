@@ -1,7 +1,7 @@
 #!/bin/bash
 
 read -r -p "Masukkan token: " TOKEN
-BASE_URL="http://localhost:4000/api/init"
+BASE_URL="http://localhost:3000/api/init"
 
 if [ -z "$TOKEN" ]; then
   echo "Usage: $0 <token>"

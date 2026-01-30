@@ -3,7 +3,7 @@
 read -r -p "Masukkan orgName: " ORG_NAME
 read -r -p "Masukkan token: " TOKEN
 read -r -p "Masukkan documentID: " DOCUMENT_ID
-BASE_URL="http://localhost:4000/api/document/webhook/org"
+BASE_URL="http://localhost:3000/api/document/webhook/org"
 
 if [ -z "$ORG_NAME" ] || [ -z "$DOCUMENT_ID" ] || [ -z "$TOKEN" ]; then
   echo "Usage: $0 <orgName> <token> <documentID>"

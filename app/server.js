@@ -16,7 +16,7 @@ const {
 } = require("./middlewares/error-handler");
 
 const app = express();
-const port = 4000;
+const port = 3000;
 
 // Middleware
 app.use(cors());

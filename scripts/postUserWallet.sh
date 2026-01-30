@@ -3,7 +3,7 @@
 read -r -p "Masukkan orgName: " ORG_NAME
 read -r -p "Masukkan token: " TOKEN
 read -r -p "Masukkan userID: " USER_ID
-BASE_URL="http://localhost:4000/api/users/register"
+BASE_URL="http://localhost:3000/api/users/register"
 
 if [ -z "$ORG_NAME" ] || [ -z "$TOKEN" ] || [ -z "$USER_ID" ]; then
   echo "Usage: $0 <orgName> <token> <userID>"

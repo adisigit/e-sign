@@ -4,7 +4,7 @@ const crypto = require("crypto");
 
 // ============ KONFIGURASI ============
 const CONFIG = {
-  apiUrl: "http://localhost:4000",
+  apiUrl: "http://localhost:3000",
   orgName: "org2",
   tps: 50, // 10 / 50 / 100
   durationSec: 10,
