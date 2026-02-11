@@ -31,9 +31,6 @@ services:
       - ../organizations/ordererOrganizations/esign.com/orderers/orderer.esign.com/msp:/var/hyperledger/orderer/msp
       - ../organizations/ordererOrganizations/esign.com/orderers/orderer.esign.com/tls:/var/hyperledger/orderer/tls
       - ordererdata:/var/hyperledger/production/orderer
-    ports:
-      - 7050:7050
-      - 7053:7053
     networks:
       - fabric_esign
     healthcheck:
@@ -77,7 +74,8 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.org1:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
+      # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
@@ -95,12 +93,9 @@ services:
       - ../organizations/peerOrganizations/org1.esign.com/peers/peer0.org1.esign.com/msp:/etc/hyperledger/fabric/msp
       - ../organizations/peerOrganizations/org1.esign.com/peers/peer0.org1.esign.com/tls:/etc/hyperledger/fabric/tls
       - peer0org1:/var/hyperledger/production
-      - /var/run/docker.sock:/host/var/run/docker.sock
+      - /var/run/docker.sock:/host/var/run/docker.sock  #debian ubuntu
+      # - /var/run/docker.sock:/var/run/docker.sock:z  #fedora
       - ../organizations/peerOrganizations/org1.esign.com/msp/tlscacerts/tlsca-esign.pem:/etc/hyperledger/fabric/tls-ca-esign.pem:ro
-    ports:
-      - 7051:7051
-      - 7052:7052
-      - 7055:7055
     depends_on:
       couchdb0:
         condition: service_healthy
@@ -147,7 +142,8 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer1.org1:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
+      # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
@@ -165,12 +161,9 @@ services:
       - ../organizations/peerOrganizations/org1.esign.com/peers/peer1.org1.esign.com/msp:/etc/hyperledger/fabric/msp
       - ../organizations/peerOrganizations/org1.esign.com/peers/peer1.org1.esign.com/tls:/etc/hyperledger/fabric/tls
       - peer1org1:/var/hyperledger/production
-      - /var/run/docker.sock:/host/var/run/docker.sock
+      - /var/run/docker.sock:/host/var/run/docker.sock  #debian ubuntu
+      # - /var/run/docker.sock:/var/run/docker.sock:z  #fedora
       - ../organizations/peerOrganizations/org1.esign.com/msp/tlscacerts/tlsca-esign.pem:/etc/hyperledger/fabric/tls-ca-esign.pem:ro
-    ports:
-      - 8051:8051
-      - 8052:8052
-      - 8053:8053
     depends_on:
       couchdb1:
         condition: service_healthy
@@ -217,7 +210,8 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.org2:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
+      # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora 
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
@@ -235,12 +229,9 @@ services:
       - ../organizations/peerOrganizations/org2.esign.com/peers/peer0.org2.esign.com/msp:/etc/hyperledger/fabric/msp
       - ../organizations/peerOrganizations/org2.esign.com/peers/peer0.org2.esign.com/tls:/etc/hyperledger/fabric/tls
       - peer0org2:/var/hyperledger/production
-      - /var/run/docker.sock:/host/var/run/docker.sock
+      - /var/run/docker.sock:/host/var/run/docker.sock  #debian ubuntu
+      # - /var/run/docker.sock:/var/run/docker.sock:z  #fedora
       - ../organizations/peerOrganizations/org2.esign.com/msp/tlscacerts/tlsca-esign.pem:/etc/hyperledger/fabric/tls-ca-esign.pem:ro
-    ports:
-      - 9051:9051
-      - 9052:9052
-      - 9053:9053
     depends_on:
       couchdb2:
         condition: service_healthy
@@ -287,7 +278,8 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer1.org2:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
+      # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
@@ -305,12 +297,9 @@ services:
       - ../organizations/peerOrganizations/org2.esign.com/peers/peer1.org2.esign.com/msp:/etc/hyperledger/fabric/msp
       - ../organizations/peerOrganizations/org2.esign.com/peers/peer1.org2.esign.com/tls:/etc/hyperledger/fabric/tls
       - peer1org2:/var/hyperledger/production
-      - /var/run/docker.sock:/host/var/run/docker.sock
+      - /var/run/docker.sock:/host/var/run/docker.sock  #debian ubuntu
+      # - /var/run/docker.sock:/var/run/docker.sock:z  #fedora
       - ../organizations/peerOrganizations/org2.esign.com/msp/tlscacerts/tlsca-esign.pem:/etc/hyperledger/fabric/tls-ca-esign.pem:ro
-    ports:
-      - 10051:10051
-      - 10052:10052
-      - 10053:10053
     depends_on:
       couchdb3:
         condition: service_healthy
@@ -333,10 +322,6 @@ services:
       - "/data"
       - "--cluster_name=esign_cluster"
       - "--http_port=8222"
-    ports:
-      - "4222:4222"  # Client connections
-      - "8222:8222"  # HTTP monitoring
-      - "6222:6222"  # Cluster connections
     volumes:
       - nats_org1_data:/data
     networks:
@@ -358,10 +343,6 @@ services:
       - "/data"
       - "--cluster_name=esign_cluster"
       - "--http_port=8223"
-    ports:
-      - "4223:4222"  # Client connections
-      - "8223:8223"  # HTTP monitoring
-      - "6223:6222"  # Cluster connections
     volumes:
       - nats_org2_data:/data
     networks:
@@ -382,7 +363,8 @@ services:
       - SYS_CHANNEL=e-sign-sys-channel
       - FABRIC_CFG_PATH=/workspace
       - GOPATH=/opt/gopath
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      # - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
+      - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - FABRIC_LOGGING_SPEC=INFO
       - CORE_PEER_ID=cli
       - CORE_PEER_ADDRESS=peer0.org1.esign.com:7051
@@ -395,7 +377,8 @@ services:
     working_dir: /workspace
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      # - /var/run/:/host/var/run/  #debian ubuntu
+      - /var/run/docker.sock:/var/run/docker.sock:z  #fedora
       - ./../organizations:/workspace/organizations
       - ./../system-genesis-block:/workspace/system-genesis-block
       - ./../scripts:/workspace/scripts 
