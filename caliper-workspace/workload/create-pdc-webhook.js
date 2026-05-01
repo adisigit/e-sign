@@ -1,4 +1,5 @@
 "use strict";
+
 const { WorkloadModuleBase } = require("@hyperledger/caliper-core");
 const crypto = require("crypto");
 
@@ -6,6 +7,8 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
   constructor() {
     super();
     this.documentCounter = 0;
+    this.documentRound = 6;
+    this.roundIndex = 0;
   }
 
   async initializeWorkloadModule(
@@ -24,32 +27,37 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
       sutAdapter,
       sutContext
     );
-    
+
     this.orgName = roundArguments.orgName || "org1";
     this.collection = roundArguments.collection || "collectionOrg1";
     this.documentCounter = workerIndex * 10000;
-    
+    this.roundIndex = roundIndex; // ← simpan round
+
     console.log(
-      `Worker ${workerIndex}: Initialized for ${this.orgName} with collection ${this.collection}`
+      `Worker ${workerIndex}: Initialized for ${this.orgName}, ` +
+      `collection: ${this.collection}, round: ${this.documentRound}`
     );
   }
 
   async submitTransaction() {
     this.documentCounter++;
-    
-    const mockFileContent = `Document content ${this.documentCounter}`;
+
+    const mockFileContent = `Document content`;
+    const fileBuffer = Buffer.from(mockFileContent);
     const fileHash = crypto
       .createHash("sha256")
-      .update(mockFileContent)
+      .update(fileBuffer)
       .digest("hex");
-    
-    const documentID = `DOC-${Date.now()}-${this.documentCounter}`;
+
+    // DOC-<workerIndex>-<roundIndex>-<counter>
+    // → unik meski dijalankan berkali-kali
+    const documentID = `DOC-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`;
+
     const categories = ["CONTRACT", "INVOICE", "AGREEMENT", "REPORT", "POLICY"];
     const categoryCode = categories[Math.floor(Math.random() * categories.length)];
-    
+
     const recipientCount = Math.floor(Math.random() * 4) + 2;
     const recipients = [];
-    
     for (let i = 0; i < recipientCount; i++) {
       recipients.push({
         userId: `USER-${Math.floor(Math.random() * 100)}`,
@@ -58,7 +66,7 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
         recipientRoleCode: Math.random() > 0.5 ? "SIGNER" : "APPROVER",
       });
     }
-    
+
     const webhookData = {
       collection: this.collection,
       id: documentID,
@@ -68,11 +76,11 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
       file: fileHash,
       recipients: recipients,
     };
-    
+
     const transientMap = {
       webhook: Buffer.from(JSON.stringify(webhookData)),
     };
-    
+
     const request = {
       contractId: "basic",
       contractFunction: "CreatePrivateDataWebhook",
@@ -80,24 +88,25 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
       transientMap: transientMap,
       readOnly: false,
     };
-    
+
     try {
-      // Gateway API will throw error if transaction fails
-      // No need to check result.GetStatus() - that doesn't exist
       await this.sutAdapter.sendRequests(request);
-      
-      // If we reach here, transaction was submitted and committed successfully
       return;
-      
     } catch (error) {
-      // Real errors will be caught here (endorsement failures, commit failures, etc.)
-      console.error(`Worker ${this.workerIndex}: Transaction failed for ${this.collection}:`, error.message);
+      console.error(
+        `Worker ${this.workerIndex}: Transaction failed for ${this.collection}:`,
+        error.message
+      );
       throw error;
     }
   }
 
   async cleanupWorkloadModule() {
-    console.log(`Worker completed: Created ${this.documentCounter} documents with webhooks`);
+    console.log(
+      `Worker ${this.workerIndex}: Created ${this.documentCounter} documents. ` +
+      `IDs: DOC-${this.workerIndex}-${this.documentRound}-${this.workerIndex * 10000 + 1} ` +
+      `→ DOC-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`
+    );
   }
 }
 

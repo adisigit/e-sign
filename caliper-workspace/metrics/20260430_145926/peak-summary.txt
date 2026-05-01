@@ -1,0 +1,27 @@
+🔥 Fabric Benchmark Peak Summary
+==================================
+
+📌 Max Average CPU During Peak: 57.45%
+
+📦 Per-Container Peak CPU:
+--------------------------
+- peer0.org1.esign.com  →  244.22%
+- dev-peer1.org1.esign.com-basic_1.0-41479698950150d988153a842a648c0707acfb05c38fe40865898c1e1df496b9  →  0%
+- couchdb.peer1.org1  →  198.42%
+- couchdb.peer1.org2  →  168.12%
+- peer0.org2.esign.com  →  72.37%
+- cli  →  0%
+- orderer.esign.com  →  25.06%
+- couchdb.peer0.org2  →  167.04%
+- couchdb.peer0.org1  →  236.49%
+- nats.org2.esign.com  →  4.03%
+- app-node  →  0.16%
+- peer1.org1.esign.com  →  93.10%
+- dev-peer1.org2.esign.com-basic_1.0-41479698950150d988153a842a648c0707acfb05c38fe40865898c1e1df496b9  →  0%
+- bold_shamir  →  265.57%
+- dev-peer0.org2.esign.com-basic_1.0-41479698950150d988153a842a648c0707acfb05c38fe40865898c1e1df496b9  →  0.03%
+- dev-peer0.org1.esign.com-basic_1.0-41479698950150d988153a842a648c0707acfb05c38fe40865898c1e1df496b9  →  6.64%
+- nats.org1.esign.com  →  3.94%
+- peer1.org2.esign.com  →  70.52%
+
+Total Samples Collected: 12

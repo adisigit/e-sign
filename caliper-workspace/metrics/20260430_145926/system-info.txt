@@ -1,0 +1,48 @@
+💻 System Information
+===================
+Linux fedora 6.18.10-200.fc43.x86_64 #1 SMP PREEMPT_DYNAMIC Wed Feb 11 17:20:05 UTC 2026 x86_64 GNU/Linux
+
+CPU(s):                                  16
+On-line CPU(s) list:                     0-15
+Model name:                              AMD Ryzen 7 5700U with Radeon Graphics
+Thread(s) per core:                      2
+Core(s) per socket:                      8
+CPU(s) scaling MHz:                      41%
+NUMA node0 CPU(s):                       0-15
+
+               total        used        free      shared  buff/cache   available
+Mem:           7.1Gi       2.5Gi       2.4Gi       6.6Mi       2.5Gi       4.6Gi
+Swap:          7.1Gi       852Mi       6.3Gi
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda5       440G   31G  408G   7% /
+devtmpfs        3.6G     0  3.6G   0% /dev
+tmpfs           3.6G   96K  3.6G   1% /dev/shm
+efivarfs        128K   48K   76K  39% /sys/firmware/efi/efivars
+tmpfs           1.5G  3.5M  1.5G   1% /run
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.6G  5.2M  3.6G   1% /tmp
+/dev/sda5       440G   31G  408G   7% /home
+/dev/sda4       2.0G  471M  1.4G  26% /boot
+/dev/sda3       599M   20M  580M   4% /boot/efi
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+tmpfs           731M  148K  731M   1% /run/user/1000
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/5298aeca4e3eadf95998271b7f1be65d1bba5ae060cabdce7f55ec5a7ba02f61/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/a7a8f794b79ff8f9b74ff3ad4b6a93b97fdb430551fdaa891371c5343601ffac/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/785c6890f1ad71894f0a0f0ea6a970545cae6fdd9c0885a4a922ab1f88a9cb01/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/7ae9adb634172c4aaaf0d23f99e36cbf29beb6f256973607deb26023c8334612/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/42959d73c3a14a43f0d486d4db341a3c7b4f0dde8c727cc18b663a4fc80d4542/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/e83574d5e0a915edac5fbc2eab3377e44ff5a33ae96848b23f67150265f7c72e/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/b6c06f4166b895f914a3a99929e2abbc1e93902d206676ba7526bd80ab1cfed7/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/5883236f725ebe86b79273ba6d7faf86292b336cb1b0722c81db963fa413d209/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/e45fe89901d1607a0c1710d0419b5441ca5250089649eb0f5e9106ee1f7c52c8/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/bcfb051dbee43217e77720e0bf1dbc9f3da118c946f883c5136a71a242d5b243/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/631be6b843942c1b05c3dcdc558a07a3ab0c496b50b8d03a4a21e64406997d75/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/ea4f059152fe7a6d0cd09585bdfa468c5df461490ea45aa06192611f82680eeb/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/25fa9576f8a625c4e68b863bb5dd4f06fba2ab6b0047e49980bc7734020bb5cb/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/405b681c691838144f5fcbbbe44ed85eac6790274d2128861b664d03d26dab90/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/eac5586cd3c08d8bf4f2fd7ff0a618a192b2a60fb4513b579e6b955c17bea0e0/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/bca03e8eed69989b8bbfbdfb9f2a8ec69e2fccafe74af98d506c7cbc2f3e5f49/merged
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/0f496509241428370dd1ed47d759fcdf3fb0ece302885c6b53abfaab1279dbc5/merged
+tmpfs           731M   44K  731M   1% /run/user/0
+overlay         440G   31G  408G   7% /var/lib/docker/overlay2/2a000be0bb149f7feb36ba238a0fc36fe5b6b69028019db59b565454d7df5005/merged

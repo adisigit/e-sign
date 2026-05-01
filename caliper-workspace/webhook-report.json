@@ -1,19 +1,19 @@
 {
   "summary": {
-    "totalRequests": 500,
-    "successful": 500,
+    "totalRequests": 100,
+    "successful": 100,
     "failed": 0,
     "successRate": "100.00%",
-    "duration": "12.12s",
-    "throughput": "41.25 req/s"
+    "duration": "10.21s",
+    "throughput": "9.79 req/s"
   },
   "latency": {
-    "avg": "45.87ms",
-    "min": "7ms",
-    "max": "455ms",
-    "p50": "20ms",
-    "p95": "219ms",
-    "p99": "381ms"
+    "avg": "7.17ms",
+    "min": "3ms",
+    "max": "77ms",
+    "p50": "4ms",
+    "p95": "27ms",
+    "p99": "77ms"
   },
   "errors": []
 }

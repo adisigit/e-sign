@@ -16,7 +16,7 @@ class WebhookController {
         name,
         description,
         file,
-        recipients,
+        recipients = [],
         userId = "admin",
       } = req.body;
       const fileBuffer = Buffer.from(file, "base64");
@@ -45,8 +45,7 @@ class WebhookController {
         !documentCategoryCode ||
         !name ||
         !description ||
-        !file ||
-        !recipients
+        !file
       ) {
         return res.status(400).json({
           success: false,

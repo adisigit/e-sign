@@ -1,3002 +1,602 @@
 [
   {
-    "documentID": "50d96159-2201-4144-9b56-23014bb8c315-org2",
-    "category": "LAINNYA",
-    "latency": 96,
-    "timestamp": "2026-01-25T05:00:15.894Z"
-  },
-  {
-    "documentID": "615cfa6b-a7c3-45fa-b5fb-c6164f0f564f-org2",
-    "category": "INVOICE",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:15.908Z"
-  },
-  {
-    "documentID": "6da71542-4a58-48be-9900-5893f3b5cc09-org2",
-    "category": "AGREEMENT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:15.918Z"
-  },
-  {
-    "documentID": "34841ed1-178f-445f-a24d-5ae258d0035a-org2",
+    "documentID": "afd8baea-a5f4-40cb-996f-3387b3efd537-org2",
     "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:15.941Z"
+    "latency": 67,
+    "timestamp": "2026-04-30T14:39:19.563Z"
   },
   {
-    "documentID": "4182b42a-2e04-436d-9bf1-f67afa7a1d2d-org2",
-    "category": "REPORT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:15.970Z"
-  },
-  {
-    "documentID": "5ccd2bcd-f2a1-40f6-8d81-beb218ff01b1-org2",
-    "category": "AGREEMENT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:15.985Z"
-  },
-  {
-    "documentID": "a45b1c5f-01f4-46be-a0e9-c4c9d429d734-org2",
-    "category": "LAINNYA",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:16.005Z"
-  },
-  {
-    "documentID": "c1e9580e-1410-4f18-8cec-8e58653361a5-org2",
-    "category": "CONTRACT",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:16.028Z"
-  },
-  {
-    "documentID": "0646e811-3609-42ea-b092-5399d68da77b-org2",
-    "category": "AGREEMENT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:16.057Z"
-  },
-  {
-    "documentID": "67289efe-4427-4390-8d36-f4bc74e84ecf-org2",
-    "category": "INVOICE",
-    "latency": 348,
-    "timestamp": "2026-01-25T05:00:16.413Z"
-  },
-  {
-    "documentID": "4cdd7218-4bd6-4d10-99c6-f799d2906341-org2",
-    "category": "INVOICE",
-    "latency": 327,
-    "timestamp": "2026-01-25T05:00:16.416Z"
-  },
-  {
-    "documentID": "17339978-aa63-4ef1-8a26-a74e8c148865-org2",
-    "category": "REPORT",
-    "latency": 308,
-    "timestamp": "2026-01-25T05:00:16.420Z"
-  },
-  {
-    "documentID": "34fb2603-d773-4c5a-b0db-49b1cf5f1f85-org2",
-    "category": "AGREEMENT",
-    "latency": 287,
-    "timestamp": "2026-01-25T05:00:16.423Z"
-  },
-  {
-    "documentID": "f7745c80-32e7-4a72-b7d0-58f2cb45bd7d-org2",
-    "category": "CONTRACT",
-    "latency": 269,
-    "timestamp": "2026-01-25T05:00:16.428Z"
-  },
-  {
-    "documentID": "d6a1c8bf-bf72-4cde-a35d-852af870db30-org2",
-    "category": "CONTRACT",
-    "latency": 248,
-    "timestamp": "2026-01-25T05:00:16.431Z"
-  },
-  {
-    "documentID": "35264171-7c26-46ca-a1cc-7f73dca58b6d-org2",
-    "category": "LAINNYA",
-    "latency": 230,
-    "timestamp": "2026-01-25T05:00:16.437Z"
-  },
-  {
-    "documentID": "83895125-5223-475f-975f-38de6e9b03e6-org2",
-    "category": "INVOICE",
-    "latency": 214,
-    "timestamp": "2026-01-25T05:00:16.443Z"
-  },
-  {
-    "documentID": "be1678e6-f8e8-4376-8ef8-fc83aef93a78-org2",
-    "category": "INVOICE",
-    "latency": 194,
-    "timestamp": "2026-01-25T05:00:16.447Z"
-  },
-  {
-    "documentID": "4963e5ce-aa45-49c6-b924-f8f13a3daefe-org2",
-    "category": "POLICY",
-    "latency": 177,
-    "timestamp": "2026-01-25T05:00:16.452Z"
-  },
-  {
-    "documentID": "695cff59-7246-4ed3-be24-7544bd1fd3b0-org2",
-    "category": "REPORT",
-    "latency": 160,
-    "timestamp": "2026-01-25T05:00:16.458Z"
-  },
-  {
-    "documentID": "89d606e9-520c-4c51-b490-533d48de26b9-org2",
-    "category": "POLICY",
-    "latency": 142,
-    "timestamp": "2026-01-25T05:00:16.462Z"
-  },
-  {
-    "documentID": "27cdb865-b575-4e83-ae77-e4570fe36ba7-org2",
-    "category": "AGREEMENT",
-    "latency": 125,
-    "timestamp": "2026-01-25T05:00:16.467Z"
-  },
-  {
-    "documentID": "d75c018b-f8c6-47fb-8a48-641619b98d7a-org2",
-    "category": "CONTRACT",
-    "latency": 110,
-    "timestamp": "2026-01-25T05:00:16.473Z"
-  },
-  {
-    "documentID": "48e91c9f-080e-4fd6-a4d2-c715d10480ab-org2",
-    "category": "AGREEMENT",
-    "latency": 91,
-    "timestamp": "2026-01-25T05:00:16.477Z"
-  },
-  {
-    "documentID": "81e77c9b-5443-48aa-bf4d-5e8dfb63f219-org2",
-    "category": "INVOICE",
-    "latency": 102,
-    "timestamp": "2026-01-25T05:00:16.510Z"
-  },
-  {
-    "documentID": "490ec21b-3646-40bd-8e64-332c2b8f1427-org2",
-    "category": "AGREEMENT",
-    "latency": 82,
-    "timestamp": "2026-01-25T05:00:16.514Z"
-  },
-  {
-    "documentID": "c5ee897e-4a8c-4859-afb1-bc01219c0e4b-org2",
-    "category": "AGREEMENT",
-    "latency": 64,
-    "timestamp": "2026-01-25T05:00:16.518Z"
-  },
-  {
-    "documentID": "a9731278-e012-4dc4-b2d9-f9dec6e8e362-org2",
-    "category": "AGREEMENT",
-    "latency": 43,
-    "timestamp": "2026-01-25T05:00:16.521Z"
-  },
-  {
-    "documentID": "582766eb-680c-4d2a-b5fc-7ccefaf1fc9d-org2",
-    "category": "LAINNYA",
-    "latency": 38,
-    "timestamp": "2026-01-25T05:00:16.543Z"
-  },
-  {
-    "documentID": "8c1d91ca-b42f-4892-91ad-e15374079321-org2",
-    "category": "AGREEMENT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:16.548Z"
-  },
-  {
-    "documentID": "4e219495-2170-44f7-b6d8-b7047356b62b-org2",
-    "category": "REPORT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:16.567Z"
-  },
-  {
-    "documentID": "39bf4af3-d48b-4021-9698-902c6043323e-org2",
-    "category": "POLICY",
-    "latency": 48,
-    "timestamp": "2026-01-25T05:00:16.620Z"
-  },
-  {
-    "documentID": "ff331355-e0c5-42e4-9c74-117e4576422f-org2",
-    "category": "REPORT",
-    "latency": 32,
-    "timestamp": "2026-01-25T05:00:16.627Z"
-  },
-  {
-    "documentID": "4e3b2a5d-f6bd-4de6-ae15-70178443dd74-org2",
-    "category": "REPORT",
-    "latency": 28,
-    "timestamp": "2026-01-25T05:00:16.645Z"
-  },
-  {
-    "documentID": "f6a7b906-fe98-479c-98e5-dc8564d4f480-org2",
-    "category": "LAINNYA",
-    "latency": 35,
-    "timestamp": "2026-01-25T05:00:16.674Z"
-  },
-  {
-    "documentID": "27a75cdd-a309-431f-8c04-14990129ea3a-org2",
-    "category": "LAINNYA",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:16.681Z"
-  },
-  {
-    "documentID": "f5f2f657-7483-4e42-8413-df9a38bc30f1-org2",
-    "category": "LAINNYA",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:16.707Z"
-  },
-  {
-    "documentID": "8fd68e86-31ed-4af9-a998-b096fcf220bb-org2",
-    "category": "LAINNYA",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:16.725Z"
-  },
-  {
-    "documentID": "40f9a35f-7797-47af-8d3e-198eb1673c25-org2",
-    "category": "POLICY",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:16.749Z"
-  },
-  {
-    "documentID": "95c1e096-20e4-4b70-8f23-acc48c0cf66d-org2",
-    "category": "REPORT",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:16.783Z"
-  },
-  {
-    "documentID": "7dfc97c3-e8f3-43b0-b071-b739c113eebb-org2",
-    "category": "LAINNYA",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:16.793Z"
-  },
-  {
-    "documentID": "d663e57a-4f72-469d-8d8b-35f328b63b3e-org2",
-    "category": "REPORT",
-    "latency": 21,
-    "timestamp": "2026-01-25T05:00:16.816Z"
-  },
-  {
-    "documentID": "c0443e5c-aa30-448b-aec6-ed31191d3eda-org2",
-    "category": "POLICY",
-    "latency": 30,
-    "timestamp": "2026-01-25T05:00:16.846Z"
-  },
-  {
-    "documentID": "7c72b828-bff6-4f85-a918-3af35b8c72ea-org2",
-    "category": "POLICY",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:16.858Z"
-  },
-  {
-    "documentID": "ee5eed15-195b-4b25-b512-ecd109ccae3f-org2",
-    "category": "AGREEMENT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:16.879Z"
-  },
-  {
-    "documentID": "5261a36a-b706-4bb9-addc-d3a7991dec3c-org2",
-    "category": "CONTRACT",
-    "latency": 27,
-    "timestamp": "2026-01-25T05:00:16.909Z"
-  },
-  {
-    "documentID": "60e757ee-49e5-4b59-8e49-2b99c095e3e1-org2",
-    "category": "INVOICE",
-    "latency": 31,
-    "timestamp": "2026-01-25T05:00:16.937Z"
-  },
-  {
-    "documentID": "a2494db8-581d-4e05-a9b8-0abc6305dc31-org2",
-    "category": "INVOICE",
-    "latency": 29,
-    "timestamp": "2026-01-25T05:00:16.958Z"
-  },
-  {
-    "documentID": "e5c72bfd-97ac-4394-a3c6-2266350dda60-org2",
-    "category": "CONTRACT",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:16.989Z"
-  },
-  {
-    "documentID": "f515aeb0-4b91-4347-ab08-3c6bec27486d-org2",
-    "category": "LAINNYA",
-    "latency": 37,
-    "timestamp": "2026-01-25T05:00:17.015Z"
-  },
-  {
-    "documentID": "7fc02037-0238-4d28-ad68-e070d20240d9-org2",
-    "category": "AGREEMENT",
-    "latency": 34,
-    "timestamp": "2026-01-25T05:00:17.038Z"
-  },
-  {
-    "documentID": "985b927f-20cd-4ed2-a80a-65136e3eb0c9-org2",
-    "category": "CONTRACT",
-    "latency": 55,
-    "timestamp": "2026-01-25T05:00:17.083Z"
-  },
-  {
-    "documentID": "82d34814-27f9-4753-8d10-96abc11e21a5-org2",
-    "category": "POLICY",
-    "latency": 34,
-    "timestamp": "2026-01-25T05:00:17.088Z"
-  },
-  {
-    "documentID": "15534d68-6fc2-4855-9408-28b4d51f6386-org2",
-    "category": "AGREEMENT",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:17.111Z"
-  },
-  {
-    "documentID": "cfd8ebf6-0e36-4368-811e-fce2161ec7d9-org2",
-    "category": "INVOICE",
-    "latency": 57,
-    "timestamp": "2026-01-25T05:00:17.158Z"
-  },
-  {
-    "documentID": "4f37b96d-dbb6-4bae-80f4-9c38cc4453c0-org2",
-    "category": "REPORT",
-    "latency": 53,
-    "timestamp": "2026-01-25T05:00:17.178Z"
-  },
-  {
-    "documentID": "91a86316-3948-491c-8ffa-34f5509116f6-org2",
-    "category": "POLICY",
-    "latency": 56,
-    "timestamp": "2026-01-25T05:00:17.204Z"
-  },
-  {
-    "documentID": "b387c04b-31c9-4811-ad3c-a30c5c55ab2d-org2",
-    "category": "AGREEMENT",
-    "latency": 52,
-    "timestamp": "2026-01-25T05:00:17.225Z"
-  },
-  {
-    "documentID": "b8bb8d6d-9dfb-4acd-aa64-b5c6486ecc59-org2",
-    "category": "CONTRACT",
-    "latency": 32,
-    "timestamp": "2026-01-25T05:00:17.228Z"
-  },
-  {
-    "documentID": "b0788050-6222-44f9-9550-dba87c1231ec-org2",
-    "category": "LAINNYA",
-    "latency": 21,
-    "timestamp": "2026-01-25T05:00:17.241Z"
-  },
-  {
-    "documentID": "269294d2-bab9-4a32-8ca1-4ba89dd2eea9-org2",
-    "category": "AGREEMENT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:17.255Z"
-  },
-  {
-    "documentID": "e068d55c-8a26-4d9d-8ed9-2ba3babea6f3-org2",
-    "category": "REPORT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:17.278Z"
-  },
-  {
-    "documentID": "fb0b0b12-cded-4ad3-ba87-31f898b8ac6b-org2",
-    "category": "REPORT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:17.303Z"
-  },
-  {
-    "documentID": "a63f18d3-0e32-4f4a-b59b-245c29e831d1-org2",
-    "category": "AGREEMENT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:17.325Z"
-  },
-  {
-    "documentID": "235371d4-ce07-496b-8c4b-f98c0e706eab-org2",
-    "category": "REPORT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:17.348Z"
-  },
-  {
-    "documentID": "8d2bee65-4563-4660-92f3-ba9dfae8fa3e-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:17.369Z"
-  },
-  {
-    "documentID": "8e709a41-2b1a-4401-970d-9522c4bdeaf1-org2",
-    "category": "CONTRACT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:17.391Z"
-  },
-  {
-    "documentID": "a6b9084c-e55a-46ec-94b4-85220517512a-org2",
-    "category": "CONTRACT",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:17.412Z"
-  },
-  {
-    "documentID": "1147d2c1-6b31-4404-9250-f0adc392b732-org2",
-    "category": "INVOICE",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:17.439Z"
-  },
-  {
-    "documentID": "bd710271-da77-4ffd-a904-f6e25f62ea7c-org2",
-    "category": "POLICY",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:17.460Z"
-  },
-  {
-    "documentID": "f319592b-979f-4514-ba48-09dea3c3180d-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:17.487Z"
-  },
-  {
-    "documentID": "f8ef58fe-2d18-4f69-891f-6dfa455fd4f3-org2",
-    "category": "INVOICE",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:17.508Z"
-  },
-  {
-    "documentID": "e900ab5a-a3e6-4619-b7be-4011c872acf4-org2",
-    "category": "REPORT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:17.528Z"
-  },
-  {
-    "documentID": "28f2f743-45b7-45a8-b986-e5b7360c9613-org2",
-    "category": "INVOICE",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:17.547Z"
-  },
-  {
-    "documentID": "ab418e9d-b9dd-44e3-b4a9-5d0bac5d82cb-org2",
-    "category": "INVOICE",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:17.571Z"
-  },
-  {
-    "documentID": "5ff18792-b26b-491d-b913-f82cd2616f1f-org2",
-    "category": "POLICY",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:17.593Z"
-  },
-  {
-    "documentID": "aae1fb50-9a4c-41d4-80ea-77a1950f8a47-org2",
-    "category": "INVOICE",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:17.619Z"
-  },
-  {
-    "documentID": "9b27e6a6-3422-49e5-97b8-1f94af885325-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:17.640Z"
-  },
-  {
-    "documentID": "93d24346-c3f2-44e1-a67f-9700bd27f588-org2",
-    "category": "POLICY",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:17.664Z"
-  },
-  {
-    "documentID": "cd592a5c-0183-4b31-9968-ef42fa841007-org2",
-    "category": "AGREEMENT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:17.691Z"
-  },
-  {
-    "documentID": "7527bce4-9650-4f2e-a359-2b9db261d4ff-org2",
-    "category": "INVOICE",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:17.711Z"
-  },
-  {
-    "documentID": "97fb82f6-76b5-4f3d-9da9-e8736c29a3f9-org2",
-    "category": "AGREEMENT",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:17.730Z"
-  },
-  {
-    "documentID": "2a2141f3-7cad-47c2-9723-5779e7a671e6-org2",
-    "category": "REPORT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:17.756Z"
-  },
-  {
-    "documentID": "02ef49ad-ba65-48c0-b085-ef007e7fca7e-org2",
-    "category": "REPORT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:17.777Z"
-  },
-  {
-    "documentID": "8c708e27-5caf-4168-a784-a3eda6fc71a3-org2",
-    "category": "POLICY",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:17.798Z"
-  },
-  {
-    "documentID": "08f742d0-c001-42de-9473-8b1784b3fc4a-org2",
-    "category": "CONTRACT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:17.825Z"
-  },
-  {
-    "documentID": "f85a9741-bbd6-41fe-8d4e-ab772d268237-org2",
-    "category": "INVOICE",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:17.851Z"
-  },
-  {
-    "documentID": "4c44b8c2-2e50-4b45-9f66-f6120da9032b-org2",
-    "category": "AGREEMENT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:17.871Z"
-  },
-  {
-    "documentID": "2d6cf983-ec1d-495e-9aea-7fca751d7186-org2",
-    "category": "POLICY",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:17.891Z"
-  },
-  {
-    "documentID": "3feac799-7fca-482e-b9d8-659101b2b5ea-org2",
-    "category": "REPORT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:17.917Z"
-  },
-  {
-    "documentID": "b9724b65-45e4-4f74-aec0-b50a420d9020-org2",
-    "category": "CONTRACT",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:17.936Z"
-  },
-  {
-    "documentID": "4d985f4a-c1b4-4347-8474-764989544a27-org2",
-    "category": "REPORT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:17.963Z"
-  },
-  {
-    "documentID": "a88b92c9-764b-49bc-acc3-19212e83bfe8-org2",
-    "category": "AGREEMENT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:17.985Z"
-  },
-  {
-    "documentID": "963957de-de65-419c-b34a-d1913638089a-org2",
-    "category": "POLICY",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:18.013Z"
-  },
-  {
-    "documentID": "731a123c-c5b7-4511-8156-c8562181457c-org2",
-    "category": "LAINNYA",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:18.037Z"
-  },
-  {
-    "documentID": "d86471bb-92ce-4a52-abdd-d895c339845d-org2",
-    "category": "AGREEMENT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:18.057Z"
-  },
-  {
-    "documentID": "c79d6b94-0902-43b4-9f76-f07c7695f9be-org2",
-    "category": "AGREEMENT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:18.086Z"
-  },
-  {
-    "documentID": "8608efb2-7e59-435a-9c46-de7ae48a571b-org2",
-    "category": "CONTRACT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:18.105Z"
-  },
-  {
-    "documentID": "37d0f56f-6768-482d-81c5-86247dc6e6da-org2",
-    "category": "AGREEMENT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:18.126Z"
-  },
-  {
-    "documentID": "70ef0d89-6640-455b-97da-95221bc7dbfe-org2",
-    "category": "INVOICE",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:18.155Z"
-  },
-  {
-    "documentID": "507a9455-b0a2-4755-a07e-1c23750d68d1-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:18.175Z"
-  },
-  {
-    "documentID": "c31c3e96-e33f-402d-aec0-217489c5bc9a-org2",
-    "category": "LAINNYA",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:18.197Z"
-  },
-  {
-    "documentID": "89fa5d3c-c747-476d-b9a1-79e6dfbf1716-org2",
-    "category": "CONTRACT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:18.220Z"
-  },
-  {
-    "documentID": "5369f3e9-1443-432c-a812-1df5f7f85303-org2",
-    "category": "INVOICE",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:18.243Z"
-  },
-  {
-    "documentID": "e53782c0-d28e-4912-94f8-86d82bf9c511-org2",
-    "category": "REPORT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:18.271Z"
-  },
-  {
-    "documentID": "e8f744a9-2c74-449f-8249-21fcb5258edb-org2",
-    "category": "AGREEMENT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:18.294Z"
-  },
-  {
-    "documentID": "db70301f-6f6d-4b2d-913f-507f2503af1d-org2",
-    "category": "CONTRACT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:18.315Z"
-  },
-  {
-    "documentID": "7a532a2e-4424-401a-997d-c7dae2d3fcbb-org2",
-    "category": "LAINNYA",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:18.338Z"
-  },
-  {
-    "documentID": "8b1cdb17-8427-4d40-bae9-337625048fbe-org2",
-    "category": "POLICY",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:18.354Z"
-  },
-  {
-    "documentID": "3e421221-10cf-4a30-afdb-39990832543d-org2",
-    "category": "POLICY",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:18.377Z"
-  },
-  {
-    "documentID": "6e03e953-de0c-4684-83df-6a964978ed18-org2",
+    "documentID": "9fdadb44-cdff-4a20-aae6-8eaf754e689f-org2",
     "category": "REPORT",
     "latency": 9,
-    "timestamp": "2026-01-25T05:00:18.399Z"
+    "timestamp": "2026-04-30T14:39:19.646Z"
   },
   {
-    "documentID": "703f096a-9a72-43ab-b1c1-6973d2ea8030-org2",
-    "category": "INVOICE",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:18.420Z"
-  },
-  {
-    "documentID": "8300d6dd-22ab-4a1f-a629-6b3439fe628b-org2",
-    "category": "LAINNYA",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:18.444Z"
-  },
-  {
-    "documentID": "a26b79ce-0443-4ac1-9b27-bd5665c7ebe9-org2",
-    "category": "INVOICE",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:18.465Z"
-  },
-  {
-    "documentID": "ac1585ef-63b4-4419-80de-6fc7de4b549b-org2",
-    "category": "REPORT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:18.491Z"
-  },
-  {
-    "documentID": "d4798ba4-b74f-4437-aa53-aa708fee2451-org2",
+    "documentID": "b55f6425-f3e7-4ccf-a2f2-e30b9d7a2703-org2",
     "category": "POLICY",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:18.509Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:19.748Z"
   },
   {
-    "documentID": "25265890-6209-430e-befb-ee29ebc0f995-org2",
-    "category": "INVOICE",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:18.536Z"
-  },
-  {
-    "documentID": "ea143a40-82f7-4391-8cd2-9c77030d5f6d-org2",
-    "category": "LAINNYA",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:18.554Z"
-  },
-  {
-    "documentID": "03af4ffb-0207-40d9-b8ad-1607ef69c8fc-org2",
+    "documentID": "28685ebf-8d76-4c37-895e-4b37ff36fc77-org2",
     "category": "REPORT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:19.848Z"
+  },
+  {
+    "documentID": "4d685f5f-4dd1-4326-ada1-7de8b958f2d3-org2",
+    "category": "LAINNYA",
     "latency": 7,
-    "timestamp": "2026-01-25T05:00:18.576Z"
+    "timestamp": "2026-04-30T14:39:19.953Z"
   },
   {
-    "documentID": "46c6f6c7-47f0-4cff-b26f-3453a9332b70-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:18.602Z"
-  },
-  {
-    "documentID": "459baa92-eb5e-40d4-94ca-53ab2b64766a-org2",
-    "category": "INVOICE",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:18.629Z"
-  },
-  {
-    "documentID": "a8d53036-47df-4989-8f3c-732cfbf9eb80-org2",
-    "category": "AGREEMENT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:18.651Z"
-  },
-  {
-    "documentID": "c65d87ad-15d4-462e-87d9-46ca1c284742-org2",
+    "documentID": "450154a4-38b1-47d0-b6ae-df51670f7b20-org2",
     "category": "REPORT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:18.671Z"
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:20.054Z"
   },
   {
-    "documentID": "ac1be728-ab88-4831-a5fb-f6d96266003b-org2",
+    "documentID": "5a130116-4b86-4a9f-acdf-1d948aaed0d4-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:20.156Z"
+  },
+  {
+    "documentID": "62fb88b7-67f3-46e8-90a2-823987a4a32f-org2",
     "category": "AGREEMENT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:18.699Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:20.258Z"
   },
   {
-    "documentID": "7ea4cb27-b16b-47e9-9495-13729ee1614f-org2",
-    "category": "LAINNYA",
-    "latency": 26,
-    "timestamp": "2026-01-25T05:00:18.731Z"
-  },
-  {
-    "documentID": "cc57689d-0e02-4197-9aec-87e4d2641af2-org2",
-    "category": "INVOICE",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:18.741Z"
-  },
-  {
-    "documentID": "9a30d8a2-3b28-45e4-a269-2a6dc17fdcff-org2",
-    "category": "AGREEMENT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:18.771Z"
-  },
-  {
-    "documentID": "f3c1e6c0-9ca1-4420-9c46-061ae3b34d69-org2",
-    "category": "LAINNYA",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:18.789Z"
-  },
-  {
-    "documentID": "b77584b0-1a72-4f51-89cf-12f7af8897da-org2",
-    "category": "LAINNYA",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:18.816Z"
-  },
-  {
-    "documentID": "efa5e12e-68f9-49a5-a04c-8b8c613cadba-org2",
-    "category": "POLICY",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:18.840Z"
-  },
-  {
-    "documentID": "fc22a953-292f-412f-9f52-3a06ec4601b8-org2",
-    "category": "LAINNYA",
-    "latency": 39,
-    "timestamp": "2026-01-25T05:00:18.888Z"
-  },
-  {
-    "documentID": "8b47930f-83a8-413c-8bf3-51e0bb6a9e6e-org2",
-    "category": "INVOICE",
-    "latency": 35,
-    "timestamp": "2026-01-25T05:00:18.908Z"
-  },
-  {
-    "documentID": "e7312179-fb07-4930-8c02-f317400a941d-org2",
-    "category": "REPORT",
-    "latency": 28,
-    "timestamp": "2026-01-25T05:00:18.930Z"
-  },
-  {
-    "documentID": "9679ab31-dab0-47ad-ac31-72d26d701b98-org2",
-    "category": "CONTRACT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:18.943Z"
-  },
-  {
-    "documentID": "f8563247-c78d-4055-a3c4-bfbb150cfccd-org2",
-    "category": "CONTRACT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:18.961Z"
-  },
-  {
-    "documentID": "984bb415-b3fd-4c70-a2c1-c13dea6bc983-org2",
-    "category": "CONTRACT",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:18.981Z"
-  },
-  {
-    "documentID": "0e8d50e0-1acf-4581-aa17-01dd51170770-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:19.006Z"
-  },
-  {
-    "documentID": "29f1f0e6-0c5f-4b9d-805f-885f85cc6257-org2",
-    "category": "INVOICE",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:19.037Z"
-  },
-  {
-    "documentID": "a055c047-9fd3-42fb-bcaa-4243ed643fdd-org2",
-    "category": "INVOICE",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:19.057Z"
-  },
-  {
-    "documentID": "00a7b040-6884-4b63-b82f-05f36f96d2f9-org2",
-    "category": "LAINNYA",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:19.078Z"
-  },
-  {
-    "documentID": "ee55a58c-5474-4b30-b984-36971c51a4d8-org2",
-    "category": "INVOICE",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:19.100Z"
-  },
-  {
-    "documentID": "be007ce3-f8cc-46f2-966b-a839e4e5e61c-org2",
-    "category": "REPORT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:19.124Z"
-  },
-  {
-    "documentID": "b9ce2db6-7c15-48bd-9851-b510743a523f-org2",
-    "category": "AGREEMENT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:19.145Z"
-  },
-  {
-    "documentID": "6fb5157f-5a33-41fa-afa1-c7529184e712-org2",
-    "category": "LAINNYA",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:19.169Z"
-  },
-  {
-    "documentID": "03d3a820-8689-4d9a-bd4c-46e0f7e2e796-org2",
-    "category": "INVOICE",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:19.193Z"
-  },
-  {
-    "documentID": "78efc761-0cdd-4097-8d66-d1a0859e0334-org2",
-    "category": "POLICY",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:19.214Z"
-  },
-  {
-    "documentID": "a39cc664-0084-4713-bfb9-55e9615c774c-org2",
-    "category": "LAINNYA",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:19.242Z"
-  },
-  {
-    "documentID": "9c342a12-4223-4339-840f-d767041be61d-org2",
-    "category": "CONTRACT",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:19.270Z"
-  },
-  {
-    "documentID": "3a276510-486d-4db4-a154-740fbba37735-org2",
-    "category": "LAINNYA",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:19.295Z"
-  },
-  {
-    "documentID": "8af6d829-44df-4de9-9f4c-69dcd57e2581-org2",
-    "category": "CONTRACT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:19.316Z"
-  },
-  {
-    "documentID": "dbca14e8-fcdf-41f0-92a6-fb441a12deef-org2",
-    "category": "AGREEMENT",
-    "latency": 47,
-    "timestamp": "2026-01-25T05:00:19.366Z"
-  },
-  {
-    "documentID": "38edc30a-d47d-4864-8a3b-17fad1ba7808-org2",
-    "category": "POLICY",
-    "latency": 54,
-    "timestamp": "2026-01-25T05:00:19.397Z"
-  },
-  {
-    "documentID": "3d1b99ef-60c1-4e9e-ad46-419f600934e6-org2",
-    "category": "AGREEMENT",
-    "latency": 56,
-    "timestamp": "2026-01-25T05:00:19.423Z"
-  },
-  {
-    "documentID": "d76c9d21-08ed-409d-b915-0d5f95fe8612-org2",
-    "category": "INVOICE",
-    "latency": 59,
-    "timestamp": "2026-01-25T05:00:19.462Z"
-  },
-  {
-    "documentID": "4f5f077a-5f6b-40ff-abc5-cd9eab7133cb-org2",
-    "category": "POLICY",
-    "latency": 56,
-    "timestamp": "2026-01-25T05:00:19.489Z"
-  },
-  {
-    "documentID": "c4e8c80c-b1fd-4624-9d82-2b7e4cc5f602-org2",
-    "category": "INVOICE",
-    "latency": 43,
-    "timestamp": "2026-01-25T05:00:19.515Z"
-  },
-  {
-    "documentID": "af800d18-6239-4f70-a2e2-0c0ff358d9d9-org2",
-    "category": "POLICY",
-    "latency": 39,
-    "timestamp": "2026-01-25T05:00:19.536Z"
-  },
-  {
-    "documentID": "2509c98f-1eb5-474e-b3cc-425bd94e8b3d-org2",
-    "category": "CONTRACT",
-    "latency": 43,
-    "timestamp": "2026-01-25T05:00:19.564Z"
-  },
-  {
-    "documentID": "c1109a01-2d6e-4e2b-b57b-32dcbafc24b1-org2",
-    "category": "LAINNYA",
-    "latency": 40,
-    "timestamp": "2026-01-25T05:00:19.588Z"
-  },
-  {
-    "documentID": "8f26c910-e98c-4aeb-88d8-554fe2616e67-org2",
-    "category": "AGREEMENT",
-    "latency": 35,
-    "timestamp": "2026-01-25T05:00:19.608Z"
-  },
-  {
-    "documentID": "38f6c657-4d75-4a85-847e-7a47ca5bd4e3-org2",
-    "category": "POLICY",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:19.629Z"
-  },
-  {
-    "documentID": "a3c7cd7c-5394-4dff-b5a8-3f174c8d8e17-org2",
-    "category": "INVOICE",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:19.642Z"
-  },
-  {
-    "documentID": "d176ebed-4654-4168-809d-3fb83d42aff6-org2",
-    "category": "REPORT",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:19.665Z"
-  },
-  {
-    "documentID": "d3411445-ca40-40a4-b5a3-6f73156bc5a1-org2",
-    "category": "POLICY",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:19.689Z"
-  },
-  {
-    "documentID": "dc9a6f99-ff20-4ca5-a157-0e8bb245f92a-org2",
-    "category": "CONTRACT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:19.706Z"
-  },
-  {
-    "documentID": "04e01cb5-617a-48b7-991c-040243ffd50e-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:19.725Z"
-  },
-  {
-    "documentID": "9ccd0a41-59b7-4a66-a9b1-c0f62a3b164e-org2",
-    "category": "INVOICE",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:19.752Z"
-  },
-  {
-    "documentID": "51cb4088-8291-47b4-b1cc-caf02c7b2a2c-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:19.777Z"
-  },
-  {
-    "documentID": "ac263299-49fc-46bf-942d-7c245cc6b012-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:19.795Z"
-  },
-  {
-    "documentID": "ab7f16da-b0e4-4c62-bb48-454458d59df1-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:19.817Z"
-  },
-  {
-    "documentID": "717cc1f0-e368-48dd-bff8-f4c93515ef1b-org2",
-    "category": "REPORT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:19.842Z"
-  },
-  {
-    "documentID": "5a5ee70d-a03d-46e3-87ad-d431976a87b4-org2",
-    "category": "LAINNYA",
-    "latency": 28,
-    "timestamp": "2026-01-25T05:00:19.880Z"
-  },
-  {
-    "documentID": "1af90745-b5df-4c55-8811-800d9f3d14ee-org2",
-    "category": "POLICY",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:19.892Z"
-  },
-  {
-    "documentID": "3253fac2-8000-426a-8feb-8d0b86d68ed3-org2",
-    "category": "CONTRACT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:19.908Z"
-  },
-  {
-    "documentID": "f4a7b2d7-f377-414c-82df-2223b3185fec-org2",
-    "category": "REPORT",
-    "latency": 238,
-    "timestamp": "2026-01-25T05:00:20.156Z"
-  },
-  {
-    "documentID": "6de650cb-98dc-4995-8ae0-3d8d1877e074-org2",
-    "category": "LAINNYA",
-    "latency": 220,
-    "timestamp": "2026-01-25T05:00:20.159Z"
-  },
-  {
-    "documentID": "fdc6316b-25a0-4b88-b4ba-59ce7aed6808-org2",
-    "category": "POLICY",
-    "latency": 201,
-    "timestamp": "2026-01-25T05:00:20.162Z"
-  },
-  {
-    "documentID": "9a553d03-92dc-438f-a023-8bbbb2443885-org2",
-    "category": "REPORT",
-    "latency": 182,
-    "timestamp": "2026-01-25T05:00:20.165Z"
-  },
-  {
-    "documentID": "041ac396-a38d-42f3-87a7-c52169a356a7-org2",
-    "category": "AGREEMENT",
-    "latency": 165,
-    "timestamp": "2026-01-25T05:00:20.169Z"
-  },
-  {
-    "documentID": "a5039adb-3c3c-4f1b-a3f4-a59fbc2a891f-org2",
-    "category": "CONTRACT",
-    "latency": 147,
-    "timestamp": "2026-01-25T05:00:20.173Z"
-  },
-  {
-    "documentID": "650cbff4-c39e-43bc-b620-e4675dbbb269-org2",
-    "category": "POLICY",
-    "latency": 130,
-    "timestamp": "2026-01-25T05:00:20.177Z"
-  },
-  {
-    "documentID": "a7787206-df45-4fad-9272-05e1795e4768-org2",
-    "category": "AGREEMENT",
-    "latency": 113,
-    "timestamp": "2026-01-25T05:00:20.182Z"
-  },
-  {
-    "documentID": "aaabb81e-2026-4185-827d-4e00490969ae-org2",
-    "category": "POLICY",
-    "latency": 96,
-    "timestamp": "2026-01-25T05:00:20.186Z"
-  },
-  {
-    "documentID": "e393b4ee-8820-4c0d-90ec-75c743342e74-org2",
-    "category": "AGREEMENT",
-    "latency": 79,
-    "timestamp": "2026-01-25T05:00:20.191Z"
-  },
-  {
-    "documentID": "52340147-980f-4284-961c-8c665dc07dde-org2",
-    "category": "INVOICE",
-    "latency": 62,
-    "timestamp": "2026-01-25T05:00:20.196Z"
-  },
-  {
-    "documentID": "1f767b14-5495-4fd2-946b-ad4932b8243e-org2",
-    "category": "POLICY",
-    "latency": 54,
-    "timestamp": "2026-01-25T05:00:20.210Z"
-  },
-  {
-    "documentID": "88d48c0e-7bc6-417c-b9a1-0ce6363740a4-org2",
-    "category": "INVOICE",
-    "latency": 37,
-    "timestamp": "2026-01-25T05:00:20.215Z"
-  },
-  {
-    "documentID": "756f3654-cbb2-4ac3-bee3-63a8b9cb7f4f-org2",
-    "category": "POLICY",
-    "latency": 21,
-    "timestamp": "2026-01-25T05:00:20.221Z"
-  },
-  {
-    "documentID": "4ddeeb8f-b669-48ca-89fa-427c31106673-org2",
-    "category": "CONTRACT",
-    "latency": 26,
-    "timestamp": "2026-01-25T05:00:20.248Z"
-  },
-  {
-    "documentID": "a16afbeb-3dec-4d56-81f9-e124de269ddd-org2",
-    "category": "POLICY",
-    "latency": 27,
-    "timestamp": "2026-01-25T05:00:20.271Z"
-  },
-  {
-    "documentID": "4c2d81d5-d9fe-497c-9398-1c6657d91cda-org2",
-    "category": "POLICY",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:20.287Z"
-  },
-  {
-    "documentID": "ccc7d5b4-c170-46af-aee6-0d3ca4c0ab67-org2",
-    "category": "CONTRACT",
-    "latency": 31,
-    "timestamp": "2026-01-25T05:00:20.319Z"
-  },
-  {
-    "documentID": "7c0c0bc8-62e8-46da-9c72-376e5e716ebe-org2",
-    "category": "CONTRACT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:20.330Z"
-  },
-  {
-    "documentID": "3df07460-433d-4315-8ef6-9ac9168241ea-org2",
-    "category": "REPORT",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:20.357Z"
-  },
-  {
-    "documentID": "4168ecef-063c-42f3-ac6b-4fbe8a3a1ded-org2",
-    "category": "CONTRACT",
-    "latency": 31,
-    "timestamp": "2026-01-25T05:00:20.385Z"
-  },
-  {
-    "documentID": "f6df4b90-4187-47ac-9c5e-7f0817bf583b-org2",
-    "category": "LAINNYA",
-    "latency": 30,
-    "timestamp": "2026-01-25T05:00:20.405Z"
-  },
-  {
-    "documentID": "856d0328-27bc-4b2a-bfc9-821573924b1e-org2",
-    "category": "LAINNYA",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:20.415Z"
-  },
-  {
-    "documentID": "7cc214dc-e9ec-4c24-927e-405774051729-org2",
-    "category": "CONTRACT",
-    "latency": 30,
-    "timestamp": "2026-01-25T05:00:20.452Z"
-  },
-  {
-    "documentID": "e74ba7f6-36c3-4806-a92b-e896678a9456-org2",
-    "category": "LAINNYA",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:20.463Z"
-  },
-  {
-    "documentID": "f6e5418d-9ce4-45c8-a6ce-bbcabbf8b515-org2",
-    "category": "POLICY",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:20.489Z"
-  },
-  {
-    "documentID": "0f604fd4-2fc0-4387-a1c3-b4969626c157-org2",
-    "category": "CONTRACT",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:20.508Z"
-  },
-  {
-    "documentID": "594ba929-7ccd-4ffe-ba6f-ed12e95a8ad6-org2",
-    "category": "INVOICE",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:20.523Z"
-  },
-  {
-    "documentID": "3eb48084-1af6-4938-9749-e3436410272c-org2",
-    "category": "POLICY",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:20.546Z"
-  },
-  {
-    "documentID": "9c1de914-0821-4abf-a441-cad67dc5fbe6-org2",
-    "category": "POLICY",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:20.568Z"
-  },
-  {
-    "documentID": "1a428416-60e9-446b-93d0-1014dbe3a217-org2",
-    "category": "LAINNYA",
-    "latency": 40,
-    "timestamp": "2026-01-25T05:00:20.618Z"
-  },
-  {
-    "documentID": "0371fa75-0222-4251-9bc2-434e36311885-org2",
-    "category": "CONTRACT",
-    "latency": 35,
-    "timestamp": "2026-01-25T05:00:20.637Z"
-  },
-  {
-    "documentID": "e4545aa9-8eee-4db4-80ee-e7a38e034389-org2",
-    "category": "AGREEMENT",
-    "latency": 47,
-    "timestamp": "2026-01-25T05:00:20.672Z"
-  },
-  {
-    "documentID": "2a943da2-c2b0-4712-b4fc-5fab6174f9b7-org2",
-    "category": "INVOICE",
-    "latency": 57,
-    "timestamp": "2026-01-25T05:00:20.704Z"
-  },
-  {
-    "documentID": "3cf1154b-bdc6-4aab-8a6e-7db3a5cf01a7-org2",
-    "category": "CONTRACT",
-    "latency": 34,
-    "timestamp": "2026-01-25T05:00:20.707Z"
-  },
-  {
-    "documentID": "1cd1bf5b-769a-4a52-b9a8-bd8db170697f-org2",
-    "category": "AGREEMENT",
-    "latency": 29,
-    "timestamp": "2026-01-25T05:00:20.725Z"
-  },
-  {
-    "documentID": "f3267bec-05b2-479e-9dc4-64506bfbd490-org2",
-    "category": "POLICY",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:20.733Z"
-  },
-  {
-    "documentID": "2ee8cffb-2a23-4a05-92e5-6d4e8e96cc1f-org2",
-    "category": "LAINNYA",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:20.750Z"
-  },
-  {
-    "documentID": "5d5b0ba8-19cf-4558-a215-2ce396ab7aa5-org2",
-    "category": "REPORT",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:20.774Z"
-  },
-  {
-    "documentID": "702a36a0-147b-4a47-ba2b-5c86208537eb-org2",
-    "category": "LAINNYA",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:20.797Z"
-  },
-  {
-    "documentID": "97862b23-2861-4ff9-95f3-d8f1b2d51bf4-org2",
-    "category": "INVOICE",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:20.821Z"
-  },
-  {
-    "documentID": "2f3e6169-c0f3-4770-a394-03bb83ebab7d-org2",
-    "category": "AGREEMENT",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:20.841Z"
-  },
-  {
-    "documentID": "9ff805a3-eca7-4ce5-9485-360e72bb564d-org2",
-    "category": "POLICY",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:20.865Z"
-  },
-  {
-    "documentID": "b5e96d8f-873f-40fd-8420-597a48cd8907-org2",
-    "category": "LAINNYA",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:20.897Z"
-  },
-  {
-    "documentID": "91e50260-aa05-4def-b9bf-6d4c4dd85867-org2",
-    "category": "INVOICE",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:20.918Z"
-  },
-  {
-    "documentID": "4513e622-96bc-4176-9d75-b0ee43a32458-org2",
-    "category": "POLICY",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:20.936Z"
-  },
-  {
-    "documentID": "7c94dc69-5f34-4e39-8a46-403b56582c2c-org2",
-    "category": "CONTRACT",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:20.969Z"
-  },
-  {
-    "documentID": "1f73a3e7-4b05-41eb-819a-0fd3e17b025c-org2",
-    "category": "REPORT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:20.991Z"
-  },
-  {
-    "documentID": "d509a150-e46b-4351-855d-c70b44fd60a5-org2",
-    "category": "CONTRACT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:21.009Z"
-  },
-  {
-    "documentID": "bd8cdc40-1254-4a7d-84c1-d25be21050b1-org2",
-    "category": "CONTRACT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:21.034Z"
-  },
-  {
-    "documentID": "0d096e54-06ef-4f07-a7a8-020361c06e73-org2",
-    "category": "LAINNYA",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:21.052Z"
-  },
-  {
-    "documentID": "2a534887-e907-4ded-be29-46b5fc027ed7-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:21.080Z"
-  },
-  {
-    "documentID": "55d0d1e3-d4c1-46e0-a42a-2c028708538b-org2",
-    "category": "POLICY",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:21.107Z"
-  },
-  {
-    "documentID": "767db85e-356f-4d50-9f91-f1c22be3b667-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:21.126Z"
-  },
-  {
-    "documentID": "d707d32d-a629-4cc2-98ba-b7252600c13a-org2",
-    "category": "AGREEMENT",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:21.143Z"
-  },
-  {
-    "documentID": "fbef4201-e7d7-4bc7-9094-7e1bc14f17f4-org2",
-    "category": "POLICY",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:21.170Z"
-  },
-  {
-    "documentID": "9754c0e1-0b3d-413e-943b-16db10560640-org2",
-    "category": "POLICY",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:21.191Z"
-  },
-  {
-    "documentID": "6433aedb-6ad1-4123-85f8-9f76760c923e-org2",
-    "category": "REPORT",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:21.219Z"
-  },
-  {
-    "documentID": "51d6f2c8-019d-472d-9e2b-a0d812b7b276-org2",
-    "category": "AGREEMENT",
-    "latency": 25,
-    "timestamp": "2026-01-25T05:00:21.250Z"
-  },
-  {
-    "documentID": "77c82c1d-55ce-4750-832a-e5d424701d05-org2",
-    "category": "REPORT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:21.262Z"
-  },
-  {
-    "documentID": "dee5df14-ed32-4e83-ae03-a8e30850253e-org2",
-    "category": "INVOICE",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:21.279Z"
-  },
-  {
-    "documentID": "6c759c90-c205-4ef8-944a-9aa8c8692efe-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:21.303Z"
-  },
-  {
-    "documentID": "b13bc0d1-e5b5-4b24-9e73-db17c136511d-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:21.325Z"
-  },
-  {
-    "documentID": "a1ac4e01-7c74-4d9c-9452-3ce879506ee2-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:21.348Z"
-  },
-  {
-    "documentID": "8bab448b-ba82-44a2-bc27-a1af055ba3d2-org2",
-    "category": "REPORT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:21.375Z"
-  },
-  {
-    "documentID": "aeb125c2-b1cf-41f4-b743-49251be1d588-org2",
+    "documentID": "3d7371ef-5213-416b-a8bb-a8f2afb118ca-org2",
     "category": "INVOICE",
     "latency": 10,
-    "timestamp": "2026-01-25T05:00:21.391Z"
+    "timestamp": "2026-04-30T14:39:20.364Z"
   },
   {
-    "documentID": "52f768da-1b65-49c1-a2ca-405249f9433f-org2",
-    "category": "REPORT",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:21.413Z"
-  },
-  {
-    "documentID": "6d4c08bd-c4bb-4096-a0c3-63335ba8604b-org2",
-    "category": "LAINNYA",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:21.439Z"
-  },
-  {
-    "documentID": "05c78b80-7216-431e-8b61-0fb701c3aba0-org2",
-    "category": "POLICY",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:21.459Z"
-  },
-  {
-    "documentID": "c82edde0-0b4e-4898-9bdb-a52cfb103222-org2",
-    "category": "LAINNYA",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:21.485Z"
-  },
-  {
-    "documentID": "9dcebdb1-d766-4d36-89bc-0b048d5b85b3-org2",
-    "category": "POLICY",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:21.513Z"
-  },
-  {
-    "documentID": "c8cb09fa-c894-4782-81cd-1c33a3257e0c-org2",
-    "category": "CONTRACT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:21.536Z"
-  },
-  {
-    "documentID": "535b6722-6e51-468a-a2db-e5d78e03c32f-org2",
-    "category": "AGREEMENT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:21.560Z"
-  },
-  {
-    "documentID": "6410b36b-8de3-47c1-b46e-15383c0362c1-org2",
+    "documentID": "b5c2c135-7c75-49f9-9a70-59dd859aadc4-org2",
     "category": "INVOICE",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:21.587Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:20.465Z"
   },
   {
-    "documentID": "6ce589f1-e841-4199-869f-11ee89e23a77-org2",
-    "category": "CONTRACT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:21.609Z"
-  },
-  {
-    "documentID": "c2e7dc2d-f2dd-47ed-8098-3e35ce285603-org2",
-    "category": "POLICY",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:21.631Z"
-  },
-  {
-    "documentID": "4aea144c-ed73-4fc7-89e8-325a8e138b9a-org2",
-    "category": "INVOICE",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:21.660Z"
-  },
-  {
-    "documentID": "c14c156d-d4e4-44c6-98ad-70648f1de59a-org2",
-    "category": "REPORT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:21.681Z"
-  },
-  {
-    "documentID": "ab19dde8-79f6-408b-876d-ba59b674e9b3-org2",
-    "category": "REPORT",
-    "latency": 26,
-    "timestamp": "2026-01-25T05:00:21.716Z"
-  },
-  {
-    "documentID": "9da83324-ac78-47be-a281-1e57c8d461f6-org2",
+    "documentID": "302205af-efac-43e0-96d3-0c7bfb0e65b2-org2",
     "category": "AGREEMENT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:21.738Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:20.566Z"
   },
   {
-    "documentID": "8ee7ac84-1720-4548-9b39-ddcfbee8449c-org2",
-    "category": "REPORT",
-    "latency": 46,
-    "timestamp": "2026-01-25T05:00:21.790Z"
-  },
-  {
-    "documentID": "2efdfeaa-4ce2-453a-b91c-a1d8e322b4af-org2",
-    "category": "LAINNYA",
-    "latency": 39,
-    "timestamp": "2026-01-25T05:00:21.808Z"
-  },
-  {
-    "documentID": "f32a8b2c-44dd-42b2-8951-d3b9056adcef-org2",
+    "documentID": "3f1ff355-696c-4701-8c9e-42d0468e4a93-org2",
     "category": "AGREEMENT",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:21.829Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:20.670Z"
   },
   {
-    "documentID": "bef9e8b9-6eef-42d4-b99c-1d3f4bf59534-org2",
+    "documentID": "e7a9ede8-8227-48ef-9aee-affc270c5ed8-org2",
+    "category": "POLICY",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:20.770Z"
+  },
+  {
+    "documentID": "b9c9b9b2-488b-4a23-8358-078131ed17a9-org2",
+    "category": "LAINNYA",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:20.872Z"
+  },
+  {
+    "documentID": "020a9a91-7a9e-41b4-9d93-42b78a5a23a6-org2",
     "category": "AGREEMENT",
-    "latency": 25,
-    "timestamp": "2026-01-25T05:00:21.842Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:20.974Z"
   },
   {
-    "documentID": "048e800b-8fdc-4159-8f5d-cc1a565f5188-org2",
+    "documentID": "8c5f413c-ee73-4d9c-bb5e-3c29a27ff87d-org2",
+    "category": "REPORT",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:21.076Z"
+  },
+  {
+    "documentID": "0a32167c-286d-4369-8a16-f0ecbd958beb-org2",
+    "category": "REPORT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:21.177Z"
+  },
+  {
+    "documentID": "9dbde8b3-f611-4f3d-8341-71bab8768a41-org2",
+    "category": "REPORT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:21.278Z"
+  },
+  {
+    "documentID": "1daeb8ed-fee4-4805-b56c-09f03ecc2f58-org2",
     "category": "LAINNYA",
-    "latency": 28,
-    "timestamp": "2026-01-25T05:00:21.871Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:21.379Z"
   },
   {
-    "documentID": "0b09d6c8-dade-4105-b849-785bd816ce13-org2",
+    "documentID": "318bd732-43dd-42f1-b59c-814824e258b6-org2",
     "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:21.889Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:21.481Z"
   },
   {
-    "documentID": "486c98d5-4f3c-4271-aba4-5964dfbc9881-org2",
+    "documentID": "735e667d-0905-420f-aac6-bd5909b504fb-org2",
+    "category": "POLICY",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:21.583Z"
+  },
+  {
+    "documentID": "8c4cc069-24a6-483b-a56c-bf60eb8a2e0f-org2",
     "category": "AGREEMENT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:21.913Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:21.684Z"
   },
   {
-    "documentID": "48a26fd2-f4be-40d0-a758-0b0da4a91d17-org2",
-    "category": "CONTRACT",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:21.945Z"
-  },
-  {
-    "documentID": "9ccd46b6-13e5-4021-8007-fdd1f8f16a92-org2",
-    "category": "CONTRACT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:21.958Z"
-  },
-  {
-    "documentID": "21dc7afe-bfa6-4a70-b4ab-b851ffe6742f-org2",
-    "category": "INVOICE",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:21.989Z"
-  },
-  {
-    "documentID": "da3de5b0-108c-4a50-8b41-e2fb716b1bfa-org2",
-    "category": "LAINNYA",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:22.007Z"
-  },
-  {
-    "documentID": "8a54ed78-d82d-443e-b796-3b5b42c8026b-org2",
-    "category": "LAINNYA",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:22.035Z"
-  },
-  {
-    "documentID": "be801181-b76f-476a-be64-3679ac5d8911-org2",
-    "category": "CONTRACT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:22.057Z"
-  },
-  {
-    "documentID": "5e314d08-01ac-4ae0-8c87-e769889b1cd7-org2",
+    "documentID": "ef47c0cf-4ef9-4a78-a849-468bdf7766e4-org2",
     "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:22.079Z"
-  },
-  {
-    "documentID": "ba190f71-f140-445a-a262-a1a7553cb017-org2",
-    "category": "INVOICE",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:22.101Z"
-  },
-  {
-    "documentID": "1c100b62-ef08-4adc-ab7b-b99e04e0a5a1-org2",
-    "category": "LAINNYA",
-    "latency": 10,
-    "timestamp": "2026-01-25T05:00:22.123Z"
-  },
-  {
-    "documentID": "6c883eb6-6f5d-4289-a3cb-01c3d36631e7-org2",
-    "category": "REPORT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:22.147Z"
-  },
-  {
-    "documentID": "f602d410-f3ac-41ad-9dc3-5790d0d2ebe8-org2",
-    "category": "INVOICE",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:22.172Z"
-  },
-  {
-    "documentID": "c09c418f-3829-41ff-afba-e6ce795f99d4-org2",
-    "category": "AGREEMENT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:22.194Z"
-  },
-  {
-    "documentID": "bf51e135-ee48-4397-ba33-0db22bebc057-org2",
-    "category": "INVOICE",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:22.219Z"
-  },
-  {
-    "documentID": "82be45cd-aca1-4482-9a22-b72bb4206359-org2",
-    "category": "LAINNYA",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:22.240Z"
-  },
-  {
-    "documentID": "c7a21738-9306-495c-a25b-9c36a400c253-org2",
-    "category": "REPORT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:22.263Z"
-  },
-  {
-    "documentID": "27665a8b-c0b8-479f-bbbd-c9f681ef8630-org2",
-    "category": "INVOICE",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:22.291Z"
-  },
-  {
-    "documentID": "c5271872-919a-42eb-bb0b-b90f07bce63a-org2",
-    "category": "POLICY",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:22.311Z"
-  },
-  {
-    "documentID": "49f1847a-4b81-4d99-a2c8-be448cb88ad8-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:22.337Z"
-  },
-  {
-    "documentID": "fe7e6b78-82f9-48bc-9c01-c12a56800a3f-org2",
-    "category": "REPORT",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:22.369Z"
-  },
-  {
-    "documentID": "11d82846-f650-41b4-9db8-f50be28fa83e-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:22.386Z"
-  },
-  {
-    "documentID": "60dad2be-d340-47e4-bbf1-78aeb0def741-org2",
-    "category": "REPORT",
-    "latency": 28,
-    "timestamp": "2026-01-25T05:00:22.422Z"
-  },
-  {
-    "documentID": "edf2b85a-9598-41da-9aa8-6d663c3cc5e0-org2",
-    "category": "AGREEMENT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:22.437Z"
-  },
-  {
-    "documentID": "289e60c6-273f-45c5-a49c-dbd9e89842b1-org2",
-    "category": "LAINNYA",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:22.456Z"
-  },
-  {
-    "documentID": "4892ee56-9614-43f1-b974-3898e5ed8284-org2",
-    "category": "AGREEMENT",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:22.473Z"
-  },
-  {
-    "documentID": "5d51ae94-8d00-43fb-9086-47528f7bdfb6-org2",
-    "category": "POLICY",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:22.499Z"
-  },
-  {
-    "documentID": "7c937219-55fb-42b6-bddb-33f7a2ff650c-org2",
-    "category": "INVOICE",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:22.529Z"
-  },
-  {
-    "documentID": "4fce67d7-31d0-4da7-8717-cca75feda9e4-org2",
-    "category": "POLICY",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:22.553Z"
-  },
-  {
-    "documentID": "957408bd-2bb5-4e8a-a9ba-1b0537de2106-org2",
-    "category": "INVOICE",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:22.571Z"
-  },
-  {
-    "documentID": "76a385aa-1f95-4589-8244-ba4df483bf53-org2",
-    "category": "INVOICE",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:22.597Z"
-  },
-  {
-    "documentID": "78ecab7a-9d78-49a7-bfdf-9eba8adbc553-org2",
-    "category": "REPORT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:22.617Z"
-  },
-  {
-    "documentID": "df3c267d-4383-4b90-b7d3-c4c7cbf37bb0-org2",
-    "category": "AGREEMENT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:22.639Z"
-  },
-  {
-    "documentID": "80004bc9-44ec-4c21-ad01-2112a9d10818-org2",
-    "category": "LAINNYA",
-    "latency": 9,
-    "timestamp": "2026-01-25T05:00:22.659Z"
-  },
-  {
-    "documentID": "f3361408-261f-4774-ad24-0d5d114c2ee3-org2",
-    "category": "AGREEMENT",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:22.685Z"
-  },
-  {
-    "documentID": "26632f23-608a-4781-adc9-95a291357c35-org2",
-    "category": "AGREEMENT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:22.711Z"
-  },
-  {
-    "documentID": "27c48a20-ae4f-4d94-90dc-7a8dac639509-org2",
-    "category": "POLICY",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:22.738Z"
-  },
-  {
-    "documentID": "4bb41c62-7250-4f0b-8b75-7c9c8d7e708e-org2",
-    "category": "REPORT",
-    "latency": 25,
-    "timestamp": "2026-01-25T05:00:22.767Z"
-  },
-  {
-    "documentID": "5f40f23c-71c1-4526-9a57-70f152637267-org2",
-    "category": "LAINNYA",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:22.784Z"
-  },
-  {
-    "documentID": "3a89394b-24fb-45c4-9ae8-dc0fc6e89e4f-org2",
-    "category": "POLICY",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:22.811Z"
-  },
-  {
-    "documentID": "dea06e5c-e0db-465f-b157-01e499a36165-org2",
-    "category": "REPORT",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:22.840Z"
-  },
-  {
-    "documentID": "e9070556-7f08-404c-b7cb-e8b78ec91d37-org2",
-    "category": "POLICY",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:22.858Z"
-  },
-  {
-    "documentID": "972dea56-531d-4564-bf2f-d25dd17e80de-org2",
-    "category": "POLICY",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:22.888Z"
-  },
-  {
-    "documentID": "94d06001-4043-4e06-8c3c-2d5824a76021-org2",
-    "category": "POLICY",
-    "latency": 34,
-    "timestamp": "2026-01-25T05:00:22.922Z"
-  },
-  {
-    "documentID": "01b85ba4-aa81-40e0-974c-bf439e8d029d-org2",
-    "category": "LAINNYA",
-    "latency": 29,
-    "timestamp": "2026-01-25T05:00:22.942Z"
-  },
-  {
-    "documentID": "77f194b1-6ade-488b-b370-1e0fec1affe5-org2",
-    "category": "REPORT",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:22.973Z"
-  },
-  {
-    "documentID": "f103b022-c1f4-470c-88b0-320e043e2426-org2",
-    "category": "AGREEMENT",
-    "latency": 45,
-    "timestamp": "2026-01-25T05:00:23.007Z"
-  },
-  {
-    "documentID": "7f4ecf95-0788-42f4-b178-523e7ebdd371-org2",
-    "category": "CONTRACT",
-    "latency": 52,
-    "timestamp": "2026-01-25T05:00:23.043Z"
-  },
-  {
-    "documentID": "912faed9-1eeb-48df-937d-e24d0b658b12-org2",
-    "category": "CONTRACT",
-    "latency": 54,
-    "timestamp": "2026-01-25T05:00:23.072Z"
-  },
-  {
-    "documentID": "280b643e-6d1b-4563-b628-736053ed3ff7-org2",
-    "category": "POLICY",
-    "latency": 49,
-    "timestamp": "2026-01-25T05:00:23.093Z"
-  },
-  {
-    "documentID": "759c0dd1-9691-42a5-aa8c-8589e6c2f04f-org2",
-    "category": "CONTRACT",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:23.098Z"
-  },
-  {
-    "documentID": "bfd3a31c-c45e-489c-b6c4-46c119702b17-org2",
-    "category": "POLICY",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:23.121Z"
-  },
-  {
-    "documentID": "adcd912a-1882-4da5-be56-7d9828694df9-org2",
-    "category": "INVOICE",
-    "latency": 27,
-    "timestamp": "2026-01-25T05:00:23.151Z"
-  },
-  {
-    "documentID": "cd95f6ad-6720-4dfb-bcec-6b4d56226ec6-org2",
-    "category": "POLICY",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:23.171Z"
-  },
-  {
-    "documentID": "eb896ccc-8943-4657-a88e-3c8419a4ceec-org2",
-    "category": "INVOICE",
-    "latency": 30,
-    "timestamp": "2026-01-25T05:00:23.207Z"
-  },
-  {
-    "documentID": "d440323b-a97a-40eb-9030-9b38a731ecb0-org2",
-    "category": "LAINNYA",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:23.228Z"
-  },
-  {
-    "documentID": "4df4d385-6d2d-48e3-92f4-fc49cf41929f-org2",
-    "category": "LAINNYA",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:23.259Z"
-  },
-  {
-    "documentID": "5f13fb05-7253-47e5-bef9-d46f26202ba1-org2",
-    "category": "REPORT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:23.276Z"
-  },
-  {
-    "documentID": "bb345ff7-8e22-4438-9e7e-9c183dd6f308-org2",
-    "category": "CONTRACT",
-    "latency": 46,
-    "timestamp": "2026-01-25T05:00:23.333Z"
-  },
-  {
-    "documentID": "a47aa1d6-3f12-42ab-9ca5-66d9ec30b0b7-org2",
-    "category": "INVOICE",
-    "latency": 32,
-    "timestamp": "2026-01-25T05:00:23.345Z"
-  },
-  {
-    "documentID": "a12b68e7-d45c-4c56-b3f8-9eb02c863ab5-org2",
-    "category": "CONTRACT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:23.353Z"
-  },
-  {
-    "documentID": "c8a61ab9-802a-4b38-876c-233cd1b9fb32-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:23.375Z"
-  },
-  {
-    "documentID": "084a9ad8-6f7a-4d94-a5c7-3ca8668cfe23-org2",
-    "category": "AGREEMENT",
-    "latency": 241,
-    "timestamp": "2026-01-25T05:00:23.629Z"
-  },
-  {
-    "documentID": "ee07d562-6a19-4974-9acd-cce11465f38f-org2",
-    "category": "LAINNYA",
-    "latency": 230,
-    "timestamp": "2026-01-25T05:00:23.640Z"
-  },
-  {
-    "documentID": "9e1c354a-c6d0-4021-a2eb-1114333ad0af-org2",
-    "category": "POLICY",
-    "latency": 219,
-    "timestamp": "2026-01-25T05:00:23.651Z"
-  },
-  {
-    "documentID": "c4eea795-8d61-4093-825b-8288db5962c2-org2",
-    "category": "INVOICE",
-    "latency": 202,
-    "timestamp": "2026-01-25T05:00:23.658Z"
-  },
-  {
-    "documentID": "8d1dbc3e-9351-4ecb-ac28-f6f158297645-org2",
-    "category": "REPORT",
-    "latency": 181,
-    "timestamp": "2026-01-25T05:00:23.667Z"
-  },
-  {
-    "documentID": "4ba316d0-1e5e-43b7-82c0-72b52dae0c31-org2",
-    "category": "REPORT",
-    "latency": 177,
-    "timestamp": "2026-01-25T05:00:23.688Z"
-  },
-  {
-    "documentID": "b30215dd-3b1e-4692-9b96-f86ce838241f-org2",
-    "category": "AGREEMENT",
-    "latency": 157,
-    "timestamp": "2026-01-25T05:00:23.696Z"
-  },
-  {
-    "documentID": "7e0692ea-5c1f-49ee-bdec-67d35da18cfd-org2",
-    "category": "INVOICE",
-    "latency": 131,
-    "timestamp": "2026-01-25T05:00:23.701Z"
-  },
-  {
-    "documentID": "46f94588-36f5-4d0f-af07-4d4614451a1e-org2",
-    "category": "AGREEMENT",
-    "latency": 108,
-    "timestamp": "2026-01-25T05:00:23.706Z"
-  },
-  {
-    "documentID": "bf25dc62-75ea-4ef2-892f-ded6bd702659-org2",
-    "category": "CONTRACT",
-    "latency": 106,
-    "timestamp": "2026-01-25T05:00:23.727Z"
-  },
-  {
-    "documentID": "c43dde3a-5bc9-4ca6-834f-d6b7aa7e92d2-org2",
-    "category": "REPORT",
-    "latency": 92,
-    "timestamp": "2026-01-25T05:00:23.737Z"
-  },
-  {
-    "documentID": "2a61aa7c-d4f8-4805-bc1c-e442b4c1c6f7-org2",
-    "category": "LAINNYA",
     "latency": 77,
-    "timestamp": "2026-01-25T05:00:23.747Z"
+    "timestamp": "2026-04-30T14:39:21.858Z"
   },
   {
-    "documentID": "94fbaf7c-d616-488b-88bf-26079ef1bb51-org2",
-    "category": "INVOICE",
-    "latency": 73,
-    "timestamp": "2026-01-25T05:00:23.785Z"
+    "documentID": "129a6705-81ca-4ed0-a668-964e88e2d9eb-org2",
+    "category": "LAINNYA",
+    "latency": 10,
+    "timestamp": "2026-04-30T14:39:21.892Z"
   },
   {
-    "documentID": "201a6f22-a56c-4648-a534-85b35b39dfcf-org2",
-    "category": "AGREEMENT",
-    "latency": 65,
-    "timestamp": "2026-01-25T05:00:23.805Z"
+    "documentID": "d52c28d0-fcaf-4360-a883-3ceb9368f2a8-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:21.989Z"
   },
   {
-    "documentID": "c671dc99-2ea2-4d31-8a90-8c9c4e0ae773-org2",
-    "category": "INVOICE",
-    "latency": 46,
-    "timestamp": "2026-01-25T05:00:23.812Z"
-  },
-  {
-    "documentID": "8a8b49e5-8ed5-4dcb-ad81-a374a4cc0c36-org2",
-    "category": "INVOICE",
-    "latency": 42,
-    "timestamp": "2026-01-25T05:00:23.831Z"
-  },
-  {
-    "documentID": "68b982fd-13c8-4253-9622-631e9c3fb821-org2",
-    "category": "AGREEMENT",
-    "latency": 45,
-    "timestamp": "2026-01-25T05:00:23.867Z"
-  },
-  {
-    "documentID": "e48d29f6-2e27-43b8-94a4-1cd38ee19279-org2",
-    "category": "INVOICE",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:23.886Z"
-  },
-  {
-    "documentID": "40d97709-1fe5-4393-b096-a55dcee8f46c-org2",
-    "category": "REPORT",
-    "latency": 45,
-    "timestamp": "2026-01-25T05:00:23.917Z"
-  },
-  {
-    "documentID": "bf96d89c-f55c-46a9-9a0c-1c1ff6b15516-org2",
+    "documentID": "3df60f79-f413-4d6a-8ab0-3eb1f5fa89f2-org2",
     "category": "POLICY",
-    "latency": 39,
-    "timestamp": "2026-01-25T05:00:23.939Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:22.090Z"
   },
   {
-    "documentID": "98b201d6-1a89-4f38-952a-1ccf8db7cd87-org2",
+    "documentID": "6ffbeadd-36b4-4fb5-be6a-8df9d565ef67-org2",
     "category": "REPORT",
-    "latency": 120,
-    "timestamp": "2026-01-25T05:00:24.044Z"
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:22.192Z"
   },
   {
-    "documentID": "0eaf01cd-7079-462e-b270-95be17b4904b-org2",
-    "category": "LAINNYA",
-    "latency": 122,
-    "timestamp": "2026-01-25T05:00:24.070Z"
+    "documentID": "57510493-82be-4af8-8a8e-ef4ca23033d6-org2",
+    "category": "AGREEMENT",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:22.293Z"
   },
   {
-    "documentID": "99f4e41d-6e0a-44ca-9e57-76945e912da3-org2",
-    "category": "INVOICE",
-    "latency": 105,
-    "timestamp": "2026-01-25T05:00:24.077Z"
+    "documentID": "7213388c-cdbb-4117-852f-8819018e2449-org2",
+    "category": "AGREEMENT",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:22.395Z"
   },
   {
-    "documentID": "73172eb8-140a-443b-8ae1-31465606fd80-org2",
-    "category": "INVOICE",
-    "latency": 90,
-    "timestamp": "2026-01-25T05:00:24.086Z"
-  },
-  {
-    "documentID": "8d9ca777-0b9b-4f59-bd0f-9cebf23bead9-org2",
-    "category": "LAINNYA",
-    "latency": 101,
-    "timestamp": "2026-01-25T05:00:24.121Z"
-  },
-  {
-    "documentID": "12154f0e-ca52-441d-a63f-9b3033b4920a-org2",
-    "category": "INVOICE",
-    "latency": 86,
-    "timestamp": "2026-01-25T05:00:24.131Z"
-  },
-  {
-    "documentID": "79ec6e48-e263-4d6d-b601-41bceb119478-org2",
+    "documentID": "818ba5b5-0273-4302-a4b4-6d9b4e84fd56-org2",
     "category": "REPORT",
-    "latency": 101,
-    "timestamp": "2026-01-25T05:00:24.194Z"
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:22.496Z"
   },
   {
-    "documentID": "abb9a5f7-d018-4e3f-87e0-f7953953cb7d-org2",
+    "documentID": "fa7abe42-e05b-41e4-8151-91fb40d21137-org2",
+    "category": "INVOICE",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:22.597Z"
+  },
+  {
+    "documentID": "267ae4da-ebcb-4fc1-ba2f-d9b733b5b3e3-org2",
+    "category": "POLICY",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:22.698Z"
+  },
+  {
+    "documentID": "dfa89074-40ca-417f-b6ae-c48bf3b7b65f-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:22.800Z"
+  },
+  {
+    "documentID": "60365022-39fb-4f43-a0df-9e552f296696-org2",
     "category": "CONTRACT",
-    "latency": 68,
-    "timestamp": "2026-01-25T05:00:24.201Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:22.902Z"
   },
   {
-    "documentID": "be17020e-35c2-4358-97a0-e6f12df91807-org2",
+    "documentID": "577aa8b4-965f-4ac6-9943-9f90542ffada-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:23.003Z"
+  },
+  {
+    "documentID": "0e104c0b-ede0-4861-bb31-ae182a00bc40-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:23.104Z"
+  },
+  {
+    "documentID": "8b36727c-1351-48a7-bca6-1d6ed07ed0fd-org2",
     "category": "LAINNYA",
-    "latency": 55,
-    "timestamp": "2026-01-25T05:00:24.218Z"
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:23.205Z"
   },
   {
-    "documentID": "d3d5ca18-c159-4949-a5c4-f7ea5bb96675-org2",
+    "documentID": "d72c33f9-f882-49b8-82a9-5d89d58f1f83-org2",
+    "category": "LAINNYA",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:23.307Z"
+  },
+  {
+    "documentID": "692f8872-431e-405e-9e35-d593785de614-org2",
+    "category": "INVOICE",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:23.408Z"
+  },
+  {
+    "documentID": "47d05f00-566d-46ae-8822-d3bb35362abb-org2",
+    "category": "INVOICE",
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:23.509Z"
+  },
+  {
+    "documentID": "24119ccb-e808-4ceb-8dc7-762032f0ab9e-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:23.610Z"
+  },
+  {
+    "documentID": "3a998f5f-9463-4f8d-ba6a-cb5c1ad39ca2-org2",
     "category": "REPORT",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:24.228Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:23.712Z"
   },
   {
-    "documentID": "de1d43b6-f840-455b-b2a7-db9b400238a7-org2",
+    "documentID": "69e9eb7a-4324-4deb-ac11-42181645fdda-org2",
+    "category": "AGREEMENT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:23.814Z"
+  },
+  {
+    "documentID": "118bc2a7-91f6-4be2-bd4c-3ec52c5e0946-org2",
+    "category": "INVOICE",
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:23.915Z"
+  },
+  {
+    "documentID": "ed7d9d8d-fc8c-437e-81d6-01886ae92d38-org2",
     "category": "POLICY",
-    "latency": 56,
-    "timestamp": "2026-01-25T05:00:24.278Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:24.018Z"
   },
   {
-    "documentID": "023117a6-4800-4b18-9af9-f0298ef7fef7-org2",
+    "documentID": "8653d949-5820-4b5d-aa99-4d696f9da6fd-org2",
+    "category": "INVOICE",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:24.120Z"
+  },
+  {
+    "documentID": "1359621c-086a-4006-b1dd-ea307716a7b1-org2",
+    "category": "POLICY",
+    "latency": 45,
+    "timestamp": "2026-04-30T14:39:24.263Z"
+  },
+  {
+    "documentID": "dee81990-3fd0-4862-aae8-5594c9c2ba37-org2",
+    "category": "AGREEMENT",
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:24.325Z"
+  },
+  {
+    "documentID": "07f9cc2c-9cd9-4746-b20c-06f5f54332c0-org2",
     "category": "LAINNYA",
-    "latency": 38,
-    "timestamp": "2026-01-25T05:00:24.284Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:24.426Z"
   },
   {
-    "documentID": "1ef1ec62-effc-4635-b399-19b899326da4-org2",
+    "documentID": "ab005125-979b-462d-bc1e-703e5e6a9698-org2",
+    "category": "REPORT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:24.525Z"
+  },
+  {
+    "documentID": "b7bfd5c5-866b-4458-a488-032195e07c9e-org2",
+    "category": "INVOICE",
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:24.625Z"
+  },
+  {
+    "documentID": "695779b3-6dbd-4b59-b26d-093825653727-org2",
+    "category": "REPORT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:24.727Z"
+  },
+  {
+    "documentID": "fe9eca9e-7ef9-4dfa-a18c-1e0cfc992a2e-org2",
+    "category": "INVOICE",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:24.829Z"
+  },
+  {
+    "documentID": "bdc64649-6a40-47b5-81da-fabe8aa9e2d8-org2",
+    "category": "INVOICE",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:24.932Z"
+  },
+  {
+    "documentID": "685eee70-e904-4711-a918-391fd57c2ee7-org2",
+    "category": "AGREEMENT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:25.032Z"
+  },
+  {
+    "documentID": "08d19bc2-c38d-4e3a-a9ad-2672cf717ff1-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:25.134Z"
+  },
+  {
+    "documentID": "8c1b74f1-631e-4323-b83f-b7ad4588e5ec-org2",
+    "category": "LAINNYA",
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:25.235Z"
+  },
+  {
+    "documentID": "f2de1791-acf3-4a9e-9ba2-b0cdeec65684-org2",
+    "category": "POLICY",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:25.336Z"
+  },
+  {
+    "documentID": "0dcf02c8-0b1e-4065-8f8f-a67e05dd90c8-org2",
+    "category": "AGREEMENT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:25.438Z"
+  },
+  {
+    "documentID": "3ae3fcc7-fb5e-4b80-92d1-3b6e684a844b-org2",
+    "category": "AGREEMENT",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:25.540Z"
+  },
+  {
+    "documentID": "008b11b2-a287-4be3-9b58-18f07c0bfa75-org2",
+    "category": "AGREEMENT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:25.641Z"
+  },
+  {
+    "documentID": "6ed4c2f9-dd2c-4f63-a75b-d4608464c1de-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:25.743Z"
+  },
+  {
+    "documentID": "a164898e-1561-4f55-9533-7c4dfbbb8772-org2",
+    "category": "INVOICE",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:25.845Z"
+  },
+  {
+    "documentID": "2539a738-6e6a-402d-b5b4-55c23e2ba2f4-org2",
+    "category": "INVOICE",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:25.947Z"
+  },
+  {
+    "documentID": "d317f2c8-1488-4c86-8357-cb543223e888-org2",
+    "category": "AGREEMENT",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:26.050Z"
+  },
+  {
+    "documentID": "bbf4f6c8-416f-4295-a517-7770a24efd15-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:26.151Z"
+  },
+  {
+    "documentID": "8207068f-16a3-4758-8891-73205e7ab712-org2",
+    "category": "LAINNYA",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:26.253Z"
+  },
+  {
+    "documentID": "b0a5a27c-e216-4b62-b64c-aabf6e79204d-org2",
+    "category": "LAINNYA",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:26.354Z"
+  },
+  {
+    "documentID": "128982aa-37f4-4a6c-aa5a-14e441264125-org2",
+    "category": "POLICY",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:26.456Z"
+  },
+  {
+    "documentID": "bc324223-6700-425b-8caa-3df1fddbaf5e-org2",
+    "category": "AGREEMENT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:26.558Z"
+  },
+  {
+    "documentID": "b0b699a0-2e57-4da6-aa22-6eeaf10cfbf8-org2",
     "category": "INVOICE",
     "latency": 27,
-    "timestamp": "2026-01-25T05:00:24.300Z"
+    "timestamp": "2026-04-30T14:39:26.683Z"
   },
   {
-    "documentID": "e0d6f12c-93da-42fc-8a87-78cc912ecd40-org2",
-    "category": "AGREEMENT",
-    "latency": 68,
-    "timestamp": "2026-01-25T05:00:24.363Z"
-  },
-  {
-    "documentID": "41556436-7f9c-4308-8330-05da2a7a56e8-org2",
-    "category": "REPORT",
-    "latency": 48,
-    "timestamp": "2026-01-25T05:00:24.368Z"
-  },
-  {
-    "documentID": "844edb4a-c3ed-4084-a60b-cb62d83e1261-org2",
-    "category": "LAINNYA",
-    "latency": 39,
-    "timestamp": "2026-01-25T05:00:24.383Z"
-  },
-  {
-    "documentID": "880151d6-92a6-4360-84bf-f0d980c61fee-org2",
-    "category": "REPORT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:24.388Z"
-  },
-  {
-    "documentID": "c9078b7c-ded0-4600-acad-0383997d61a4-org2",
-    "category": "INVOICE",
-    "latency": 38,
-    "timestamp": "2026-01-25T05:00:24.428Z"
-  },
-  {
-    "documentID": "71115e3e-850f-4246-b9e1-661957fffa0d-org2",
+    "documentID": "8c6e0e21-7315-4c78-8d17-f58e9c5cbf5c-org2",
     "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:24.431Z"
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:26.761Z"
   },
   {
-    "documentID": "232fb791-549b-4ed8-bc03-092a7a092fe7-org2",
-    "category": "AGREEMENT",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:24.458Z"
-  },
-  {
-    "documentID": "0f71c2a6-3c82-4698-a98c-b209ef5eac3b-org2",
-    "category": "POLICY",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:24.477Z"
-  },
-  {
-    "documentID": "175e40a2-db3e-4007-95a4-ed3a18f9ea91-org2",
-    "category": "INVOICE",
-    "latency": 26,
-    "timestamp": "2026-01-25T05:00:24.506Z"
-  },
-  {
-    "documentID": "98bfb626-9be9-4f9a-810e-3fa6c77fbbc9-org2",
-    "category": "POLICY",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:24.522Z"
-  },
-  {
-    "documentID": "09c9bbaf-6e5c-422c-89e9-272e9421979e-org2",
+    "documentID": "167e7396-0f0b-4543-b68a-7b55d6df4217-org2",
     "category": "REPORT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:24.545Z"
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:26.864Z"
   },
   {
-    "documentID": "1e2c78ad-916b-4267-83a3-e9a578ce0888-org2",
-    "category": "AGREEMENT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:24.571Z"
-  },
-  {
-    "documentID": "55ba0b95-1735-46cc-983d-d1634557bf0b-org2",
-    "category": "AGREEMENT",
-    "latency": 41,
-    "timestamp": "2026-01-25T05:00:24.617Z"
-  },
-  {
-    "documentID": "a14cef1c-65e5-4e57-af23-f42c8bd77a47-org2",
-    "category": "LAINNYA",
-    "latency": 46,
-    "timestamp": "2026-01-25T05:00:24.645Z"
-  },
-  {
-    "documentID": "8ad25259-1db6-495b-8e85-646965f99392-org2",
-    "category": "LAINNYA",
-    "latency": 43,
-    "timestamp": "2026-01-25T05:00:24.666Z"
-  },
-  {
-    "documentID": "c320cc25-3dd1-41d6-b4b0-ace5fa74ff28-org2",
-    "category": "LAINNYA",
-    "latency": 50,
-    "timestamp": "2026-01-25T05:00:24.696Z"
-  },
-  {
-    "documentID": "2e4295ef-49fc-4f39-a09d-028036ac348c-org2",
-    "category": "REPORT",
-    "latency": 42,
-    "timestamp": "2026-01-25T05:00:24.713Z"
-  },
-  {
-    "documentID": "6b7545e7-545a-4031-9f92-3f039d21163a-org2",
-    "category": "INVOICE",
-    "latency": 31,
-    "timestamp": "2026-01-25T05:00:24.728Z"
-  },
-  {
-    "documentID": "70309619-fbdc-4457-8ae5-df8064d17171-org2",
+    "documentID": "2f350259-f604-49ce-bd71-84d8d834a379-org2",
     "category": "CONTRACT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:24.742Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:26.965Z"
   },
   {
-    "documentID": "285a8dd1-e23e-4cf6-98a0-dd8f6e9245c7-org2",
+    "documentID": "79c3d637-c466-41a3-966b-f454b7196c4f-org2",
+    "category": "INVOICE",
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:27.067Z"
+  },
+  {
+    "documentID": "d722127b-6b33-4083-af1c-dda35cf367e1-org2",
     "category": "CONTRACT",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:24.762Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:27.167Z"
   },
   {
-    "documentID": "e81aef68-f119-42bf-96ac-edf03dc1e028-org2",
+    "documentID": "e574a988-e254-4cfd-a4ad-ce08daee66ef-org2",
+    "category": "REPORT",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:27.269Z"
+  },
+  {
+    "documentID": "c354c0c2-a865-443e-9e1a-259b35db8037-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:27.370Z"
+  },
+  {
+    "documentID": "b098868a-7294-4ba6-8a29-dd6e6ecd6875-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:27.473Z"
+  },
+  {
+    "documentID": "f120f1be-f0a1-4c13-a4a5-c5879566521a-org2",
     "category": "AGREEMENT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:24.784Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:27.575Z"
   },
   {
-    "documentID": "cd5d5c9b-f6ec-4e7f-8fe5-0e9a75447c05-org2",
-    "category": "LAINNYA",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:24.806Z"
-  },
-  {
-    "documentID": "a338d45d-2897-4a94-bc00-c2d5c77bbd37-org2",
-    "category": "LAINNYA",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:24.835Z"
-  },
-  {
-    "documentID": "132b0c06-e835-4559-b8cd-241aae2feaeb-org2",
-    "category": "INVOICE",
-    "latency": 35,
-    "timestamp": "2026-01-25T05:00:24.873Z"
-  },
-  {
-    "documentID": "9dce3378-40a2-460d-befc-5543ad744ab6-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:24.875Z"
-  },
-  {
-    "documentID": "ad3a453d-857c-4b79-8c29-11ce4f015277-org2",
+    "documentID": "0b8417d3-5860-4ee3-97bd-5eb630d367fd-org2",
     "category": "REPORT",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:24.904Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:27.676Z"
   },
   {
-    "documentID": "f2bd7eaf-5704-4360-810a-593b2bea68b1-org2",
-    "category": "CONTRACT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:24.925Z"
-  },
-  {
-    "documentID": "bde4c88f-3e6d-4d12-8fb6-d31a6b458695-org2",
+    "documentID": "7bc33f99-b8c2-4e49-b804-c050580b4f29-org2",
     "category": "LAINNYA",
-    "latency": 21,
-    "timestamp": "2026-01-25T05:00:24.953Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:27.778Z"
   },
   {
-    "documentID": "7c959561-6b70-4e41-a831-5fcd1b40446c-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:24.971Z"
+    "documentID": "2639c038-012d-43a2-84ff-bd5d0cf03add-org2",
+    "category": "CONTRACT",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:27.880Z"
   },
   {
-    "documentID": "e25353a8-4314-40fe-ad28-965c83e0ded8-org2",
-    "category": "REPORT",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:25.005Z"
+    "documentID": "e1c2f5b8-510c-4b5d-a80d-fd0fc5188e76-org2",
+    "category": "CONTRACT",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:27.980Z"
   },
   {
-    "documentID": "4d36d704-e36d-4de4-bf8f-d3e8256a9a80-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.025Z"
+    "documentID": "c43510a3-f405-41a2-abd1-72340bf36489-org2",
+    "category": "LAINNYA",
+    "latency": 3,
+    "timestamp": "2026-04-30T14:39:28.081Z"
   },
   {
-    "documentID": "e44a4c09-f311-468e-a058-f7e9e4d1f32e-org2",
+    "documentID": "a02d217d-ba86-45e8-b4ba-666f68311a49-org2",
     "category": "INVOICE",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:25.042Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:28.183Z"
   },
   {
-    "documentID": "8e3e3f11-d418-49bf-bd85-52c2c72665b9-org2",
+    "documentID": "7414c0a5-855d-4f52-bd0d-4da9153fb7bb-org2",
     "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:25.063Z"
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:28.284Z"
   },
   {
-    "documentID": "707bc52e-bd61-4bfe-826c-82c1a56ed81e-org2",
-    "category": "POLICY",
+    "documentID": "04e1006c-177e-4ab5-8f3b-0c3ae6c1c708-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:28.386Z"
+  },
+  {
+    "documentID": "0c0c0925-2ae8-4657-89e6-8b0e5f4156b1-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:28.488Z"
+  },
+  {
+    "documentID": "6e3731c3-d85b-4747-981f-4eadc8cc59a1-org2",
+    "category": "LAINNYA",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:28.589Z"
+  },
+  {
+    "documentID": "2e6e671e-bb31-4cbf-a1df-f5e01e6cf0a9-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:28.692Z"
+  },
+  {
+    "documentID": "759dfefd-9515-4f96-ae99-4a91b486f8cb-org2",
+    "category": "LAINNYA",
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:28.793Z"
+  },
+  {
+    "documentID": "cd7776cd-059e-48ef-a3c7-38c8967cbf23-org2",
+    "category": "REPORT",
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:28.896Z"
+  },
+  {
+    "documentID": "f54fb723-81af-40af-8e91-9620d96993a2-org2",
+    "category": "AGREEMENT",
+    "latency": 58,
+    "timestamp": "2026-04-30T14:39:29.050Z"
+  },
+  {
+    "documentID": "82c88cec-1e89-4399-ab12-ede485a345d7-org2",
+    "category": "LAINNYA",
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:29.100Z"
+  },
+  {
+    "documentID": "401e754b-9dcc-492e-b4e8-c80735a3d7aa-org2",
+    "category": "LAINNYA",
     "latency": 10,
-    "timestamp": "2026-01-25T05:00:25.085Z"
+    "timestamp": "2026-04-30T14:39:29.206Z"
   },
   {
-    "documentID": "f60b0024-23f9-42ee-ad84-da4cc3107095-org2",
-    "category": "AGREEMENT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:25.110Z"
-  },
-  {
-    "documentID": "8d31666a-a351-4e1d-8751-db9f46ff1163-org2",
-    "category": "LAINNYA",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.137Z"
-  },
-  {
-    "documentID": "187dc06f-fd70-421f-a8b7-6942b7978a9f-org2",
-    "category": "CONTRACT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:25.155Z"
-  },
-  {
-    "documentID": "2c73f22e-dd9d-4649-954c-a04dc85274e1-org2",
+    "documentID": "edb48554-56b1-4d11-8a55-f87acc87333e-org2",
     "category": "INVOICE",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:25.179Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:29.303Z"
   },
   {
-    "documentID": "2b01d9bb-e680-48e2-a8bc-68c4bdc404be-org2",
-    "category": "POLICY",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:25.200Z"
-  },
-  {
-    "documentID": "d89f1a54-bd51-4799-8d4e-4d1d2635a756-org2",
-    "category": "CONTRACT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:25.225Z"
-  },
-  {
-    "documentID": "c03fcf01-7259-402b-8efa-c18414f6a3af-org2",
+    "documentID": "8f84d06a-7636-4242-b7ce-e25b32550c03-org2",
     "category": "LAINNYA",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:25.253Z"
+    "latency": 5,
+    "timestamp": "2026-04-30T14:39:29.404Z"
   },
   {
-    "documentID": "0ea15e43-3e0f-4f49-8bfb-1e36607179c7-org2",
+    "documentID": "812f51df-8e6d-4330-8d30-9d0146b1ffbd-org2",
+    "category": "POLICY",
+    "latency": 4,
+    "timestamp": "2026-04-30T14:39:29.505Z"
+  },
+  {
+    "documentID": "6f899d4e-cc2a-4e4d-909f-87e4a20a1a7f-org2",
     "category": "LAINNYA",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.275Z"
-  },
-  {
-    "documentID": "95bea1fd-325f-470f-b3df-2252d135f89d-org2",
-    "category": "LAINNYA",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:25.293Z"
-  },
-  {
-    "documentID": "d5f2a889-9b4e-469c-8b62-39788a5bb92c-org2",
-    "category": "AGREEMENT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:25.318Z"
-  },
-  {
-    "documentID": "c28a249b-829d-4be8-bd2e-9a1e28df35ed-org2",
-    "category": "LAINNYA",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:25.340Z"
-  },
-  {
-    "documentID": "cafd5bff-6bb1-4a43-972a-e3afcc095f0b-org2",
-    "category": "POLICY",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:25.362Z"
-  },
-  {
-    "documentID": "1d7f7c66-5efc-4ec6-b62c-a77f9ea28e90-org2",
-    "category": "POLICY",
-    "latency": 21,
-    "timestamp": "2026-01-25T05:00:25.393Z"
-  },
-  {
-    "documentID": "78141c1e-4745-4a1f-89e6-a0bba3c0b634-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:25.411Z"
-  },
-  {
-    "documentID": "a3481842-6ec2-4e92-a5cc-3e99ba74365c-org2",
-    "category": "AGREEMENT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.436Z"
-  },
-  {
-    "documentID": "d031830a-b30d-42b1-8a9d-caf4a1d4cc06-org2",
-    "category": "POLICY",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:25.460Z"
-  },
-  {
-    "documentID": "0d91058b-5a83-4959-bbfe-4004415c654a-org2",
-    "category": "CONTRACT",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:25.481Z"
-  },
-  {
-    "documentID": "a1bcae83-bf86-449d-9c8c-1cffe398203d-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:25.506Z"
-  },
-  {
-    "documentID": "3ac078d5-6704-43b1-ac25-200ca819d09f-org2",
-    "category": "AGREEMENT",
-    "latency": 21,
-    "timestamp": "2026-01-25T05:00:25.534Z"
-  },
-  {
-    "documentID": "3dec5530-2aaf-487e-a5e0-41cdfd19770f-org2",
-    "category": "REPORT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.554Z"
-  },
-  {
-    "documentID": "5630310d-c61c-43dd-bc76-e862c15413cf-org2",
-    "category": "LAINNYA",
-    "latency": 14,
-    "timestamp": "2026-01-25T05:00:25.575Z"
-  },
-  {
-    "documentID": "ac3eb81a-20fd-4933-abc0-8bce4ae4f7b3-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.601Z"
-  },
-  {
-    "documentID": "49bdec79-07f0-4c36-8e29-0c242bcc8875-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.625Z"
-  },
-  {
-    "documentID": "7bb68056-fb6a-4773-91ae-460339871ed8-org2",
-    "category": "POLICY",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:25.654Z"
-  },
-  {
-    "documentID": "4d9ec081-73dd-4eb3-bfb1-82ab4cad3c28-org2",
-    "category": "POLICY",
-    "latency": 46,
-    "timestamp": "2026-01-25T05:00:25.703Z"
-  },
-  {
-    "documentID": "3265341a-459e-4224-bb6d-1b7adbb912a4-org2",
-    "category": "POLICY",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:25.714Z"
-  },
-  {
-    "documentID": "9f44ec4c-8a4e-4367-bf2c-b801ee81cf49-org2",
-    "category": "POLICY",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:25.737Z"
-  },
-  {
-    "documentID": "1b084ede-9a1f-4036-862b-0e2ad9c4fc58-org2",
-    "category": "CONTRACT",
-    "latency": 65,
-    "timestamp": "2026-01-25T05:00:25.793Z"
-  },
-  {
-    "documentID": "9259a22c-39d1-497c-9a04-f495dc01479f-org2",
-    "category": "REPORT",
-    "latency": 62,
-    "timestamp": "2026-01-25T05:00:25.815Z"
-  },
-  {
-    "documentID": "1d35524e-9860-4a95-b108-714ae5ee2363-org2",
-    "category": "AGREEMENT",
-    "latency": 45,
-    "timestamp": "2026-01-25T05:00:25.822Z"
-  },
-  {
-    "documentID": "3cdd6de3-3800-426e-9252-de22bdc50f51-org2",
-    "category": "CONTRACT",
-    "latency": 60,
-    "timestamp": "2026-01-25T05:00:25.861Z"
-  },
-  {
-    "documentID": "e8ec455a-1091-499d-aa6e-f778140c25a3-org2",
-    "category": "LAINNYA",
-    "latency": 39,
-    "timestamp": "2026-01-25T05:00:25.864Z"
-  },
-  {
-    "documentID": "7f60eef5-5b44-4a25-b8a0-6e3ab57074ca-org2",
-    "category": "INVOICE",
-    "latency": 47,
-    "timestamp": "2026-01-25T05:00:25.898Z"
-  },
-  {
-    "documentID": "0bb52033-7d46-4525-aef9-c86bd1ee6e49-org2",
-    "category": "AGREEMENT",
-    "latency": 40,
-    "timestamp": "2026-01-25T05:00:25.919Z"
-  },
-  {
-    "documentID": "2106cb1a-a1f0-4c18-a714-c10795a2ab28-org2",
-    "category": "INVOICE",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:25.938Z"
-  },
-  {
-    "documentID": "93eabcad-ece8-4658-8675-7498d7673c8f-org2",
-    "category": "REPORT",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:25.956Z"
-  },
-  {
-    "documentID": "a37af488-aa32-4900-aa85-bbfa8acc9eab-org2",
-    "category": "CONTRACT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:25.979Z"
-  },
-  {
-    "documentID": "512cc48b-4101-446d-a7f6-d27c7e7ab680-org2",
-    "category": "CONTRACT",
-    "latency": 11,
-    "timestamp": "2026-01-25T05:00:25.998Z"
-  },
-  {
-    "documentID": "dc9d9b6c-3399-4290-8183-a1c47823d3ec-org2",
-    "category": "INVOICE",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:26.028Z"
-  },
-  {
-    "documentID": "59881517-597e-4aaa-88dc-7943a915af41-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:26.051Z"
-  },
-  {
-    "documentID": "96f30e8a-6cf5-4ce4-afaf-30b86766e823-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:26.069Z"
-  },
-  {
-    "documentID": "fee0d15d-2c83-4813-b486-1a49e386dbe1-org2",
-    "category": "LAINNYA",
-    "latency": 8,
-    "timestamp": "2026-01-25T05:00:26.087Z"
-  },
-  {
-    "documentID": "f47bb160-1324-42bf-9d1e-78adec4ce443-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:26.118Z"
-  },
-  {
-    "documentID": "d3b569ee-7efd-4817-a642-ec2e796cb449-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:26.137Z"
-  },
-  {
-    "documentID": "a3360e92-168c-4086-814b-4554822fa0ff-org2",
-    "category": "POLICY",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:26.165Z"
-  },
-  {
-    "documentID": "d004976f-add4-4411-85eb-76ab6163b069-org2",
-    "category": "INVOICE",
-    "latency": 13,
-    "timestamp": "2026-01-25T05:00:26.186Z"
-  },
-  {
-    "documentID": "16009239-208e-4767-8bc4-6257d1a631a5-org2",
-    "category": "REPORT",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:26.215Z"
-  },
-  {
-    "documentID": "703f4aa8-4a85-4be4-a9de-1fc40ca5a282-org2",
-    "category": "INVOICE",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:26.239Z"
-  },
-  {
-    "documentID": "5a030e65-b45c-43e3-b7f1-51395af74ccc-org2",
-    "category": "LAINNYA",
-    "latency": 18,
-    "timestamp": "2026-01-25T05:00:26.262Z"
-  },
-  {
-    "documentID": "81905cdf-f564-4ebc-a1c9-0528b0172c8a-org2",
-    "category": "INVOICE",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:26.286Z"
-  },
-  {
-    "documentID": "9dafb1eb-18ba-4aa0-bbb8-a76a3b149765-org2",
-    "category": "LAINNYA",
-    "latency": 19,
-    "timestamp": "2026-01-25T05:00:26.312Z"
-  },
-  {
-    "documentID": "9589ad9c-85fa-4218-a9da-f6170adb3bb8-org2",
-    "category": "LAINNYA",
-    "latency": 25,
-    "timestamp": "2026-01-25T05:00:26.342Z"
-  },
-  {
-    "documentID": "77e6bf80-32f8-4414-8df6-79d9dcbe187a-org2",
-    "category": "REPORT",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:26.366Z"
-  },
-  {
-    "documentID": "6f20355e-e0ef-47fb-8724-010b7e9a8e57-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:26.384Z"
-  },
-  {
-    "documentID": "bfb65904-33a8-4a1f-b282-dbc3c752b111-org2",
-    "category": "CONTRACT",
-    "latency": 37,
-    "timestamp": "2026-01-25T05:00:26.428Z"
-  },
-  {
-    "documentID": "16a3dee8-08e5-45ab-9fba-ba0a170e8e9f-org2",
-    "category": "LAINNYA",
-    "latency": 29,
-    "timestamp": "2026-01-25T05:00:26.445Z"
-  },
-  {
-    "documentID": "8808ceb3-74ca-41b9-92ee-b1f5821cb65c-org2",
-    "category": "INVOICE",
-    "latency": 29,
-    "timestamp": "2026-01-25T05:00:26.469Z"
-  },
-  {
-    "documentID": "cd0c6307-8124-499d-a569-d7cd1804a6ca-org2",
-    "category": "INVOICE",
-    "latency": 21,
-    "timestamp": "2026-01-25T05:00:26.485Z"
-  },
-  {
-    "documentID": "ccf8c790-e279-4a67-9f88-2ad299e1e9b1-org2",
-    "category": "LAINNYA",
-    "latency": 23,
-    "timestamp": "2026-01-25T05:00:26.511Z"
-  },
-  {
-    "documentID": "bde8d0f3-6fc7-4432-8e32-fe7bab1a3ecf-org2",
-    "category": "INVOICE",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:26.545Z"
-  },
-  {
-    "documentID": "04dc3b4a-c16c-4d2e-a13d-ca07d117e18e-org2",
-    "category": "POLICY",
-    "latency": 28,
-    "timestamp": "2026-01-25T05:00:26.564Z"
-  },
-  {
-    "documentID": "a863a2a7-a262-418c-b2ce-3837d617417b-org2",
-    "category": "CONTRACT",
-    "latency": 29,
-    "timestamp": "2026-01-25T05:00:26.589Z"
-  },
-  {
-    "documentID": "e37f3d02-4b7c-498c-bc01-d46a66399b5b-org2",
-    "category": "LAINNYA",
-    "latency": 26,
-    "timestamp": "2026-01-25T05:00:26.609Z"
-  },
-  {
-    "documentID": "60871817-6e93-486e-a1db-2c4c7ae0c52f-org2",
-    "category": "AGREEMENT",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:26.624Z"
-  },
-  {
-    "documentID": "f9b0eb72-9d54-44de-a230-8cb90b14678c-org2",
-    "category": "AGREEMENT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:26.649Z"
-  },
-  {
-    "documentID": "5e398f9f-46fa-4698-aa04-20354d8f2b11-org2",
-    "category": "POLICY",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:26.674Z"
-  },
-  {
-    "documentID": "71b70bde-7b90-41f1-97be-49fa1841f7b6-org2",
-    "category": "LAINNYA",
-    "latency": 17,
-    "timestamp": "2026-01-25T05:00:26.698Z"
-  },
-  {
-    "documentID": "461772f8-0733-4270-97e1-b198c6e37ace-org2",
-    "category": "REPORT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:26.720Z"
-  },
-  {
-    "documentID": "23055a32-8c75-48a4-8575-3b8570267172-org2",
-    "category": "CONTRACT",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:26.750Z"
-  },
-  {
-    "documentID": "b3ff0287-d56d-4961-ba1e-eef668ef7732-org2",
-    "category": "REPORT",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:26.776Z"
-  },
-  {
-    "documentID": "40945323-6c77-4c18-ae1b-8e05000e012c-org2",
-    "category": "AGREEMENT",
-    "latency": 20,
-    "timestamp": "2026-01-25T05:00:26.798Z"
-  },
-  {
-    "documentID": "a126b61a-db83-47ce-8352-893d0946b384-org2",
-    "category": "REPORT",
-    "latency": 30,
-    "timestamp": "2026-01-25T05:00:26.834Z"
-  },
-  {
-    "documentID": "b56b8dc9-c432-4bc5-a4a3-5fb1d3b03c83-org2",
-    "category": "REPORT",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:26.852Z"
-  },
-  {
-    "documentID": "107f35c5-0c4f-44a3-88af-f1690ec3d5ad-org2",
-    "category": "LAINNYA",
-    "latency": 33,
-    "timestamp": "2026-01-25T05:00:26.885Z"
-  },
-  {
-    "documentID": "69f0d204-4d59-476b-90b7-091f008f8ff1-org2",
-    "category": "INVOICE",
-    "latency": 24,
-    "timestamp": "2026-01-25T05:00:26.902Z"
-  },
-  {
-    "documentID": "ec01aa75-70fc-45ef-a976-5b96092be92a-org2",
-    "category": "INVOICE",
-    "latency": 35,
-    "timestamp": "2026-01-25T05:00:26.939Z"
-  },
-  {
-    "documentID": "d2f53b80-a5eb-4ebc-ac35-bd69ccf18816-org2",
-    "category": "INVOICE",
-    "latency": 31,
-    "timestamp": "2026-01-25T05:00:26.972Z"
-  },
-  {
-    "documentID": "25fe9105-061e-45d6-9659-9d90af324a2a-org2",
-    "category": "AGREEMENT",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:27.001Z"
-  },
-  {
-    "documentID": "8dbba9c4-bde4-4996-9826-6f5eeb525c31-org2",
-    "category": "REPORT",
-    "latency": 39,
-    "timestamp": "2026-01-25T05:00:27.030Z"
-  },
-  {
-    "documentID": "76934a5f-91b1-44ab-b2f6-22bb302d458d-org2",
-    "category": "INVOICE",
-    "latency": 37,
-    "timestamp": "2026-01-25T05:00:27.055Z"
-  },
-  {
-    "documentID": "19fa2edb-29f7-4ab2-8b19-a65360914b67-org2",
-    "category": "LAINNYA",
-    "latency": 26,
-    "timestamp": "2026-01-25T05:00:27.073Z"
-  },
-  {
-    "documentID": "0cf52621-3d68-4d83-840d-faa323da74dc-org2",
-    "category": "CONTRACT",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:27.089Z"
-  },
-  {
-    "documentID": "2ec56335-2d47-458d-a696-cd9cd4f0b53d-org2",
-    "category": "LAINNYA",
-    "latency": 15,
-    "timestamp": "2026-01-25T05:00:27.113Z"
-  },
-  {
-    "documentID": "daa09e47-bb70-42be-8597-a64c01bf79a6-org2",
-    "category": "LAINNYA",
-    "latency": 16,
-    "timestamp": "2026-01-25T05:00:27.137Z"
-  },
-  {
-    "documentID": "02ef83c6-2caa-4997-9b16-313fd7bb5091-org2",
-    "category": "AGREEMENT",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:27.183Z"
-  },
-  {
-    "documentID": "0d73b215-873d-421a-8d5a-cee4a12aac8e-org2",
-    "category": "AGREEMENT",
-    "latency": 48,
-    "timestamp": "2026-01-25T05:00:27.221Z"
-  },
-  {
-    "documentID": "c67b7724-cad7-42b4-8379-7610d26f1c67-org2",
-    "category": "REPORT",
-    "latency": 40,
-    "timestamp": "2026-01-25T05:00:27.237Z"
-  },
-  {
-    "documentID": "dfcbf042-e48e-42b0-a827-132ee9ce29ac-org2",
-    "category": "AGREEMENT",
-    "latency": 44,
-    "timestamp": "2026-01-25T05:00:27.266Z"
-  },
-  {
-    "documentID": "6e8db7bb-cf01-4f25-b3be-dcdaa3dd3c11-org2",
-    "category": "REPORT",
-    "latency": 37,
-    "timestamp": "2026-01-25T05:00:27.283Z"
-  },
-  {
-    "documentID": "5dd6099f-a015-4f65-9fcc-b4b4f276e95f-org2",
-    "category": "REPORT",
-    "latency": 25,
-    "timestamp": "2026-01-25T05:00:27.296Z"
-  },
-  {
-    "documentID": "e1e2b6b1-6a54-418c-9cb5-88ee37962f7e-org2",
-    "category": "INVOICE",
-    "latency": 36,
-    "timestamp": "2026-01-25T05:00:27.333Z"
-  },
-  {
-    "documentID": "bacca847-c677-40cb-a168-9f7530a10330-org2",
-    "category": "CONTRACT",
-    "latency": 29,
-    "timestamp": "2026-01-25T05:00:27.347Z"
-  },
-  {
-    "documentID": "4ebd7af4-506f-4cdd-8dc8-4405457cad69-org2",
-    "category": "REPORT",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:27.362Z"
-  },
-  {
-    "documentID": "ab220e7e-e3f7-4196-9c5a-c42f194c0389-org2",
-    "category": "POLICY",
-    "latency": 22,
-    "timestamp": "2026-01-25T05:00:27.384Z"
-  },
-  {
-    "documentID": "e5b4998f-7d5a-4f27-8484-8aa62ac4c9d4-org2",
-    "category": "CONTRACT",
-    "latency": 12,
-    "timestamp": "2026-01-25T05:00:27.396Z"
-  },
-  {
-    "documentID": "a3fa82fe-2133-47f3-b96a-c457fc87256c-org2",
-    "category": "AGREEMENT",
-    "latency": 455,
-    "timestamp": "2026-01-25T05:00:27.862Z"
-  },
-  {
-    "documentID": "f4d039af-dd75-4569-957f-0e5e22f1aa59-org2",
-    "category": "INVOICE",
-    "latency": 437,
-    "timestamp": "2026-01-25T05:00:27.865Z"
-  },
-  {
-    "documentID": "7289225a-35fd-4958-bba2-1134f38ac57d-org2",
-    "category": "LAINNYA",
-    "latency": 418,
-    "timestamp": "2026-01-25T05:00:27.868Z"
-  },
-  {
-    "documentID": "4953f534-b676-4e08-9a3b-72cfd8d4920c-org2",
-    "category": "AGREEMENT",
-    "latency": 399,
-    "timestamp": "2026-01-25T05:00:27.872Z"
-  },
-  {
-    "documentID": "e0b24ce9-6870-48b2-b531-de35b28140ba-org2",
-    "category": "AGREEMENT",
-    "latency": 381,
-    "timestamp": "2026-01-25T05:00:27.875Z"
-  },
-  {
-    "documentID": "173a61f2-e3cc-4fa6-88c5-beda07f10c4f-org2",
-    "category": "CONTRACT",
-    "latency": 362,
-    "timestamp": "2026-01-25T05:00:27.878Z"
-  },
-  {
-    "documentID": "e073372d-08e1-456d-bd8d-5865d5586411-org2",
-    "category": "INVOICE",
-    "latency": 343,
-    "timestamp": "2026-01-25T05:00:27.881Z"
-  },
-  {
-    "documentID": "73435d03-5e5a-4863-986d-9d2442c1b3d8-org2",
-    "category": "CONTRACT",
-    "latency": 326,
-    "timestamp": "2026-01-25T05:00:27.884Z"
-  },
-  {
-    "documentID": "fb253aae-4103-44c0-a4df-ac097deb8490-org2",
-    "category": "POLICY",
-    "latency": 307,
-    "timestamp": "2026-01-25T05:00:27.887Z"
-  },
-  {
-    "documentID": "ed008451-34de-4921-9fee-dbf77f0377c1-org2",
-    "category": "REPORT",
-    "latency": 290,
-    "timestamp": "2026-01-25T05:00:27.891Z"
-  },
-  {
-    "documentID": "044aac88-c161-4050-a7df-045c6dd10e53-org2",
-    "category": "CONTRACT",
-    "latency": 271,
-    "timestamp": "2026-01-25T05:00:27.894Z"
-  },
-  {
-    "documentID": "31fe5826-ec52-4de8-8897-8cd8005c3b40-org2",
-    "category": "CONTRACT",
-    "latency": 254,
-    "timestamp": "2026-01-25T05:00:27.897Z"
-  },
-  {
-    "documentID": "eb8f010e-0d65-4a93-81c7-4ed8add2866d-org2",
-    "category": "POLICY",
-    "latency": 235,
-    "timestamp": "2026-01-25T05:00:27.900Z"
-  },
-  {
-    "documentID": "4ec56724-cdab-4f3b-a4c1-fa4747d193d6-org2",
-    "category": "AGREEMENT",
-    "latency": 217,
-    "timestamp": "2026-01-25T05:00:27.904Z"
-  },
-  {
-    "documentID": "ed26a8ea-7406-47d4-9419-c19ba1003c1d-org2",
-    "category": "POLICY",
-    "latency": 198,
-    "timestamp": "2026-01-25T05:00:27.907Z"
-  },
-  {
-    "documentID": "0b7346fa-60ce-4dc4-aea5-365e24d02af4-org2",
-    "category": "CONTRACT",
-    "latency": 181,
-    "timestamp": "2026-01-25T05:00:27.911Z"
-  },
-  {
-    "documentID": "3a8ea78a-0bc4-489d-b512-6bf4dfddc83b-org2",
-    "category": "LAINNYA",
-    "latency": 162,
-    "timestamp": "2026-01-25T05:00:27.914Z"
+    "latency": 6,
+    "timestamp": "2026-04-30T14:39:29.609Z"
   }
 ]

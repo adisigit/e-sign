@@ -6,7 +6,7 @@ const crypto = require("crypto");
 const CONFIG = {
   apiUrl: "http://localhost:3000",
   orgName: "org2",
-  tps: 50, // 10 / 50 / 100
+  tps: 10, // 10 / 50 / 100
   durationSec: 10,
   sentDocsFile: "sent-webhooks.json",
   failedDocsFile: "failed-webhooks.json",
