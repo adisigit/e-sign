@@ -349,6 +349,8 @@ class FabricNatsBridge {
         GetWebhookStatus: () => this.getWebhookStatus(args[0]),
         CheckDocumentIntegrityWebhook: () =>
           this.handleCheckDocumentIntegrityWebhook(args, userId),
+        VerifyDocumentShortCircuit: () =>
+          this.handleVerifyDocumentShortCircuit(args, userId)
       };
 
       let result;
@@ -430,6 +432,19 @@ class FabricNatsBridge {
       },
       integrityStoredCheck: storedDocument.integrityStatus,
     };
+  }
+
+  async handleVerifyDocumentShortCircuit(args, userId) {
+    const collection = args[0] || this.orgConfig.collections.documents;
+    const documentID = args[1];
+    const fileHash = args[2];
+    return await fabricService.verifyDocumentShortCircuit(
+      collection,
+      documentID,
+      fileHash,
+      userId,
+      this.orgName
+    );
   }
 
   async getWebhookStatus(webhookRequestId) {

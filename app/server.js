@@ -86,6 +86,8 @@ app.get("/api", (req, res) => {
           "Get status of specific webhook request from specific organization",
         "POST /api/document/webhook/:orgName/integrity":
           "Check integrity of specific document from specific organization",
+        "POST /api/document/:orgName/integrity-short-circuit":
+          "Check integrity of specific document use short circuit",
       },
     },
     fabric: {
@@ -188,6 +190,11 @@ app.post(
   verifyToken,
   webhookController.checkDocumentIntegrityWebhook.bind(webhookController)
 );
+app.post(
+  "/api/document/:orgName/integrity-short-circuit",
+  verifyToken,
+  webhookController.verifyDocumentShortCircuit.bind(webhookController)
+);
 
 app.use(notFoundHandler);
 
@@ -279,6 +286,8 @@ async function startServer() {
       console.log("     - GET /api/webhook/status/org2/[requestId] (get status of specific webhook request from Org2)");
       console.log("     - POST /api/document/webhook/org1/integrity (check doc integrity from Org1)");
       console.log("     - POST /api/document/webhook/org2/integrity (check doc integrity from Org2)");
+      console.log("     - POST /api/document/org1/integrity-short-circuit (check doc integrity from Org1 short circuit)");
+      console.log("     - POST /api/document/org2/integrity-short-circuit (check doc integrity from Org2 short circuit)");
       console.log("=".repeat(70));
     });
   } catch (error) {

@@ -54,6 +54,75 @@ func (s *SmartContract) ReadDocumentByIDWithIntegrityCheckWebhook(ctx contractap
 	return result, nil
 }
 
+func (s *SmartContract) VerifyDocumentShortCircuit(
+	ctx contractapi.TransactionContextInterface,
+	collection string,
+	documentID string,
+	presentedDocHashHex string,
+) (map[string]interface{}, error) {
+
+	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
+	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collection, query)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query document: %v", err)
+	}
+	defer resultsIterator.Close()
+
+	if !resultsIterator.HasNext() {
+		return nil, fmt.Errorf("document not found: %s", documentID)
+	}
+	queryResponse, err := resultsIterator.Next()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get query response: %v", err)
+	}
+
+	var record PrivateDocumentWebhook
+	if err := json.Unmarshal(queryResponse.Value, &record); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal document: %v", err)
+	}
+
+	reMarshaled, err := json.Marshal(record)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal document: %v", err)
+	}
+
+	layer1Valid, _ := s.validateDataHash(ctx, collection, documentID, reMarshaled)
+
+	if !layer1Valid {
+		return map[string]interface{}{
+			"documentID":      documentID,
+			"integrityStatus": false,
+			"status":          "PDC_RECORD_COMPROMISED",
+			"failedLayer":     "layer1_metadata",
+			"criticalWarning": "PRIVATE RECORD COMPROMISED! Metadata hash mismatch detected. Layer 2 (document content) was not evaluated.",
+			"layer1":          false,
+			"layer2":          nil,
+		}, nil
+	}
+
+	layer2Valid := presentedDocHashHex == record.File
+
+	if !layer2Valid {
+		return map[string]interface{}{
+			"documentID":      documentID,
+			"integrityStatus": false,
+			"status":          "DOCUMENT_MODIFIED",
+			"failedLayer":     "layer2_content",
+			"criticalWarning": "DOCUMENT COMPROMISED! Off-chain document content does not match the registered hash.",
+			"layer1":          true,
+			"layer2":          false,
+		}, nil
+	}
+
+	return map[string]interface{}{
+		"documentID":      documentID,
+		"integrityStatus": true,
+		"status":          "INTACT",
+		"layer1":          true,
+		"layer2":          true,
+	}, nil
+}
+
 func (s *SmartContract) ReadAllLogByDocumentIDWithIntegrityCheck(ctx contractapi.TransactionContextInterface, collectionLog string, documentID string) (map[string]interface{}, error) {
 	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
 

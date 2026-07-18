@@ -32,7 +32,7 @@ async function getContract(userId, orgName = 'org1') {
         const gateway = await getGateway(userId, orgName);
         const network = await gateway.getNetwork(config.channelName);
         const contract = network.getContract(config.chaincodeName);
-        
+
         return { gateway, network, contract };
     } catch (error) {
         console.error(`Error getting contract for ${orgName}:`, error);
@@ -47,14 +47,14 @@ async function submitTransaction(functionName, transientData, userId, orgName = 
         gateway = gw;
 
         const transaction = contract.createTransaction(functionName);
-        
+
         if (transientData) {
             transaction.setTransient(transientData);
         }
 
         const result = await transaction.submit(...args);
         const txId = transaction.getTransactionId();
-        
+
         return {
             result: result,
             txId: txId
@@ -76,7 +76,7 @@ async function evaluateTransaction(functionName, userId, orgName = 'org1', ...ar
         gateway = gw;
 
         const result = await contract.evaluateTransaction(functionName, ...args);
-        
+
         return result;
     } catch (error) {
         console.error(`Error evaluating transaction ${functionName} for ${orgName}:`, error);
@@ -101,9 +101,9 @@ async function createPrivateDataWebhook(webhookData, userId, orgName = 'org1') {
 
 
         const { result, txId } = await submitTransaction('CreatePrivateDataWebhook', transientData, userId, orgName);
-        
-        return { 
-            success: true, 
+
+        return {
+            success: true,
             message: `Private Data Webhook created successfully in ${orgConfig.name}`,
             txId: txId,
             data: { ...webhookData, organization: orgConfig.name }
@@ -122,9 +122,9 @@ async function readAllLogsByDocumentIDWebhook(collectionLog = null, documentID, 
 
         const result = await evaluateTransaction('ReadAllLogByDocumentIDWebhook', userId, orgName, targetCollection, documentID);
         const logs = JSON.parse(result.toString());
-        
-        return { 
-            success: true, 
+
+        return {
+            success: true,
             data: logs.map(log => ({ ...log, organization: orgConfig.name }))
         };
     } catch (error) {
@@ -138,6 +138,20 @@ async function readDocumentByIDWithIntegrityCheckWebhook(collection = null, docu
         const orgConfig = config.getOrgConfig(orgName);
         const targetCollection = collection || orgConfig.collections.documents;
         const result = await evaluateTransaction('ReadDocumentByIDWithIntegrityCheckWebhook', userId, orgName, targetCollection, documentID);
+        const document = JSON.parse(result.toString());
+        return document;
+    }
+    catch (error) {
+        console.error(`Error reading document by ID with integrity check webhook for ${orgName}:`, error);
+        throw error;
+    }
+}
+
+async function verifyDocumentShortCircuit(collection = null, documentID, fileHash, userId, orgName = 'org1') {
+    try {
+        const orgConfig = config.getOrgConfig(orgName);
+        const targetCollection = collection || orgConfig.collections.documents;
+        const result = await evaluateTransaction('VerifyDocumentShortCircuit', userId, orgName, targetCollection, documentID, fileHash);
         const document = JSON.parse(result.toString());
         return document;
     }
@@ -167,9 +181,9 @@ async function testNetworkConnectivity(userId = 'admin', orgName = 'org1') {
         gateway = await getGateway(userId, orgName);
         const network = await gateway.getNetwork(config.channelName);
         const contract = network.getContract(config.chaincodeName);
-        
+
         await contract.evaluateTransaction('org.hyperledger.fabric:GetMetadata');
-        
+
         return {
             success: true,
             message: `Network connectivity test passed for ${orgConfig.name}`,
@@ -195,7 +209,7 @@ async function testAllOrgsConnectivity(userId = 'admin') {
     try {
         const results = {};
         const orgs = config.getAllOrgs();
-        
+
         for (const orgName of orgs) {
             try {
                 console.log(`Testing connectivity for ${orgName}...`);
@@ -205,7 +219,7 @@ async function testAllOrgsConnectivity(userId = 'admin') {
                 results[orgName] = { success: false, error: error.message };
             }
         }
-        
+
         return { success: true, data: results };
     } catch (error) {
         console.error('Error testing connectivity for all organizations:', error);
@@ -222,6 +236,7 @@ module.exports = {
     readAllLogsByDocumentIDWebhook,
     readDocumentByIDWithIntegrityCheckWebhook,
     readAllLogByDocumentIDWithIntegrityCheck,
+    verifyDocumentShortCircuit,
     testNetworkConnectivity,
     testAllOrgsConnectivity
 };

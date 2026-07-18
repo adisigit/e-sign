@@ -40,13 +40,7 @@ class WebhookController {
         });
       }
 
-      if (
-        !id ||
-        !documentCategoryCode ||
-        !name ||
-        !description ||
-        !file
-      ) {
+      if (!id || !documentCategoryCode || !name || !description || !file) {
         return res.status(400).json({
           success: false,
           error:
@@ -77,9 +71,9 @@ class WebhookController {
             userId,
           ],
           requestId,
-          null
+          null,
         );
-      res.status(202).json({
+      res.status(200).json({
         success: true,
         message: "Webhook queued for processing",
         requestId: requestId,
@@ -164,7 +158,7 @@ class WebhookController {
         .queryViaClient(
           "ReadAllLogsByDocumentIDWebhook",
           [targetCollection, documentID],
-          userId
+          userId,
         );
       res.json(result);
     } catch (error) {
@@ -208,14 +202,14 @@ class WebhookController {
           "ReadDocumentByIDWithIntegrityCheckWebhook",
           [targetCollection, documentID],
           userId,
-          orgName
+          orgName,
         );
 
       res.json(result);
     } catch (error) {
       console.error(
         `Error reading all documents by org with integrity check for ${orgName}:`,
-        error
+        error,
       );
       res.status(500).json({
         success: false,
@@ -255,14 +249,14 @@ class WebhookController {
           "ReadAllLogByDocumentIDWithIntegrityCheck",
           [targetCollection, documentID],
           userId,
-          orgName
+          orgName,
         );
 
       res.json(result);
     } catch (error) {
       console.error(
         `Error reading all documents by org with integrity check for ${orgName}:`,
-        error
+        error,
       );
       res.status(500).json({
         success: false,
@@ -307,12 +301,82 @@ class WebhookController {
         .queryViaClient(
           "CheckDocumentIntegrityWebhook",
           [targetCollection, documentID, fileHash],
-          userId
+          userId,
         );
 
       res.json(result);
     } catch (error) {
       console.error(`Error checking document integrity for ${orgName}:`, error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+      });
+    }
+  }
+
+  async verifyDocumentShortCircuit(req, res) {
+    const { orgName = "org1" } = req.params;
+    try {
+      const { id, file } = req.body;
+      const documentID = id;
+      const userId = "admin";
+      const orgUser = req.user.organizations[0];
+
+      if (!id || !file) {
+        return res.status(400).json({
+          success: false,
+          error: "Both 'id' and 'file' (base64) are required in the request body",
+        });
+      }
+
+      const fileBuffer = Buffer.from(file, "base64");
+      const presentedDocHashHex = crypto
+        .createHash("sha256")
+        .update(fileBuffer)
+        .digest("hex");
+
+      if (!config.organizations[orgName]) {
+        return res.status(400).json({
+          success: false,
+          error: `Organization ${orgName} not found`,
+          availableOrgs: config.getAllOrgs(),
+        });
+      }
+
+      if (!this.bridgeController.getBridge(orgName)) {
+        return res.status(500).json({
+          success: false,
+          error: `Bridge for ${orgName} not found`,
+        });
+      }
+
+      const orgConfig = config.getOrgConfig(orgName);
+      const targetCollection = orgConfig.collections.documents;
+
+      const startedAt = process.hrtime.bigint();
+
+      const result = await this.bridgeController
+        .getBridge(orgUser)
+        .queryViaClient(
+          "VerifyDocumentShortCircuit",
+          [targetCollection, documentID, presentedDocHashHex],
+          userId,
+        );
+
+      const elapsedMs = Number(process.hrtime.bigint() - startedAt) / 1e6;
+
+      res.json({
+        ...result,
+        _meta: {
+          elapsedMs,
+          shortCircuited: result.status === "PDC_RECORD_COMPROMISED",
+        },
+      });
+    } catch (error) {
+      console.error(
+        `Error in verifyDocumentShortCircuit for ${orgName}:`,
+        error,
+      );
       res.status(500).json({
         success: false,
         error: error.message,
