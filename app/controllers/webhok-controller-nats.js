@@ -365,11 +365,16 @@ class WebhookController {
 
       const elapsedMs = Number(process.hrtime.bigint() - startedAt) / 1e6;
 
+      const layer1FailureStatuses = new Set([
+        "PDC_RECORD_SCHEMA_VIOLATION",
+        "PDC_RECORD_COMPROMISED",
+      ]);
+
       res.json({
         ...result,
         _meta: {
           elapsedMs,
-          shortCircuited: result.status === "PDC_RECORD_COMPROMISED",
+          shortCircuited: layer1FailureStatuses.has(result.status),
         },
       });
     } catch (error) {

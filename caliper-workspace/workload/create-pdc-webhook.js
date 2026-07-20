@@ -7,7 +7,7 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
   constructor() {
     super();
     this.documentCounter = 0;
-    this.documentRound = 6;
+    this.documentRound = 3;
     this.roundIndex = 0;
   }
 
@@ -49,9 +49,9 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
       .update(fileBuffer)
       .digest("hex");
 
-    // DOC-<workerIndex>-<roundIndex>-<counter>
+    // DOCUMENT-<workerIndex>-<roundIndex>-<counter>
     // → unik meski dijalankan berkali-kali
-    const documentID = `DOC-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`;
+    const documentID = `DOCUM-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`;
 
     const categories = ["CONTRACT", "INVOICE", "AGREEMENT", "REPORT", "POLICY"];
     const categoryCode = categories[Math.floor(Math.random() * categories.length)];
@@ -104,8 +104,8 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
   async cleanupWorkloadModule() {
     console.log(
       `Worker ${this.workerIndex}: Created ${this.documentCounter} documents. ` +
-      `IDs: DOC-${this.workerIndex}-${this.documentRound}-${this.workerIndex * 10000 + 1} ` +
-      `→ DOC-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`
+      `IDs: DOCUMENT-${this.workerIndex}-${this.documentRound}-${this.workerIndex * 10000 + 1} ` +
+      `→ DOCUMENT-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`
     );
   }
 }

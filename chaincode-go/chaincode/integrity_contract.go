@@ -8,26 +8,43 @@ import (
 )
 
 func (s *SmartContract) ReadDocumentByIDWithIntegrityCheckWebhook(ctx contractapi.TransactionContextInterface, collection string, documentID string) (map[string]interface{}, error) {
-	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
-	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collection, query)
+	rawValue, err := ctx.GetStub().GetPrivateData(
+		collection,
+		documentID,
+	)
 	if err != nil {
-		return nil, fmt.Errorf("failed to query document: %v", err)
-	}
-	defer resultsIterator.Close()
-
-	if !resultsIterator.HasNext() {
-		return nil, fmt.Errorf("document not found: %s", documentID)
-	}
-
-	queryResponse, err := resultsIterator.Next()
-	if err != nil {
-		return nil, fmt.Errorf("failed to get query response: %v", err)
+		return nil, fmt.Errorf(
+			"failed to read private document: %w",
+			err,
+		)
 	}
 
-	var document PrivateDocumentWebhook
-	err = json.Unmarshal(queryResponse.Value, &document)
+	if rawValue == nil {
+		return nil, fmt.Errorf(
+			"document not found: %s",
+			documentID,
+		)
+	}
+
+	document, err := decodePrivateDocumentStrict(
+		rawValue,
+		collection,
+		documentID,
+	)
+
 	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal document: %v", err)
+		return map[string]interface{}{
+			"documentID":      documentID,
+			"integrityStatus": false,
+			"status":          "PDC_RECORD_SCHEMA_VIOLATION",
+			"failedLayer":     "layer1_private_record",
+			"criticalWarning": fmt.Sprintf(
+				"PRIVATE RECORD SCHEMA VIOLATION: %v",
+				err,
+			),
+			"layer1": false,
+			"layer2": nil,
+		}, nil
 	}
 
 	reMarshaled, err := json.Marshal(document)
@@ -60,25 +77,43 @@ func (s *SmartContract) VerifyDocumentShortCircuit(
 	documentID string,
 	presentedDocHashHex string,
 ) (map[string]interface{}, error) {
-
-	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
-	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collection, query)
+	rawValue, err := ctx.GetStub().GetPrivateData(
+		collection,
+		documentID,
+	)
 	if err != nil {
-		return nil, fmt.Errorf("failed to query document: %v", err)
+		return nil, fmt.Errorf(
+			"failed to read private document: %w",
+			err,
+		)
 	}
-	defer resultsIterator.Close()
 
-	if !resultsIterator.HasNext() {
-		return nil, fmt.Errorf("document not found: %s", documentID)
+	if rawValue == nil {
+		return nil, fmt.Errorf(
+			"document not found: %s",
+			documentID,
+		)
 	}
-	queryResponse, err := resultsIterator.Next()
+
+	record, err := decodePrivateDocumentStrict(
+		rawValue,
+		collection,
+		documentID,
+	)
+
 	if err != nil {
-		return nil, fmt.Errorf("failed to get query response: %v", err)
-	}
-
-	var record PrivateDocumentWebhook
-	if err := json.Unmarshal(queryResponse.Value, &record); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal document: %v", err)
+		return map[string]interface{}{
+			"documentID":      documentID,
+			"integrityStatus": false,
+			"status":          "PDC_RECORD_SCHEMA_VIOLATION",
+			"failedLayer":     "layer1_private_record",
+			"criticalWarning": fmt.Sprintf(
+				"PRIVATE RECORD SCHEMA VIOLATION: %v",
+				err,
+			),
+			"layer1": false,
+			"layer2": nil,
+		}, nil
 	}
 
 	reMarshaled, err := json.Marshal(record)
