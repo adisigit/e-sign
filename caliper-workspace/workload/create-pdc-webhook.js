@@ -51,7 +51,7 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
 
     // DOCUMENT-<workerIndex>-<roundIndex>-<counter>
     // → unik meski dijalankan berkali-kali
-    const documentID = `DOCUM-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`;
+    const documentID = `DOCU-${this.workerIndex}-${this.documentRound}-${this.documentCounter}`;
 
     const categories = ["CONTRACT", "INVOICE", "AGREEMENT", "REPORT", "POLICY"];
     const categoryCode = categories[Math.floor(Math.random() * categories.length)];

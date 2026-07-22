@@ -367,6 +367,7 @@ class WebhookController {
 
       const layer1FailureStatuses = new Set([
         "PDC_RECORD_SCHEMA_VIOLATION",
+        "PDC_RECORD_CANONICALIZATION_FAILURE",
         "PDC_RECORD_COMPROMISED",
       ]);
 

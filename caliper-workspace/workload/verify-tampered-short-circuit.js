@@ -11,7 +11,7 @@ const CONFIG = {
   orgName: process.env.ORG_NAME || "org1",
   authToken: process.env.API_AUTH_TOKEN,
   workerIndex: Number(process.env.WORKER_INDEX || 0),
-  mode: "two-layer", // "one-layer" | "two-layer"
+  mode: "one-layer", // "one-layer" | "two-layer"
 
   // ---- verify-batch: run alongside a Caliper register() round ----
   // This does NOT generate the register() load itself -- Caliper does that
@@ -26,7 +26,7 @@ const CONFIG = {
     // per request -- each probe is hit exactly once per TPS level, so
     // there is no repeated-key access within a single verify-batch run
     // that could bias latency via state-database caching.
-    probeDocIDs: Array.from({ length: 100 }, (_, i) => `PROBE-0-1-${i + 1}`),
+    probeDocIDs: Array.from({ length: 100 }, (_, i) => `PROBE-0-0-${i + 1}`),
   },
 
   // ---- ablation replication ----

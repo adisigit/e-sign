@@ -1,39 +1,93 @@
 package chaincode
 
 import (
+	"bytes"
 	"crypto/sha256"
-	"encoding/hex"
 	"fmt"
 
+	"github.com/gowebpki/jcs"
 	"github.com/hyperledger/fabric-contract-api-go/v2/contractapi"
 )
 
-func (s *SmartContract) validateDataHash(ctx contractapi.TransactionContextInterface, collection string, key string, value []byte) (bool, error) {
-	currentHash := sha256.Sum256(value)
-	currentHashString := hex.EncodeToString(currentHash[:])
+func (s *SmartContract) validateDataHash(
+	ctx contractapi.TransactionContextInterface,
+	collection string,
+	key string,
+	canonicalValue []byte,
+) (bool, error) {
+	if len(canonicalValue) == 0 {
+		return false, fmt.Errorf(
+			"canonical private value is empty: collection=%s key=%s",
+			collection,
+			key,
+		)
+	}
 
-	fmt.Printf("=== VALIDATE DEBUG ===\n")
-	fmt.Printf("Collection: %s\n", collection)
-	fmt.Printf("Key: %s\n", key)
-	fmt.Printf("Value length: %d bytes\n", len(value))
-	fmt.Printf("Value (first 100 chars): %s\n", string(value[:min(100, len(value))]))
-	fmt.Printf("Calculated hash: %s\n", currentHashString)
-
-	hashFromChain, err := ctx.GetStub().GetPrivateDataHash(collection, key)
+	ledgerHash, err := ctx.GetStub().GetPrivateDataHash(
+		collection,
+		key,
+	)
 	if err != nil {
-		fmt.Printf("ERROR getting hash from chain: %v\n", err)
-		return false, err
+		return false, fmt.Errorf(
+			"failed to retrieve private-data hash: %w",
+			err,
+		)
 	}
 
-	if hashFromChain == nil {
-		fmt.Printf("ERROR: No hash found in blockchain\n")
-		return false, fmt.Errorf("no hash found in blockchain for key: %s", key)
+	if len(ledgerHash) == 0 {
+		return false, fmt.Errorf(
+			"private-data hash not found: collection=%s key=%s",
+			collection,
+			key,
+		)
 	}
 
-	chainHashString := hex.EncodeToString(hashFromChain)
-	fmt.Printf("Chain hash: %s\n", chainHashString)
-	fmt.Printf("Hashes match: %v\n", currentHashString == chainHashString)
-	fmt.Printf("===================\n")
+	calculatedHash := sha256.Sum256(canonicalValue)
 
-	return currentHashString == chainHashString, nil
+	return bytes.Equal(
+		calculatedHash[:],
+		ledgerHash,
+	), nil
+}
+
+func canonicalizeJSON(rawJSON []byte) ([]byte, error) {
+	if len(rawJSON) == 0 {
+		return nil, fmt.Errorf("cannot canonicalize empty JSON")
+	}
+
+	canonicalJSON, err := jcs.Transform(rawJSON)
+	if err != nil {
+		return nil, fmt.Errorf(
+			"failed to canonicalize JSON using RFC 8785: %w",
+			err,
+		)
+	}
+
+	return canonicalJSON, nil
+}
+
+func ensureDocumentDoesNotExist(
+	ctx contractapi.TransactionContextInterface,
+	collection string,
+	documentID string,
+) error {
+	existingHash, err := ctx.GetStub().GetPrivateDataHash(
+		collection,
+		documentID,
+	)
+	if err != nil {
+		return fmt.Errorf(
+			"failed to check existing private record: %w",
+			err,
+		)
+	}
+
+	if len(existingHash) > 0 {
+		return fmt.Errorf(
+			"document %s is already registered",
+			documentID,
+		)
+	}
+
+	return nil
 }

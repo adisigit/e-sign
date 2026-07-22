@@ -1,8 +1,6 @@
 package chaincode
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -30,19 +28,23 @@ func (s *SmartContract) CreatePrivateLogDocumentWebhook(ctx contractapi.Transact
 	log.ID = uuid.New().String()
 	log.Timestamp = time.Now().UTC().Format(time.RFC3339)
 
-	finalLogJson, err := json.Marshal(log)
+	serializedLog, err := json.Marshal(log)
 	if err != nil {
-		return fmt.Errorf("failed to marshal final log JSON: %v", err)
+		return fmt.Errorf(
+			"failed to serialize final log: %w",
+			err,
+		)
 	}
 
-	// DEBUG: Print what's being stored
-	fmt.Printf("=== STORING LOG %s ===\n", log.ID)
-	fmt.Printf("Data: %s\n", string(finalLogJson))
-	calculatedHash := sha256.Sum256(finalLogJson)
-	fmt.Printf("Hash: %s\n", hex.EncodeToString(calculatedHash[:]))
-	fmt.Printf("=====================\n")
+	canonicalLog, err := canonicalizeJSON(serializedLog)
+	if err != nil {
+		return fmt.Errorf(
+			"failed to canonicalize final log: %w",
+			err,
+		)
+	}
 
-	return ctx.GetStub().PutPrivateData(log.CollectionLog, log.ID, finalLogJson)
+	return ctx.GetStub().PutPrivateData(log.CollectionLog, log.ID, canonicalLog)
 }
 
 func (s *SmartContract) CreatePrivateDataWebhook(ctx contractapi.TransactionContextInterface) error {
@@ -68,11 +70,29 @@ func (s *SmartContract) CreatePrivateDataWebhook(ctx contractapi.TransactionCont
 		File:                 payload["file"].(string),
 		Timestamp:            time.Now().UTC().Format(time.RFC3339),
 	}
-	finalDocumentWebhookJson, err := json.Marshal(documentWebhook)
+	serializedDocument, err := json.Marshal(documentWebhook)
 	if err != nil {
-		return fmt.Errorf("failed to marshal final document webhook JSON: %v", err)
+		return fmt.Errorf(
+			"failed to serialize private document: %w",
+			err,
+		)
 	}
-	err = ctx.GetStub().PutPrivateData(documentWebhook.Collection, documentWebhook.ID, finalDocumentWebhookJson)
+
+	canonicalDocument, err := canonicalizeJSON(serializedDocument)
+	if err != nil {
+		return fmt.Errorf(
+			"failed to canonicalize private document: %w",
+			err,
+		)
+	}
+	if err := ensureDocumentDoesNotExist(
+		ctx,
+		documentWebhook.Collection,
+		documentWebhook.ID,
+	); err != nil {
+		return err
+	}
+	err = ctx.GetStub().PutPrivateData(documentWebhook.Collection, documentWebhook.ID, canonicalDocument)
 	if err != nil {
 		return fmt.Errorf("failed to put private document webhook: %v", err)
 	}
@@ -93,11 +113,23 @@ func (s *SmartContract) CreatePrivateDataWebhook(ctx contractapi.TransactionCont
 			Timestamp:         time.Now().UTC().Format(time.RFC3339),
 		}
 
-		logDocumentWebhookJson, err := json.Marshal(logDocumentWebhook)
+		serializedLog, err := json.Marshal(logDocumentWebhook)
 		if err != nil {
-			return fmt.Errorf("failed to marshal final log document webhook JSON: %v", err)
+			return fmt.Errorf(
+				"failed to serialize private log: %w",
+				err,
+			)
 		}
-		err = ctx.GetStub().PutPrivateData(collectionLog, logDocumentWebhook.ID, logDocumentWebhookJson)
+
+		canonicalLog, err := canonicalizeJSON(serializedLog)
+		if err != nil {
+			return fmt.Errorf(
+				"failed to canonicalize private log: %w",
+				err,
+			)
+		}
+
+		err = ctx.GetStub().PutPrivateData(collectionLog, logDocumentWebhook.ID, canonicalLog)
 		if err != nil {
 			return fmt.Errorf("failed to put private log document webhook: %v", err)
 		}

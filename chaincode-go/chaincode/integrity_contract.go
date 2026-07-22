@@ -1,7 +1,6 @@
 package chaincode
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"github.com/hyperledger/fabric-contract-api-go/v2/contractapi"
@@ -26,14 +25,13 @@ func (s *SmartContract) ReadDocumentByIDWithIntegrityCheckWebhook(ctx contractap
 		)
 	}
 
-	document, err := decodePrivateDocumentStrict(
+	document, err := decodePrivateDocumentRaw(
 		rawValue,
-		collection,
-		documentID,
 	)
 
 	if err != nil {
 		return map[string]interface{}{
+			"document":        document,
 			"documentID":      documentID,
 			"integrityStatus": false,
 			"status":          "PDC_RECORD_SCHEMA_VIOLATION",
@@ -47,28 +45,45 @@ func (s *SmartContract) ReadDocumentByIDWithIntegrityCheckWebhook(ctx contractap
 		}, nil
 	}
 
-	reMarshaled, err := json.Marshal(document)
+	canonicalValue, err := canonicalizeJSON(rawValue)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %v", err)
+		return map[string]interface{}{
+			"document":        document,
+			"documentID":      documentID,
+			"integrityStatus": false,
+			"status":          "PDC_RECORD_CANONICALIZATION_FAILURE",
+			"failedLayer":     "layer1_private_record",
+			"criticalWarning": fmt.Sprintf(
+				"PRIVATE RECORD CANONICALIZATION FAILURE: %v",
+				err,
+			),
+			"layer1": false,
+			"layer2": nil,
+		}, nil
 	}
 
-	isValid, _ := s.validateDataHash(ctx, collection, documentID, reMarshaled)
-
-	result := map[string]interface{}{
-		"document":        document,
-		"documentID":      documentID,
-		"integrityStatus": isValid,
-	}
+	isValid, _ := s.validateDataHash(ctx, collection, documentID, canonicalValue)
 
 	if !isValid {
-		result["criticalWarning"] = "DOCUMENT COMPROMISED! Document has been tampered. Investigation required."
-		result["tamperedDocument"] = documentID
-		result["status"] = "TAMPERED"
-	} else {
-		result["status"] = "VALID"
+		return map[string]interface{}{
+			"document":        document,
+			"documentID":      documentID,
+			"integrityStatus": false,
+			"status":          "PDC_RECORD_COMPROMISED",
+			"failedLayer":     "layer1_private_record",
+			"criticalWarning": "PRIVATE RECORD COMPROMISED! The canonical record does not match the ledger-committed PDC hash.",
+			"layer1":          false,
+			"layer2":          nil,
+		}, nil
 	}
 
-	return result, nil
+	return map[string]interface{}{
+		"document":        document,
+		"documentID":      documentID,
+		"integrityStatus": true,
+		"status":          "VALID",
+		"layer1":          true,
+	}, nil
 }
 
 func (s *SmartContract) VerifyDocumentShortCircuit(
@@ -116,12 +131,23 @@ func (s *SmartContract) VerifyDocumentShortCircuit(
 		}, nil
 	}
 
-	reMarshaled, err := json.Marshal(record)
+	canonicalValue, err := canonicalizeJSON(rawValue)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %v", err)
+		return map[string]interface{}{
+			"documentID":      documentID,
+			"integrityStatus": false,
+			"status":          "PDC_RECORD_CANONICALIZATION_FAILURE",
+			"failedLayer":     "layer1_private_record",
+			"criticalWarning": fmt.Sprintf(
+				"PRIVATE RECORD CANONICALIZATION FAILURE: %v",
+				err,
+			),
+			"layer1": false,
+			"layer2": nil,
+		}, nil
 	}
 
-	layer1Valid, _ := s.validateDataHash(ctx, collection, documentID, reMarshaled)
+	layer1Valid, _ := s.validateDataHash(ctx, collection, documentID, canonicalValue)
 
 	if !layer1Valid {
 		return map[string]interface{}{
@@ -158,66 +184,114 @@ func (s *SmartContract) VerifyDocumentShortCircuit(
 	}, nil
 }
 
-func (s *SmartContract) ReadAllLogByDocumentIDWithIntegrityCheck(ctx contractapi.TransactionContextInterface, collectionLog string, documentID string) (map[string]interface{}, error) {
-	query := fmt.Sprintf(`{"selector":{"documentID":"%s"}}`, documentID)
+func (s *SmartContract) ReadAllLogByDocumentIDWithIntegrityCheck(
+	ctx contractapi.TransactionContextInterface,
+	collectionLog string,
+	documentID string,
+) (map[string]interface{}, error) {
+	query := fmt.Sprintf(
+		`{"selector":{"documentID":"%s"}}`,
+		documentID,
+	)
 
-	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collectionLog, query)
+	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(
+		collectionLog,
+		query,
+	)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get log documents: %v", err)
+		return nil, fmt.Errorf(
+			"failed to query private logs: %w",
+			err,
+		)
 	}
 	defer resultsIterator.Close()
 
 	if !resultsIterator.HasNext() {
-		return nil, fmt.Errorf("log document not found: %s", documentID)
+		return nil, fmt.Errorf(
+			"log document not found: %s",
+			documentID,
+		)
 	}
 
-	var logs []*PrivateLogDocumentWebhook
+	var validLogs []*PrivateLogDocumentWebhook
 	var tamperedLogs []string
-	validCount := 0
-	tamperedCount := 0
+	var schemaInvalidLogs []string
 
 	for resultsIterator.HasNext() {
 		queryResponse, err := resultsIterator.Next()
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf(
+				"failed to read private-log query result: %w",
+				err,
+			)
 		}
 
-		var log PrivateLogDocumentWebhook
-		err = json.Unmarshal(queryResponse.Value, &log)
+		logRecord, err := decodePrivateLogStrict(
+			queryResponse.Value,
+			collectionLog,
+			queryResponse.Key,
+			documentID,
+		)
 		if err != nil {
-			return nil, err
+			schemaInvalidLogs = append(
+				schemaInvalidLogs,
+				queryResponse.Key,
+			)
+			continue
 		}
 
-		// Marshal ulang untuk normalize
-		reMarshaled, err := json.Marshal(log)
+		canonicalValue, err := canonicalizeJSON(
+			queryResponse.Value,
+		)
 		if err != nil {
-			return nil, err
+			schemaInvalidLogs = append(
+				schemaInvalidLogs,
+				queryResponse.Key,
+			)
+			continue
 		}
 
-		// Validate using DIRECT data
-		isValid, _ := s.validateDataHash(ctx, collectionLog, queryResponse.Key, reMarshaled)
-
-		logs = append(logs, &log)
-
-		if isValid {
-			validCount++
-		} else {
-			tamperedCount++
-			tamperedLogs = append(tamperedLogs, queryResponse.Key)
+		isValid, err := s.validateDataHash(
+			ctx,
+			collectionLog,
+			queryResponse.Key,
+			canonicalValue,
+		)
+		if err != nil {
+			return nil, fmt.Errorf(
+				"failed to validate log %s: %w",
+				queryResponse.Key,
+				err,
+			)
 		}
+
+		if !isValid {
+			tamperedLogs = append(
+				tamperedLogs,
+				queryResponse.Key,
+			)
+			continue
+		}
+
+		// Only return trusted log values.
+		validLogs = append(validLogs, logRecord)
 	}
 
+	tamperedCount :=
+		len(tamperedLogs) + len(schemaInvalidLogs)
+
 	result := map[string]interface{}{
-		"logs":          logs,
-		"totalCount":    len(logs),
-		"validCount":    validCount,
-		"tamperedCount": tamperedCount,
-		"tamperedLogs":  tamperedLogs,
-		"auditIntact":   tamperedCount == 0,
+		"logs":              validLogs,
+		"validCount":        len(validLogs),
+		"tamperedCount":     tamperedCount,
+		"tamperedLogs":      tamperedLogs,
+		"schemaInvalidLogs": schemaInvalidLogs,
+		"auditIntact":       tamperedCount == 0,
 	}
 
 	if tamperedCount > 0 {
-		result["criticalWarning"] = "AUDIT TRAIL COMPROMISED! Logs have been tampered. Investigation required."
+		result["criticalWarning"] =
+			"AUDIT TRAIL COMPROMISED! One or more logs failed schema or hash validation."
 	}
 
 	return result, nil

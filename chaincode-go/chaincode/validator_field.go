@@ -209,3 +209,137 @@ func decodePrivateDocumentStrict(
 
 	return &document, nil
 }
+
+func decodePrivateDocumentRaw(rawJSON []byte) (*PrivateDocumentWebhook, error) {
+	var generic map[string]interface{}
+	if err := json.Unmarshal(rawJSON, &generic); err != nil {
+		return nil, fmt.Errorf("invalid JSON: %w", err)
+	}
+
+	getString := func(key string) string {
+		if v, ok := generic[key].(string); ok {
+			return v
+		}
+		return ""
+	}
+
+	return &PrivateDocumentWebhook{
+		Collection:           getString("collection"),
+		ID:                   getString("documentID"),
+		DocumentCategoryCode: getString("documentCategoryCode"),
+		Name:                 getString("name"),
+		Description:          getString("description"),
+		File:                 getString("file"),
+		Timestamp:            getString("timestamp"),
+	}, nil
+}
+
+var privateLogAllowedFields = map[string]struct{}{
+	"collectionLog":     {},
+	"logID":             {},
+	"documentID":        {},
+	"userID":            {},
+	"name":              {},
+	"userRoleCode":      {},
+	"recipientRoleCode": {},
+	"timestamp":         {},
+}
+
+var privateLogRequiredFields = map[string]struct{}{
+	"collectionLog":     {},
+	"logID":             {},
+	"documentID":        {},
+	"userID":            {},
+	"name":              {},
+	"userRoleCode":      {},
+	"recipientRoleCode": {},
+	"timestamp":         {},
+}
+
+func decodePrivateLogStrict(
+	rawJSON []byte,
+	expectedCollectionLog string,
+	expectedLogID string,
+	expectedDocumentID string,
+) (*PrivateLogDocumentWebhook, error) {
+	if err := validateJSONObjectFields(
+		rawJSON,
+		privateLogAllowedFields,
+		privateLogRequiredFields,
+	); err != nil {
+		return nil, fmt.Errorf(
+			"private log schema validation failed: %w",
+			err,
+		)
+	}
+
+	decoder := json.NewDecoder(bytes.NewReader(rawJSON))
+	decoder.DisallowUnknownFields()
+
+	var logRecord PrivateLogDocumentWebhook
+
+	if err := decoder.Decode(&logRecord); err != nil {
+		return nil, fmt.Errorf(
+			"failed to decode private log: %w",
+			err,
+		)
+	}
+
+	if logRecord.CollectionLog != expectedCollectionLog {
+		return nil, fmt.Errorf(
+			"collectionLog mismatch: expected %s, got %s",
+			expectedCollectionLog,
+			logRecord.CollectionLog,
+		)
+	}
+
+	if logRecord.ID != expectedLogID {
+		return nil, fmt.Errorf(
+			"logID mismatch: expected %s, got %s",
+			expectedLogID,
+			logRecord.ID,
+		)
+	}
+
+	if logRecord.DocumentID != expectedDocumentID {
+		return nil, fmt.Errorf(
+			"documentID mismatch: expected %s, got %s",
+			expectedDocumentID,
+			logRecord.DocumentID,
+		)
+	}
+
+	if logRecord.UserID == "" {
+		return nil, fmt.Errorf("userID cannot be empty")
+	}
+
+	if logRecord.Name == "" {
+		return nil, fmt.Errorf("name cannot be empty")
+	}
+
+	if logRecord.UserRoleCode == "" {
+		return nil, fmt.Errorf("userRoleCode cannot be empty")
+	}
+
+	if logRecord.RecipientRoleCode == "" {
+		return nil, fmt.Errorf(
+			"recipientRoleCode cannot be empty",
+		)
+	}
+
+	if logRecord.Timestamp == "" {
+		return nil, fmt.Errorf("timestamp cannot be empty")
+	}
+
+	if _, err := time.Parse(
+		time.RFC3339,
+		logRecord.Timestamp,
+	); err != nil {
+		return nil, fmt.Errorf(
+			"timestamp is not valid RFC3339: %w",
+			err,
+		)
+	}
+
+	return &logRecord, nil
+}
