@@ -77,7 +77,7 @@ class WebhookController {
         success: true,
         message: "Webhook queued for processing",
         requestId: requestId,
-        statusUrl: `/api/${orgName}/webhook/status/${requestId}`,
+        statusUrl: `/api/webhook/status/${orgName}/${requestId}`,
         data: {
           id,
           documentCategoryCode,

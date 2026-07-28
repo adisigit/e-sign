@@ -152,7 +152,7 @@
                     </tr>
 
                     <tr>
-                         <td>create-pdc-webhook-low</td> <td>1000</td> <td>0</td> <td>100.6</td> <td>3.62</td> <td>1.04</td> <td>2.26</td> <td>90.4</td>
+                         <td>create-pdc-webhook-low</td> <td>100</td> <td>0</td> <td>10.1</td> <td>2.26</td> <td>0.17</td> <td>1.25</td> <td>9.4</td>
                     </tr>
                 </table>
             </div>
@@ -162,7 +162,7 @@
                 <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
   type: fixed-rate
   opts:
-    tps: 100
+    tps: 10
 </pre>
                         <h3>Performance metrics for create-pdc-webhook-low</h3>
                             <table style="min-width: 100%;">
@@ -170,7 +170,7 @@
                                      <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
                                 </tr>
                                 <tr>
-                                     <td>create-pdc-webhook-low</td> <td>1000</td> <td>0</td> <td>100.6</td> <td>3.62</td> <td>1.04</td> <td>2.26</td> <td>90.4</td>
+                                     <td>create-pdc-webhook-low</td> <td>100</td> <td>0</td> <td>10.1</td> <td>2.26</td> <td>0.17</td> <td>1.25</td> <td>9.4</td>
                                 </tr>
                             </table>
                         <h3>Resource utilization for create-pdc-webhook-low</h3>
@@ -182,15 +182,15 @@
                 <pre id="benchmarkInfo" style="overflow: visible;white-space: pre-wrap;max-height:100%;">name: E-Sign PDC Webhook Benchmark
 description: Performance testing for CreatePrivateDataWebhook performance
 workers:
-  number: 5
+  number: 1
 rounds:
   - label: create-pdc-webhook-low
     description: Create PDC Webhook at 10 TPS
-    txNumber: 1000
+    txNumber: 100
     rateControl:
       type: fixed-rate
       opts:
-        tps: 100
+        tps: 10
     workload:
       module: workload&#x2F;create-pdc-webhook.js
       arguments:
