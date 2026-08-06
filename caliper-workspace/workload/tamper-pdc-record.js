@@ -142,10 +142,10 @@ async function tamperOneAllPeers(docID, mutationName) {
   return results;
 }
 
-async function tamperBatch(docIDs, mutationPool, { fixedMutation = null } = {}) {
+async function tamperBatch(docIDs, mutationPool, { fixedMutation = null,  rng = Math.random } = {}) {
   const results = [];
   for (const docID of docIDs) {
-    const mutationName = fixedMutation || mutationPool[Math.floor(Math.random() * mutationPool.length)];
+    const mutationName = fixedMutation || mutationPool[Math.floor(rng() * mutationPool.length)];
     try {
       await tamperOneAllPeers(docID, mutationName);
       results.push({ docID, mutationName, ok: true });

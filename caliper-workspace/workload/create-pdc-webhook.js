@@ -7,7 +7,7 @@ class CreateWebhookWorkload extends WorkloadModuleBase {
   constructor() {
     super();
     this.documentCounter = 0;
-    this.documentRound = 39;
+    this.documentRound = 87;
     this.roundIndex = 0;
   }
 

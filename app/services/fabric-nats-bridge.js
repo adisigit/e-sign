@@ -419,18 +419,17 @@ class FabricNatsBridge {
         this.orgName
       );
 
-    const isDocumentIntegrity = storedDocument.document.file === fileHash;
+    const isDocumentIntegrity = storedDocument.file === fileHash;
     return {
       isDocumentValid: isDocumentIntegrity,
       uploadedFileHash: fileHash,
-      storedFileHash: storedDocument.document.file,
+      storedFileHash: storedDocument.file,
       documentID: documentID,
       metadata: {
-        name: storedDocument.document.name,
-        documentCategoryCode: storedDocument.document.documentCategoryCode,
-        createdAt: storedDocument.document.timestamp,
+        name: storedDocument.name,
+        documentCategoryCode: storedDocument.documentCategoryCode,
+        createdAt: storedDocument.timestamp,
       },
-      integrityStoredCheck: storedDocument.integrityStatus,
     };
   }
 
