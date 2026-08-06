@@ -1,0 +1,4 @@
+{"documentID":"RACE-TEST-1","N":10,"httpQueued":10,"httpRejectedImmediate":0,"committed":1,"failedOrDlq":9,"timeout":0,"violation":false,"timestamp":"2026-07-27T05:05:51.528Z"}
+{"documentID":"RACE-TEST-2","N":25,"httpQueued":25,"httpRejectedImmediate":0,"committed":1,"failedOrDlq":24,"timeout":0,"violation":false,"timestamp":"2026-07-27T05:06:11.211Z"}
+{"documentID":"RACE-TEST-3","N":50,"httpQueued":50,"httpRejectedImmediate":0,"committed":1,"failedOrDlq":49,"timeout":0,"violation":false,"timestamp":"2026-07-27T05:06:37.205Z"}
+{"documentID":"RACE-TEST-5","N":100,"httpQueued":100,"httpRejectedImmediate":0,"committed":1,"failedOrDlq":99,"timeout":0,"violation":false,"timestamp":"2026-07-27T05:08:17.213Z"}

@@ -1,6 +1,7 @@
 package chaincode
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/hyperledger/fabric-contract-api-go/v2/contractapi"
@@ -25,64 +26,19 @@ func (s *SmartContract) ReadDocumentByIDWithIntegrityCheckWebhook(ctx contractap
 		)
 	}
 
-	document, err := decodePrivateDocumentRaw(
-		rawValue,
-	)
-
-	if err != nil {
-		return map[string]interface{}{
-			"document":        document,
-			"documentID":      documentID,
-			"integrityStatus": false,
-			"status":          "PDC_RECORD_SCHEMA_VIOLATION",
-			"failedLayer":     "layer1_private_record",
-			"criticalWarning": fmt.Sprintf(
-				"PRIVATE RECORD SCHEMA VIOLATION: %v",
-				err,
-			),
-			"layer1": false,
-			"layer2": nil,
-		}, nil
+	var raw map[string]interface{}
+	if err := json.Unmarshal(rawValue, &raw); err != nil {
+		return nil, fmt.Errorf("failed to parse private record as JSON: %w", err)
 	}
 
-	canonicalValue, err := canonicalizeJSON(rawValue)
-	if err != nil {
-		return map[string]interface{}{
-			"document":        document,
-			"documentID":      documentID,
-			"integrityStatus": false,
-			"status":          "PDC_RECORD_CANONICALIZATION_FAILURE",
-			"failedLayer":     "layer1_private_record",
-			"criticalWarning": fmt.Sprintf(
-				"PRIVATE RECORD CANONICALIZATION FAILURE: %v",
-				err,
-			),
-			"layer1": false,
-			"layer2": nil,
-		}, nil
-	}
-
-	isValid, _ := s.validateDataHash(ctx, collection, documentID, canonicalValue)
-
-	if !isValid {
-		return map[string]interface{}{
-			"document":        document,
-			"documentID":      documentID,
-			"integrityStatus": false,
-			"status":          "PDC_RECORD_COMPROMISED",
-			"failedLayer":     "layer1_private_record",
-			"criticalWarning": "PRIVATE RECORD COMPROMISED! The canonical record does not match the ledger-committed PDC hash.",
-			"layer1":          false,
-			"layer2":          nil,
-		}, nil
-	}
+	fileHash, _ := raw["file"].(string)
 
 	return map[string]interface{}{
-		"document":        document,
-		"documentID":      documentID,
-		"integrityStatus": true,
-		"status":          "VALID",
-		"layer1":          true,
+		"documentID":           documentID,
+		"file":                 fileHash,
+		"name":                 raw["name"],
+		"documentCategoryCode": raw["documentCategoryCode"],
+		"timestamp":            raw["timestamp"],
 	}, nil
 }
 

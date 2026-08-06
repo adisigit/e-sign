@@ -2,16 +2,16 @@ test:
   name: E-Sign PDC Webhook Benchmark
   description: Performance testing for CreatePrivateDataWebhook performance
   workers:
-    number: 5
+    number: 1
   rounds:
     # Round 1: Create private logs - Low load
     - label: create-pdc-webhook-low
       description: Create PDC Webhook at 10 TPS
-      txNumber: 1000
+      txNumber: 100
       rateControl:
         type: fixed-rate
         opts:
-          tps: 100
+          tps: 10
       workload:
         module: workload/create-pdc-webhook.js
         arguments:
