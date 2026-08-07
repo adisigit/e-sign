@@ -237,14 +237,10 @@ func TestRFC8785CanonicalizationEquivalence(t *testing.T) {
 		}
 	})
 
-	t.Run("negative zero (-0) canonicalizes to \"0\" per RFC 8785 erratum", func(t *testing.T) {
-		out, err := canonicalizeJSON([]byte(`{"value":-0}`))
-		if err != nil {
-			t.Fatalf("canonicalize -0: %v", err)
-		}
-		want := `{"value":0}`
-		if string(out) != want {
-			t.Fatalf("expected %q per RFC 8785 erratum, got %q", want, out)
+	t.Run("negative_zero_(-0)_is_rejected_per_RFC_8785_errata_7920", func(t *testing.T) {
+		_, err := canonicalizeJSON([]byte(`{"value":-0}`))
+		if err == nil {
+			t.Fatalf("expected error for -0 per RFC 8785 Errata ID 7920, got success")
 		}
 	})
 
