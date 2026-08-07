@@ -68,7 +68,7 @@ async function sendRegister(documentID, attemptTag) {
   }
 }
 
-async function pollStatus(statusUrl, timeoutMs = 15000) {
+async function pollStatus(statusUrl, timeoutMs) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
     try {
@@ -102,15 +102,28 @@ async function runRaceTest(N, documentID) {
     console.log(`  Sample rejection reasons: ${[...new Set(httpRejected.map((r) => r.error))].join(" | ")}`);
   }
 
-  const finalStates = await Promise.all(
-    httpAccepted.map((r) => pollStatus(r.data.statusUrl).then((s) => ({ attemptTag: r.attemptTag, ...s })))
-  );
+  const pollTimeoutMs = Math.max(15000, N * 1500);
+    console.log(`Using poll timeout: ${pollTimeoutMs}ms for N=${N}`);
+
+    const finalStates = await Promise.all(
+      httpAccepted.map((r) =>
+        pollStatus(r.data.statusUrl, pollTimeoutMs).then((s) => ({ attemptTag: r.attemptTag, ...s }))
+      )
+    );
 
   const committed = finalStates.filter((s) => s.status === "completed");
   const failed = finalStates.filter((s) => s.status === "failed" || s.status === "dlq");
   const timedOut = finalStates.filter((s) => s.status === "timeout");
 
-  console.log(`Terminal states: ${committed.length} completed, ${failed.length} failed/dlq, ${timedOut.length} timeout`);
+  const preconditionRejected = failed.filter(
+    (s) => s.metadata?.rejectionCause === "PRECONDITION_REJECTED"
+  );
+  const mvccConflict = failed.filter(
+    (s) => s.metadata?.rejectionCause === "MVCC_CONFLICT"
+  );
+  const unclassified = failed.filter(
+    (s) => !["PRECONDITION_REJECTED", "MVCC_CONFLICT"].includes(s.metadata?.rejectionCause)
+  );
 
   const violation = committed.length !== 1;
   if (violation) {
@@ -119,6 +132,11 @@ async function runRaceTest(N, documentID) {
     console.log(`✅ Exactly 1 committed registration, as expected for create-only key`);
   }
 
+  console.log(
+    `Rejection breakdown: ${preconditionRejected.length} precondition, ` +
+    `${mvccConflict.length} MVCC conflict, ${unclassified.length} unclassified`
+  );
+
   const row = {
     documentID,
     N,
@@ -126,6 +144,9 @@ async function runRaceTest(N, documentID) {
     httpRejectedImmediate: httpRejected.length,
     committed: committed.length,
     failedOrDlq: failed.length,
+    preconditionRejected: preconditionRejected.length,
+    mvccConflict: mvccConflict.length,
+    unclassifiedRejection: unclassified.length,
     timeout: timedOut.length,
     violation,
     timestamp: new Date().toISOString(),

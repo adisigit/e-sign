@@ -60,7 +60,20 @@ async function submitTransaction(functionName, transientData, userId, orgName = 
             txId: txId
         };
     } catch (error) {
-        console.error(`Error submitting transaction ${functionName} for ${orgName}:`, error);
+      console.error(`Error submitting transaction ${functionName} for ${orgName}:`, error);
+      console.error('[RAW_ERROR_SHAPE]', JSON.stringify({
+              message: error.message,
+              name: error.name,
+              code: error.code,
+              transactionId: error.transactionId,
+              responses: (error.responses || []).map(r => ({
+                      status: r.response?.status,
+                      message: r.response?.message,
+                      peer: r.peer,
+                  })),
+              endorsements: error.endorsements,
+              cause: error.cause?.message
+          }));
         throw error;
     } finally {
         if (gateway) {
