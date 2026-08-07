@@ -254,10 +254,12 @@ class FabricNatsBridge {
         `Webhook ${requestId} processing failed (attempt ${deliveryCount}):`,
         error
       );
+      const rejectionCause = this.classifyRejectionCause(error);
       await this.saveWebhookStatus(requestId, "failed", {
         error: error.message,
         attempt: deliveryCount,
         documentId: webhookData.id,
+        rejectionCause,
       });
       if (this.isRetryableError(error) && deliveryCount < 3) {
         const delayMs = Math.min(5000 * deliveryCount, 30000);
@@ -270,12 +272,14 @@ class FabricNatsBridge {
           error: error.message,
           finalAttempt: deliveryCount,
           documentId: webhookData.id,
+          rejectionCause,
         });
 
         await this.natsService.publish(`fabric.${this.orgName}.dlq`, {
           type: "webhook",
           subject: msg.subject,
           error: error.message,
+          rejectionCause,
           data: webhookData,
           retries: deliveryCount,
           timestamp: new Date().toISOString(),
@@ -306,6 +310,31 @@ class FabricNatsBridge {
       "permission denied",
       "already exists",
     ].some((e) => msg.includes(e));
+  }
+
+  classifyRejectionCause(error) {
+      const msg = (error.message || "").toLowerCase();
+
+      const preconditionPatterns = [
+          "already registered",
+          "already exists",
+          "document already",
+      ];
+
+      const mvccPatterns = [
+          "mvcc_read_conflict",
+          "mvcc read conflict",
+          "phantom_read_conflict",
+          "code: 11",
+      ];
+
+      if (preconditionPatterns.some((p) => msg.includes(p))) {
+          return "PRECONDITION_REJECTED";
+      }
+      if (mvccPatterns.some((p) => msg.includes(p))) {
+          return "MVCC_CONFLICT";
+      }
+      return "UNCLASSIFIED";
   }
 
   isFabricInfraError(msg) {
