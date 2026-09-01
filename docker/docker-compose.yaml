@@ -74,6 +74,7 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.org1:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_CACHESIZE=0
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
       # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - CORE_PEER_TLS_ENABLED=true
@@ -87,7 +88,7 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.esign.com:7051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.esign.com:8051
       - FABRIC_LOGGING_SPEC=INFO
-      
+
     volumes:
       - ./core-peer0.org1.yaml:/etc/hyperledger/fabric/core.yaml
       - ../organizations/peerOrganizations/org1.esign.com/peers/peer0.org1.esign.com/msp:/etc/hyperledger/fabric/msp
@@ -142,6 +143,7 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer1.org1:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_CACHESIZE=0
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
       # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - CORE_PEER_TLS_ENABLED=true
@@ -155,7 +157,7 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.esign.com:8051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.esign.com:7051
       - FABRIC_LOGGING_SPEC=INFO
-      
+
     volumes:
       - ./core-peer1.org1.yaml:/etc/hyperledger/fabric/core.yaml
       - ../organizations/peerOrganizations/org1.esign.com/peers/peer1.org1.esign.com/msp:/etc/hyperledger/fabric/msp
@@ -192,7 +194,7 @@ services:
       start_period: 30s
     networks:
       - fabric_esign
-  
+
   peer0.org2.esign.com:
     container_name: peer0.org2.esign.com
     hostname: peer0.org2.esign.com
@@ -210,8 +212,9 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.org2:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_CACHESIZE=0
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
-      # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora 
+      # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
@@ -223,7 +226,7 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.esign.com:9051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org2.esign.com:10051
       - FABRIC_LOGGING_SPEC=INFO
-      
+
     volumes:
       - ./core-peer0.org2.yaml:/etc/hyperledger/fabric/core.yaml
       - ../organizations/peerOrganizations/org2.esign.com/peers/peer0.org2.esign.com/msp:/etc/hyperledger/fabric/msp
@@ -243,7 +246,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
-  
+
   couchdb3:
     container_name: couchdb.peer1.org2
     image: couchdb:3.1
@@ -260,7 +263,7 @@ services:
       start_period: 30s
     networks:
       - fabric_esign
-  
+
   peer1.org2.esign.com:
     container_name: peer1.org2.esign.com
     hostname: peer1.org2.esign.com
@@ -278,6 +281,7 @@ services:
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer1.org2:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_CACHESIZE=0
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock  #debian ubuntu
       # - CORE_VM_ENDPOINT=unix:///var/run/docker.sock  #fedora
       - CORE_PEER_TLS_ENABLED=true
@@ -291,7 +295,7 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.esign.com:10051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.esign.com:9051
       - FABRIC_LOGGING_SPEC=INFO
-      
+
     volumes:
       - ./core-peer1.org2.yaml:/etc/hyperledger/fabric/core.yaml
       - ../organizations/peerOrganizations/org2.esign.com/peers/peer1.org2.esign.com/msp:/etc/hyperledger/fabric/msp
@@ -311,7 +315,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
-  
+
   nats-org1:
     container_name: nats.org1.esign.com
     hostname: nats.org1.esign.com
@@ -381,7 +385,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:z  #fedora
       - ./../organizations:/workspace/organizations
       - ./../system-genesis-block:/workspace/system-genesis-block
-      - ./../scripts:/workspace/scripts 
+      - ./../scripts:/workspace/scripts
       - ./../docker:/workspace/docker
       - ./../configtx:/workspace/configtx
       - ./../chaincode-go:/workspace/chaincode-go
