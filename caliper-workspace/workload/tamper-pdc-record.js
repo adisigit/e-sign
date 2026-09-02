@@ -127,18 +127,64 @@ const MUTATIONS = {
   },
 };
 
+const MUTATION_FIELDS = {
+  change_permitted_value: "name",
+  change_description: "description",
+  substitute_document_hash: "file",
+  change_category: "documentCategoryCode",
+
+  remove_required_field: "description",
+  add_unknown_field: "extraField",
+  null_required_field: "name",
+  duplicate_like_field: "Name",
+  wrong_document_id_binding: "documentID",
+  wrong_collection_binding: "collection",
+  malformed_hash_length: "file",
+  malformed_hash_not_hex: "file",
+  malformed_timestamp: "timestamp",
+
+  reorder_fields_only: null,
+};
+
 async function tamperOneAllPeers(docID, mutationName) {
   const mutateFn = MUTATIONS[mutationName];
-  const results = [];
-  for (const peer of PEER_TARGETS) {
-    const doc = await getDocFrom(peer, docID);
-    // catatan: _rev BEDA per peer karena tiap CouchDB independen —
-    // jangan reuse _rev dari peer lain
-    const mutated = mutateFn({ ...doc });
-    const result = await putDocTo(peer, mutated);
-    results.push({ peer: peer.name, rev: result.data.rev });
+
+  if (!mutateFn) {
+    throw new Error(`Unknown mutation: ${mutationName}`);
   }
-  console.log(`✅ Tampered ${docID} on ALL peers:`, results);
+
+  const results = [];
+
+  for (const peer of PEER_TARGETS) {
+    const before = await getDocFrom(peer, docID);
+
+    const mutated = mutateFn({ ...before });
+
+    const result = await putDocTo(peer, mutated);
+
+    const after = await getDocFrom(peer, docID);
+
+    results.push({
+      peer: peer.name,
+      rev: result.data.rev,
+      mutationName,
+      mutatedField: MUTATION_FIELDS[mutationName] ?? null,
+      beforeValue:
+        MUTATION_FIELDS[mutationName]
+          ? before[MUTATION_FIELDS[mutationName]]
+          : null,
+      afterValue:
+        MUTATION_FIELDS[mutationName]
+          ? after[MUTATION_FIELDS[mutationName]]
+          : null,
+    });
+  }
+
+  console.log(
+    `✅ Tampered ${docID} on ALL peers:`,
+    results
+  );
+
   return results;
 }
 
@@ -148,7 +194,13 @@ async function tamperBatch(docIDs, mutationPool, { fixedMutation = null,  rng = 
     const mutationName = fixedMutation || mutationPool[Math.floor(rng() * mutationPool.length)];
     try {
       await tamperOneAllPeers(docID, mutationName);
-      results.push({ docID, mutationName, ok: true });
+      results.push({
+        docID,
+        mutationName,
+        mutationSubtype: mutationName,
+        mutatedField: MUTATION_FIELDS[mutationName] ?? null,
+        ok: true
+      });
     } catch (err) {
       console.error(`❌ Failed to tamper ${docID}:`, err.response?.data || err.message);
       results.push({ docID, mutationName, ok: false, error: err.response?.data?.reason || err.message });
