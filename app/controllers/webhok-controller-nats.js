@@ -389,6 +389,45 @@ class WebhookController {
       });
     }
   }
+
+  async verifyAblationVariant(req, res) {
+    const { orgName = "org1", variant } = req.params;
+    const { id, file } = req.body;
+    const userId = "admin";
+    if (!["V0", "V1", "V2", "V3", "V4"].includes(variant)) {
+      return res.status(400).json({
+        success: false,
+        error: `Invalid variant: ${variant}`,
+      });
+    }
+    const orgConfig = config.getOrgConfig(orgName);
+    const targetCollection = orgConfig.collections.documents;
+
+    const totalStartedAt = process.hrtime.bigint();
+    const fileBuffer = Buffer.from(file, "base64");
+    const fileHash = crypto.createHash("sha256").update(fileBuffer).digest("hex");
+    const queryStartedAt = process.hrtime.bigint();
+
+    const result = await this.bridgeController
+      .getBridge(orgName)
+      .queryViaClient(
+        "VerifyAblationVariant",
+        [targetCollection, id, fileHash, variant],
+        userId
+      );
+
+    const queryElapsedMs = Number(process.hrtime.bigint() - queryStartedAt) / 1e6;
+    const totalElapsedMs = Number(process.hrtime.bigint() - totalStartedAt) / 1e6;
+
+    res.json({
+      ...result,
+      _meta: {
+        variant,
+        queryElapsedMs,
+        totalElapsedMs,
+      },
+    });
+  }
 }
 
 module.exports = new WebhookController();

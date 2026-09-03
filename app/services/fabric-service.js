@@ -174,6 +174,13 @@ async function verifyDocumentShortCircuit(collection = null, documentID, fileHas
     }
 }
 
+async function verifyAblationVariant(collection = null, documentID, fileHash, variant, userId, orgName = 'org1') {
+    const orgConfig = config.getOrgConfig(orgName);
+    const targetCollection = collection || orgConfig.collections.documents;
+    const result = await evaluateTransaction('VerifyAblationVariant', userId, orgName, targetCollection, documentID, fileHash, variant);
+    return JSON.parse(result.toString());
+}
+
 async function readAllLogByDocumentIDWithIntegrityCheck(collectionLog = null, documentID, userId, orgName = 'org1') {
     try {
         const orgConfig = config.getOrgConfig(orgName);
@@ -250,6 +257,7 @@ module.exports = {
     readDocumentByIDWithIntegrityCheckWebhook,
     readAllLogByDocumentIDWithIntegrityCheck,
     verifyDocumentShortCircuit,
+    verifyAblationVariant,
     testNetworkConnectivity,
     testAllOrgsConnectivity
 };

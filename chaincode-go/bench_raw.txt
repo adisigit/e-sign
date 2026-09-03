@@ -1,0 +1,76 @@
+goos: linux
+goarch: amd64
+pkg: chaincode-go/chaincode
+cpu: AMD Ryzen 7 5700U with Radeon Graphics         
+BenchmarkLenientParsing-16               	  727334	      4907 ns/op	  66.84 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  713998	      4915 ns/op	  66.73 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  707557	      4952 ns/op	  66.24 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  701305	      5102 ns/op	  64.29 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  706983	      5077 ns/op	  64.61 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  710889	      5127 ns/op	  63.97 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  643706	      4997 ns/op	  65.64 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  712381	      5080 ns/op	  64.57 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  709209	      5062 ns/op	  64.80 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkLenientParsing-16               	  676611	      5113 ns/op	  64.15 MB/s	    1096 B/op	      38 allocs/op
+BenchmarkSchemaValidation-16             	  244938	     14480 ns/op	  22.65 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  244456	     14314 ns/op	  22.91 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  247816	     14188 ns/op	  23.12 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  243213	     14062 ns/op	  23.33 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  243070	     14211 ns/op	  23.08 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  244548	     14323 ns/op	  22.90 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  249903	     14177 ns/op	  23.14 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  247491	     14321 ns/op	  22.90 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  246976	     14146 ns/op	  23.19 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkSchemaValidation-16             	  244276	     14225 ns/op	  23.06 MB/s	    4464 B/op	     126 allocs/op
+BenchmarkCanonicalization-16             	  297822	     12176 ns/op	  26.94 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  289096	     11982 ns/op	  27.37 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  286777	     12023 ns/op	  27.28 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  298636	     12007 ns/op	  27.32 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  296876	     12026 ns/op	  27.27 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  294126	     11960 ns/op	  27.42 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  297532	     11881 ns/op	  27.61 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  287437	     12002 ns/op	  27.33 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  300156	     11993 ns/op	  27.35 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkCanonicalization-16             	  293679	     11951 ns/op	  27.45 MB/s	    5416 B/op	     141 allocs/op
+BenchmarkHashComputation-16              	14521534	       239.3 ns/op	1370.69 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15184244	       243.7 ns/op	1345.72 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15101379	       243.0 ns/op	1350.06 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15186555	       234.1 ns/op	1401.28 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15425395	       234.1 ns/op	1401.32 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15324064	       234.5 ns/op	1398.68 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15286668	       235.9 ns/op	1390.61 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15290698	       233.2 ns/op	1406.76 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15469666	       232.9 ns/op	1408.35 MB/s	       0 B/op	       0 allocs/op
+BenchmarkHashComputation-16              	15386702	       233.4 ns/op	1405.60 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	824012574	         4.357 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	818574908	         4.597 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	825621042	         4.481 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	807280077	         4.476 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	784699914	         4.467 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	811005615	         4.434 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	809068897	         4.408 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	811162489	         4.424 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	791703981	         4.428 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDocumentHashCompare-16          	805242256	         4.442 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  135975	     26314 ns/op	  12.46 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  133728	     26527 ns/op	  12.36 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  136008	     26407 ns/op	  12.42 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  134642	     26546 ns/op	  12.36 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  132453	     26351 ns/op	  12.45 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  133992	     26562 ns/op	  12.35 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  132228	     26392 ns/op	  12.43 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  134242	     26429 ns/op	  12.41 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  135592	     26426 ns/op	  12.41 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkSchemaAndCanonicalization-16    	  132994	     26534 ns/op	  12.36 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  130080	     26828 ns/op	  12.23 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  134283	     26545 ns/op	  12.36 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  130020	     26999 ns/op	  12.15 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  128566	     26965 ns/op	  12.16 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  132838	     26984 ns/op	  12.16 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  132849	     27124 ns/op	  12.09 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  133856	     26918 ns/op	  12.18 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  130900	     26854 ns/op	  12.21 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  133411	     26894 ns/op	  12.20 MB/s	    9880 B/op	     267 allocs/op
+BenchmarkLocalLayer1Compute-16           	  131457	     26834 ns/op	  12.22 MB/s	    9880 B/op	     267 allocs/op
+PASS
+ok  	chaincode-go/chaincode	264.343s

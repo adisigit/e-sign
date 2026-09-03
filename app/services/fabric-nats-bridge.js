@@ -379,7 +379,9 @@ class FabricNatsBridge {
         CheckDocumentIntegrityWebhook: () =>
           this.handleCheckDocumentIntegrityWebhook(args, userId),
         VerifyDocumentShortCircuit: () =>
-          this.handleVerifyDocumentShortCircuit(args, userId)
+          this.handleVerifyDocumentShortCircuit(args, userId),
+        VerifyAblationVariant: () =>
+          this.handleVerifyAblationVariant(args, userId),
       };
 
       let result;
@@ -470,6 +472,21 @@ class FabricNatsBridge {
       collection,
       documentID,
       fileHash,
+      userId,
+      this.orgName
+    );
+  }
+
+  async handleVerifyAblationVariant(args, userId) {
+    const collection = args[0] || this.orgConfig.collections.documents;
+    const documentID = args[1];
+    const fileHash = args[2];
+    const variant = args[3];
+    return await fabricService.verifyAblationVariant(
+      collection,
+      documentID,
+      fileHash,
+      variant,
       userId,
       this.orgName
     );

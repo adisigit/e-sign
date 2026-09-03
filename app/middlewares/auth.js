@@ -4,13 +4,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const EMAIL_TO_ORG_MAPPING = {
-  'sindika.co.id': 'org1',
+  'corp.co.id': 'org1',
   'comp.co.id': 'org2',
 };
 
 function getOrgFromEmail(email) {
   if (!email) return null;
-  
+
   const domain = email.split('@')[1];
   return EMAIL_TO_ORG_MAPPING[domain] || null;
 }
@@ -20,7 +20,7 @@ const verifyToken = (req, res, next) => {
   const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
-    return res.status(401).json({ 
+    return res.status(401).json({
       success: false,
       error: 'Token tidak ditemukan. Gunakan header: Authorization: Bearer <token>'
     });
@@ -57,28 +57,28 @@ const verifyToken = (req, res, next) => {
     }
 
     req.user = user;
-    
+
     console.log(`JWT verified for user: ${user.username} (${user.email}) → orgs: ${user.organizations.join(', ')}`);
     next();
   } catch (error) {
     if (error.name === 'TokenExpiredError') {
-      return res.status(401).json({ 
+      return res.status(401).json({
         success: false,
         error: 'Token sudah expired. Silakan login kembali.'
       });
     }
-    
+
     if (error.name === 'JsonWebTokenError') {
-      return res.status(403).json({ 
+      return res.status(403).json({
         success: false,
         error: 'Token tidak valid'
       });
     }
-    
-    return res.status(403).json({ 
+
+    return res.status(403).json({
       success: false,
       error: 'Authentication failed',
-      details: error.message 
+      details: error.message
     });
   }
 };
@@ -97,7 +97,7 @@ const validateOrgAccess = (req, res, next) => {
 
   if (!user.organizations.includes(orgName)) {
     console.warn(`Access denied: User ${user.username} (${user.email}) tried to access ${orgName}`);
-    
+
     return res.status(403).json({
       success: false,
       error: `Access denied. User ${user.username} tidak memiliki akses ke ${orgName}`,
@@ -109,7 +109,7 @@ const validateOrgAccess = (req, res, next) => {
   }
 
   req.walletUserId = user.username;
-  
+
   console.log(`Access granted: ${user.username} (${user.email}) → ${orgName}`);
   next();
 };
@@ -117,14 +117,14 @@ const validateOrgAccess = (req, res, next) => {
 const checkRole = (allowedRoles) => {
   return (req, res, next) => {
     if (!req.user || !req.user.role) {
-      return res.status(403).json({ 
+      return res.status(403).json({
         success: false,
-        error: 'Role tidak ditemukan dalam token' 
+        error: 'Role tidak ditemukan dalam token'
       });
     }
 
     if (!allowedRoles.includes(req.user.role)) {
-      return res.status(403).json({ 
+      return res.status(403).json({
         success: false,
         error: `Access denied. Role '${req.user.role}' tidak diizinkan.`,
         requiredRoles: allowedRoles
@@ -139,8 +139,8 @@ function getEmailOrgMapping() {
   return EMAIL_TO_ORG_MAPPING;
 }
 
-module.exports = { 
-  verifyToken, 
+module.exports = {
+  verifyToken,
   validateOrgAccess,
   checkRole,
   getOrgFromEmail,

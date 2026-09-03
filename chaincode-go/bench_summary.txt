@@ -1,0 +1,48 @@
+goos: linux
+goarch: amd64
+pkg: chaincode-go/chaincode
+cpu: AMD Ryzen 7 5700U with Radeon Graphics         
+                             │ bench_raw.txt │
+                             │    sec/op     │
+LenientParsing-16                5.070µ ± 3%
+SchemaValidation-16              14.22µ ± 1%
+Canonicalization-16              12.00µ ± 0%
+HashComputation-16               234.3n ± 4%
+DocumentHashCompare-16           4.438n ± 1%
+SchemaAndCanonicalization-16     26.43µ ± 0%
+LocalLayer1Compute-16            26.91µ ± 0%
+geomean                          2.517µ
+
+                             │ bench_raw.txt │
+                             │      B/s      │
+LenientParsing-16               61.71Mi ± 3%
+SchemaValidation-16             22.00Mi ± 1%
+Canonicalization-16             26.07Mi ± 0%
+HashComputation-16              1.304Gi ± 4%
+SchemaAndCanonicalization-16    11.84Mi ± 0%
+LocalLayer1Compute-16           11.63Mi ± 0%
+geomean                         43.20Mi
+
+                             │ bench_raw.txt  │
+                             │      B/op      │
+LenientParsing-16              1.070Ki ± 0%
+SchemaValidation-16            4.359Ki ± 0%
+Canonicalization-16            5.289Ki ± 0%
+HashComputation-16               0.000 ± 0%
+DocumentHashCompare-16           0.000 ± 0%
+SchemaAndCanonicalization-16   9.648Ki ± 0%
+LocalLayer1Compute-16          9.648Ki ± 0%
+geomean                                     ¹
+¹ summaries must be >0 to compute geomean
+
+                             │ bench_raw.txt │
+                             │   allocs/op   │
+LenientParsing-16               38.00 ± 0%
+SchemaValidation-16             126.0 ± 0%
+Canonicalization-16             141.0 ± 0%
+HashComputation-16              0.000 ± 0%
+DocumentHashCompare-16          0.000 ± 0%
+SchemaAndCanonicalization-16    267.0 ± 0%
+LocalLayer1Compute-16           267.0 ± 0%
+geomean                                    ¹
+¹ summaries must be >0 to compute geomean

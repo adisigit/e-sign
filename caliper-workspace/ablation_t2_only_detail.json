@@ -1,7 +1,11 @@
 [
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:39:01.593Z"
+    },
     "testType": "t2_only",
-    "roundTag": "44",
+    "roundTag": "120",
     "seed": 43,
     "attackRatio": 0.01,
     "total": 100,
@@ -12,11 +16,11 @@
       "FP": 0,
       "FN": 1,
       "accuracy": 0.99,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 1,
       "TN": 99,
       "FP": 0,
@@ -26,22 +30,39 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "add_unknown_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-44-19",
+        "documentID": "DOCS-0-120-96",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 111,
-        "twoLayerLatency": 225
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.849984,
+          "twoStage": 410.369659
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:40:06.317Z"
+    },
     "testType": "t2_only",
-    "roundTag": "45",
+    "roundTag": "121",
     "seed": 43,
     "attackRatio": 0.05,
     "total": 100,
@@ -52,11 +73,11 @@
       "FP": 0,
       "FN": 5,
       "accuracy": 0.95,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 5,
       "TN": 95,
       "FP": 0,
@@ -66,62 +87,123 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_description": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-45-1",
+        "documentID": "DOCS-0-121-27",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 123,
-        "twoLayerLatency": 236
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 229.248536,
+          "twoStage": 594.561755
+        }
       },
       {
-        "documentID": "DOCS-0-45-22",
+        "documentID": "DOCS-0-121-33",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 230
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 217.587544,
+          "twoStage": 433.77027
+        }
       },
       {
-        "documentID": "DOCS-0-45-36",
+        "documentID": "DOCS-0-121-43",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 118,
-        "twoLayerLatency": 225
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.360211,
+          "twoStage": 418.996448
+        }
       },
       {
-        "documentID": "DOCS-0-45-53",
+        "documentID": "DOCS-0-121-81",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 117,
-        "twoLayerLatency": 255
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 216.889994,
+          "twoStage": 424.031007
+        }
       },
       {
-        "documentID": "DOCS-0-45-67",
+        "documentID": "DOCS-0-121-91",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 118,
-        "twoLayerLatency": 236
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.534881,
+          "twoStage": 420.654055
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:41:11.134Z"
+    },
     "testType": "t2_only",
-    "roundTag": "46",
+    "roundTag": "122",
     "seed": 43,
     "attackRatio": 0.1,
     "total": 100,
@@ -132,11 +214,11 @@
       "FP": 0,
       "FN": 10,
       "accuracy": 0.9,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 10,
       "TN": 90,
       "FP": 0,
@@ -146,112 +228,198 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_description": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-46-2",
+        "documentID": "DOCS-0-122-21",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 239
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 215.114594,
+          "twoStage": 425.324995
+        }
       },
       {
-        "documentID": "DOCS-0-46-6",
+        "documentID": "DOCS-0-122-36",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 238
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.067336,
+          "twoStage": 413.820501
+        }
       },
       {
-        "documentID": "DOCS-0-46-16",
+        "documentID": "DOCS-0-122-37",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 237
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.655416,
+          "twoStage": 420.916913
+        }
       },
       {
-        "documentID": "DOCS-0-46-20",
+        "documentID": "DOCS-0-122-43",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 137,
-        "twoLayerLatency": 262
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.435457,
+          "twoStage": 425.01024
+        }
       },
       {
-        "documentID": "DOCS-0-46-26",
+        "documentID": "DOCS-0-122-44",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 239
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.414551,
+          "twoStage": 422.31044
+        }
       },
       {
-        "documentID": "DOCS-0-46-46",
+        "documentID": "DOCS-0-122-49",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 135,
-        "twoLayerLatency": 250
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 213.557227,
+          "twoStage": 428.287864
+        }
       },
       {
-        "documentID": "DOCS-0-46-54",
+        "documentID": "DOCS-0-122-54",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 120,
-        "twoLayerLatency": 232
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 218.92205,
+          "twoStage": 420.283734
+        }
       },
       {
-        "documentID": "DOCS-0-46-72",
+        "documentID": "DOCS-0-122-55",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 118,
-        "twoLayerLatency": 232
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 224.505789,
+          "twoStage": 543.566075
+        }
       },
       {
-        "documentID": "DOCS-0-46-73",
+        "documentID": "DOCS-0-122-82",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 119,
-        "twoLayerLatency": 229
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.915929,
+          "twoStage": 417.510174
+        }
       },
       {
-        "documentID": "DOCS-0-46-76",
+        "documentID": "DOCS-0-122-92",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 131,
-        "twoLayerLatency": 252
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 313.124431,
+          "twoStage": 515.900961
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:42:15.771Z"
+    },
     "testType": "t2_only",
-    "roundTag": "47",
+    "roundTag": "123",
     "seed": 43,
     "attackRatio": 0.25,
     "total": 100,
@@ -262,11 +430,11 @@
       "FP": 0,
       "FN": 25,
       "accuracy": 0.75,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 25,
       "TN": 75,
       "FP": 0,
@@ -276,262 +444,463 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 6,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-47-3",
+        "documentID": "DOCS-0-123-8",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 243
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.540803,
+          "twoStage": 413.63549
+        }
       },
       {
-        "documentID": "DOCS-0-47-5",
+        "documentID": "DOCS-0-123-12",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 128,
-        "twoLayerLatency": 242
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.390613,
+          "twoStage": 417.156014
+        }
       },
       {
-        "documentID": "DOCS-0-47-6",
+        "documentID": "DOCS-0-123-13",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 125,
-        "twoLayerLatency": 251
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.226605,
+          "twoStage": 414.310939
+        }
       },
       {
-        "documentID": "DOCS-0-47-15",
+        "documentID": "DOCS-0-123-15",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 145,
-        "twoLayerLatency": 267
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 228.393477,
+          "twoStage": 548.928384
+        }
       },
       {
-        "documentID": "DOCS-0-47-19",
+        "documentID": "DOCS-0-123-19",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 126,
-        "twoLayerLatency": 247
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.921307,
+          "twoStage": 414.322241
+        }
       },
       {
-        "documentID": "DOCS-0-47-21",
+        "documentID": "DOCS-0-123-22",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 137,
-        "twoLayerLatency": 268
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.280716,
+          "twoStage": 432.626466
+        }
       },
       {
-        "documentID": "DOCS-0-47-22",
+        "documentID": "DOCS-0-123-28",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 138,
-        "twoLayerLatency": 257
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.693337,
+          "twoStage": 425.422861
+        }
       },
       {
-        "documentID": "DOCS-0-47-24",
+        "documentID": "DOCS-0-123-32",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 129,
-        "twoLayerLatency": 249
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.12238,
+          "twoStage": 418.479138
+        }
       },
       {
-        "documentID": "DOCS-0-47-27",
+        "documentID": "DOCS-0-123-33",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 126,
-        "twoLayerLatency": 246
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 223.313783,
+          "twoStage": 431.594692
+        }
       },
       {
-        "documentID": "DOCS-0-47-29",
+        "documentID": "DOCS-0-123-36",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 125,
-        "twoLayerLatency": 246
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.04822,
+          "twoStage": 422.815957
+        }
       },
       {
-        "documentID": "DOCS-0-47-32",
+        "documentID": "DOCS-0-123-41",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 128,
-        "twoLayerLatency": 268
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.178757,
+          "twoStage": 418.843228
+        }
       },
       {
-        "documentID": "DOCS-0-47-33",
+        "documentID": "DOCS-0-123-51",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 125,
-        "twoLayerLatency": 244
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.763228,
+          "twoStage": 419.685792
+        }
       },
       {
-        "documentID": "DOCS-0-47-38",
+        "documentID": "DOCS-0-123-52",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 125,
-        "twoLayerLatency": 240
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.943902,
+          "twoStage": 422.383729
+        }
       },
       {
-        "documentID": "DOCS-0-47-41",
+        "documentID": "DOCS-0-123-58",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 121,
-        "twoLayerLatency": 254
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.465784,
+          "twoStage": 410.921875
+        }
       },
       {
-        "documentID": "DOCS-0-47-42",
+        "documentID": "DOCS-0-123-59",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 120,
-        "twoLayerLatency": 234
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.901969,
+          "twoStage": 408.909786
+        }
       },
       {
-        "documentID": "DOCS-0-47-45",
+        "documentID": "DOCS-0-123-64",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 238
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.288346,
+          "twoStage": 407.452317
+        }
       },
       {
-        "documentID": "DOCS-0-47-49",
+        "documentID": "DOCS-0-123-69",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 153,
-        "twoLayerLatency": 270
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.858282,
+          "twoStage": 413.183706
+        }
       },
       {
-        "documentID": "DOCS-0-47-50",
+        "documentID": "DOCS-0-123-72",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 123,
-        "twoLayerLatency": 240
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.110888,
+          "twoStage": 413.299494
+        }
       },
       {
-        "documentID": "DOCS-0-47-58",
+        "documentID": "DOCS-0-123-77",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 120,
-        "twoLayerLatency": 233
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.014932,
+          "twoStage": 426.163734
+        }
       },
       {
-        "documentID": "DOCS-0-47-66",
+        "documentID": "DOCS-0-123-89",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 124,
-        "twoLayerLatency": 241
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 215.695112,
+          "twoStage": 423.01325
+        }
       },
       {
-        "documentID": "DOCS-0-47-69",
+        "documentID": "DOCS-0-123-90",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 120,
-        "twoLayerLatency": 233
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 215.956046,
+          "twoStage": 427.782006
+        }
       },
       {
-        "documentID": "DOCS-0-47-94",
+        "documentID": "DOCS-0-123-92",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 122,
-        "twoLayerLatency": 244
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.905507,
+          "twoStage": 418.466715
+        }
       },
       {
-        "documentID": "DOCS-0-47-95",
+        "documentID": "DOCS-0-123-93",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 119,
-        "twoLayerLatency": 230
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.941427,
+          "twoStage": 417.250794
+        }
       },
       {
-        "documentID": "DOCS-0-47-96",
+        "documentID": "DOCS-0-123-94",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 142,
-        "twoLayerLatency": 265
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.157383,
+          "twoStage": 427.821301
+        }
       },
       {
-        "documentID": "DOCS-0-47-99",
+        "documentID": "DOCS-0-123-97",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 126,
-        "twoLayerLatency": 244
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.33626,
+          "twoStage": 416.338577
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:44:54.130Z"
+    },
     "testType": "t2_only",
-    "roundTag": "48",
+    "roundTag": "124",
     "seed": 20,
     "attackRatio": 0.01,
     "total": 100,
@@ -542,11 +911,11 @@
       "FP": 0,
       "FN": 1,
       "accuracy": 0.99,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 1,
       "TN": 99,
       "FP": 0,
@@ -556,22 +925,39 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_description": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-48-63",
+        "documentID": "DOCS-0-124-29",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 120,
-        "twoLayerLatency": 237
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.571308,
+          "twoStage": 402.156985
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:45:57.053Z"
+    },
     "testType": "t2_only",
-    "roundTag": "49",
+    "roundTag": "125",
     "seed": 20,
     "attackRatio": 0.05,
     "total": 100,
@@ -582,11 +968,11 @@
       "FP": 0,
       "FN": 5,
       "accuracy": 0.95,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 5,
       "TN": 95,
       "FP": 0,
@@ -596,62 +982,113 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-49-2",
+        "documentID": "DOCS-0-125-11",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 120,
-        "twoLayerLatency": 235
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.354609,
+          "twoStage": 413.372824
+        }
       },
       {
-        "documentID": "DOCS-0-49-12",
+        "documentID": "DOCS-0-125-15",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 124,
-        "twoLayerLatency": 244
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.578415,
+          "twoStage": 413.496177
+        }
       },
       {
-        "documentID": "DOCS-0-49-47",
+        "documentID": "DOCS-0-125-16",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 126,
-        "twoLayerLatency": 246
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.96529,
+          "twoStage": 411.260535
+        }
       },
       {
-        "documentID": "DOCS-0-49-54",
+        "documentID": "DOCS-0-125-60",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 125,
-        "twoLayerLatency": 246
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 217.839702,
+          "twoStage": 431.75689
+        }
       },
       {
-        "documentID": "DOCS-0-49-56",
+        "documentID": "DOCS-0-125-90",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 130,
-        "twoLayerLatency": 254
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.651936,
+          "twoStage": 412.4359
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:47:00.964Z"
+    },
     "testType": "t2_only",
-    "roundTag": "50",
+    "roundTag": "126",
     "seed": 20,
     "attackRatio": 0.1,
     "total": 100,
@@ -662,11 +1099,11 @@
       "FP": 0,
       "FN": 10,
       "accuracy": 0.9,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 10,
       "TN": 90,
       "FP": 0,
@@ -676,112 +1113,208 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_document_id_binding": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_collection_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-50-8",
+        "documentID": "DOCS-0-126-14",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 132,
-        "twoLayerLatency": 253
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.41289,
+          "twoStage": 423.253114
+        }
       },
       {
-        "documentID": "DOCS-0-50-33",
+        "documentID": "DOCS-0-126-21",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 132,
-        "twoLayerLatency": 255
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.969108,
+          "twoStage": 414.225107
+        }
       },
       {
-        "documentID": "DOCS-0-50-42",
+        "documentID": "DOCS-0-126-25",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 128,
-        "twoLayerLatency": 244
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 213.180584,
+          "twoStage": 434.168113
+        }
       },
       {
-        "documentID": "DOCS-0-50-45",
+        "documentID": "DOCS-0-126-29",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 126,
-        "twoLayerLatency": 283
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.820282,
+          "twoStage": 417.460731
+        }
       },
       {
-        "documentID": "DOCS-0-50-48",
+        "documentID": "DOCS-0-126-30",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 133,
-        "twoLayerLatency": 256
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.639456,
+          "twoStage": 417.360811
+        }
       },
       {
-        "documentID": "DOCS-0-50-50",
+        "documentID": "DOCS-0-126-39",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 133,
-        "twoLayerLatency": 260
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.354178,
+          "twoStage": 408.919655
+        }
       },
       {
-        "documentID": "DOCS-0-50-64",
+        "documentID": "DOCS-0-126-44",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 134,
-        "twoLayerLatency": 254
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.880219,
+          "twoStage": 417.272084
+        }
       },
       {
-        "documentID": "DOCS-0-50-70",
+        "documentID": "DOCS-0-126-46",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 131,
-        "twoLayerLatency": 253
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.340849,
+          "twoStage": 418.173019
+        }
       },
       {
-        "documentID": "DOCS-0-50-96",
+        "documentID": "DOCS-0-126-77",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 135,
-        "twoLayerLatency": 264
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.707811,
+          "twoStage": 398.395085
+        }
       },
       {
-        "documentID": "DOCS-0-50-99",
+        "documentID": "DOCS-0-126-91",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 129,
-        "twoLayerLatency": 251
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 229.517254,
+          "twoStage": 433.08821
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:48:04.537Z"
+    },
     "testType": "t2_only",
-    "roundTag": "51",
+    "roundTag": "127",
     "seed": 20,
     "attackRatio": 0.25,
     "total": 100,
@@ -792,11 +1325,11 @@
       "FP": 0,
       "FN": 25,
       "accuracy": 0.75,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 25,
       "TN": 75,
       "FP": 0,
@@ -806,262 +1339,458 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "null_required_field": {
+        "count": 6,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_collection_binding": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-51-3",
+        "documentID": "DOCS-0-127-1",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 133,
-        "twoLayerLatency": 262
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.2908,
+          "twoStage": 410.320206
+        }
       },
       {
-        "documentID": "DOCS-0-51-4",
+        "documentID": "DOCS-0-127-10",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 138,
-        "twoLayerLatency": 268
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 216.929369,
+          "twoStage": 420.945317
+        }
       },
       {
-        "documentID": "DOCS-0-51-8",
+        "documentID": "DOCS-0-127-11",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 152,
-        "twoLayerLatency": 286
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.281401,
+          "twoStage": 409.1706
+        }
       },
       {
-        "documentID": "DOCS-0-51-13",
+        "documentID": "DOCS-0-127-18",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 135,
-        "twoLayerLatency": 262
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.956913,
+          "twoStage": 405.676116
+        }
       },
       {
-        "documentID": "DOCS-0-51-16",
+        "documentID": "DOCS-0-127-20",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 155,
-        "twoLayerLatency": 284
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.12214,
+          "twoStage": 420.155521
+        }
       },
       {
-        "documentID": "DOCS-0-51-19",
+        "documentID": "DOCS-0-127-24",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 139,
-        "twoLayerLatency": 262
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 218.285235,
+          "twoStage": 419.618365
+        }
       },
       {
-        "documentID": "DOCS-0-51-20",
+        "documentID": "DOCS-0-127-27",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 131,
-        "twoLayerLatency": 261
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.865572,
+          "twoStage": 410.587071
+        }
       },
       {
-        "documentID": "DOCS-0-51-21",
+        "documentID": "DOCS-0-127-28",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 136,
-        "twoLayerLatency": 268
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 216.229565,
+          "twoStage": 422.132493
+        }
       },
       {
-        "documentID": "DOCS-0-51-24",
+        "documentID": "DOCS-0-127-32",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 130,
-        "twoLayerLatency": 259
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.611133,
+          "twoStage": 420.426083
+        }
       },
       {
-        "documentID": "DOCS-0-51-28",
+        "documentID": "DOCS-0-127-34",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 136,
-        "twoLayerLatency": 275
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.843674,
+          "twoStage": 411.447699
+        }
       },
       {
-        "documentID": "DOCS-0-51-29",
+        "documentID": "DOCS-0-127-40",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 133,
-        "twoLayerLatency": 267
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 201.689594,
+          "twoStage": 398.734927
+        }
       },
       {
-        "documentID": "DOCS-0-51-33",
+        "documentID": "DOCS-0-127-41",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 130,
-        "twoLayerLatency": 254
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.919327,
+          "twoStage": 408.010844
+        }
       },
       {
-        "documentID": "DOCS-0-51-38",
+        "documentID": "DOCS-0-127-43",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 133,
-        "twoLayerLatency": 259
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 200.117989,
+          "twoStage": 398.454938
+        }
       },
       {
-        "documentID": "DOCS-0-51-44",
+        "documentID": "DOCS-0-127-57",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 135,
-        "twoLayerLatency": 256
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.862066,
+          "twoStage": 406.991977
+        }
       },
       {
-        "documentID": "DOCS-0-51-60",
+        "documentID": "DOCS-0-127-62",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 151,
-        "twoLayerLatency": 289
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.084036,
+          "twoStage": 416.617044
+        }
       },
       {
-        "documentID": "DOCS-0-51-65",
+        "documentID": "DOCS-0-127-65",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 142,
-        "twoLayerLatency": 274
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.599091,
+          "twoStage": 402.718077
+        }
       },
       {
-        "documentID": "DOCS-0-51-72",
+        "documentID": "DOCS-0-127-70",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 145,
-        "twoLayerLatency": 278
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 213.144645,
+          "twoStage": 426.483479
+        }
       },
       {
-        "documentID": "DOCS-0-51-74",
+        "documentID": "DOCS-0-127-73",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 135,
-        "twoLayerLatency": 276
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.361102,
+          "twoStage": 422.293328
+        }
       },
       {
-        "documentID": "DOCS-0-51-76",
+        "documentID": "DOCS-0-127-77",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 139,
-        "twoLayerLatency": 276
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 200.802655,
+          "twoStage": 401.923653
+        }
       },
       {
-        "documentID": "DOCS-0-51-84",
+        "documentID": "DOCS-0-127-79",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 140,
-        "twoLayerLatency": 274
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 201.345273,
+          "twoStage": 400.748118
+        }
       },
       {
-        "documentID": "DOCS-0-51-86",
+        "documentID": "DOCS-0-127-82",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 152,
-        "twoLayerLatency": 291
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.207987,
+          "twoStage": 440.24217
+        }
       },
       {
-        "documentID": "DOCS-0-51-90",
+        "documentID": "DOCS-0-127-87",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 172,
-        "twoLayerLatency": 303
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.674464,
+          "twoStage": 411.486803
+        }
       },
       {
-        "documentID": "DOCS-0-51-92",
+        "documentID": "DOCS-0-127-89",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 144,
-        "twoLayerLatency": 277
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.613515,
+          "twoStage": 415.960422
+        }
       },
       {
-        "documentID": "DOCS-0-51-95",
+        "documentID": "DOCS-0-127-90",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 138,
-        "twoLayerLatency": 267
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.742874,
+          "twoStage": 409.199284
+        }
       },
       {
-        "documentID": "DOCS-0-51-100",
+        "documentID": "DOCS-0-127-95",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 133,
-        "twoLayerLatency": 261
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.734844,
+          "twoStage": 409.213181
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:49:57.104Z"
+    },
     "testType": "t2_only",
-    "roundTag": "52",
+    "roundTag": "128",
     "seed": 33,
     "attackRatio": 0.01,
     "total": 100,
@@ -1072,11 +1801,11 @@
       "FP": 0,
       "FN": 1,
       "accuracy": 0.99,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 1,
       "TN": 99,
       "FP": 0,
@@ -1086,22 +1815,39 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_description": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-52-18",
+        "documentID": "DOCS-0-128-66",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 131,
-        "twoLayerLatency": 262
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 220.043473,
+          "twoStage": 424.586337
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:51:00.312Z"
+    },
     "testType": "t2_only",
-    "roundTag": "53",
+    "roundTag": "129",
     "seed": 33,
     "attackRatio": 0.05,
     "total": 100,
@@ -1112,11 +1858,11 @@
       "FP": 0,
       "FN": 5,
       "accuracy": 0.95,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 5,
       "TN": 95,
       "FP": 0,
@@ -1126,62 +1872,123 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-53-44",
+        "documentID": "DOCS-0-129-1",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 140,
-        "twoLayerLatency": 271
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.401541,
+          "twoStage": 414.590519
+        }
       },
       {
-        "documentID": "DOCS-0-53-51",
+        "documentID": "DOCS-0-129-33",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 136,
-        "twoLayerLatency": 264
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 215.290998,
+          "twoStage": 425.782873
+        }
       },
       {
-        "documentID": "DOCS-0-53-55",
+        "documentID": "DOCS-0-129-51",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 138,
-        "twoLayerLatency": 271
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.316802,
+          "twoStage": 408.727871
+        }
       },
       {
-        "documentID": "DOCS-0-53-57",
+        "documentID": "DOCS-0-129-74",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 137,
-        "twoLayerLatency": 265
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.395841,
+          "twoStage": 415.714736
+        }
       },
       {
-        "documentID": "DOCS-0-53-92",
+        "documentID": "DOCS-0-129-84",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 140,
-        "twoLayerLatency": 268
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.185181,
+          "twoStage": 422.047442
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:52:03.400Z"
+    },
     "testType": "t2_only",
-    "roundTag": "54",
+    "roundTag": "130",
     "seed": 33,
     "attackRatio": 0.1,
     "total": 100,
@@ -1192,11 +1999,11 @@
       "FP": 0,
       "FN": 10,
       "accuracy": 0.9,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 10,
       "TN": 90,
       "FP": 0,
@@ -1206,112 +2013,213 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_permitted_value": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_document_id_binding": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-54-8",
+        "documentID": "DOCS-0-130-3",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 138,
-        "twoLayerLatency": 270
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.022665,
+          "twoStage": 400.712992
+        }
       },
       {
-        "documentID": "DOCS-0-54-11",
+        "documentID": "DOCS-0-130-43",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 138,
-        "twoLayerLatency": 275
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.049396,
+          "twoStage": 406.319165
+        }
       },
       {
-        "documentID": "DOCS-0-54-12",
+        "documentID": "DOCS-0-130-45",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 139,
-        "twoLayerLatency": 271
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.434736,
+          "twoStage": 403.156272
+        }
       },
       {
-        "documentID": "DOCS-0-54-34",
+        "documentID": "DOCS-0-130-48",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 143,
-        "twoLayerLatency": 273
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.177647,
+          "twoStage": 404.975974
+        }
       },
       {
-        "documentID": "DOCS-0-54-36",
+        "documentID": "DOCS-0-130-53",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 138,
-        "twoLayerLatency": 271
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.618431,
+          "twoStage": 413.622941
+        }
       },
       {
-        "documentID": "DOCS-0-54-44",
+        "documentID": "DOCS-0-130-58",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 143,
-        "twoLayerLatency": 275
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.42773,
+          "twoStage": 411.851811
+        }
       },
       {
-        "documentID": "DOCS-0-54-48",
+        "documentID": "DOCS-0-130-67",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 146,
-        "twoLayerLatency": 284
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.193994,
+          "twoStage": 410.158308
+        }
       },
       {
-        "documentID": "DOCS-0-54-60",
+        "documentID": "DOCS-0-130-77",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 139,
-        "twoLayerLatency": 269
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.250387,
+          "twoStage": 414.938239
+        }
       },
       {
-        "documentID": "DOCS-0-54-93",
+        "documentID": "DOCS-0-130-89",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 146,
-        "twoLayerLatency": 289
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.467155,
+          "twoStage": 403.594962
+        }
       },
       {
-        "documentID": "DOCS-0-54-100",
+        "documentID": "DOCS-0-130-96",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 153,
-        "twoLayerLatency": 327
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.221735,
+          "twoStage": 405.886016
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:53:06.618Z"
+    },
     "testType": "t2_only",
-    "roundTag": "55",
+    "roundTag": "131",
     "seed": 33,
     "attackRatio": 0.25,
     "total": 100,
@@ -1322,11 +2230,11 @@
       "FP": 0,
       "FN": 25,
       "accuracy": 0.75,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 25,
       "TN": 75,
       "FP": 0,
@@ -1336,262 +2244,463 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_permitted_value": {
+        "count": 5,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_collection_binding": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-55-9",
+        "documentID": "DOCS-0-131-2",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 153,
-        "twoLayerLatency": 300
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.752591,
+          "twoStage": 408.183471
+        }
       },
       {
-        "documentID": "DOCS-0-55-12",
+        "documentID": "DOCS-0-131-3",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 151,
-        "twoLayerLatency": 293
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 222.461235,
+          "twoStage": 547.613318
+        }
       },
       {
-        "documentID": "DOCS-0-55-13",
+        "documentID": "DOCS-0-131-4",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 151,
-        "twoLayerLatency": 281
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.092795,
+          "twoStage": 412.608923
+        }
       },
       {
-        "documentID": "DOCS-0-55-18",
+        "documentID": "DOCS-0-131-6",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 147,
-        "twoLayerLatency": 289
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.696813,
+          "twoStage": 410.134432
+        }
       },
       {
-        "documentID": "DOCS-0-55-28",
+        "documentID": "DOCS-0-131-11",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 144,
-        "twoLayerLatency": 282
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.062881,
+          "twoStage": 419.122185
+        }
       },
       {
-        "documentID": "DOCS-0-55-32",
+        "documentID": "DOCS-0-131-12",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 145,
-        "twoLayerLatency": 289
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.685952,
+          "twoStage": 407.677995
+        }
       },
       {
-        "documentID": "DOCS-0-55-42",
+        "documentID": "DOCS-0-131-27",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 143,
-        "twoLayerLatency": 279
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.917785,
+          "twoStage": 404.209554
+        }
       },
       {
-        "documentID": "DOCS-0-55-47",
+        "documentID": "DOCS-0-131-28",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 143,
-        "twoLayerLatency": 274
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.391776,
+          "twoStage": 409.491265
+        }
       },
       {
-        "documentID": "DOCS-0-55-51",
+        "documentID": "DOCS-0-131-33",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 146,
-        "twoLayerLatency": 288
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.385788,
+          "twoStage": 413.552918
+        }
       },
       {
-        "documentID": "DOCS-0-55-53",
+        "documentID": "DOCS-0-131-36",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 149,
-        "twoLayerLatency": 291
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.933445,
+          "twoStage": 401.661594
+        }
       },
       {
-        "documentID": "DOCS-0-55-54",
+        "documentID": "DOCS-0-131-38",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 140,
-        "twoLayerLatency": 282
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.269881,
+          "twoStage": 404.200958
+        }
       },
       {
-        "documentID": "DOCS-0-55-57",
+        "documentID": "DOCS-0-131-43",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 142,
-        "twoLayerLatency": 283
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.979949,
+          "twoStage": 401.952104
+        }
       },
       {
-        "documentID": "DOCS-0-55-58",
+        "documentID": "DOCS-0-131-44",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 147,
-        "twoLayerLatency": 287
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 267.719288,
+          "twoStage": 559.02778
+        }
       },
       {
-        "documentID": "DOCS-0-55-60",
+        "documentID": "DOCS-0-131-46",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 144,
-        "twoLayerLatency": 278
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 198.00915,
+          "twoStage": 401.026482
+        }
       },
       {
-        "documentID": "DOCS-0-55-61",
+        "documentID": "DOCS-0-131-47",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 143,
-        "twoLayerLatency": 276
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.575868,
+          "twoStage": 410.963561
+        }
       },
       {
-        "documentID": "DOCS-0-55-63",
+        "documentID": "DOCS-0-131-50",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 142,
-        "twoLayerLatency": 279
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.42191,
+          "twoStage": 402.851805
+        }
       },
       {
-        "documentID": "DOCS-0-55-64",
+        "documentID": "DOCS-0-131-52",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 137,
-        "twoLayerLatency": 280
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.003832,
+          "twoStage": 404.924837
+        }
       },
       {
-        "documentID": "DOCS-0-55-71",
+        "documentID": "DOCS-0-131-56",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 142,
-        "twoLayerLatency": 276
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.941535,
+          "twoStage": 412.401421
+        }
       },
       {
-        "documentID": "DOCS-0-55-72",
+        "documentID": "DOCS-0-131-76",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 143,
-        "twoLayerLatency": 289
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.766926,
+          "twoStage": 404.763773
+        }
       },
       {
-        "documentID": "DOCS-0-55-76",
+        "documentID": "DOCS-0-131-80",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 148,
-        "twoLayerLatency": 284
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.089064,
+          "twoStage": 405.727926
+        }
       },
       {
-        "documentID": "DOCS-0-55-78",
+        "documentID": "DOCS-0-131-81",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 143,
-        "twoLayerLatency": 283
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.048666,
+          "twoStage": 401.693394
+        }
       },
       {
-        "documentID": "DOCS-0-55-83",
+        "documentID": "DOCS-0-131-86",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 148,
-        "twoLayerLatency": 298
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 201.219021,
+          "twoStage": 400.730894
+        }
       },
       {
-        "documentID": "DOCS-0-55-88",
+        "documentID": "DOCS-0-131-89",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 147,
-        "twoLayerLatency": 290
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.683901,
+          "twoStage": 416.526434
+        }
       },
       {
-        "documentID": "DOCS-0-55-94",
+        "documentID": "DOCS-0-131-91",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 160,
-        "twoLayerLatency": 330
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.727823,
+          "twoStage": 402.67447
+        }
       },
       {
-        "documentID": "DOCS-0-55-98",
+        "documentID": "DOCS-0-131-93",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 147,
-        "twoLayerLatency": 292
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.478098,
+          "twoStage": 405.900663
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:54:47.461Z"
+    },
     "testType": "t2_only",
-    "roundTag": "56",
+    "roundTag": "132",
     "seed": 13,
     "attackRatio": 0.01,
     "total": 100,
@@ -1602,11 +2711,11 @@
       "FP": 0,
       "FN": 1,
       "accuracy": 0.99,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 1,
       "TN": 99,
       "FP": 0,
@@ -1616,22 +2725,39 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-56-51",
+        "documentID": "DOCS-0-132-11",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 172,
-        "twoLayerLatency": 318
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 201.867649,
+          "twoStage": 396.811079
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:55:50.355Z"
+    },
     "testType": "t2_only",
-    "roundTag": "57",
+    "roundTag": "133",
     "seed": 13,
     "attackRatio": 0.05,
     "total": 100,
@@ -1642,11 +2768,11 @@
       "FP": 0,
       "FN": 5,
       "accuracy": 0.95,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 5,
       "TN": 95,
       "FP": 0,
@@ -1656,62 +2782,118 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_document_id_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_collection_binding": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-57-21",
+        "documentID": "DOCS-0-133-14",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 149,
-        "twoLayerLatency": 288
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.684921,
+          "twoStage": 424.086655
+        }
       },
       {
-        "documentID": "DOCS-0-57-49",
+        "documentID": "DOCS-0-133-21",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 150,
-        "twoLayerLatency": 303
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.454639,
+          "twoStage": 404.911322
+        }
       },
       {
-        "documentID": "DOCS-0-57-58",
+        "documentID": "DOCS-0-133-44",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 149,
-        "twoLayerLatency": 289
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.546164,
+          "twoStage": 432.918212
+        }
       },
       {
-        "documentID": "DOCS-0-57-67",
+        "documentID": "DOCS-0-133-46",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 146,
-        "twoLayerLatency": 288
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.127208,
+          "twoStage": 418.614073
+        }
       },
       {
-        "documentID": "DOCS-0-57-79",
+        "documentID": "DOCS-0-133-77",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 150,
-        "twoLayerLatency": 287
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 196.479215,
+          "twoStage": 394.615475
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:56:52.898Z"
+    },
     "testType": "t2_only",
-    "roundTag": "58",
+    "roundTag": "134",
     "seed": 13,
     "attackRatio": 0.1,
     "total": 100,
@@ -1722,11 +2904,11 @@
       "FP": 0,
       "FN": 10,
       "accuracy": 0.9,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 10,
       "TN": 90,
       "FP": 0,
@@ -1736,112 +2918,208 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "null_required_field": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_collection_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-58-14",
+        "documentID": "DOCS-0-134-10",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 147,
-        "twoLayerLatency": 291
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.484556,
+          "twoStage": 400.09988
+        }
       },
       {
-        "documentID": "DOCS-0-58-16",
+        "documentID": "DOCS-0-134-20",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 146,
-        "twoLayerLatency": 293
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.248995,
+          "twoStage": 408.19328
+        }
       },
       {
-        "documentID": "DOCS-0-58-19",
+        "documentID": "DOCS-0-134-24",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 153,
-        "twoLayerLatency": 295
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.474999,
+          "twoStage": 421.532473
+        }
       },
       {
-        "documentID": "DOCS-0-58-33",
+        "documentID": "DOCS-0-134-40",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 150,
-        "twoLayerLatency": 294
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.645243,
+          "twoStage": 410.33404
+        }
       },
       {
-        "documentID": "DOCS-0-58-34",
+        "documentID": "DOCS-0-134-65",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 148,
-        "twoLayerLatency": 288
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.825775,
+          "twoStage": 423.217321
+        }
       },
       {
-        "documentID": "DOCS-0-58-35",
+        "documentID": "DOCS-0-134-70",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 199,
-        "twoLayerLatency": 357
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.063446,
+          "twoStage": 407.067671
+        }
       },
       {
-        "documentID": "DOCS-0-58-41",
+        "documentID": "DOCS-0-134-77",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 154,
-        "twoLayerLatency": 302
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.978692,
+          "twoStage": 412.330727
+        }
       },
       {
-        "documentID": "DOCS-0-58-48",
+        "documentID": "DOCS-0-134-82",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 151,
-        "twoLayerLatency": 292
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.52379,
+          "twoStage": 409.808545
+        }
       },
       {
-        "documentID": "DOCS-0-58-86",
+        "documentID": "DOCS-0-134-89",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 155,
-        "twoLayerLatency": 303
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.048508,
+          "twoStage": 402.501954
+        }
       },
       {
-        "documentID": "DOCS-0-58-91",
+        "documentID": "DOCS-0-134-95",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 152,
-        "twoLayerLatency": 297
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.159236,
+          "twoStage": 404.700593
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:57:56.312Z"
+    },
     "testType": "t2_only",
-    "roundTag": "59",
+    "roundTag": "135",
     "seed": 13,
     "attackRatio": 0.25,
     "total": 100,
@@ -1852,11 +3130,11 @@
       "FP": 0,
       "FN": 25,
       "accuracy": 0.75,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 25,
       "TN": 75,
       "FP": 0,
@@ -1866,262 +3144,463 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_document_id_binding": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_permitted_value": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 5,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_collection_binding": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-59-3",
+        "documentID": "DOCS-0-135-4",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 164,
-        "twoLayerLatency": 312
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 201.021638,
+          "twoStage": 398.118071
+        }
       },
       {
-        "documentID": "DOCS-0-59-7",
+        "documentID": "DOCS-0-135-5",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 163,
-        "twoLayerLatency": 322
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.685748,
+          "twoStage": 399.235244
+        }
       },
       {
-        "documentID": "DOCS-0-59-8",
+        "documentID": "DOCS-0-135-7",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 164,
-        "twoLayerLatency": 314
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 198.634122,
+          "twoStage": 461.84397
+        }
       },
       {
-        "documentID": "DOCS-0-59-9",
+        "documentID": "DOCS-0-135-12",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 311
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.718488,
+          "twoStage": 411.653967
+        }
       },
       {
-        "documentID": "DOCS-0-59-11",
+        "documentID": "DOCS-0-135-16",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 307
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.152914,
+          "twoStage": 426.180887
+        }
       },
       {
-        "documentID": "DOCS-0-59-13",
+        "documentID": "DOCS-0-135-17",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 153,
-        "twoLayerLatency": 302
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.909072,
+          "twoStage": 410.792998
+        }
       },
       {
-        "documentID": "DOCS-0-59-20",
+        "documentID": "DOCS-0-135-19",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 152,
-        "twoLayerLatency": 303
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.234684,
+          "twoStage": 412.78712
+        }
       },
       {
-        "documentID": "DOCS-0-59-36",
+        "documentID": "DOCS-0-135-22",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 157,
-        "twoLayerLatency": 305
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.356964,
+          "twoStage": 419.962904
+        }
       },
       {
-        "documentID": "DOCS-0-59-41",
+        "documentID": "DOCS-0-135-24",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 160,
-        "twoLayerLatency": 313
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.768175,
+          "twoStage": 417.559728
+        }
       },
       {
-        "documentID": "DOCS-0-59-45",
+        "documentID": "DOCS-0-135-44",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 165,
-        "twoLayerLatency": 378
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 197.342248,
+          "twoStage": 398.637253
+        }
       },
       {
-        "documentID": "DOCS-0-59-53",
+        "documentID": "DOCS-0-135-45",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 159,
-        "twoLayerLatency": 308
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.661163,
+          "twoStage": 404.805712
+        }
       },
       {
-        "documentID": "DOCS-0-59-57",
+        "documentID": "DOCS-0-135-50",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 155,
-        "twoLayerLatency": 302
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 212.2669,
+          "twoStage": 416.466099
+        }
       },
       {
-        "documentID": "DOCS-0-59-61",
+        "documentID": "DOCS-0-135-57",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 162,
-        "twoLayerLatency": 350
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.923343,
+          "twoStage": 410.473534
+        }
       },
       {
-        "documentID": "DOCS-0-59-63",
+        "documentID": "DOCS-0-135-63",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 164,
-        "twoLayerLatency": 316
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.904994,
+          "twoStage": 404.304083
+        }
       },
       {
-        "documentID": "DOCS-0-59-69",
+        "documentID": "DOCS-0-135-66",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 167,
-        "twoLayerLatency": 324
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.585333,
+          "twoStage": 421.191258
+        }
       },
       {
-        "documentID": "DOCS-0-59-74",
+        "documentID": "DOCS-0-135-71",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 193,
-        "twoLayerLatency": 347
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.647337,
+          "twoStage": 410.183505
+        }
       },
       {
-        "documentID": "DOCS-0-59-76",
+        "documentID": "DOCS-0-135-73",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 154,
-        "twoLayerLatency": 298
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.366038,
+          "twoStage": 408.529927
+        }
       },
       {
-        "documentID": "DOCS-0-59-77",
+        "documentID": "DOCS-0-135-74",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 159,
-        "twoLayerLatency": 309
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.217583,
+          "twoStage": 405.595106
+        }
       },
       {
-        "documentID": "DOCS-0-59-78",
+        "documentID": "DOCS-0-135-75",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 159,
-        "twoLayerLatency": 318
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.162875,
+          "twoStage": 402.543603
+        }
       },
       {
-        "documentID": "DOCS-0-59-80",
+        "documentID": "DOCS-0-135-78",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 156,
-        "twoLayerLatency": 303
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.666378,
+          "twoStage": 413.685219
+        }
       },
       {
-        "documentID": "DOCS-0-59-81",
+        "documentID": "DOCS-0-135-80",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 160,
-        "twoLayerLatency": 313
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.452817,
+          "twoStage": 418.416198
+        }
       },
       {
-        "documentID": "DOCS-0-59-83",
+        "documentID": "DOCS-0-135-83",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 311
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 213.536973,
+          "twoStage": 433.193573
+        }
       },
       {
-        "documentID": "DOCS-0-59-84",
+        "documentID": "DOCS-0-135-90",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 154,
-        "twoLayerLatency": 296
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.164161,
+          "twoStage": 417.440483
+        }
       },
       {
-        "documentID": "DOCS-0-59-92",
+        "documentID": "DOCS-0-135-94",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 160,
-        "twoLayerLatency": 312
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.153986,
+          "twoStage": 411.297402
+        }
       },
       {
-        "documentID": "DOCS-0-59-95",
+        "documentID": "DOCS-0-135-100",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 158,
-        "twoLayerLatency": 310
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.220707,
+          "twoStage": 421.161862
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T05:59:40.082Z"
+    },
     "testType": "t2_only",
-    "roundTag": "60",
+    "roundTag": "136",
     "seed": 25,
     "attackRatio": 0.01,
     "total": 100,
@@ -2132,11 +3611,11 @@
       "FP": 0,
       "FN": 1,
       "accuracy": 0.99,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 1,
       "TN": 99,
       "FP": 0,
@@ -2146,22 +3625,39 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_description": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-60-82",
+        "documentID": "DOCS-0-136-66",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 153,
-        "twoLayerLatency": 297
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 202.028203,
+          "twoStage": 413.015612
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T06:00:42.863Z"
+    },
     "testType": "t2_only",
-    "roundTag": "61",
+    "roundTag": "137",
     "seed": 25,
     "attackRatio": 0.05,
     "total": 100,
@@ -2172,11 +3668,11 @@
       "FP": 0,
       "FN": 5,
       "accuracy": 0.95,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 5,
       "TN": 95,
       "FP": 0,
@@ -2186,62 +3682,123 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-61-28",
+        "documentID": "DOCS-0-137-1",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 313
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.026823,
+          "twoStage": 409.596955
+        }
       },
       {
-        "documentID": "DOCS-0-61-47",
+        "documentID": "DOCS-0-137-33",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 200,
-        "twoLayerLatency": 354
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.211784,
+          "twoStage": 414.413687
+        }
       },
       {
-        "documentID": "DOCS-0-61-64",
+        "documentID": "DOCS-0-137-51",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 313
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 217.236661,
+          "twoStage": 423.072937
+        }
       },
       {
-        "documentID": "DOCS-0-61-69",
+        "documentID": "DOCS-0-137-74",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 317
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.802437,
+          "twoStage": 411.350552
+        }
       },
       {
-        "documentID": "DOCS-0-61-100",
+        "documentID": "DOCS-0-137-84",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 160,
-        "twoLayerLatency": 311
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.981728,
+          "twoStage": 409.935235
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T06:01:46.600Z"
+    },
     "testType": "t2_only",
-    "roundTag": "62",
+    "roundTag": "138",
     "seed": 25,
     "attackRatio": 0.1,
     "total": 100,
@@ -2252,11 +3809,11 @@
       "FP": 0,
       "FN": 10,
       "accuracy": 0.9,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 10,
       "TN": 90,
       "FP": 0,
@@ -2266,112 +3823,213 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_permitted_value": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_document_id_binding": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-62-3",
+        "documentID": "DOCS-0-138-3",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 319
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 217.600409,
+          "twoStage": 415.515822
+        }
       },
       {
-        "documentID": "DOCS-0-62-13",
+        "documentID": "DOCS-0-138-43",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 205,
-        "twoLayerLatency": 356
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.136659,
+          "twoStage": 422.29173
+        }
       },
       {
-        "documentID": "DOCS-0-62-15",
+        "documentID": "DOCS-0-138-45",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 160,
-        "twoLayerLatency": 314
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.893135,
+          "twoStage": 410.909278
+        }
       },
       {
-        "documentID": "DOCS-0-62-42",
+        "documentID": "DOCS-0-138-48",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 165,
-        "twoLayerLatency": 321
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.177334,
+          "twoStage": 410.783269
+        }
       },
       {
-        "documentID": "DOCS-0-62-60",
+        "documentID": "DOCS-0-138-53",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 163,
-        "twoLayerLatency": 319
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.626379,
+          "twoStage": 413.393467
+        }
       },
       {
-        "documentID": "DOCS-0-62-66",
+        "documentID": "DOCS-0-138-58",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 158,
-        "twoLayerLatency": 312
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 213.844194,
+          "twoStage": 426.560285
+        }
       },
       {
-        "documentID": "DOCS-0-62-80",
+        "documentID": "DOCS-0-138-67",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 166,
-        "twoLayerLatency": 323
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 199.428204,
+          "twoStage": 398.833053
+        }
       },
       {
-        "documentID": "DOCS-0-62-82",
+        "documentID": "DOCS-0-138-77",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 172,
-        "twoLayerLatency": 337
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 343.832721,
+          "twoStage": 547.437746
+        }
       },
       {
-        "documentID": "DOCS-0-62-84",
+        "documentID": "DOCS-0-138-89",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 166,
-        "twoLayerLatency": 321
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.026749,
+          "twoStage": 413.607762
+        }
       },
       {
-        "documentID": "DOCS-0-62-85",
+        "documentID": "DOCS-0-138-96",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 161,
-        "twoLayerLatency": 320
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 207.850907,
+          "twoStage": 418.855319
+        }
       }
     ]
   },
   {
+    "experimentMeta": {
+      "harnessVersion": "ablation-v3",
+      "executedAt": "2026-09-01T06:02:50.365Z"
+    },
     "testType": "t2_only",
-    "roundTag": "63",
+    "roundTag": "139",
     "seed": 25,
     "attackRatio": 0.25,
     "total": 100,
@@ -2382,11 +4040,11 @@
       "FP": 0,
       "FN": 25,
       "accuracy": 0.75,
-      "precision": 0,
+      "precision": null,
       "recall": 0,
-      "f1": 0
+      "f1": null
     },
-    "dualLayer": {
+    "twoStage": {
       "TP": 25,
       "TN": 75,
       "FP": 0,
@@ -2396,256 +4054,453 @@
       "recall": 1,
       "f1": 1
     },
+    "byMutation": {
+      "change_permitted_value": {
+        "count": 5,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "remove_required_field": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "null_required_field": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "wrong_collection_binding": {
+        "count": 4,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "add_unknown_field": {
+        "count": 3,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_description": {
+        "count": 1,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "malformed_timestamp": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      },
+      "change_category": {
+        "count": 2,
+        "contentOnlyRecall": 0,
+        "twoStageRecall": 1
+      }
+    },
     "perDocDetail": [
       {
-        "documentID": "DOCS-0-63-4",
+        "documentID": "DOCS-0-139-2",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 164,
-        "twoLayerLatency": 317
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.948809,
+          "twoStage": 420.744764
+        }
       },
       {
-        "documentID": "DOCS-0-63-10",
+        "documentID": "DOCS-0-139-3",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 165,
-        "twoLayerLatency": 324
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 216.514966,
+          "twoStage": 419.946664
+        }
       },
       {
-        "documentID": "DOCS-0-63-16",
+        "documentID": "DOCS-0-139-4",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 174,
-        "twoLayerLatency": 342
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.910496,
+          "twoStage": 419.798593
+        }
       },
       {
-        "documentID": "DOCS-0-63-19",
+        "documentID": "DOCS-0-139-6",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 171,
-        "twoLayerLatency": 326
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 213.844745,
+          "twoStage": 427.666377
+        }
       },
       {
-        "documentID": "DOCS-0-63-23",
+        "documentID": "DOCS-0-139-11",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 164,
-        "twoLayerLatency": 320
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 215.78717,
+          "twoStage": 432.856905
+        }
       },
       {
-        "documentID": "DOCS-0-63-27",
+        "documentID": "DOCS-0-139-12",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 160,
-        "twoLayerLatency": 316
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.509674,
+          "twoStage": 415.206207
+        }
       },
       {
-        "documentID": "DOCS-0-63-30",
+        "documentID": "DOCS-0-139-27",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_description",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 162,
-        "twoLayerLatency": 320
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 203.97233,
+          "twoStage": 407.868716
+        }
       },
       {
-        "documentID": "DOCS-0-63-32",
+        "documentID": "DOCS-0-139-28",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "remove_required_field",
+        "mutatedField": "description",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 175,
-        "twoLayerLatency": 344
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.154917,
+          "twoStage": 406.058952
+        }
       },
       {
-        "documentID": "DOCS-0-63-34",
+        "documentID": "DOCS-0-139-33",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 169,
-        "twoLayerLatency": 338
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.618212,
+          "twoStage": 407.205101
+        }
       },
       {
-        "documentID": "DOCS-0-63-46",
+        "documentID": "DOCS-0-139-36",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 173,
-        "twoLayerLatency": 345
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 205.756836,
+          "twoStage": 408.724355
+        }
       },
       {
-        "documentID": "DOCS-0-63-49",
+        "documentID": "DOCS-0-139-38",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 173,
-        "twoLayerLatency": 336
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.837338,
+          "twoStage": 416.12807
+        }
       },
       {
-        "documentID": "DOCS-0-63-51",
+        "documentID": "DOCS-0-139-43",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 172,
-        "twoLayerLatency": 333
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 210.454763,
+          "twoStage": 422.910019
+        }
       },
       {
-        "documentID": "DOCS-0-63-57",
+        "documentID": "DOCS-0-139-44",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 166,
-        "twoLayerLatency": 331
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.478118,
+          "twoStage": 412.872902
+        }
       },
       {
-        "documentID": "DOCS-0-63-67",
+        "documentID": "DOCS-0-139-46",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 220,
-        "twoLayerLatency": 380
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.362071,
+          "twoStage": 411.477663
+        }
       },
       {
-        "documentID": "DOCS-0-63-68",
+        "documentID": "DOCS-0-139-47",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 171,
-        "twoLayerLatency": 326
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.153822,
+          "twoStage": 414.718113
+        }
       },
       {
-        "documentID": "DOCS-0-63-71",
+        "documentID": "DOCS-0-139-50",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_document_id_binding",
+        "mutatedField": "documentID",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 184,
-        "twoLayerLatency": 345
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.160272,
+          "twoStage": 411.995011
+        }
       },
       {
-        "documentID": "DOCS-0-63-72",
+        "documentID": "DOCS-0-139-52",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 170,
-        "twoLayerLatency": 340
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 204.672946,
+          "twoStage": 403.142526
+        }
       },
       {
-        "documentID": "DOCS-0-63-77",
+        "documentID": "DOCS-0-139-56",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 176,
-        "twoLayerLatency": 350
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 211.203609,
+          "twoStage": 416.104987
+        }
       },
       {
-        "documentID": "DOCS-0-63-79",
+        "documentID": "DOCS-0-139-76",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 220,
-        "twoLayerLatency": 387
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 209.619853,
+          "twoStage": 424.212895
+        }
       },
       {
-        "documentID": "DOCS-0-63-81",
+        "documentID": "DOCS-0-139-80",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_permitted_value",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 171,
-        "twoLayerLatency": 334
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 216.472476,
+          "twoStage": 430.182226
+        }
       },
       {
-        "documentID": "DOCS-0-63-85",
+        "documentID": "DOCS-0-139-81",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "change_category",
+        "mutatedField": "documentCategoryCode",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 169,
-        "twoLayerLatency": 327
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_COMPROMISED",
+        "twoStageFailedLayer": "layer1_metadata",
+        "diagnosticLatencyMs": {
+          "contentOnly": 213.769974,
+          "twoStage": 426.051993
+        }
       },
       {
-        "documentID": "DOCS-0-63-87",
+        "documentID": "DOCS-0-139-86",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "wrong_collection_binding",
+        "mutatedField": "collection",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 166,
-        "twoLayerLatency": 330
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 206.464524,
+          "twoStage": 411.052198
+        }
       },
       {
-        "documentID": "DOCS-0-63-89",
+        "documentID": "DOCS-0-139-89",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "malformed_timestamp",
+        "mutatedField": "timestamp",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 168,
-        "twoLayerLatency": 332
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 214.725872,
+          "twoStage": 421.448775
+        }
       },
       {
-        "documentID": "DOCS-0-63-91",
+        "documentID": "DOCS-0-139-91",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "add_unknown_field",
+        "mutatedField": "extraField",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_SCHEMA_VIOLATION",
-        "oneLayerLatency": 164,
-        "twoLayerLatency": 326
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 219.516715,
+          "twoStage": 430.407622
+        }
       },
       {
-        "documentID": "DOCS-0-63-94",
+        "documentID": "DOCS-0-139-93",
         "testType": "t2_only",
-        "mutation": "record-mutation",
+        "subCase": "record_only",
+        "mutationSubtype": "null_required_field",
+        "mutatedField": "name",
         "contentMismatched": false,
-        "oneLayerValid": true,
-        "twoLayerStatus": "PDC_RECORD_COMPROMISED",
-        "oneLayerLatency": 225,
-        "twoLayerLatency": 383
+        "recordTampered": true,
+        "contentOnlyValid": true,
+        "twoStageStatus": "PDC_RECORD_SCHEMA_VIOLATION",
+        "twoStageFailedLayer": "layer1_private_record",
+        "diagnosticLatencyMs": {
+          "contentOnly": 208.007563,
+          "twoStage": 404.065642
+        }
       }
     ]
   }
