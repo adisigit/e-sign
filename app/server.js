@@ -195,6 +195,12 @@ app.post(
   verifyToken,
   webhookController.verifyDocumentShortCircuit.bind(webhookController)
 );
+app.post(
+  "/api/document/verify-ablation/:orgName/ablate/:variant",
+  verifyToken,
+  webhookController.verifyAblationVariant.bind(webhookController)
+);
+
 
 app.use(notFoundHandler);
 
