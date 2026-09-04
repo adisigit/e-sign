@@ -38,18 +38,7 @@ async function putDocTo(peer, doc) {
   return axios.put(url, doc, { auth: { username: peer.user, password: peer.pass }, headers: { "Content-Type": "application/json" } });
 }
 
-// ============================================================
-// MUTATION REGISTRY
-//
-// Each function receives the raw CouchDB doc (from getDoc) and returns
-// a mutated doc. _id/_rev are preserved automatically by putDoc's URL
-// and CouchDB's own versioning -- they are CouchDB metadata, not part
-// of the application-level canonical JSON value the chaincode hashes,
-// so mutating them is out of scope for these tests.
-// ============================================================
 const MUTATIONS = {
-  // ---- expect chaincode result: PDC_RECORD_COMPROMISED ----
-  // (schema-valid, but canonical hash no longer matches ledger-committed PDC hash)
   change_permitted_value: (doc) => {
     doc.name = doc.name + "-TAMPERED";
     return doc;
@@ -59,7 +48,6 @@ const MUTATIONS = {
     return doc;
   },
   substitute_document_hash: (doc) => {
-    // redirect the record to point at a different (attacker-controlled) document
     doc.file = "b".repeat(64);
     return doc;
   },
@@ -68,7 +56,6 @@ const MUTATIONS = {
     return doc;
   },
 
-  // ---- expect chaincode result: PDC_RECORD_SCHEMA_VIOLATION ----
   remove_required_field: (doc) => {
     delete doc.description;
     return doc;
@@ -82,13 +69,7 @@ const MUTATIONS = {
     return doc;
   },
   duplicate_like_field: (doc) => {
-    // CouchDB itself won't store literal duplicate JSON keys (it's parsed
-    // into a JS object first), so true duplicate-key testing belongs in
-    // the Go conformance suite (schema_conformance_test.go), not here.
-    // This mutation instead tests a near-duplicate variant: same field,
-    // different casing, to confirm it's rejected as unknown rather than
-    // silently merged.
-    doc.Name = doc.name; // "Name" vs "name" -- should be treated as unknown field
+    doc.Name = doc.name;
     return doc;
   },
   wrong_document_id_binding: (doc) => {
@@ -100,11 +81,11 @@ const MUTATIONS = {
     return doc;
   },
   malformed_hash_length: (doc) => {
-    doc.file = "abc123"; // not 64 hex chars
+    doc.file = "abc123";
     return doc;
   },
   malformed_hash_not_hex: (doc) => {
-    doc.file = "z".repeat(64); // right length, not valid hex
+    doc.file = "z".repeat(64);
     return doc;
   },
   malformed_timestamp: (doc) => {
@@ -112,10 +93,6 @@ const MUTATIONS = {
     return doc;
   },
 
-  // ---- expect chaincode result: INTACT (must NOT be flagged) ----
-  // Representation-only changes. Running these and confirming INTACT is
-  // itself part of the conformance evidence (RFC 8785 equivalence holds
-  // end-to-end, not just in isolated canonicalizeJSON unit tests).
   reorder_fields_only: (doc) => {
     const { _id, _rev, ...rest } = doc;
     const reordered = { _id, _rev };
@@ -209,7 +186,90 @@ async function tamperBatch(docIDs, mutationPool, { fixedMutation = null,  rng = 
   return results;
 }
 
-module.exports = { getDocFrom, putDocTo, tamperOneAllPeers, tamperBatch, MUTATIONS };
+function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+async function snapshotOneAllPeers(docID) {
+  const snapshots = [];
+
+  for (const peer of PEER_TARGETS) {
+    const original = await getDocFrom(peer, docID);
+    snapshots.push({
+      peerName: peer.name,
+      docID,
+      original: clone(original),
+    });
+  }
+
+  return snapshots;
+}
+
+async function snapshotBatch(docIDs) {
+  const snapshots = {};
+
+  for (const docID of docIDs) {
+    snapshots[docID] = await snapshotOneAllPeers(docID);
+  }
+
+  return snapshots;
+}
+
+async function restoreOneAllPeers(snapshots) {
+  const results = [];
+
+  for (const snapshot of snapshots) {
+    const peer = PEER_TARGETS.find((p) => p.name === snapshot.peerName);
+    if (!peer) throw new Error(`Peer not found: ${snapshot.peerName}`);
+
+    const current = await getDocFrom(peer, snapshot.docID);
+
+    const restored = {
+      ...clone(snapshot.original),
+      _id: current._id,
+      _rev: current._rev,
+    };
+
+    const result = await putDocTo(peer, restored);
+
+    results.push({
+      peer: peer.name,
+      docID: snapshot.docID,
+      rev: result.data.rev,
+      restored: true,
+    });
+  }
+
+  return results;
+}
+
+async function restoreBatch(snapshotMap) {
+  const results = [];
+
+  for (const [docID, snapshots] of Object.entries(snapshotMap)) {
+    try {
+      const restored = await restoreOneAllPeers(snapshots);
+      results.push({ docID, ok: true, peers: restored });
+    } catch (err) {
+      console.error(`❌ Restore failed ${docID}:`, err.response?.data || err.message);
+      results.push({ docID, ok: false, error: err.response?.data?.reason || err.message });
+    }
+  }
+
+  return results;
+}
+
+module.exports = {
+  getDocFrom,
+  putDocTo,
+  tamperOneAllPeers,
+  tamperBatch,
+  snapshotOneAllPeers,
+  snapshotBatch,
+  restoreOneAllPeers,
+  restoreBatch,
+  MUTATIONS
+};
 
 if (require.main === module) {
   const args = process.argv.slice(2);
