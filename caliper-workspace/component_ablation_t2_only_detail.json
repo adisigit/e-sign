@@ -1,0 +1,3997 @@
+[
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:20:13.245Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "0",
+    "seed": 43,
+    "attackRatio": 0.01,
+    "total": 100,
+    "tamperedCount": 1,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 99,
+        "FP": 0,
+        "FN": 1,
+        "accuracy": 0.99,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:22:22.721Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "1",
+    "seed": 43,
+    "attackRatio": 0.05,
+    "total": 100,
+    "tamperedCount": 5,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 95,
+        "FP": 0,
+        "FN": 5,
+        "accuracy": 0.95,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_permitted_value": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:24:33.200Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "2",
+    "seed": 43,
+    "attackRatio": 0.1,
+    "total": 100,
+    "tamperedCount": 10,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 90,
+        "FP": 0,
+        "FN": 10,
+        "accuracy": 0.9,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_permitted_value": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "remove_required_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:26:47.240Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "3",
+    "seed": 43,
+    "attackRatio": 0.25,
+    "total": 100,
+    "tamperedCount": 25,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 75,
+        "FP": 0,
+        "FN": 25,
+        "accuracy": 0.75,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "remove_required_field": {
+        "count": 5,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 5,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 5,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 5,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 4,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 4,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 4,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 4,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "malformed_timestamp": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:30:00.218Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "4",
+    "seed": 20,
+    "attackRatio": 0.01,
+    "total": 100,
+    "tamperedCount": 1,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 99,
+        "FP": 0,
+        "FN": 1,
+        "accuracy": 0.99,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_permitted_value": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:32:12.824Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "5",
+    "seed": 20,
+    "attackRatio": 0.05,
+    "total": 100,
+    "tamperedCount": 5,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 95,
+        "FP": 0,
+        "FN": 5,
+        "accuracy": 0.95,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_category": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:34:27.559Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "6",
+    "seed": 20,
+    "attackRatio": 0.1,
+    "total": 100,
+    "tamperedCount": 10,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 90,
+        "FP": 0,
+        "FN": 10,
+        "accuracy": 0.9,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "null_required_field": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:36:45.640Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "7",
+    "seed": 20,
+    "attackRatio": 0.25,
+    "total": 100,
+    "tamperedCount": 25,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 75,
+        "FP": 0,
+        "FN": 25,
+        "accuracy": 0.75,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_category": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "malformed_timestamp": {
+        "count": 5,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 5,
+            "recall": 1
+          }
+        }
+      },
+      "remove_required_field": {
+        "count": 4,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 4,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 5,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 5,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:39:57.715Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "8",
+    "seed": 33,
+    "attackRatio": 0.01,
+    "total": 100,
+    "tamperedCount": 1,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 99,
+        "FP": 0,
+        "FN": 1,
+        "accuracy": 0.99,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_description": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:42:13.090Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "9",
+    "seed": 33,
+    "attackRatio": 0.05,
+    "total": 100,
+    "tamperedCount": 5,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 95,
+        "FP": 0,
+        "FN": 5,
+        "accuracy": 0.95,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_description": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:44:30.268Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "10",
+    "seed": 33,
+    "attackRatio": 0.1,
+    "total": 100,
+    "tamperedCount": 10,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 90,
+        "FP": 0,
+        "FN": 10,
+        "accuracy": 0.9,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "add_unknown_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "remove_required_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:46:52.021Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "11",
+    "seed": 33,
+    "attackRatio": 0.25,
+    "total": 100,
+    "tamperedCount": 25,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 75,
+        "FP": 0,
+        "FN": 25,
+        "accuracy": 0.75,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 7,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 7,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 7,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 7,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 7,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 4,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 4,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "remove_required_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:49:47.174Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "12",
+    "seed": 13,
+    "attackRatio": 0.01,
+    "total": 100,
+    "tamperedCount": 1,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 99,
+        "FP": 0,
+        "FN": 1,
+        "accuracy": 0.99,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_category": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:52:09.776Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "13",
+    "seed": 13,
+    "attackRatio": 0.05,
+    "total": 100,
+    "tamperedCount": 5,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 95,
+        "FP": 0,
+        "FN": 5,
+        "accuracy": 0.95,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "null_required_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:54:34.052Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "14",
+    "seed": 13,
+    "attackRatio": 0.1,
+    "total": 100,
+    "tamperedCount": 10,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 90,
+        "FP": 0,
+        "FN": 10,
+        "accuracy": 0.9,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "remove_required_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "malformed_timestamp": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T00:57:00.159Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "15",
+    "seed": 13,
+    "attackRatio": 0.25,
+    "total": 100,
+    "tamperedCount": 25,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 75,
+        "FP": 0,
+        "FN": 25,
+        "accuracy": 0.75,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_description": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "malformed_timestamp": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 5,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 5,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 5,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "remove_required_field": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 4,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 4,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T01:00:01.838Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "16",
+    "seed": 25,
+    "attackRatio": 0.01,
+    "total": 100,
+    "tamperedCount": 1,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 99,
+        "FP": 0,
+        "FN": 1,
+        "accuracy": 0.99,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 1,
+        "TN": 99,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_description": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T01:02:26.460Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "17",
+    "seed": 25,
+    "attackRatio": 0.05,
+    "total": 100,
+    "tamperedCount": 5,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 95,
+        "FP": 0,
+        "FN": 5,
+        "accuracy": 0.95,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 5,
+        "TN": 95,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "change_description": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "malformed_timestamp": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T01:04:57.277Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "18",
+    "seed": 25,
+    "attackRatio": 0.1,
+    "total": 100,
+    "tamperedCount": 10,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 90,
+        "FP": 0,
+        "FN": 10,
+        "accuracy": 0.9,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 10,
+        "TN": 90,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "add_unknown_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_collection_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "remove_required_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 1,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 1,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 1,
+            "recall": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimentMeta": {
+      "harnessVersion": "component-ablation-v2-reset",
+      "executedAt": "2026-09-03T01:07:28.258Z"
+    },
+    "testType": "t2_only",
+    "roundTag": "19",
+    "seed": 25,
+    "attackRatio": 0.25,
+    "total": 100,
+    "tamperedCount": 25,
+    "metrics": {
+      "V0": {
+        "TP": 0,
+        "TN": 75,
+        "FP": 0,
+        "FN": 25,
+        "accuracy": 0.75,
+        "precision": null,
+        "recall": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": null
+      },
+      "V1": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V2": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V3": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      },
+      "V4": {
+        "TP": 25,
+        "TN": 75,
+        "FP": 0,
+        "FN": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "f1": 1
+      }
+    },
+    "byMutation": {
+      "wrong_collection_binding": {
+        "count": 7,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 7,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 7,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 7,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 7,
+            "recall": 1
+          }
+        }
+      },
+      "change_description": {
+        "count": 4,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 4,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 4,
+            "recall": 1
+          }
+        }
+      },
+      "change_category": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "null_required_field": {
+        "count": 3,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 3,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 3,
+            "recall": 1
+          }
+        }
+      },
+      "remove_required_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "change_permitted_value": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "wrong_document_id_binding": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      },
+      "add_unknown_field": {
+        "count": 2,
+        "variants": {
+          "V0": {
+            "detected": 0,
+            "recall": 0
+          },
+          "V1": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V2": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V3": {
+            "detected": 2,
+            "recall": 1
+          },
+          "V4": {
+            "detected": 2,
+            "recall": 1
+          }
+        }
+      }
+    }
+  }
+]
