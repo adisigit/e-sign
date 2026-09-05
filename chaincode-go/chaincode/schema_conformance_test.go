@@ -6,9 +6,11 @@ package chaincode
 // Run with: go test ./chaincode/... -run TestSchema -v
 //           go test ./chaincode/... -run TestBinding -v
 //           go test ./chaincode/... -run TestRFC8785 -v
+//           go test ./chaincode/... -run TestV1V2RepresentationEquivalenceControl -v
 // ============================================================
 
 import (
+	"crypto/sha256"
 	"strings"
 	"testing"
 )
@@ -303,4 +305,64 @@ func TestRFC8785CanonicalizationEquivalence(t *testing.T) {
 			t.Fatalf("array element order was incorrectly normalized away for object-valued elements")
 		}
 	})
+}
+
+func TestV1V2RepresentationEquivalenceControl(t *testing.T) {
+	hash := strings.Repeat("a", 64)
+
+	canonicalInput := `{"collection":"c1","description":"desc","documentCategoryCode":"CONTRACT","documentID":"d1","file":"` + hash + `","name":"café","recipients":"","timestamp":"2026-07-26T00:00:00Z"}`
+
+	canonicalCommitted, err := canonicalizeJSON([]byte(canonicalInput))
+	if err != nil {
+		t.Fatalf("canonicalize committed record: %v", err)
+	}
+
+	committedHash := sha256.Sum256(canonicalCommitted)
+
+	cases := []struct {
+		name string
+		raw  string
+	}{
+		{
+			name: "reordered properties",
+			raw:  `{"timestamp":"2026-07-26T00:00:00Z","recipients":"","name":"café","file":"` + hash + `","description":"desc","documentID":"d1","documentCategoryCode":"CONTRACT","collection":"c1"}`,
+		},
+		{
+			name: "insignificant whitespace",
+			raw:  `{ "collection" : "c1", "description" : "desc", "documentCategoryCode" : "CONTRACT", "documentID" : "d1", "file" : "` + hash + `", "name" : "café", "recipients" : "", "timestamp" : "2026-07-26T00:00:00Z" }`,
+		},
+		{
+			name: "equivalent unicode escaping",
+			raw:  `{"collection":"c1","description":"desc","documentCategoryCode":"CONTRACT","documentID":"d1","file":"` + hash + `","name":"caf\u00e9","recipients":"","timestamp":"2026-07-26T00:00:00Z"}`,
+		},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			rawHash := sha256.Sum256([]byte(tc.raw))
+
+			if rawHash == committedHash {
+				t.Fatalf("V1-style raw comparison unexpectedly matched committed canonical hash")
+			}
+
+			canonicalized, err := canonicalizeJSON([]byte(tc.raw))
+			if err != nil {
+				t.Fatalf("canonicalize equivalent representation: %v", err)
+			}
+
+			canonicalHash := sha256.Sum256(canonicalized)
+
+			if canonicalHash != committedHash {
+				t.Fatalf("V2-style canonical comparison should match committed canonical hash")
+			}
+
+			if _, err := decodePrivateDocumentStrict(
+				[]byte(tc.raw),
+				"c1",
+				"d1",
+			); err != nil {
+				t.Fatalf("V3-style strict schema validation should accept equivalent valid record: %v", err)
+			}
+		})
+	}
 }
