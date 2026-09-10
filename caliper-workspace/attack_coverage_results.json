@@ -1,0 +1,132 @@
+[
+  {
+    "attack": "document_content_modified",
+    "documentID": "DOCS-0-160-1",
+    "status": "DOCUMENT_MODIFIED",
+    "detected": true,
+    "layer1": true,
+    "layer2": false,
+    "latencyMs": 141.953729,
+    "passed": true
+  },
+  {
+    "attack": "change_permitted_value",
+    "documentID": "DOCS-0-160-2",
+    "status": "PDC_RECORD_COMPROMISED",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 139.142507,
+    "passed": true
+  },
+  {
+    "attack": "change_description",
+    "documentID": "DOCS-0-160-3",
+    "status": "PDC_RECORD_COMPROMISED",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 143.187845,
+    "passed": true
+  },
+  {
+    "attack": "change_category",
+    "documentID": "DOCS-0-160-4",
+    "status": "PDC_RECORD_COMPROMISED",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 136.609642,
+    "passed": true
+  },
+  {
+    "attack": "remove_required_field",
+    "documentID": "DOCS-0-160-5",
+    "status": "PDC_RECORD_SCHEMA_VIOLATION",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 136.399244,
+    "passed": true
+  },
+  {
+    "attack": "add_unknown_field",
+    "documentID": "DOCS-0-160-6",
+    "status": "PDC_RECORD_SCHEMA_VIOLATION",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 136.95744,
+    "passed": true
+  },
+  {
+    "attack": "null_required_field",
+    "documentID": "DOCS-0-160-7",
+    "status": "PDC_RECORD_SCHEMA_VIOLATION",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 138.07707,
+    "passed": true
+  },
+  {
+    "attack": "wrong_document_id_binding",
+    "documentID": "DOCS-0-160-8",
+    "status": "PDC_RECORD_SCHEMA_VIOLATION",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 148.849984,
+    "passed": true
+  },
+  {
+    "attack": "wrong_collection_binding",
+    "documentID": "DOCS-0-160-9",
+    "status": "PDC_RECORD_SCHEMA_VIOLATION",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 135.391155,
+    "passed": true
+  },
+  {
+    "attack": "malformed_timestamp",
+    "documentID": "DOCS-0-160-10",
+    "status": "PDC_RECORD_SCHEMA_VIOLATION",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 140.200309,
+    "passed": true
+  },
+  {
+    "attack": "substitute_document_hash",
+    "documentID": "DOCS-0-160-11",
+    "status": "PDC_RECORD_COMPROMISED",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 139.586969,
+    "passed": true
+  },
+  {
+    "attack": "malformed_hash_length",
+    "documentID": "DOCS-0-160-12",
+    "status": "PDC_RECORD_SCHEMA_VIOLATION",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 135.477248,
+    "passed": true
+  },
+  {
+    "attack": "combined_record_and_content",
+    "documentID": "DOCS-0-160-13",
+    "status": "PDC_RECORD_COMPROMISED",
+    "detected": true,
+    "layer1": false,
+    "layer2": null,
+    "latencyMs": 140.240526,
+    "passed": true
+  }
+]
