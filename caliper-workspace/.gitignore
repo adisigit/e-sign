@@ -2,3 +2,7 @@ node_modules/
 tamper_bash.sh
 ablation_bash.sh
 ablation_variant.sh
+full_path.sh
+attack_coverage.sh
+scalability.sh
+cdrs_test.sh

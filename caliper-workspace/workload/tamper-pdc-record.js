@@ -21,6 +21,7 @@
 // ============================================================
 
 const axios = require("axios");
+const crypto = require("crypto");
 
 const PEER_TARGETS = [
   { name: "peer0", url: process.env.COUCHDB_PEER0_URL, user: process.env.COUCHDB_PEER0_USER, pass: process.env.COUCHDB_PEER0_PASS, db: process.env.COUCHDB_DB },
@@ -49,6 +50,14 @@ const MUTATIONS = {
   },
   substitute_document_hash: (doc) => {
     doc.file = "b".repeat(64);
+    return doc;
+  },
+  coupled_document_reference: (doc) => {
+    doc.file = crypto
+      .createHash("sha256")
+      .update("Document content-MODIFIED")
+      .digest("hex");
+
     return doc;
   },
   change_category: (doc) => {
@@ -108,6 +117,7 @@ const MUTATION_FIELDS = {
   change_permitted_value: "name",
   change_description: "description",
   substitute_document_hash: "file",
+  coupled_document_reference: "file",
   change_category: "documentCategoryCode",
 
   remove_required_field: "description",
@@ -277,7 +287,7 @@ if (require.main === module) {
   if (args[0] === "--list" || args.length === 0) {
     console.log("Available mutations:\n");
     console.log("  Expect PDC_RECORD_COMPROMISED:");
-    ["change_permitted_value", "change_description", "substitute_document_hash", "change_category"].forEach((m) =>
+    ["change_permitted_value", "change_description", "substitute_document_hash", "coupled_document_reference", "change_category"].forEach((m) =>
       console.log(`    ${m}`)
     );
     console.log("\n  Expect PDC_RECORD_SCHEMA_VIOLATION:");
