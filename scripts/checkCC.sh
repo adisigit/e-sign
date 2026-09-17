@@ -17,7 +17,7 @@ DOC_JSON=$(cat <<EOF
   "documentID": "doc1",
   "documentName": "nama-dokumen",
   "ownerID": "ksadbakd3",
-  "ownerName": "Sigit",
+  "ownerName": "user",
   "status": "OPEN"
 }
 EOF
@@ -35,6 +35,3 @@ peer chaincode invoke \
   --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.esign.com/peers/peer0.org1.esign.com/tls/ca.crt \
   --transient "{\"doc\":\"$DOC_BASE64\"}" \
   -c '{"Args":["CreatePrivateDocument"]}'
-
-
-

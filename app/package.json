@@ -16,8 +16,6 @@
     "nats-jetstream",
     "esign"
   ],
-  "author": "Sigit",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
